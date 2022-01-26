@@ -13,6 +13,7 @@
 	
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
+		<span>hello</span>
 	</main>
 	
 	<%@ include file="views/components/footer.jsp" %>
