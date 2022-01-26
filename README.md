@@ -1,105 +1,191 @@
-# Git
+# Introduce
 
-다음의 내용을 읽어주세요...
+본 문서는 _2022년 1월 26일_ 에 작성되었습니다.
 
-1. 받을 때
-2. 올릴 때
-3. 충돌
+## BOOKs
 
-<hr>
-
-## 받을 때 절차
-
-### 처음 받을 때
-
-- git clone 주소값
-- git branch -m main
-
- >
-  git bash 에서 이미 main 으로 설정되어 있다면,
-  git branch -m main 은 하지 않아도 됩니다.
+BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 
 <hr>
 
-## 올릴 때 절차
+## Process
 
-1. **git fetch**            // 비교하기
-2. **git pull**             // 비교해서 변화된 부분 가져오기
+본 프로젝트는 다음과 같은 절차로 진행되었습니다.
 
-3. 담당하고 있는 부분 코드만 수정하기
-4. git add .
-5. git commit -m "커밋 메세지"
-6. git push -u origin main
+1. Frontend Prototype
+2. Merge to JSP
+3. Backend Dev
 
-<hr>
+### Frontend Prototype
 
-## 충돌
+팀원들과 협업으로 진행한 첫 프로젝트였습니다.
 
-### 충돌이란?
+2022년 1월 14일
+2022년 1월 17일 ~ 21일
+2022년 1월 24일 ~ 
 
-- 한 파일에 동시에 두 개의 수정사항이 있어서,
-  둘 중 하나를 지우거나 둘 다 지워지거나 둘 다 합쳐지거나
-  이상한 일이 벌어집니다.
+<nav id="nav"\>, <footer id="footer"\>, <main id="main"\> 과 같은 기본적인 
 
-### 충돌이 일어날 수 있는 상황
-
-- 한 파일을 두 명이서 수정하고 있을 때 주로 일어납니다.
-
->
-예를 들어, 제가 index.html 을 수정하고 있는데,
-어떤 분이 어 뭐야 여기 오타 있네 하고 오타 수정 해줬다고 생각해봅시다.
-
->
-그러면 그 분이 마지막으로 fetch, pull 받은 시점부터
-제가 마지막으로 작성한 내용을 commit 한 시점까지의 코드는 다음과 같이 다를 겁니다.
-
-```html
-<!-- 누가 수정함 -->
-<span>감자</span>
-```
-
-```html
-<!-- 내가 작성중 -->
-<span>감자</span>
-<p>대충 무슨 내용들....</p>
-```
-
->
-이 때,
-충돌이 일어나고 무지성으로 클릭하면,
-파일 사라집니다.
-말 그대로 사라져요.
-
-### 충돌이 일어났을 때 주의 사항
-
-- 절대로 버튼을 누르지 말 것
-
-1. 그 어떤 버튼도 누르지말고 꼭 구글링하고 꼭 디스코드에서 공유해주세요. 꼭... 버튼을 누를수록 상황이 이상해집니다.
-
-### 버튼을 눌렀을 때 주의 사항
-
-- 말해주세요.
 
 <hr>
 
-## 커맨드 정리
+## Git
 
-### git fetch
+Git 사용 관련된 규칙 및 주의사항을 정리하였습니다.
 
-내 컴퓨터 파일과 컴퓨터와 비교
+이 모든 내용을 알고 있을 필요는 없습니다.
+확실한 것은 **GIt Upload** 와 **Git 주의사항 1,2** 만 지켜주셔도 아무 문제가 발생하지 않습니다.
 
-### git pull
+또한 저희가 사용하기로 약속한 기능 외의 커맨드는 **절대로 사용하지 말아주세요.**
+만약 테스트하고 싶은 코드가 있다면 **개인 저장소** 에서 진행해주세요.
 
-비교한 내용을 받아오기
+### Git download
 
-### git log 또는 git reflog
+최초에 깃 저장소를 받아올 때, 다음과 같은 방법으로 작성을 해주세요.
 
-commit 내역을 확인하고 싶을 떄 입력하면 됩니다.
+1. git init
+2. git pull 원본경로
+3. git branch -m main
 
-git add .
-git commit -m "커밋내용"
+### Git Upload
 
-하고 난 이후에 제대로 커밋됐는지 확인하려면 위 커멘드를 입력하세요.
+**중요한 것은 작업 시작전에 fetch, pull 을 하여야 합니다.**
+**Git 주의사항 1 을 참고해주세요**
 
-git log 는 좀 더 자세하게 나오고,
-git reflog 는 좀 더 간략하게 나옵니다.
+1. git add 수정한 파일명
+2. git coomit -m "ADD 파일명 (아래 ###Git Naming 참고)"
+3. git push -u origin main
+
+### Git 주의사항 - 내가 당당한 파일만 수정하기
+
+A와 B는 동일한 index.jsp 를 가지고 있습니다.
+
+이 파일의 담당자는 A 이지만 B 도 일부분을 수정했다고 해봅시다.
+
+1. index.jsp _ A 가 수정한 부분
+2. index.jsp _ B 가 수정한 부분
+
+또한 B 가 먼저 commit, push 하였다고 가정해봅시다.
+
+지금 서버의 최신 파일읜 index.jsp _ B 가 수정한 부분입니다.
+
+이러한 경우 발생 가능한 문제는 다음과 같습니다.
+
+1. fetch, pull, add , commit, push 순으로 입력할 경우
+2. add, commit, push 순으로 입력할 경우
+
+1.의 경우, 최신 버전인 index.jsp(B가 수정) 한 파일로 덮어 씌워지면서 내 파일을 잃어버립니다. git add 나 commit 을 하지 않았으므로 되돌릴 수도 없습니다.
+
+2.의 경우, index.jsp(B) 와 index.jsp(A) 가 충돌을 일으킵니다.
+이러한 경우 **GIt 주의사항 3** 대로 해주세요.
+
+
+### Git 주의사항 1 - 작업 시작하기 전에 꼭 할 일
+
+작업 시작하기 전에 꼭 할 일은 **최종 커밋 이후의 추가 작업 초기** 만을 의미합니다.
+로그인 기능을 3일에 걸쳐 작업한다고 매일 pull 하면 안됩니다.
+
+다음의 커맨드로 최신화를 할 수 있습니다.
+
+1. git fetch
+2. git pull
+
+꼭 **최신화 완료 후 작업을 진행해주세요**
+
+### Git 주의사항 2 - fetch, pull 없이 작업을 시작했을 경우
+
+Git Repository (인터넷) 의 index.jsp 과 
+local/ (내 컴퓨터) 의 index.jsp 가 다른 버전일 경우가 있습니다.
+
+A 가 index.jsp 를 수정해서 커밋했는데,
+B 가 index.jsp 를 작업하고 커밋을 완료하면 높은 확률로 충돌이 발생합니다.
+
+따라서,
+git fetch, pull 을 생활하여야 합니다.
+
+만약 git fetch, pull, add "파일명", commit -m "커밋메세지" 의 절차를 준수하였는데,
+알 수 없는 에러가 발생하였다면 **해당 문제를 공유해주세요.**
+
+### Git 주의사항 3 - 충돌이 발생한 경우
+
+무슨 경고창 뜨면서 충돌이 일어났으면, 그 어떤 커맨드도 입력하지말고 **해당 문제를 공유해주세요.**
+
+### Git 주의사항 4 - revert 등 사용 금지
+
+구 버전의 파일이 필요하다고 revert 를 사용하지 말아주세요.
+그 상태에서 coomit, push 를 하였을 떄 연결된 파일이 얼마나 손상될지 예상하기 어렵습니다.
+
+<hr>
+
+### Git Naming
+
+> [좋은 git commit 메시지를 위한 영어 사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)
+
+위 포스트를 기반으로 Git Commit Nmaing 을 재작성해보았습니다.<br>
+Git Commit 은 **어떠한 기능** 에 대한 **완성, 수정, 삭제, 단순화, 교체** 등에 대해서 기록하는 내용입니다. 따라서 협의 후, 확정된 내용은 아래 규칙을 준수해주세요.
+
+1. ADD
+2. FIX
+3. REMOVE
+4. SIMPLIFY
+5. EXCHANGE
+
+#### 시나리오
+
+예를 들어,
+담당하고 있는 부분이 로그인 페이지라고 한다면 다음과 같은 프로세스가 있을 수 있습니다.
+
+- **로그인 프론트 구현** login.jsp, login.css / ADD login.jsp, login.css
+- **로그인 기능 구현**  login_func.jsp / ADD login_func.jsp
+- **로그인 기능 에러 수정** login_func.jsp / FIX 404 error in login_func.jsp
+- **로그인 기능 전면 교체** login_func.jsp / EXCHANGE login_func.jsp
+- **로그인 기능 전면 제거** login_func.jsp / REMOVE login_func.jsp
+- **로그인 기능 리펙토링** login_func.jsp / SIMPLIFY login_func.jsp
+
+#### ADD 파일명
+
+기능 추가를 위해 새로운 파일을 만들었다면 다음과 같은 형식으로 커밋을 올려주세요.
+
+- **파일 추가** / ADD index.jsp, css, js
+- **파일 추가**  / ADD old_book.jsp, css, js
+
+- **일부 코드 추가** / ADD content box in index.jsp
+
+#### FIX 파일명
+
+커밋이 완료된 부분에서 에러가 발생하였고 이를 수정하게 되면 다음과 같은 형식으로 커밋을 올려주세요.
+
+- **파일 전체의 수정** / FIX index.jsp
+- **파일 일부의 수정** / FIX a(href) 404 in index.jsp
+
+#### REMOVE 파일명
+
+복수의 css 파일 및 jsp 파일의 병합, 사용하지 않는 파일 등이 있다면 제거하고 다음과 같은 형식으로 커밋을 올려주세요.
+
+- **파일 전체의 삭제** / REMOVE old_book.jsp, css, js
+- **파일 일부의 삭제** / REMOVE content box in index.jsp
+
+#### SIMPLIFY 파일명
+
+반복구문을 줄이거나 코드를 보기좋기 정리하는 등의 작업 후 다음과 같은 형식으로 커밋을 올려주세요.
+
+- **파일 전체의 정리** / SIMPLIFY sample.js
+- **파일 일부의 정리** / SIMPLIFY function sample in sample.js
+
+#### EXCHANGE 파일명
+
+파일 자체를 새로 만들어서 교체한 작업은 다음과 같은 형식으로 커밋을 올려주세요.
+
+- **파일 전체의 교체** / EXCHANGE login.css
+
+<hr>
+
+### Contriubters
+
+1. unchaptered [Git Home](https://github.com/unchaptered) [Velog](https://velog.io/@unchapterd/)
+2. kogyul [Git Home](https://github.com/kogyul) [Velog](https://velog.io/@kgyul12)
+3. capriceksy [Git Home](https://github.com/capriceksy) [Velog](https://velog.io/@capriceksy)
+4. sunsetkk [Git Home](https://github.com/sunsetkk) [T-story](https://guul.tistory.com)
+5. kmhyeon [Git Home](https://github.com/kmhyeon)
+6. HyoChanBae [Git Home](https://github.com/HyoChanBae) [T-story](https://tomset.tistory.com/)
+7. jungbc1 [Git Home](https://github.com/jungbc1) [Velog](https://velog.io/@tonkedown)
