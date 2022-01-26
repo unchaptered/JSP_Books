@@ -1,0 +1,93 @@
+@import "../_root.css";
+
+#footer {
+    margin-top: var(--footer-margin-top-);
+    width: 100%;
+    height: auto;
+    color: var(--footer-color-);
+    background-color: var(--footer-back-);
+
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+.footer-sizer {
+    padding: 30px;
+    min-height: var(--footer-height-);
+    height: auto;
+
+    gap: 10px;
+    display: flex;
+    transition: var(--responsive-transition-linear-);
+}
+.footer_column {
+    width: 50%;
+
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .footer_box > h3 , .footer_datas */
+.footer_box > h3 {
+    text-align: left;
+    margin-bottom: 5px;
+}
+.footer_datas_rows {
+    gap: 10px;
+    display: flex;
+}
+.footer_datas_rows > div {
+    gap: 10px;
+    display: flex;
+}
+.footer_datas_rows p,
+.footer_datas_rows a {
+    color: #afafaf;
+    font-weight: 300;
+}
+.footer_datas_rows a {
+    font-weight: 500;
+}
+@media screen and (min-width: 1201px) {
+    .footer-sizer {
+        margin: 0 auto;
+        width: var(--responsive-big-);
+
+        padding-left: var(--responsive-padding-tiny-);
+        padding-right: var(--responsive-padding-tiny-);
+    }
+}
+@media screen and (max-width: 1200px) {
+    .footer-sizer {
+        width: var(--responsive-small-);
+
+        padding-left: var(--responsive-padding-small-);
+        padding-right: var(--responsive-padding-small-);
+    }
+}
+@media screen and (max-width: 1000px) {
+    .footer-sizer {
+        padding-left: var(--responsive-padding-medium-);
+        padding-right: var(--responsive-padding-medium-);
+    }
+}
+@media screen and (max-width: 800px) {
+    .footer-sizer {
+        gap: 20px;
+        flex-direction: column;
+        padding-left: var(--responsive-padding-big-);
+        padding-right: var(--responsive-padding-big-);
+    }
+    .footer_column {
+        gap: 20px;
+        width: 100%;
+    }
+    .footer_box > h3 {
+        text-align: center;
+    }
+    .footer_datas_rows {
+        justify-content: center;
+    }
+}

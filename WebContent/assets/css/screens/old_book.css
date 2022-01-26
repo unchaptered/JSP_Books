@@ -1,0 +1,224 @@
+@import "../_root.css";
+
+#old_book {
+    width: 100%;
+    min-height: var(--old-height-);
+    height: auto;
+
+    padding: 20px 0;
+    background-color: var(--old-back-);
+}
+#old_book h1,
+#old_book h2,
+#old_book h3 {
+    font-weight: 600;
+}
+#old_book h4,
+#old_book h5,
+#old_book h6,
+#old_book span,
+#old_book p {
+    font-weight: 300;
+}
+.old_book-sizer {
+    min-height: var(--old-height-);
+    height: auto;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+
+    transition: var(--responsive-transition-linear-);
+}
+/* .old_book_colum:nav-child(1) 은 미디어쿼리 801, 800으로 제어중이다. */
+.old_book_img_conatainer {
+    display: flex;
+    transition: var(--responsive-transition-linear-);
+}
+.old_book_data_container {
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* 책제목, 저자, 역자, 출판사, 부수, 발행연도, 고유번호 포함 컴포넌트 */
+.old_book_meta {
+    gap: 10px;
+    display: flex;
+    align-items: baseline;
+}
+/* 책 구매, 장바구니 담기 컴포넌트 */
+.old_book_price_container {
+    gap: 10px;
+    display: flex;
+}
+/* .old_book_price_container > div > .old_book_price 책가격, 할인가액 포함 컴포넌트 */
+.old_book_price {
+    gap: 10px;
+    display: flex;
+}
+/* .old_book_price_container > .old_book_form */
+.old_book_form {
+    /* ./src/screens/old_book/old_book_add.css 안에 있음 */
+}
+
+/* 버튼 포장지 */
+.old_book_btn_menus {
+    /* 반응형 크기 조절 */
+    width: 250px;
+
+    padding: 10px;
+    height: fit-content;
+    background-color: #F2F2F2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+
+    transition: var(--responsive-transition-linear-);
+}
+/* 버튼  포장지 > 숫자세기 */
+.old_book_count {
+    padding: 0 10px;
+    width: 100%;
+    height: 37px;
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* 버튼 포장지 > 버튼 리스트 */
+.old_book_btn_container {
+    padding-top: 15px;
+
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+/* 버튼 포장지 > 버튼 리스트 > 개별 버튼 3종 */
+.old_book_btn {
+    width: 100%;
+    height: 37px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+.old_book_btn_1 {
+    background-color: var(--old-book-btn-1-);
+}
+.old_book_btn_2 {
+    background-color: var(--old-book-btn-2-);
+}
+.old_book_btn_3 {
+    background-color: var(--old-book-btn-3-);
+}
+/* old_book_add 페이지에서만 쓰고 있습니다. */
+.old_book_add_container {
+    display: grid;
+    width: 100%;
+}
+
+@media screen and (min-width: 1201px) {
+    .old_book-sizer {
+        margin: 0 auto;
+        width: var(--responsive-big-);
+        padding-left: var(--responsive-padding-tiny-);
+        padding-right: var(--responsive-padding-tiny-);
+    }
+    .old_book_btn_menus {
+        /* 반응형 크기 조절 */
+        width: 250px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .old_book-sizer {
+        width: var(--responsive-small-);
+
+        padding-left: var(--responsive-padding-small-);
+        padding-right: var(--responsive-padding-small-);
+    }
+    
+    .old_book_btn_menus {
+        /* 반응형 크기 조절 */
+        width: 220px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .old_book-sizer {
+        flex-direction: row;
+        padding-left: var(--responsive-padding-medium-);
+        padding-right: var(--responsive-padding-medium-);
+    }
+    
+    .old_book_btn_menus {
+        /* 반응형 크기 조절 */
+        width: 180px;
+    }
+}
+@media screen and (min-width: 801px) {
+    .old_book-801 {
+        display: initial;
+    }
+    .old_book-800 {
+        display: none;
+    }
+    .old_book_img_conatainer {
+        padding: 0 10px;
+
+        align-items: center;
+    }
+    .old_book_data_container {
+        padding: 0 30px;
+    }
+    .old_book_price_container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+@media screen and (max-width: 800px) {
+    .old_book-sizer {
+        flex-direction: column;
+
+        padding-left: var(--responsive-padding-big-);
+        padding-right: var(--responsive-padding-big-);
+    }
+    
+    .old_book-801 {
+        display: none;
+    }
+    .old_book-800 {
+        display: initial;
+    }
+
+    .old_book_img_conatainer {
+        justify-content: center;
+        padding: 20px;
+        border-bottom: 1px solid rgb(100, 100, 100);
+        background-color: rgb(204, 204, 204);
+    }
+    .old_book_data_container {
+        padding: 20px 10px;
+    }
+    .old_book_price_container {
+        flex-direction: column-reverse;
+    }
+
+    /* 여기서부터 버튼 */
+    .old_book_btn_menus {
+        width: 100%;
+        padding: 10px;
+        height: auto;
+        margin: 0 auto;
+    }
+    .old_book_btn_container {
+        border-top: none;
+        padding-top: 10px;
+    }
+    .old_book_btn {
+        height: 28px;
+        font-size: 12px;
+    }
+}

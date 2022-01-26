@@ -1,0 +1,69 @@
+@import "../_root.css";
+
+#nav {
+    z-index: 33;
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 55px;
+    background-color: var(--body-back);
+}
+.nav-sizer {
+    /* width + 미디어쿼리 */
+    width: var(--responsive-big-);
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: all 0.15s linear;
+}
+@media screen and (min-width: 1201px) {
+    .nav-sizer {
+        margin: 0 auto;
+
+        padding-left: var(--responsive-padding-tiny-);
+        padding-right: var(--responsive-padding-tiny-);
+    }
+}
+@media screen and (max-width: 1200px) {
+    .nav-sizer {
+        width: var(--responsive-small-);
+
+        padding-left: var(--responsive-padding-small-);
+        padding-right: var(--responsive-padding-small-);
+    }
+}
+@media screen and (max-width: 1000px) {
+    .nav-sizer {
+        padding-left: var(--responsive-padding-medium-);
+        padding-right: var(--responsive-padding-medium-);
+    }
+}
+@media screen and (max-width: 800px) {
+    .nav-sizer {
+        padding-left: var(--responsive-padding-big-);
+        padding-right: var(--responsive-padding-big-);
+    }
+}
+.nav_column {
+    min-width: 130px;
+
+    gap: 10px;
+    display: flex;
+}
+.nav_column:nth-child(1) {
+    justify-content: flex-start;
+}
+.nav_column:nth-child(2) {
+    justify-content: center;
+}
+.nav_column:nth-child(3) {
+    justify-content: flex-end;
+}
+.nav_logo {
+    font-size: 20px;
+    text-transform: uppercase;
+}

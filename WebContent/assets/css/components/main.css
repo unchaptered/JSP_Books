@@ -1,0 +1,7 @@
+@import "../_root.css";
+
+#main {
+    margin-top: var(--nav-height-);
+    min-height: calc(100vh - var(--nav-height-));
+    height: auto;
+}

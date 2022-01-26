@@ -1,0 +1,59 @@
+@import "../old_book.css";
+@import "../feed.css";
+@import "../login/login_style.css";
+
+
+@media screen and (min-width: 801px) {
+    .old_book-sizer {
+        padding: 0 5% !important;
+    }
+    .old_book_img_conatainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .old_book_img_conatainer > img {
+        width: 90%;
+    }
+}
+
+/* join from 제어부분 */
+.old_book_form {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+}
+.old_book_form div {
+    background-color: transparent;
+}
+.old_book_form select,
+.old_book_form input,
+.old_book_form button {
+    height: 30px !important;
+}
+.old_book_form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.old_book_form .set_login_wrap {
+    position: initial;
+}
+.old_book_form .name_wrap,
+.old_book_form .mobile_wrap,
+.old_book_form .acnum_wrap,
+.old_book_form .set_login_wrap {
+    padding: 0;
+    height: auto;
+}
+.old_book_form .mobile_input_space,
+.old_book_form .login_space {
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+.old_book_form .name_wrap,
+.old_book_form .mobile_wrap,
+.old_book_form .acnum_wrap {
+    padding-bottom: 10px;
+}

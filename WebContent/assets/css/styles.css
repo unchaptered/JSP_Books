@@ -1,0 +1,69 @@
+/* font : Noto Snas(100,300,500,700,900) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;500;700;900&display=swap');
+
+/* Compoonents */
+@import "./_root.css";
+
+@import "./components/nav.css";
+@import "./components/nav_menu.css";
+
+@import "./components/main.css";
+
+@import "./components/footer.css";
+
+/* Screens : 개인 페이지에 작성한 파일은 전부 Screen 폴더로 */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--body-back);
+}
+details, summary, a {
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+a {
+    font-size: 16px;
+    font-weight: 600;
+    /* reset */
+    color: initial;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+input,
+input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+input[type="button"],
+button {
+    font-size: 16px;
+    font-weight: 600;
+
+    /* reset */
+    border: none;
+    background-color: transparent;
+    overflow: visible;
+
+    /* pointer */
+    cursor: pointer;
+}
+svg {
+    width: 20px;
+    cursor: pointer;
+}
+.margin-top-zero {
+    margin-top: 0 ;
+}
+.margin-top-zero > .feed-sizer > .feed_title {
+    font-size: 18px;
+    height: 20px;
+}
+

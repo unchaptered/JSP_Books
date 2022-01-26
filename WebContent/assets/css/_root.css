@@ -1,0 +1,44 @@
+:root {
+    /* BODY */
+    --body-back: #FCFCFC;
+
+    /* NAV */
+    --nav-back-: #FCFCFC;
+    --nav-height-: 55px;
+
+    /* HEADER */
+    --header-back-: #E4E4E4;
+    --header-height-: 400px;
+
+    /* OLD_BOOK */
+    --old-back-: #E4E4E4;
+    --old-height-: 400px;
+
+    /* OLD_BOOK 버튼리스트 (장바구니, 바로구매, 찜하기) */
+    --old-book-btn-1-: #DA4444;
+    --old-book-btn-2-: #266444;
+    --old-book-btn-3-: #C4C4C4;
+
+    /* FEED */
+    --feed-margin-top-: 50px;
+    --feed-height-: 400px;
+
+    /* FOOTER */
+    --footer-margin-top-: 50px;
+    --footer-color-: #F2F2F2;
+    --footer-back-: #3D3F40;
+    --footer-height-: 200px;
+    
+    /* 반응형 규격 (사이즈) */
+    --responsive-big-: 1100px; /* 1200px 이상 */
+    --responsive-small-: 100%; /* 1200px 이하 */
+
+    /* 반응형 규격 (여백) */
+    --responsive-padding-tiny-: 25px; /* 1200px 이상 */
+    --responsive-padding-small-: 20px; /* 1200px 이하 */
+    --responsive-padding-medium-: 15px; /* 1000px 이하 */
+    --responsive-padding-big-: 10px; /* 800px 이하 */
+
+    /* 반응형 규격 용 Transition */
+    --responsive-transition-linear-: all 0.15s linear;
+}
