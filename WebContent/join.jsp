@@ -14,6 +14,7 @@
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
 		<button>하이</button>
+		<hr>
 	</main>
 	
 	<%@ include file="views/components/footer.jsp" %>
