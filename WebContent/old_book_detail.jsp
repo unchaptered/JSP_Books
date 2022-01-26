@@ -10,6 +10,7 @@
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
 <link rel="stylesheet" href="./assets/css/screens/old_book/old_book_detail.css">
 </head>
+<!-- 저자 : unchaptered -->
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="views/components/nav.jsp" %>

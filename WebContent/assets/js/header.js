@@ -1,3 +1,5 @@
+// 저자 : unchaptered
+
 const headerDatas=[
     {
         link: "./assets/img/cover__1.jpg",

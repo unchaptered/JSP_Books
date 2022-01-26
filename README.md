@@ -29,10 +29,13 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 ### Frontend Prototype
 
 팀원들과 협업으로 진행한 첫 프로젝트였습니다.
+프로토타입 제작 일정은 다음과 같았습니다.
 
-2022년 1월 14일
-2022년 1월 17일 ~ 21일
-2022년 1월 24일 ~ 
+1. 22년 1월 14일 (1일) : 최초 기획 회의
+2. 22년 1월 17일 ~ 21일 (5일) : 프로토 타입 제작
+3. 22년 1월 24일 ~ 26일 (3일) : 프로토 타입 제작 및 JSP로 파일 이전 준비
+4. 22년 1월 27일 ~ 
+
 
 <nav id="nav"\>, <footer id="footer"\>, <main id="main"\> 과 같은 기본적인 
 
@@ -54,9 +57,9 @@ Git 사용 관련된 규칙 및 주의사항을 정리하였습니다.
 **최초**에 깃 저장소를 받아올 때, 다음과 같은 방법으로 작성을 해주세요.
 
 1. git init
-2. git remote add origin 원본경로
+2. git pull 원본경로
 3. git branch -m main
-4. git pull
+4. git remote add origin 원본경로
 
 ### Git Upload
 
@@ -191,7 +194,44 @@ Git Commit 은 **어떠한 기능** 에 대한 **완성, 수정, 삭제, 단순�
 
 <hr>
 
-### Contriubters
+## Git Error
+
+### There is no tracking information for the current branch.
+
+>
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> main
+
+git fetch, git pull 을 시도했을 때 위와 같은 에러가 뜰 수 있습니다.
+
+위 에러는 branch 가 추적 중인 원본 branch 가 없거나 있는데 잘못된 경우입니다.
+
+다음의 커맨드로 branch 를 확인, 제거 및 재등록합시다.
+
+1. 추적 중인 origin 이 있는지 확인 (있다면 2번으로 제거)
+>
+1. git remote -v
+2. git remote rm origin
+
+2. 추적 중인 origin 새로 등록
+>
+1. git remote add origin 경로
+
+3. git pull 시도했는데 다시 위의 에러가 뜰 경우 (추적 대상을 origin/main 깃 원본 저장소의 main 브렌치 로 변경)
+>
+1. git branch --set-upstream-to=origin/main main
+
+
+<hr>
+
+## Contriubters
 
 1. unchaptered [Git Home](https://github.com/unchaptered) [Velog](https://velog.io/@unchapterd/)
 2. kogyul [Git Home](https://github.com/kogyul) [Velog](https://velog.io/@kgyul12)
@@ -200,3 +240,6 @@ Git Commit 은 **어떠한 기능** 에 대한 **완성, 수정, 삭제, 단순�
 5. kmhyeon [Git Home](https://github.com/kmhyeon)
 6. HyoChanBae [Git Home](https://github.com/HyoChanBae) [T-story](https://tomset.tistory.com/)
 7. jungbc1 [Git Home](https://github.com/jungbc1) [Velog](https://velog.io/@tonkedown)
+
+
+

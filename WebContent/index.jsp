@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="./assets/css/styles.css">
 <link rel="stylesheet" href="./assets/css/screens/index.css">
 </head>
+<!-- 저자 : unchaptered -->
 <body>
 	<%@ include file="views/components/nav.jsp" %>
 	

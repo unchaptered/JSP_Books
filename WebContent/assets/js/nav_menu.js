@@ -1,4 +1,4 @@
-console.log("nav_menus.js");
+// 저자 : unchaptered
 
 const menuBtn=document.querySelector(".nav_menu_btn");
 const menuDetailsLists=document.querySelectorAll(".nav_menu_details");

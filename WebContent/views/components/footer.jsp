@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 </head>
+<!-- 저자 : unchaptered -->
 <body>
     <footer id="footer">
         <div class="footer-sizer">
