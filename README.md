@@ -2,6 +2,16 @@
 
 본 문서는 _2022년 1월 26일_ 에 작성되었습니다..
 
+```javascript
+
+// 2022-01-26 이게 원본 == 서버에있는 에러 
+login_func.jsp
+마지막 커밋을 한 이후에, 그 파일을 다시 건드리실 거면 git fetch, git pull
+git fetch
+git pull
+
+```
+
 ## BOOKs
 
 BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
@@ -41,11 +51,12 @@ Git 사용 관련된 규칙 및 주의사항을 정리하였습니다.
 
 ### Git download
 
-최초에 깃 저장소를 받아올 때, 다음과 같은 방법으로 작성을 해주세요.
+**최초**에 깃 저장소를 받아올 때, 다음과 같은 방법으로 작성을 해주세요.
 
 1. git init
-2. git pull 원본경로
+2. git remote add origin 원본경로
 3. git branch -m main
+4. git pull
 
 ### Git Upload
 
