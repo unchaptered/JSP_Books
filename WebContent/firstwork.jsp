@@ -5,11 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Books - 새로운 책 찾기</title>
+<link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-	ㅇ릐ㅏㅇ르ㅏㅣㄹㅇ
-	ㅇ르ㅏㅣㅇ릘ㅇ
-	ㅇ르ㅏㅣㄹㅇㄹㅇz
-	감자고구마호박고구마
+<a href="./books/books.jsp">책 구매 페이지 가기</a>
 </body>
 </html>
