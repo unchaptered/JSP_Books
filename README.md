@@ -9,7 +9,6 @@ login_func.jsp
 마지막 커밋을 한 이후에, 그 파일을 다시 건드리실 거면 git fetch, git pull
 git fetch
 git pull
-
 ```
 
 ## BOOKs
