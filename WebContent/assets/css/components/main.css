@@ -12,7 +12,7 @@
 @media screen and (min-width: 1201px) {
     .main-sizer {
         width: var(--responsive-big-);
-        margin-right: 0 auto;
+        margin: 0 auto;
         padding-left: var(--responsive-padding-tiny-);
         padding-right: var(--responsive-padding-tiny-);
     }
