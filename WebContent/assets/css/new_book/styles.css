@@ -1,0 +1,36 @@
+/* font : Noto Snas(100,300,500,700,900) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;500;700;900&display=swap');
+
+/* template */
+@import "./components/template/nav.css";
+@import "./components/template/main.css";
+@import "./components/template/footer.css";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+a {
+    font-size: var(--link-font-);
+
+    /* reset */
+    color: initial;
+    text-decoration: none;
+}
+button {
+    font-size: var(--button-font-);
+
+    /* reset */
+    border: none;
+    background-color: transparent;
+
+    /* pointer */
+    cursor: pointer;
+}
+svg {
+    width: var(--svg-width-);
+}

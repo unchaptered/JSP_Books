@@ -1,0 +1,95 @@
+/* 저자 : 김명현 */
+/* 카테고리 파트 */
+.category{
+    width: 100%;
+    /* width: 1100px; */
+    height: 150px;
+    display: flex;
+    background: url(../../img/new_book/images/background3.jpg) no-repeat fixed;
+    background-size: cover;
+    justify-content: center;
+}
+.category .category_part{
+    width: 1100px;
+    height: 150px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.kor{
+    /* border: 1px solid red; */
+    width: 50%;
+    height: 150px;
+}
+.kor > .kor_0 a{
+    width: 120px;
+    background: rgba(118, 158, 231, 0.87);
+    color: rgba(255, 255, 255, 0.904);
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 21px;
+}
+.forg > .forg_0 a{
+    width: 120px;
+    background: rgba(118, 158, 231, 0.87);
+    color: rgba(255, 255, 255, 0.904);
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 21px;
+}
+.kor ul{
+    display: flex;
+    justify-content: space-around;
+}
+.kor li{
+    width: 120px;
+    background: rgba(92, 92, 92, 0.452);
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+}
+.kor li:hover{
+    background: rgba(0, 191, 255, 0.74);
+}
+.kor li a{
+    color: rgba(255, 255, 255, 0.904);
+    font-weight: bold;
+}
+.forg{
+    /* border: 1px solid blue; */
+    width: 50%;
+    height: 150px;;
+}
+.forg ul{
+    display: flex;
+    justify-content: space-around;
+}
+.forg li{
+    width: 120px;
+    background: rgba(92, 92, 92, 0.452);
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+}
+.forg li:hover{
+    background: rgba(0, 191, 255, 0.74);
+}
+.forg li a{
+    color: rgba(255, 255, 255, 0.904);
+    font-weight: bold;
+}
+.other{
+    width: 120px;
+    background: rgba(92, 92, 92, 0.452);
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.904);
+    font-weight: bold;
+}
+.other:hover{
+    background: rgba(0, 191, 255, 0.74);
+}
+/* 카테고리 파트 */
