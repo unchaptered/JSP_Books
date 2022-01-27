@@ -1,6 +1,7 @@
 # Introduce
 
-본 문서는 _2022년 1월 26일_ 에 작성되었습니다..
+본 문서는 _2022년 1월 26일_ 에 작성되었습니다.
+
 [JSP_BOOKS Git Repository](https://github.com/unchaptered/JSP_Books)
 
 ```javascript
