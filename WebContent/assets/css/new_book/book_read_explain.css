@@ -1,0 +1,256 @@
+/* 저자 : 김명현 */
+.main_content {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        /* width: 1100px; */
+        height: auto;
+    }
+}
+ul,li{
+    list-style: none;
+}
+@media screen and (max-width: 768px) {
+    .main_content {
+        width: 100%;
+        /* width: 1070px; */
+        height: auto;
+    }
+}
+
+.main_content {
+    /* width: 100%; */
+    margin: 0 auto;
+    gap: 20px;
+    display: grid;
+    grid-template: repeat(1,1fr)/ repeat(12, 1fr);
+    /* 구간 나누기 */
+}
+.book{
+    /* border: 1px solid black; */
+    height: 50px;
+    grid-column: span 12;
+}
+.book .book_name{
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+.book_explain_content{
+    position: relative;
+    /* left: 10%; */
+    margin: 0 auto;
+    /* width: 1100px; */
+    grid-column: span 3;
+    /* border: 1px solid black; */
+}
+.book_explain_writer{
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid green; */
+    align-items: center;
+    /* text-align: center; */
+    /* width: 800px; */
+    grid-column: span 6;
+}
+.writer{
+    border-bottom: 1px solid gray;
+    font-size: 13px;
+    color: #6e6e6e;
+    padding-bottom: 10px;
+}
+.writer a{
+    font-size: 13px;
+    color: #c0c0c0;
+    margin-left: 10px;
+}
+.spacebar{
+    margin: 0 10px 0 10px;
+    color: rgb(153, 153, 153);
+}
+.price{
+    padding:10px;
+}
+.price_part{
+    margin-left: 30px;
+}
+
+/* 카드할인, 무이자할부 알림창 */
+.discount{
+    font-size: 13px;
+}
+.discount button{
+    font-size: 13px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+.discount .spacebar{
+    margin-left: 30px;
+}
+
+.discount_info .popup{
+    position: absolute;
+    top: 380px;
+    visibility: hidden;
+    /* visibility: inherit; */
+    width: 470px;
+    height: 230px;
+    border: 2px solid black;
+    padding: 10px;
+    z-index: 200;
+}
+.discount_info .popup2{
+    position: absolute;
+    visibility: hidden;
+    /* visibility: inherit; */
+    background: white;
+    width: 480px;
+    height: 510px;
+    border: 2px solid black;
+    padding: 10px;
+    z-index: 200;
+}
+.discount_info .popup #close .card{
+    font-size: 14px;
+    font-weight: 300;
+    display: flex;
+    padding: 10px;
+}
+.discount_info .popup2 #close .card{
+    font-size: 14px;
+    font-weight: 300;
+    display: flex;
+    padding: 10px;
+    z-index: 2;
+}
+.discount_info .popup #close .card td{
+    border-bottom: 1px solid rgb(160, 156, 156);
+}
+.discount_info .popup #close .card td a{
+    position: relative;
+    right: -30%;
+}
+.discount_info .popup #close .card .link{
+    border-bottom: none;
+}
+.discount_info .popup #close .card .td_left{
+    width: 170px;
+}
+.discount_info .popup #close .card .td_right{
+    border-left:  1px solid rgb(160, 156, 156);
+    padding: 5px;
+    width: 300px;
+}
+.discount_info .popup #close .card .card_font{
+    font-weight: bold;
+}
+.discount_info .popup .dis_btn{
+    position: absolute;
+    right: 1%;
+    /* border: 1px solid black; */
+    width: 13px;
+    height: 13px;
+    background: url(../../img/new_book/images/close_ico.png)no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+.discount_info .popup2 #close .card td{
+    border-bottom: 1px solid rgb(160, 156, 156);
+}
+.discount_info .popup2 #close .card td a{
+    position: relative;
+    right: -30%;
+}
+.discount_info .popup2 #close .card .link{
+    border-bottom: none;
+}
+.discount_info .popup2 #close .card .td_left{
+    width: 170px;
+}
+.discount_info .popup2 #close .card .td_right{
+    border-left:  1px solid rgb(160, 156, 156);
+    padding: 5px;
+    width: 300px;
+}
+.discount_info .popup2 #close .card .card_font{
+    font-weight: bold;
+}
+.discount_info .popup2 .dis_btn{
+    position: absolute;
+    right: 1%;
+    /* border: 1px solid black; */
+    width: 13px;
+    height: 13px;
+    background: url(../../img/new_book/images/close_ico.png)no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+/* 카드할인, 무이자할부 알림창 */
+
+
+/* 주문 수량  */
+.buy_num{
+    display: flex;
+    width: 200px;
+}
+.buy_num .buy_num_out{
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+.buy_num p{
+    font-weight: 500;
+    font-size: 13px;
+    margin-right: 21px;
+}
+.buy_num .buy_num_out input[type=button]{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    /* margin: 0 10px 0 10px; */
+}
+/* 주문 수량  */
+
+
+/* 장바구니, 바로구매 버튼 */
+.read_basket{
+    position: relative;
+    bottom: -50%;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    background: rgb(87, 87, 87);
+    color: white;
+}
+.read_buy{
+    position: relative;
+    bottom: -50%;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    background: rgb(238, 125, 60);
+    color: white;
+}
+.read_like{
+    position: relative;
+    bottom: -50%;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    background: white;
+    border: 1px solid rgb(122, 122, 122);
+    color: black;
+}
+/* 장바구니, 바로구매 버튼 */
+

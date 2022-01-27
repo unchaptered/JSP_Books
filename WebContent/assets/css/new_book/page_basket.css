@@ -1,0 +1,48 @@
+/* 저자 : 김명현 */
+/* 아래 페이지 버튼 */
+.pagination{/*밑에 페이지 가운데 정렬*/
+    /* padding:40px 0 0; */
+    text-align: center;
+}
+.pagination a{display: inline-block;}
+.pagination a.pbtn{/*밑에 페이지 화살표 여백*/
+    display: inline-block;
+    padding:7px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0;
+}
+.pagination a .pagenum{/*숫자 사이 여백*/
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+.pagination a .currentPage{/*현재 페이지 위치 색깔*/
+    background-color: rgb(138, 94, 0);
+    color: #fff;
+    border-radius: 3px;
+}
+.pagination a:hover .pagenum{/*마우스 올렸을때*/
+    background-color: #c07025;
+    border-radius: 3px;
+}
+/* 아래 페이지 버튼 */
+
+/* 장바구니 */
+#basket a{
+    position: fixed;
+    right: 0;
+    top: 100px;
+    background: rgb(194, 190, 190);
+    width: 120px;
+    text-align: center;
+    border-radius: 15px;
+}
+#basket a:hover{
+    background: rgb(238, 125, 60);
+    color: azure;
+}
+/* 장바구니 */
