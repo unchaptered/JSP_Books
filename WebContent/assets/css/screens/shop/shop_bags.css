@@ -1,0 +1,123 @@
+/* 저자 : jungbc1 */
+
+
+.shop_content > h2{
+    margin-top: 30px;
+}
+.cart_items{
+}
+#cart_table{
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+}
+#cart_thead{
+    background-color: rgb(17, 112, 136);
+    color: white;
+    height: 40px;
+}
+#cart_table tr:last-child{
+    border-bottom: 1px solid #dadada;
+}
+#cart_table tr:nth-child(2n+3){
+    background-color: #eee;
+}
+#cart_table tr td{
+    font-weight: 300;
+    padding:5px;
+}
+#cart_table tr td div{
+    display:flex;
+    width:100%;
+    justify-content:center
+}
+#cart_table tr td img{
+    display: inline-block;
+    width: 72px;
+    height: 106px;
+}
+#cart_table tr td input[type="text"]{
+    width: 40px;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    border: none;
+    border: 1px solid #bbb;
+    background-color: rgba(0, 0, 0, 0);
+}
+#cart_table tr td input[type="checkbox"], #check_all_book{
+    zoom: 1.5;
+}
+#cart_table tr td button{
+    height: 24px;
+    line-height: 0;
+    font-weight: bold;
+    border: 1px solid #bbb;
+    vertical-align: middle;
+    color: #999;
+}
+#cart_table tr td button:hover, #select_remove:hover{
+    border: 1px solid #777;
+    /* box-shadow: 1px 1px 2px #999; */
+}
+#cart_table tr td button:active, #select_remove:active{
+    border: 1px solid #777;
+    /* box-shadow: inset 1px 1px 2px #999; */
+    box-shadow: 0 0 2px 1px #999;
+    /* background-color: #ddd; */
+}
+
+#cart_table tr td:nth-child(6){
+    font-weight: bold;
+    width: 120px;
+}
+#cart_table tr td:nth-child(n+4){
+    text-align: center;
+}
+#select_controler{
+    margin-top: 15px;
+    vertical-align: middle;
+}
+#check_all_book{
+    vertical-align: middle;
+}
+#select_remove{
+    height: 25px;
+    font-size: 14px;
+    padding: 0 5px;
+    border: 1px solid #D2D2D2;
+    margin-left: 20px;
+}
+#btn_area{
+    width: 100%;
+    text-align: right;
+}
+#total_sum{
+    text-align: right;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+#total_sum span {
+    color: #444;
+    padding-right: 10px;
+}
+
+#total_sum span+span {
+    color: #f74451;
+}
+#btn_area button{
+    height: 60px;
+    background-color: #808080;
+    color: white;
+    width: 30%;
+    font-weight: bold;
+}
+#btn_area button:nth-child(2){
+    background-color: teal;
+}
+#btn_area button:first-child:hover{
+    background-color: #999;
+}
+#btn_area button:nth-child(2):hover{
+    background-color: rgb(1, 155, 155);
+}

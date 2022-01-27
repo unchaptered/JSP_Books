@@ -1,0 +1,116 @@
+/* 저자 : jungbc1 */
+
+.shop_content > h2{
+    margin-top: 30px;
+}
+/* float 레이아웃 사용할때, footer 위로 안올라오게 */
+/* #shop::after{
+    content: "";
+    display: block;
+    clear: both;
+} */
+
+
+#notice{
+    font-size: 14px;
+    color: #444;
+    padding: 5px 0;
+    border-bottom: 1px solid #444;
+    border-top: 1px solid #444;
+    font-weight: 300;
+    padding-left: 20px;
+}
+#prd_table{
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+}
+#prd_thead{
+    background-color: rgb(17, 112, 136);
+    color: white;
+    height: 40px;
+}
+
+#prd_table tr:last-child{
+    border-bottom: 1px solid #dadada;
+}
+#prd_table tr:nth-child(2n+3){
+    background-color: #eee;
+}
+#prd_table tr td{
+    font-weight: 300;
+    padding:5px;
+    text-align: center;
+}
+#prd_table tr td:nth-child(3){
+    text-align: left;
+    width: 80px;
+}
+#prd_table tr td:nth-child(4){
+    text-align: left;
+}
+#prd_table tr td div{
+    display:flex;
+    width:100%;
+    justify-content:center
+}
+#prd_table tr td img{
+    display: inline-block;
+    width: 72px;
+    height: 106px;
+}
+#prd_table tr td a>span{
+    padding-left: 20px;
+}
+#prd_table tr td > button{
+    background-color: tomato;
+    color: white;
+    font-size: 12px;
+    padding: 3px;
+}
+#prd_table tr td > button:hover{
+    background-color: rgb(255, 67, 34);
+}
+#prd_table tr td:first-child > a{
+    text-decoration: underline;
+}
+#prd_table tr td:last-child > a{
+    font-size: 12px;
+    background-color: #999;
+    padding: 3px;
+    color: white;
+}
+.main_content h2+p{
+    font-size: 18px;
+    margin: 7px 0;
+}
+#rank{
+    color: darkred;
+}
+#select_period{
+    display: flex;
+    margin-bottom: 5px;
+}
+#select_period > * {
+    padding: 0 10px;
+    font-size: 14px;
+    border: 1px solid #999;
+    font-size: 14px;
+    padding: 3px;
+    color: #666;
+}
+#select_period .active{
+    font-weight: bold;
+    background-color: #aaa !important;
+    color: white;
+}
+#select_period button{
+    width: 60px;
+}
+#select_period button:hover{
+    background-color: #eee;
+}
+#select_period span{
+    border: none;
+    padding-right: 10px;
+}
