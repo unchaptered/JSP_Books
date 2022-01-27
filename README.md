@@ -1,6 +1,7 @@
 # Introduce
 
 본 문서는 _2022년 1월 26일_ 에 작성되었습니다..
+[JSP_BOOKS Git Repository](https://github.com/unchaptered/JSP_Books)
 
 ```javascript
 
@@ -239,6 +240,3 @@ git fetch, git pull 을 시도했을 때 위와 같은 에러가 뜰 수 있습�
 5. kmhyeon [Git Home](https://github.com/kmhyeon)
 6. HyoChanBae [Git Home](https://github.com/HyoChanBae) [T-story](https://tomset.tistory.com/)
 7. jungbc1 [Git Home](https://github.com/jungbc1) [Velog](https://velog.io/@tonkedown)
-
-
-
