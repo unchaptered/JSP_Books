@@ -1,0 +1,132 @@
+/* 저자 : carpriceksy */
+#main {
+    padding-top: calc(86px);
+    /* nav 50px + 추가여백 20px */
+}
+.main_content {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    min-height: calc(100vh - 86px);
+}
+.title{
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    font-weight: normal;
+    margin: 50px 0px 40px 0px;
+    border-bottom:2px solid #e5e5e5;
+    padding: 20px 0;
+}
+ul, li{
+    list-style: none;
+}
+
+/* 이벤트 상단 이미지 */
+.event_detail_img img{
+    width: 100%;
+}
+
+/* 이벤트 상단 바 */
+.top_title{
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 8px;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    font-size: 20px;
+}
+.top_title>p{
+    display: inline-block;
+}
+.top_title>span{
+    display: inline-block;
+    font-size: 14px;
+    padding-left: 5px;
+    color: rgba(51, 51, 51, 0.904);
+}
+.event_detail_topbar>p{
+    font-size: 25px;
+}
+/* 이벤트 내용 */
+.event_detail_txt{
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+/* 알림 */
+.inform{
+    margin: 40px 0;
+}
+.inform>strong{
+    font-size: 18px;
+}
+.inform>img{
+    width: 30px;
+    padding-left: 3px;
+}
+.inform_content{
+    font-size: 15px;
+    margin-top: 15px;
+    border: 1px solid #e5e5e5;
+    padding: 10px 15px;
+    line-height: 20px;
+    height: 42px;
+}
+
+/* book_cover.css */
+.content__grid{
+    display: grid;
+    gap: 20px;
+    grid-template: repeat(1,1fr)/ repeat(12, 1fr);
+}
+.content__container-3{
+    grid-column: span 3;
+}
+
+.productBox_area{
+    margin-top: 5%;
+    margin-bottom: -5%;
+}
+.productBox{
+    text-align: center;
+}
+.productBox_img{
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+}
+.productBox_txt{
+    padding: 20px;
+    font-size: 14px;
+}
+.productBox_txt strong{
+    font-size: 16px;
+}
+.publisher_info{
+    margin: 20px 0px 8px 0px;
+    color: #2a2a2a;
+    font-size: 13px;
+}
+.productBox_txt span{
+    display: inline-block;
+    padding: 0 5px;
+    line-height: 12px;
+}
+.author, .price{
+    border-right: 1px solid #c7c7c7;
+}
+.publication, .point{
+    position: relative;
+    right: 3px;
+}
+.sell_info{
+    position: relative;
+    right: 6px;
+}
+.price{
+    color: #df434d;
+}
+.point{
+    color: #2277c7;
+
+}
