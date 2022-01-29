@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
 <link rel="stylesheet" href="assets/css/screens/new_book/new_book_edit.css">
+<!-- 저자 : sunsetkk -->
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->

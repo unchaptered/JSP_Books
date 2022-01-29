@@ -1,3 +1,4 @@
+// 저자 : sunsetkk
 const img_submit = document.getElementById('img_submit');
 
 let count = 1;
