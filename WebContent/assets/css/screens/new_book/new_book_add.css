@@ -1,0 +1,170 @@
+/* 저자 : sunsetkk */
+
+.content{
+    padding: 150px 0px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+}
+
+/* 그리드 시작 */
+.register_input{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    width: 500px;
+    border-collapse: collapse;
+}
+
+.register_input > .image_upload {
+    grid-column: span 5;
+}
+.register_input > label,
+.register_input > input,
+#book_sogea,#mokcha {
+    grid-column: span 5;
+}
+.register_input > .form_inline-1 {
+    grid-column: 1/3;
+}
+.register_input > .form_inline-2 {
+    grid-column: 3/5;
+}
+#reg_reset{grid-column: 1/3;}
+#reg_submit{grid-column: 4/-1;}
+/* 그리드 끝 */
+
+/* 이미지 업로드 시작 */
+.image_upload{
+    /* flex 기본 방향은 가로 */
+    display: flex;
+    flex-direction: column;
+    /* align-items 기본방향 * 90도 방향을 바라보고 중앙을 잡아요 */
+    align-items: center;
+    /* justify-contents 기본방향을 보고 중앙을 잡아요 */
+    justify-content: center;
+}
+.img_show{
+    height: 300px;
+    width: 250px;
+    border: 3px double #c4c4c4;
+    background-size: contain;
+    
+}
+.img_submit{
+    float: right;
+    background-color: #c4c4c4;
+    color: white;
+    padding: 1px 10px;
+    border-radius: 1px;
+}
+.img_submit:hover, 
+#reg_reset:hover, #reg_submit:hover,
+#Info_reset:hover, #Info_submit:hover{
+    cursor: pointer;
+}
+.fileContainer{margin: 15px 0px;}
+/* 이미지 업로드 끝 */
+
+/* 퀵메뉴 시작 */
+.side_quick{
+    position: fixed;
+    right: 0;
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #778899;
+}
+@media screen and (max-width:800px){
+    .side_quick{
+        display: none;
+    }
+}
+.side_quick > h2,
+.side_quick > p{
+    margin: 0px 10px;
+}
+.quickmenu_tit{
+    background: #778899;
+    color: white;
+    line-height: 36px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 12px;
+    width: 120px;
+    margin-top: 10px;
+}
+#Info_reset,
+#Info_submit{
+    border: 1px solid #c4c4c4;
+    width: 120px;
+    line-height: 30px;
+    color: #778899;
+}
+.quick_top{margin-top: 10px;}
+.quick_top, 
+.quick_down{
+    border: 1px solid #c4c4c4;
+    width: 120px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+/* 퀵메뉴 끝 */
+
+.register_input > label{
+    padding: 5px;
+    margin-top: 10px;
+}
+.register_input > input{
+    margin: 0px 60px 0px 30px;
+}
+#mokcha, #book_sogea{
+    margin: 0px 60px 0px 30px;
+    resize: vertical;
+    height: 180px;
+}
+#genre, #publication_date{
+    margin: 0px 0px 0px 20px;
+    height: 38.89px;
+    width: 180px;
+}
+.form_inline{margin-top: 10px;}
+.form_inline {height: 80px;}
+.form_inline-2{margin-left: 40px;}
+
+.star{color: tomato;}
+
+.register_input > input, 
+#publication_date, 
+#book_sogea, 
+#mokcha,
+#genre{
+    padding: 10px 15px 10px 10px;
+    border: 1px solid #ccc;
+}
+
+.register_input > input:focus, 
+#genre:focus, 
+#mokcha:focus, 
+#book_sogea:focus,
+#publication_date:focus{
+    outline:none;
+    border:1px solid #778899;
+}
+
+#reg_reset,
+#reg_submit{
+    margin-top: 20px;
+    background-color: #c4c4c4;
+    color: white;
+    padding: 10px 15px 10px 10px;
+    border-radius: 3px;
+}
+
+#reg_reset{margin: 20px 0px 0px 30px;}
+#reg_submit{margin: 20px 50px 0px -20px;}
