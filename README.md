@@ -58,11 +58,12 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 ```json
 1. user_id // PK
 2. user_name
-3. user_password
-4. user_phone
-5. user_address
-6. user_bank
-7. user_account
+3. user_email
+4. user_password
+5. user_phone
+6. user_address
+7. user_bank
+8. user_bank_account
 ```
 
 ### 1.2. 관리자
