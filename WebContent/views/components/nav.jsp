@@ -28,11 +28,11 @@
             <summary class="nav_menu_summary">도서</summary>
             <section class="nav_menu_linkers">
             	<!-- kmhyeon -->
-                <a href="new_book_list">책 리스트</a>
-                <a href="new_book_read">책 디테일</a>
+                <a href="new_book_list.jsp">책 리스트</a>
+                <a href="new_book_read.jsp">책 디테일</a>
                 <!-- sunsetkk -->
-                <a href="new_book_add">책 등록하기</a>
-                <a href="new_book_edit">책 수정하기</a>
+                <a href="new_book_add.jsp">책 등록하기</a>
+                <a href="new_book_edit.jsp">책 수정하기</a>
             </section>
         </details>
         <details class="nav_menu_details">
