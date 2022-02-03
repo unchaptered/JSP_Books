@@ -41,7 +41,7 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 
 ### 전체 구조
 
-```json
+
 ┌ 유저
 ├ 관리자
 ├ 게시글
@@ -51,45 +51,45 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
   └ 신규 도서 - 장르, 발행국가
   └ 중고도서
   └ 음반
-```
+
 
 ### 1.1. 유저
 
-```json
+
 1. user_id // PK
-2. user_name
-3. user_email
+2. user_email
+3. user_name
 4. user_password
 5. user_phone
 6. user_address
 7. user_bank
 8. user_bank_account
-```
+
 
 ### 1.2. 관리자
 
-```json
+
 1. admin_id // PK
 2. admin_name
 3. admin_password
 4. admin_authorized
 5. admin_expired
-```
+
 
 ### 2. 게시글
 
-```json
+
 1. post_id
 2. post_title
 3. post_text
 4. post_owner
 5. post_created
 6. post_viewed
-```
+
 
 #### 2.1. 이벤트
 
-```json
+
 1. event_id
 2. event_started
 3. event_ended
@@ -97,26 +97,26 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 5. event_image_detail <<>>
 6. event_info
 7. post_id // FK
-```
+
 
 #### 2.2. 공지사항
 
-```json
+
 1. notice_id
 2. notice_files
 3. post_id // FK
-```
+
 
 ### 3. 상품
 
-```json
+
 1. product_id // PK
 2. product_sort
-```
+
 
 #### 3.1. 신규 도서
 
-```json
+
 1. new_book_id // PK
 2. new_book_title
 3. new_book_subtitle
@@ -132,25 +132,25 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 13. new_book_genre // FK
 14. new_book_country // FK
 15. product_id // FK
-```
+
 
 ### 3.1.1. 도서 > 장르
 
-```json
+
 1. genre_id // PK
 2. genre_name
-```
+
 
 ### 3.1.2. 도서 > 발행국가
 
-```json
+
 1. country_id // PK
 2. country_name
-```
+
 
 #### 3.2. 중고 도서
 
-```json
+
 1. old_book_id // PK
 2. old_book_one_mount // 재고 10% ~ 50% 까지
 3. old_book_two_mount
@@ -159,11 +159,11 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 6. old_book_five_mount
 7. new_book_id  // FK
 8. product_id // FKK
-```
+
 
 #### 3.2 음반
 
-```json
+
 1. album_id // PK
 2. album_title
 3. album_title_sing
@@ -171,7 +171,7 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 5. album_price
 6. album_relaese
 7. product_id // FK
-```
+
 
 
 
