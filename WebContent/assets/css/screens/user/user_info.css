@@ -1,0 +1,412 @@
+/* 저자 : 고결 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.notice_detail{
+    width: 1070px;
+    margin: 0 auto;
+}
+.title{
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    font-weight: normal;
+    margin: 50px 0px 40px 0px;
+    border-bottom:2px solid #e5e5e5;
+    padding: 20px 0;
+    line-height: 10px;
+    align-items: center;
+}
+/*  */
+.detail_title{
+    position: relative;
+    display: inline;
+    font-size: 24px;
+    padding: 20px;
+    color: #545861;
+    float: left;
+    width: 100%;
+    top: -40px;
+    border-bottom: 2px solid #e5e5e5;
+    
+}
+.detail_sub{
+    clear: both;
+    float: left;
+    border-top: 1px solid #f1f1f1;
+    /* border-bottom: 1px solid #f1f1f1; */
+    background-color: #f9f9f9;
+    width: 100%;
+    font-size: 14px;
+}
+.sub{
+    display: inline-block;
+    padding: 12px 35px 12px 22px;
+}
+.sub p{
+    float: left;
+    text-align: right;
+    color: #545861;
+    font-weight: bold;
+}
+.sub span{
+    float: left;
+    padding-left: 20px;
+    color: #545861;
+}
+
+.detail_content{
+    clear: both;
+    float: left;
+    width: 100%;
+    min-height: 200px;
+    padding: 30px 20px;
+    border-bottom: 1px solid#e5e5e5;
+    font-size: 16px;
+    color: #333333;
+    word-break: break-all;
+}
+.content_txt{
+    white-space: pre-line;
+}
+.content_txt p{
+    word-break: break-all;
+    line-height: 30px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+/* 이전, 다음 버튼 */
+.notice_detail_nav{
+    display: inline-block;
+    padding : 13px 0;
+    width: 100%;
+    /* border-top: 1px solid #f1f1f1; */
+    /* border-bottom: 1px solid #f1f1f1; */
+    margin-top: 20px;
+}
+
+.notice_prev{
+    float: left;
+    position: relative;
+    width: 40%;
+}
+.notice_next{
+    float: right;
+    position: relative;
+    text-align: right;
+    width: 40%;
+}
+.notice_detail_nav a{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    color: #545861;
+}
+.notice_detail_nav p{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* 목록보기 버튼 */
+.toNotice{
+    text-align: center;
+}
+.viewList{
+    position: relative;
+    top: 50px;
+    background-color: #545861;
+    color: #fff;
+    padding: 7px 13px;
+    font-size: 16px;
+}
+.user_info_container_wrap {
+    min-height:calc(100vh - 86px);
+}
+.user_info_container_wrap  .userinfo_table{
+    position: relative;
+    top: -50px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.user_info_container_wrap  tbody{
+    display: table-row-group;
+    vertical-align: middle;
+}
+.user_info_container_wrap  tr{
+    display: table-row;
+}
+.user_info_container_wrap  .userinfo_table th{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    padding: 14px 30px;
+    font-size: 14px;
+    top: 5px;
+}
+.user_info_container_wrap  .info_user_email{
+    color: #666;
+}
+.user_info_container_wrap  .user_email_text{
+    margin-right: 1em;
+    font-weight: 400;
+    margin-left: 15px;
+    font-size: 14px;
+}
+.user_info_container_wrap .user_email_btn{
+    border-color: #bcbfc6;
+    color: #777;
+    background-color: #fafbf6;
+    border: 1px solid #bcbfc6;
+    border-radius: 2px;
+    font-size: 12px;
+    height: 22px;
+}
+.user_info_container_wrap .user_email_btn:hover{
+    border: 1px solid #36f;
+}
+.user_info_container_wrap .info_user_name{
+    color: #666;
+}
+.user_info_container_wrap .user_name_text{
+    margin-right: 1em;
+    font-weight: 400;
+    margin-left: 15px;
+    font-size: 15px;
+}
+.user_info_container_wrap .user_name_btn{
+    border-color: #bcbfc6;
+    color: #777;
+    background-color: #fafbf6;
+    border: 1px solid #bcbfc6;
+    border-radius: 2px;
+    font-size: 12px;
+    height: 22px;
+}
+.user_info_container_wrap .user_name_btn:hover{
+    border: 1px solid #36f;
+}
+.user_info_container_wrap .info_user_phone{
+    color: #666;
+}
+.user_info_container_wrap .user_phone_text{
+    margin-right: 1em;
+    font-weight: 400;
+    margin-left: 15px;
+    font-size: 14px;
+}
+.user_info_container_wrap .user_phone_btn{
+    border-color: #bcbfc6;
+    color: #777;
+    background-color: #fafbf6;
+    border: 1px solid #bcbfc6;
+    border-radius: 2px;
+    font-size: 12px;
+    height: 22px;
+}
+.user_info_container_wrap .user_phone_btn:hover{
+    border: 1px solid #36f;
+}
+
+.user_info_container_wrap .user_info_pw_table{
+    box-sizing: border-box;
+    display: table;
+}
+.user_info_container_wrap .userinfo_table td{
+    padding: 14px 30px;
+}
+.user_info_container_wrap .userinfo_table .info_user_pw th{
+    border-bottom: 0;
+    font-weight: normal;
+    padding: 5px 6px 11px 0;
+    white-space: nowrap;
+    width: 1%;
+    margin-right: 1em;
+    font-weight: 400;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #666;
+    top: -4px;
+    
+}
+.user_info_container_wrap .userinfo_table .info_user_pw td{
+    border-left: 0;
+    border-bottom: 0;
+    vertical-align: top;
+    padding: 0 0 11px 0;
+}
+.user_info_container_wrap .input_space{
+    display: block;
+    padding: 0;
+    font-size: 12px;
+    line-height: 18px;
+    cursor: default;
+}
+.user_info_container_wrap .userpw_text{
+    margin-top: 6px;
+    padding: 0;
+    font-size: 13px;
+    line-height: 18px;
+    cursor: default;
+}
+.user_info_container_wrap input[type=password]{
+    border: 1px solid #e1e2e3;
+    border-radius: 2px;
+    height: 25px;
+}
+
+.user_info_container_wrap .user_info_pw_table input[type=password]:focus{
+    outline: 1px solid #36f;
+}
+.user_info_container_wrap .info_userpwre_space1{
+    margin-top: 6px;
+    color: #969696;
+    display: table;
+}
+.user_info_container_wrap .info_userpwre_space1 span{
+    display: table-cell;
+}
+
+.user_info_container_wrap .icon_cross{
+    display: inline-block;
+    background:url(../images/icon-cross-gray.png) no-repeat;
+    width: 11px;
+    height: 11px;
+    margin-top: -3px;
+    margin-right: 5px;
+    background-size: 11px 11px;
+    vertical-align: middle;
+}
+.user_info_container_wrap .userpwre_text{
+    margin-top: 6px;
+    padding: 0;
+    font-size: 13px;
+    line-height: 18px;
+    cursor: default;
+}
+.user_info_container_wrap .submit_btn{
+    position: absolute;
+    right: 20%;
+    width: 100px;
+    height: 54px;
+    border: 0;
+    border-radius: 27px;
+    background-color: #122236;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+}
+.user_info_container_wrap .userinfo_table .info_user_addr th{
+    border-bottom: 0;
+    font-weight: normal;
+    padding: 5px 6px 11px 0;
+    white-space: nowrap;
+    width: 1%;
+    margin-right: 1em;
+    font-weight: 400;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #666;
+    top: -2px;
+}
+.user_info_container_wrap .userinfo_table .info_user_addr td{
+    border-left: 0;
+    border-bottom: 0;
+    vertical-align: top;
+    padding: 0 0 11px 0;
+}
+.user_info_container_wrap input[type=text]{
+    border: 1px solid #e1e2e3;
+    border-radius: 2px;
+    height: 25px;
+}
+.user_info_container_wrap input[type=text]:focus{
+    outline: 1px solid #36f;
+}
+.user_info_container_wrap .user_addr_btn{
+    border-color: #bcbfc6;
+    color: #777;
+    background-color: #fafbf6;
+    border: 1px solid #bcbfc6;
+    border-radius: 2px;
+    font-size: 12px;
+    height: 25px;
+    margin-left: 21px;
+}
+.user_info_container_wrap .user_addr_btn:hover{
+    border: 1px solid #36f;
+}
+.user_info_container_wrap .info_useraddr{
+    width: 300px;
+}
+.user_info_container_wrap .info_useraddr_num{
+    width: 191px;
+}
+.user_info_container_wrap .userinfo_table .info_user_bank li{
+    font-weight: normal;
+    padding: 5px 6px 11px 0;
+    white-space: nowrap;
+    width: 1%;
+    margin-right: 1em;
+    font-weight: 430;
+    margin-left: 5px;
+    font-size: 14px;
+    color: #666;
+    top: -2px;
+    list-style: none;
+}
+.user_info_container_wrap .bank{
+    float: left;
+}
+.user_info_container_wrap .userinfo_table .info_user_bank label{
+    position: relative;
+    top: 2px;
+    margin-left: 5px;
+    text-align: center;
+    align-items: center;
+}
+.user_info_container_wrap .userinfo_table .info_user_bank label .nh{
+    position: relative;
+    left: 35px;
+}
+.user_info_container_wrap .userinfo_table .user_info_bank_table th{
+    border-bottom: 0;
+    font-weight: normal;
+    padding: 5px 6px 11px 0;
+    white-space: nowrap;
+    margin-right: 1em;
+    width: 1%;
+    font-weight: 400;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #666;
+
+}
+.user_info_container_wrap .user_info_bank_table td{
+    border-left: 0;
+    border-bottom: 0;
+    vertical-align: top;
+    padding: 0 0 11px 0;
+}
+.user_info_container_wrap .user_info_bank_table td input{
+    width: 300px;
+    position: relative;
+    top: 7px;
+    
+}
+
+
+
