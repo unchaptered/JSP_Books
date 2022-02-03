@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 공지사항 작성 </title>
+<title> 공지사항 수정 </title>
 <!-- 공용 css -->
 <link rel="stylesheet" href="assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
@@ -17,7 +17,7 @@
 	<main id="main">
         <section class="main_content">
             <div class="notice_write">
-                <strong class="title">공지사항 작성</strong>
+                <strong class="title">공지사항 수정</strong>
                 <!-- 폼 시작 -->
                 <form action="./notice_list.jsp" name="noticeWriteForm" method="post" onsubmit="return sendit()" enctype="multipart/form-data">
                     <div>
