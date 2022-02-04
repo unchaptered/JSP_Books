@@ -59,6 +59,12 @@
 .nav_column:nth-child(1) {
     justify-content: flex-start;
 }
+.nav_column:nth-child(1) > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
 .nav_column:nth-child(2) {
     justify-content: center;
 }
