@@ -13,7 +13,7 @@
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="views/components/nav.jsp" %>
 	
-	<input type="button" value="팝업창 오픈" id="myBtn"/>
+	<input style="margin-top:200px"type="button" value="팝업창 오픈" id="myBtn"/>
     <div class="login_wrap">
         <div class="login_container" style="overflow: auto;">
             <div class="login_header">
