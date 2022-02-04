@@ -69,7 +69,7 @@
             </div>
         </div>
     </div>
-	
+	</div>
 	<!-- 경로 수정하셔야 합니다. -->	
 	<%@ include file="views/components/footer.jsp" %>
 </body>
