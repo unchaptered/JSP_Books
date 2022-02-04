@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 이벤트 작성 </title>
+<title> 이벤트 수정 </title>
 <!-- 공용 css -->
 <link rel="stylesheet" href="assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
@@ -18,7 +18,7 @@
         <section class="main_content">
             <div class="event_write">
                 <!-- 타이틀 -->
-                <strong class="title">이벤트 작성</strong></a>
+                <strong class="title">이벤트 수정</strong></a>
                 <!-- 폼 시작 -->
                 <form action="./event_list.jsp" name="eventWriteForm" method="post" onsubmit="return sendit()">
                     <div class="goList_div">
@@ -73,4 +73,5 @@
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
 <script src="assets/js/event_write.js"></script>
+
 </html>

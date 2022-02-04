@@ -1,23 +1,30 @@
 /* 저자 : carpriceksy */
+
 @import url(./event_read.css);
 
 /* 이벤트 제목 */
-.goList{
-    float: right;
-    position: relative;
-    top: 63px;
-    right: 20px;
-    padding: 8px 20px;
-    background-color: #3b3b3b;
-    color: #fff;
-    font-size: 15px;
-}
 .title{
     clear: both;
 }
+
+/* 목록보기 버튼 */
+.goList_div{
+    text-align: right;
+    margin-top: -15px;
+}
+.goList{
+    margin-right: 20px;
+    padding: 10px 20px;
+    border: 1px solid #cfcfcf;
+    color: #3b3b3b;
+    font-size: 15px;
+}
+
 /* 입력 항목 */
-form>p:first-child{
+
+.must{
     color: #545861af;
+    padding-left: 20px;
 }
 .redStar{
     color: red;
@@ -32,7 +39,7 @@ form>p:first-child{
     width: 100%;
 }
 .write_content{
-    margin: 10px 0;
+    margin: 15px 0;
 }
 .date_start{
     display: inline-block;
@@ -71,11 +78,14 @@ input[type="text"]{
     padding: 0 20px;
     height: 45px;
 }
+textarea:focus{
+    outline: none;
+}
 
 /* 이벤트 배너 등록 */
 .fileBtn{
     text-align: center;
-    padding: 25px;
+    padding: 80px 0 20px 0;
     border-bottom: 1px solid #cfcfcf;
 }
 input[type="file"]{
@@ -91,7 +101,7 @@ input[type="file"]{
     cursor: pointer;
 }
 #showFileName{
-    margin: 15px;
+    margin: 15px 0 0 0;
 }
 
 #updateBtn_img{
@@ -114,7 +124,7 @@ input[type="file"]{
 
 }
 /* 이벤트 상세 설명 */
-#event-textarea{
+#eTextarea{
     resize: none;
     width: 93%;
     height: 200px;
@@ -126,36 +136,7 @@ input[type="file"]{
     padding: 20px;
 }
 
-/* 알림 */
-.inform{
-    margin-top: 20px;
-}
-
-/* 상품 등록 버튼 */
-.uploadEproduct{
-    text-align: center;
-    margin-top: 50px;
-}
-#uploadBtn{
-    background-color: #333;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-/* 상품 삭제 버튼 */
-.deleteBtn{
-    margin-top: 15px;
-    background-color: #686868e7;
-    color: #fff;
-    font-weight: bold;
-    padding: 6px 10px;
-    width: 90px;
-    text-align: center;
-    font-size: 15px;
-}
-
-/* 등록 */
+/* 이벤트 등록 버튼*/
 .boardBtn{
     text-align: center;
     margin-top: 50px;
@@ -163,10 +144,41 @@ input[type="file"]{
 input[type="submit"]{
     font-weight: bold;
     color: #fff;
-    background-color: #ec3440e7;
+    background-color: #3b3b3b;
     font-size: 18px;
     width: 100px;
     height: 40px;
     cursor: pointer;
     border: none;
+}
+
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    
+}
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    .date_start, .date_end{
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .detail_title{
+        text-align: left;
+    }
+    .write_content{
+        text-align: center;
+    }
+    #input-title, #eTextarea, #input-inform{
+        left: 0;
+    }
 }

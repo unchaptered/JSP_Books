@@ -12,7 +12,7 @@
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="views/components/nav.jsp" %>
-	<input type="button" value="모달창 열기" id="myBtn">
+	<input style="margin-top: 200px;" type="button" value="모달창 열기" id="myBtn">
     <div class="join_wrap">
         <div class="join_container">
             <div class="join_header">

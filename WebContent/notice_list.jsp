@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 공지사항 </title>
+<title> 공지사항 리스트</title>
 <!-- 공용 css -->
 <link rel="stylesheet" href="assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
@@ -145,8 +145,7 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td class="notice_title"><a
-                                        href="./termsOfUse.jsp">이용약관</a>
+                                <td class="notice_title"><a href="./termsOfUse.jsp">이용약관</a>
                                 </td>
                                 <td>작성자</td>
                                 <td>2012.1.2</td>
@@ -154,8 +153,7 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td class="notice_title"><a
-                                        href="./privacyPolicy.jsp">개인정보 처리방침</a>
+                                <td class="notice_title"><a href="./privacyPolicy.jsp">개인정보 처리방침</a>
                                 </td>
                                 <td>작성자</td>
                                 <td>2012.1.2</td>
@@ -163,6 +161,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <a href="notice_write.jsp" class="createNotice">새 공지 등록</a>
                     <!-- 페이지 버튼 -->
                     <div class="page">
                         <ul>

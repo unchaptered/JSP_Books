@@ -1,8 +1,5 @@
 /* 저자 : carpriceksy */
-#main {
-    padding-top: calc(86px);
-    /* nav 50px + 추가여백 20px */
-}
+
 .main_content {
     width: 1100px;
     height: auto;
@@ -14,7 +11,7 @@
     display: block;
     text-align: center;
     font-weight: normal;
-    margin: 50px 0px 40px 0px;
+    margin: 80px 0px 40px 0px;
     border-bottom:2px solid #e5e5e5;
     padding: 20px 0;
 }
@@ -31,7 +28,7 @@ ul, li{
 .top_title{
     border-bottom: 1px solid #e5e5e5;
     padding: 10px 8px;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 2%;
     font-size: 20px;
 }
@@ -73,60 +70,29 @@ ul, li{
     height: 42px;
 }
 
-/* book_cover.css */
-.content__grid{
-    display: grid;
-    gap: 20px;
-    grid-template: repeat(1,1fr)/ repeat(12, 1fr);
-}
-.content__container-3{
-    grid-column: span 3;
-}
-
-.productBox_area{
-    margin-top: 5%;
-    margin-bottom: -5%;
-}
-.productBox{
+/* 수정, 삭제 버튼 */
+.eventReadBtn{
     text-align: center;
 }
-.productBox_img{
-    width: 200px;
-    height: 300px;
-    margin: 0 auto;
-}
-.productBox_txt{
-    padding: 20px;
-    font-size: 14px;
-}
-.productBox_txt strong{
+.eventReadBtn .readBtn{
+    padding: 10px 20px;
+    background-color: #3b3b3b;
+    color: #fff;
     font-size: 16px;
+    font-weight: bold;
+    margin: 20px 5px;
 }
-.publisher_info{
-    margin: 20px 0px 8px 0px;
-    color: #2a2a2a;
-    font-size: 13px;
+
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    
 }
-.productBox_txt span{
-    display: inline-block;
-    padding: 0 5px;
-    line-height: 12px;
-}
-.author, .price{
-    border-right: 1px solid #c7c7c7;
-}
-.publication, .point{
-    position: relative;
-    right: 3px;
-}
-.sell_info{
-    position: relative;
-    right: 6px;
-}
-.price{
-    color: #df434d;
-}
-.point{
-    color: #2277c7;
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
 
 }

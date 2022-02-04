@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 이벤트 </title>
+<title> 이벤트 리스트</title>
 <!-- 공용 css -->
 <link rel="stylesheet" href="assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
@@ -24,9 +24,9 @@
 						<!-- 폼 시작 -->
 						<form action="./event_list.jsp" name="eventForm" method="get" onsubmit="return sendit()">
 							<!-- 이벤트 필터 -->
-							<div class="event_filter">
+							<!-- <div class="event_filter"> -->
 								<!-- 필터 구분 -->
-								<div class="event_tabBox">
+								<!-- <div class="event_tabBox">
 									<ul>
 										<li id="category" class="category tabBox on" onclick="filter_click1(this)">
 											<p>카테고리별 이벤트 찾기</p>
@@ -35,12 +35,12 @@
 											<p>혜택별 이벤트 찾기</p>
 										</li>
 									</ul>
-									
-								</div>
+	
+								</div> -->
 								<!-- 필터 메뉴 -->
-								<div class="event_tabMenu">
+								<!-- <div class="event_tabMenu"> -->
 									<!-- 카테고리별 이벤트 찾기 -->
-									<div class="category tabMenu on">
+									<!-- <div class="category tabMenu on">
 										<div class="tabMenu_1">
 											<ul>
 												<li>
@@ -57,9 +57,9 @@
 												</li>
 											</ul>
 										</div>
-									</div>
+									</div> -->
 									<!-- 혜택별 이벤트 찾기 -->
-									<div class="benefit tabMenu">
+									<!-- <div class="benefit tabMenu">
 										<div class="tabMenu_1">
 											<ul>
 												<li>
@@ -75,23 +75,26 @@
 											<ul>
 												<li>
 													<a href="#"><span>1</span></a>
-													
+	
 												</li>
 											</ul>
 										</div>
-									</div>
-								</div>
-							</div>
+									</div> -->
+								<!-- </div> -->
+							<!-- </div> -->
 							<!-- 검색창 -->
 							<div class="event_search">
 								<input type="text" name="search" id="e_search" placeholder="검색어를 입력해주세요.">
 								<input type="submit" id="searchBtn" onsubmit="sendit()">
 							</div>
+							<div class="createEvent_div">
+								<a href="./event_write.jsp" class="createEvent">새 이벤트 등록</a>
+							</div>
 							<!-- 이벤트 박스 -->
 							<div class="eventBox_area content__grid">
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -104,7 +107,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -117,7 +120,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -130,7 +133,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -143,7 +146,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -156,7 +159,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -169,7 +172,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -182,7 +185,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -195,7 +198,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+										<img src="/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
