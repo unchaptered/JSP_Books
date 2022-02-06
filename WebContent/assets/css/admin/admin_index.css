@@ -1,0 +1,253 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+.container{
+    display:grid;
+   
+    grid-template-areas:
+        "header header header"
+        "   a    main    b   "
+        "   .     .      .   "
+        "footer footer footer";
+    
+}
+
+.side_bar_a{
+    grid-area: a;
+    background-color: rgb(53,53,53);
+    width:200px;
+    height:1300px;
+    margin-left:0;
+}
+
+.bar_a_container1{
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+}
+
+.bar_a_container2{
+    margin-top:50px;
+}
+
+
+.side_bar_a h4{
+    text-align: center;
+    /* border: 1px solid red; */
+    height:65px;
+    width:200px;
+}
+
+.side_bar_a h4{
+    text-align: center;
+    /* border: 1px solid red; */
+    height:65px;
+    width:200px;
+}
+
+
+.side_bar_a h5{
+    text-align: center;
+    /* border: 1px solid red; */
+    height:65px;
+    width:200px;
+}
+
+
+.index_header{
+    grid-area: header;
+    border:1px solid red;
+    width:1522px;
+    height:70px;
+
+}
+#main{
+    position:absolute;
+    background-color: #f5f4f0;
+    border:1px solid green;
+    width:961px;
+    height:1300px;
+    z-index:1;
+    top:70px;
+    left:200px;
+}
+
+.post_container{
+    
+    position:absolute;
+   
+    border:1px solid green;
+    width:960px;
+    height:520px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 15px;
+    z-index:2;
+  
+
+
+}
+
+.main .post .post_container div{
+    
+    border:1px solid blue;
+    background-color: white;
+    width:220px;
+    height: 460px;
+    z-index:3;
+}
+
+.side_bar_b{
+    background-color: #f5f4f0;
+    grid-area: b;
+    margin-left:960px;
+    border:2px solid purple;
+    width:360px;
+    height:1300px;
+}
+h4{
+    color:white;
+}
+.side_container div{
+    margin: 10px 10px;
+}
+.side_container .box1{
+    background-color: rgb(53,53,53);
+    width:335px;
+    height:400px;
+}
+
+.side_container .box2{
+    background-color: rgb(53,53,53);
+    width:335px;
+    height:150px;
+}
+
+.side_container .box3{
+    background-color: rgb(53,53,53);
+    width:335px;
+    height:150px;
+}
+
+.side_container .box4{
+    background-color: rgb(53,53,53);
+    width:335px;
+    height:150px;
+}
+
+.side_container .box5{
+    background-color: rgb(53,53,53);
+    width:335px;
+    height:380px;
+}
+
+
+.register_cnt {
+    position:relative;
+    padding:0 ;
+    margin-top:550px;
+    border: 1px solid green;
+    width:960px;
+    height:180px;
+    z-index: 3;
+}
+
+.register_cnt .cnt_header{
+    margin-left:10px;
+    margin-right:20px;
+    background-color: white;
+    width:930px;
+    height:50px;
+    z-index: 3;
+}
+
+.register_cnt .cnt_boxes{
+    margin-left:10px;
+    margin-right:20px;
+    margin-top:2px;
+    background-color: white;
+    width:930px;
+    height:100px;
+    z-index: 3;
+}
+
+.statistics{
+    position:relative;
+    padding:0 ;
+    margin-top:30px;
+    border: 1px solid green;
+    width:960px;
+    height:535px;
+    z-index: 3;
+}
+.statistics_header{
+    margin-left:10px;
+    margin-right:20px;
+    background-color: white;
+    width:930px;
+    height:30px;
+    z-index: 3;
+    
+}
+.tab_container{
+    margin-left:10px;
+    margin-right:20px;
+    display: flex;
+
+}
+
+.tab_container div{
+    margin-top:20px;
+    width:232.5px;
+    height:50px;
+    border: 1px solid black;
+}
+
+.tab_container_middle{
+    padding-top:15px;
+    border: 1px solid red;
+    margin-left:10px;
+    margin-right:20px;
+    display: flex;
+    justify-content: flex-start;
+    height:50px;
+    
+
+}
+
+.tab_container_middle div{
+  
+    width:100px;
+    height:28px;
+    border: 1px solid black;
+}
+
+.container_statistics{
+    display:flex;
+ 
+    margin-left:10px;
+    margin-right:20px;
+    border:1px solid black;
+    width:930px;
+    height:375px;
+    justify-content: space-between;
+
+}
+
+.statistics_box1{
+    width:450px;
+    height: 370px;
+    background-color:white;
+}
+
+
+.wrapper{
+    width: 20px;
+    height: 20px;
+    background-image: url(./book.png);
+}
+
