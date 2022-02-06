@@ -116,8 +116,8 @@
     margin-top: 11px;
 }
 .pw_find_wrap .user_info{
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 14px !important;
+    font-weight: 400 !important;
     
 }
 .pw_find_wrap .input_name_find{

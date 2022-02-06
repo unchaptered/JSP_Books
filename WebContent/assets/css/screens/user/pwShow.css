@@ -114,16 +114,16 @@
 }
 
 .pw_show_wrap .user_info{
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 14px !important;
+    font-weight: 400 !important;
     
 }
 .pw_show_wrap .input_pw_show{
     margin-top: 5px;
 }
 .pw_show_wrap .input_pw_show p{
-    color: #cacaca;
-    font-size: 11px;
+    color: #cacaca !important;
+    font-size: 11px !important;
 }
 .pw_show_wrap .pwre_show_pw_inner{
     margin-top: 11px;
@@ -172,9 +172,13 @@
     color: #fff;
     cursor: pointer;
 }
+.pw_show_btn:hover{
+    color: #4346f3;
+}
 .pw_show_wrap .buttons a {
     text-decoration: none;
     color: #fff;
+    z-index: 10;
 }
 .pw_show_wrap,.buttons a:focus{
     text-decoration: none;
