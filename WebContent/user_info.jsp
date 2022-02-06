@@ -14,60 +14,6 @@
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="views/components/nav.jsp" %>
-	
-	 <!-- nav 는 z-index 99 -->
-<nav id="nav">
-    <!-- nav-zier 는 padding 0 30px -->
-    <section id="nav-sizer">
-        <!-- nav_left -->
-        <div>
-            <svg id="nav_menu_btn" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 nav_svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-        </div>
-        <!-- nav_center -->
-        <div>
-            <a class="nav_logo">Books</a>
-        </div>
-        <!-- nav_right -->
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 nav_svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-            <a class="nav_linker">login</a>
-            <a class="nav_linker">join</a>
-        </div>
-    </section>
-</nav>
-<div id="nav_menu" class="nav_menu-fold">
-    <!-- nav-zier 는 padding 0 30px -->
-    <div class="nav_menu_grid">
-        <div class="nav_menu_box">
-            <h3 class="nav_menu_title">도서</h3>
-            <div class="nav_menu_link_box">
-                <a href="#" class="nav_menu_linker">> 전체 책 보기</a>
-                <a href="#" class="nav_menu_linker">> 베스트 샐러</a>
-                <a href="#" class="nav_menu_linker">> 추천 도서</a>
-                <a href="#" class="nav_menu_linker">> 신규 도서</a>
-                <a href="#" class="nav_menu_linker">> 국내 도서</a>
-                <a href="#" class="nav_menu_linker">> 해외 도서</a>
-            </div>
-        </div>
-        <div class="nav_menu_box">
-            <h3 class="nav_menu_title">중고도서</h3>
-            <div class="nav_menu_link_box">
-                <a href="#" class="nav_menu_linker">> 시/수필</a>
-                <a href="#" class="nav_menu_linker">> 에세이</a>
-                <a href="#" class="nav_menu_linker">> 자기계발</a>
-                <a href="#" class="nav_menu_linker">> 영유아 도서</a>
-                <a href="#" class="nav_menu_linker">> 국내외 소설</a>
-                <a href="#" class="nav_menu_linker">> 장르소설</a>
-            </div>
-        </div>
-        <div class="nav_menu_box">
-            <h3 class="nav_menu_title">이벤트</h3>
-        </div>
-        <div class="nav_menu_box">
-            <h3 class="nav_menu_title">공지사항</h3>
-        </div>
-    </div>
-</div>
 <!-- container -->
 <div class="user_info_container_wrap">
 <main id="main">
