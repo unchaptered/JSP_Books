@@ -27,7 +27,7 @@
                             <span>이벤트 기간 : 2021. 01. 23 ~ 2022. 11. 11</span>
                         </div>
                         <div class="event_detail_img">
-                            <img src="/img/event_banner2.png" alt="이벤트 이미지">
+                            <img src="assets/img/event_banner2.png" alt="이벤트 이미지">
                         </div>
                         <div class="event_detail_txt">
                             <p class="detail_txt">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="inform">
                             <strong>알림</strong>
-                            <img src="/img/icon_inform.png" alt="알림">
+                            <img src="assets/img/icon_inform.png" alt="알림">
                             <div class="inform_content">
                                 <p>본 이벤트는 선착순으로 진행되며 재고 소진 시 이벤트가 조기 종료될 수 있습니다.</p>
                             </div>

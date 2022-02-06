@@ -33,7 +33,7 @@
                                     <p>조회</p> <span>10000</span>
                                 </div>
                                 <div class="sub">
-                                    <p>첨부파일</p> <a href="#" download id="fileA"><img src="/img/icon_download.png" alt="파일" id="fileDownLoad"></a>
+                                    <p>첨부파일</p> <a href="#" download><span><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
                                 </div>
                             </div>
                         </div>

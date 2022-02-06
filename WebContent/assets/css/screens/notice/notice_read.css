@@ -27,8 +27,8 @@
 }
 /* 게시물 정보 바 */
 .detail_sub{
-    clear: both;
-    float: left;
+    display: inline-block;
+    text-align: left;
     border-top: 1px solid #f1f1f1;
     border-bottom: 1px solid #f1f1f1;
     background-color: #f9f9f9;
@@ -50,9 +50,6 @@
     padding-left: 20px;
     color: #545861;
 }
-#fileA{
-    padding-left: 20px;
-}
 #fileDownLoad{
     position: relative;
     top: 2px;
@@ -61,8 +58,8 @@
 
 /* 공지사항 상세 내용 */
 .detail_content{
-    clear: both;
-    float: left;
+    /* clear: both;
+    float: left; */
     width: 100%;
     min-height: 200px;
     padding: 30px 20px;
@@ -125,3 +122,51 @@
     margin: 0 10px;
 }
 
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    
+    .notice_prev{
+        margin-left: 10px;
+    }
+    .notice_next{
+        margin-right: 10px;
+    }
+}
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    .detail_title{
+    	font-size: 22px;
+        text-align: center;
+    }
+    .detail_sub{
+    	font-size: 14px;
+        text-align: center;
+    }
+    .sub{
+    	padding: 12px 10px 12px 13px;
+    }
+    .sub>span{
+    	padding-left: 10px;
+    }
+    #fileDownLoad{
+    	right: 10px;
+    }
+    .content_txt{
+    	font-size: 15px;
+    }
+    .notice_prev{
+        margin-left: 10px;
+    }
+    .notice_next{
+        margin-right: 10px;
+    }
+}

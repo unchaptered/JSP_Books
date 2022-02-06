@@ -15,9 +15,6 @@ input[type="text"],textarea{
     font-size: 15px;
     border: 1px solid #cfcfcf;
 }
-/* input[type="text"]:focus,textarea:focus{
-    outline: none;
-} */
 input[type="text"]{
     margin: 5px 0;
     padding: 0 20px;
@@ -83,9 +80,44 @@ input[type="submit"]{
 .goList{
     float: right;
     position: relative;
+    right: 30px;
     bottom: 60px;
     padding: 9px 20px;
     border: 1px solid #cfcfcf;
     color: #3b3b3b;
     font-size: 15px;
+}
+
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    .write_content{
+        text-align: center;
+    }
+    .detail_title{
+        text-align: left;
+    }
+    input[type="text"],textarea{
+        width: 93%;
+        left: 0;
+        margin: 0 auto;
+    }
+    .fileBtn{
+        padding: 0 20px;
+    }
+    .fileBtn label{
+        text-align: left;
+    }
+}
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    
 }

@@ -94,7 +94,7 @@
 							<div class="eventBox_area content__grid">
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -107,7 +107,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -120,7 +120,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -133,7 +133,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -146,7 +146,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -159,7 +159,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -172,7 +172,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -185,7 +185,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
@@ -198,7 +198,7 @@
 								</a>
 								<a href="./event_read.jsp" class="eventBox content__container-4">
 									<div class="eventBox_img">
-										<img src="/img/event_banner1.png" alt="김문정 에세이">
+										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
 									</div>
 									<div class="eventBox_txt">
 										<strong class="box_title">
