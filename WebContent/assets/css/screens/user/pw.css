@@ -49,15 +49,16 @@
     transform:translate(-50%, -50%); 
      background:#fff; border-radius:6px; }
 .pw_wrap .pw_header{
-    border-bottom: 0;
-    height: 54px;
-    padding: 16px 20px;
-    position: relative;
-    color: #333;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    word-wrap: break-word;
+    border-bottom: 0 !important;
+    height: 54px !important;
+    padding: 16px 20px !important;
+    position: relative !important;
+    color: #333 !important;
+    text-align: center !important;
+    font-size: 16px !important;
+    font-weight: 600 !important; 
+    word-wrap: break-word !important;
+
 }
 .pw_wrap .pw_header .pw_icon{
     vertical-align: middle;
