@@ -118,8 +118,9 @@
     color: #767676;
 }
 .pw_wrap .user_info{
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: none !important;
 }
 .pw_wrap .input_pw{
     margin-top: 11px;
@@ -179,6 +180,11 @@
     font-size: 14px;
     color: #36f;
     margin-top: 10px;
+    font-family: none !important;
 }
+.pw_wrap .pw_btn2:hover{
+    text-decoration: underline;
+}
+
 
 

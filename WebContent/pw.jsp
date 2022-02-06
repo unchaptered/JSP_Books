@@ -15,7 +15,7 @@
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="views/components/nav.jsp" %>
 	
-	<input type="button" id="myBtn" value="팝업창 오픈"/>
+	<input style="margin-top:200px" type="button" id="myBtn" value="팝업창 오픈"/>
     <div class="pw_wrap" >
         <div class="pw_container">
             <div class="pw_header">
