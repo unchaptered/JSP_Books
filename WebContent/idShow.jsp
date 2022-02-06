@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>idShow</title>
 <link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/screens/user/login.css">
+<link rel="stylesheet" href="assets/css/screens/user/idShow.css">
 </head>
 <body>
 	<%@ include file="views/components/nav.jsp" %>
