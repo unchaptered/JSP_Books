@@ -5,6 +5,9 @@
   border: 0;
   box-sizing: border-box;
 }
+:root{
+  --button-font-: none !important;
+}
 .login_wrap{
   font-size: 14px;
     line-height: 1.4;
@@ -20,9 +23,6 @@
     visibility:hidden;
     opacity:0;
     transition:all 0.3s ease;
-}
-:root{
-  --button-font-: none !important;
 }
 .login_wrap input,
 .login_wrap input:focus {
@@ -332,6 +332,9 @@ input[type="text"]:focus {
 }
 .addr_button:hover{
   background-color: #4346f3;
+}
+.addr_button span{
+  font-size: 13px !important;
 }
 
 .addr_input {
