@@ -2,20 +2,6 @@
 
 @import url(./notice_read.css);
 
-.goList{
-    float: right;
-    position: relative;
-    top: 65px;
-    right: 20px;
-    padding: 8px 20px;
-    background-color: #3b3b3b;
-    color: #fff;
-    font-size: 15px;
-}
-.title{
-    clear: both;
-}
-
 .detail_title{
     font-size: 20px;
 }
@@ -29,9 +15,6 @@ input[type="text"],textarea{
     font-size: 15px;
     border: 1px solid #cfcfcf;
 }
-/* input[type="text"]:focus,textarea:focus{
-    outline: none;
-} */
 input[type="text"]{
     margin: 5px 0;
     padding: 0 20px;
@@ -64,6 +47,9 @@ textarea{
     padding: 30px;
     resize: none;
 }
+textarea:focus{
+    outline: none;
+}
 
 .checkBox{
     text-align: center;
@@ -73,6 +59,8 @@ input[type="checkbox"]{
     margin: 0 3px;
     cursor: pointer;
 }
+
+/* 등록 버튼 */
 .boardBtn{
     margin: 20px 0;
     text-align: center;
@@ -86,4 +74,50 @@ input[type="submit"]{
     height: 40px;
     cursor: pointer;
     border: none;
+}
+
+/* 목록보기 버튼 */
+.goList{
+    float: right;
+    position: relative;
+    right: 30px;
+    bottom: 60px;
+    padding: 9px 20px;
+    border: 1px solid #cfcfcf;
+    color: #3b3b3b;
+    font-size: 15px;
+}
+
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    .write_content{
+        text-align: center;
+    }
+    .detail_title{
+        text-align: left;
+    }
+    input[type="text"],textarea{
+        width: 93%;
+        left: 0;
+        margin: 0 auto;
+    }
+    .fileBtn{
+        padding: 0 20px;
+    }
+    .fileBtn label{
+        text-align: left;
+    }
+}
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    
 }

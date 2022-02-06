@@ -1,0 +1,307 @@
+/* 저자 : 고결 */
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+.join_wrap{
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333333;
+    display: block;
+    width:100%;
+    height:100%; 
+    background:rgba(0,0,0,0.5);
+    position:fixed;
+    top:0; 
+    left:0; 
+    z-index:9000;
+    visibility:hidden;
+    opacity:0;
+    transition:all 0.3s ease;
+}
+.join_wrap input, input:focus{
+    outline: none !important;
+    box-shadow: none!important;
+}
+.join_wrap button{
+    overflow: visible;
+}
+
+.join_container{
+    border: 1px solid #f5f4f0;
+    position: absolute;
+    width: 400px;
+    height: 680px;
+    overflow-y: auto;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    max-height: calc(100vh - 150px);
+    transform: translate(-50%,-50%);
+    z-index: 5;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+}
+.join_wrap .join_container{ z-index:10000;   
+    position:fixed; left:50%; top:50%; 
+    transform:translate(-50%, -50%); 
+     background:#fff; border-radius:6px;}
+.join_header{
+    border-bottom: 0;
+    height: 54px;
+    padding: 16px 20px;
+    position: relative;
+    color: #333;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.join_header .join_icon{
+    vertical-align: middle;
+}
+
+.join_icon::before{
+    content: "Books";
+}
+/* .join_header .join_X a{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 15px;
+    line-height: 0;
+    cursor: pointer;
+    background: url(../images/7122430_x_icon.png) no-repeat center;
+    background-size: cover;
+    text-indent: -9999px;
+    text-decoration: none;
+    overflow: hidden;
+} */
+.join_wrap .icon button{
+    display: inline-block;
+    width: 45px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 15px;
+    line-height: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+.join_wrap .icon button>svg{
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    cursor: pointer;
+    width: 24px;
+    color: rgb(220, 220, 220);
+    /* color: #f5f4f0; */
+}
+.join_wrap .join_body{
+    padding: 20px;
+    background-color: #fff;
+}
+.join_wrap .body_text{
+    text-align: center;
+    word-break: break-word;
+    margin-top: 24px;
+    margin-bottom: 40px;
+}
+
+.join_wrap .body_text h2{
+    line-height: 1.54;
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+}
+.join_wrap .body_input{
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.join_wrap .body_email{
+    padding-bottom: 14px;
+    position: relative;
+    color: #767676;
+    font-weight: 0;
+    font-family: none;
+    
+}
+.join_wrap .style_email{
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    right: 130px;
+    
+}
+.join_wrap label{
+    display: inline-block;
+    max-width: 100%;
+}
+.join_wrap .body_email{
+    margin-top: 11px;
+}
+.join_wrap .body_email input[type=email] {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid #e1e2e3;
+    background-color: #fff;
+    font-size: 15px;
+    color: #333;
+    appearance: none;
+    resize: none;
+}
+.join_wrap .body_email input[type=email]:focus {
+    border: 1px solid #36f;
+}
+.join_wrap .body_email input[type=email]::placeholder{
+    color: #cacaca;
+}
+.join_wrap .buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 54px;
+    border: 0;
+    border-radius: 27px;
+    background-color: #36f;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.join_wrap .email_button:hover{
+    background-color: #4346f3;
+}
+.join_wrap .body_button_or::after{
+    display: block;
+    content: "or";
+    color: #969696;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    margin: 12px auto;
+    font-family: none;
+}
+.join_wrap .body_find{
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    
+}
+.join_wrap .body_find a{
+    text-decoration: none;
+}
+.join_wrap .body_find a:hover{
+    text-decoration: underline;
+}
+.join_wrap .body_find a:active{
+    text-decoration: none;
+}
+.join_wrap .body_find a span{
+    color: #969696;
+    font-size: 13px !important;
+    font-family: none !important;
+}
+.join_wrap .body_button_next{
+    text-align: center;
+    font-weight: 500 !important;
+    color: #969696;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.join_wrap .body_button_social{
+    position: relative;
+    width: 100%;
+    height: 65px;
+    margin-top: 30px;
+}
+.join_wrap .body_button_social .social_button{
+    display: inline-block;
+    position: relative;
+}
+.join_wrap .body_input .social_button{
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 8px;
+    color: #737373;
+    border-radius: 28px;
+}
+.join_wrap .body_input .social_button .button_google{
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: absolute;
+    left: -20px;
+    background: url(../images/google.png) no-repeat center;
+    background-size: cover;
+    
+}
+
+.join_wrap .body_input .social_button .button_kakao{
+    border: 1px solid #e1e2e3;
+    background-color: #fee500;
+    left: 120px;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: absolute;
+    background: url(../images/kakao.png) no-repeat center;
+    background-size: cover;
+}
+
+.join_wrap .body_button_social .social_button{
+    position: absolute;
+    left: 28%;
+    cursor: pointer;
+} 
+.join_wrap .body_button_social .social_button .social_title{
+    position: absolute;
+    top: 62px;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+}
+.join_wrap .body_button_social .social_button .social_title:hover{
+    text-decoration: underline;
+}
+
+.join_wrap .body_button_social .social_button .social_title.google_title{
+    left: -15px;
+}
+.join_wrap .body_button_social .social_button .social_title.kakao_title{
+   left:130px;
+}
+.join_wrap .join_footer{
+    margin-top: 50px !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    color: #767676 !important;
+    font-family: none !important;
+}
+.join_wrap .join_footer a{
+    color: #3336ff !important;
+    text-decoration: underline;
+    font-size: 13px;
+}

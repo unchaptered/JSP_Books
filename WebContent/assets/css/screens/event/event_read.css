@@ -1,8 +1,5 @@
 /* 저자 : carpriceksy */
-#main {
-    padding-top: calc(86px);
-    /* nav 50px + 추가여백 20px */
-}
+
 .main_content {
     width: 1100px;
     height: auto;
@@ -14,7 +11,7 @@
     display: block;
     text-align: center;
     font-weight: normal;
-    margin: 50px 0px 40px 0px;
+    margin: 80px 0px 40px 0px;
     border-bottom:2px solid #e5e5e5;
     padding: 20px 0;
 }
@@ -23,6 +20,11 @@ ul, li{
 }
 
 /* 이벤트 상단 이미지 */
+.event_detail_img{
+    padding-top: 20px;
+    width: 100%;
+    margin:0 auto;
+}
 .event_detail_img img{
     width: 100%;
 }
@@ -31,11 +33,11 @@ ul, li{
 .top_title{
     border-bottom: 1px solid #e5e5e5;
     padding: 10px 8px;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 2%;
-    font-size: 20px;
 }
 .top_title>p{
+    font-size: 20px;
     display: inline-block;
 }
 .top_title>span{
@@ -50,7 +52,8 @@ ul, li{
 /* 이벤트 내용 */
 .event_detail_txt{
     margin-top: 40px;
-    font-size: 18px;
+    font-size: 17px;
+    padding-left: 5px;
 }
 
 /* 알림 */
@@ -67,66 +70,94 @@ ul, li{
 .inform_content{
     font-size: 15px;
     margin-top: 15px;
-    border: 1px solid #e5e5e5;
-    padding: 10px 15px;
-    line-height: 20px;
     height: 42px;
 }
-
-/* book_cover.css */
-.content__grid{
-    display: grid;
-    gap: 20px;
-    grid-template: repeat(1,1fr)/ repeat(12, 1fr);
-}
-.content__container-3{
-    grid-column: span 3;
+.inform_content>p{
+    border: 1px solid #e5e5e5;	
+    padding: 10px 15px;
 }
 
-.productBox_area{
-    margin-top: 5%;
-    margin-bottom: -5%;
-}
-.productBox{
+/* 수정, 삭제 버튼 */
+.eventReadBtn{
     text-align: center;
 }
-.productBox_img{
-    width: 200px;
-    height: 300px;
-    margin: 0 auto;
-}
-.productBox_txt{
-    padding: 20px;
-    font-size: 14px;
-}
-.productBox_txt strong{
+.eventReadBtn .readBtn{
+    padding: 10px 20px;
+    background-color: #3b3b3b;
+    color: #fff;
     font-size: 16px;
+    font-weight: bold;
+    margin: 20px 5px;
 }
-.publisher_info{
-    margin: 20px 0px 8px 0px;
-    color: #2a2a2a;
-    font-size: 13px;
-}
-.productBox_txt span{
-    display: inline-block;
-    padding: 0 5px;
-    line-height: 12px;
-}
-.author, .price{
-    border-right: 1px solid #c7c7c7;
-}
-.publication, .point{
-    position: relative;
-    right: 3px;
-}
-.sell_info{
-    position: relative;
-    right: 6px;
-}
-.price{
-    color: #df434d;
-}
-.point{
-    color: #2277c7;
 
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    .event_detail_img{
+        width: 98%;
+        margin: 0 auto;
+    }
+    .event_detail_txt{
+        width: 100%;
+        padding: 0 10px;
+    }
+    .inform>strong{
+    	padding: 0 0 -10px 10px;
+    }
+    .inform_content{
+        width: 98%;
+        margin: 0 auto;
+        margin-top: 15px;
+        padding: 10px;
+    }
+}
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    .top_title{
+        margin-top: -10px;
+    }
+    .top_title>p{
+        display: block;
+        padding: 0;
+        padding-bottom: 10px;
+        font-size: 24px;
+
+    }
+    .top_title>span{
+        display: block;
+        padding-left: 0;
+        font-size: 14px;
+    }
+    .event_detail_txt{
+        width: 100%;
+        padding: 0 10px;
+    }
+    .event_detail_txt>p{
+        font-size: 16px;
+    }
+    .event_detail_img{
+        width: 98%;
+        margin: 0 auto;
+    }
+    .inform>strong{
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+    .inform_content{
+        width: 98%;
+        margin: 0 auto;
+        margin-top: 15px;
+        padding: 10px;
+    }
+    .inform_content>p{
+        font-size: 14px;
+    }   
 }

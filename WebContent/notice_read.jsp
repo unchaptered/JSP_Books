@@ -18,7 +18,7 @@
         <section class="main_content">
             <div class="notice_detail">
                 <a href="./notice_list.jsp"><strong class="title">공지사항</strong></a>
-                <form action="./notice_list.jsp" name="event_dForm" method="get" onsubmit="">
+                <form name="noticeReadForm">
                     <div class="detail_area">
                         <div class="detail_top">
                             <strong class="detail_title">공지사항 제목</strong>
@@ -33,7 +33,7 @@
                                     <p>조회</p> <span>10000</span>
                                 </div>
                                 <div class="sub">
-                                    <p>첨부파일</p> <a href="#" download id="fileA"><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a>
+                                    <p>첨부파일</p> <a href="#" download><span><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -41,6 +41,10 @@
                             <div class="content_txt">
                                 <p>공지사항 내용입니다. </p>
                             </div>
+                        </div>
+                        <div class="noticeReadBtn">
+                            <button class="readBtn" id="noticeUpdate" formaction="notice_edit.html" formmethod="post" onclick="return updateCheck()">수정</button>
+                            <button class="readBtn" id="noticeDelete" formaction="notice_list.html" formmethod="post" onclick="return deleteCheck()">삭제</button>
                         </div>
                         <div class="notice_detail_nav">
                             <div class="notice_prev">
@@ -70,4 +74,5 @@
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
+<script src="assets/js/notice_read.js"></script>
 </html>

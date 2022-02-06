@@ -37,8 +37,146 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 3. 22년 1월 24일 ~ 26일 (3일) : 프로토 타입 제작 및 JSP로 파일 이전 준비
 4. 22년 1월 27일 ~ 
 
+## DB
 
-<nav id="nav"\>, <footer id="footer"\>, <main id="main"\> 과 같은 기본적인 
+### 전체 구조
+
+
+┌ 유저
+├ 관리자
+├ 게시글
+│ └ 이벤트
+│ └ 공지사항
+└ 상품
+  └ 신규 도서 - 장르, 발행국가
+  └ 중고도서
+  └ 음반
+
+
+### 1.1. 유저
+
+
+1. user_id // PK
+2. user_email
+3. user_name
+4. user_password
+5. user_phone
+6. user_address
+7. user_bank
+8. user_bank_account
+
+
+### 1.2. 관리자
+
+
+1. admin_id // PK
+2. admin_name
+3. admin_password
+4. admin_authorized
+5. admin_expired
+
+
+### 2. 게시글
+
+
+1. post_id
+2. post_title
+3. post_text
+4. post_owner
+5. post_created
+6. post_viewed
+
+
+#### 2.1. 이벤트
+
+
+1. event_id
+2. event_started
+3. event_ended
+4. event_image <<>>
+5. event_image_detail <<>>
+6. event_info
+7. post_id // FK
+
+
+#### 2.2. 공지사항
+
+
+1. notice_id
+2. notice_files
+3. post_id // FK
+
+
+### 3. 상품
+
+
+1. product_id // PK
+2. product_sort
+
+
+#### 3.1. 신규 도서
+
+
+1. new_book_id // PK
+2. new_book_title
+3. new_book_subtitle
+4. new_book_info
+5. new_book_info_short 
+6. new_book_imgae <<>>
+7. new_book_price
+8. new_book_writer
+9. new_book_translater
+10. new_book_published
+11. new_book_pages
+12. new_book_mount
+13. new_book_genre // FK
+14. new_book_country // FK
+15. product_id // FK
+
+
+### 3.1.1. 도서 > 장르
+
+
+1. genre_id // PK
+2. genre_name
+
+
+### 3.1.2. 도서 > 발행국가
+
+
+1. country_id // PK
+2. country_name
+
+
+#### 3.2. 중고 도서
+
+
+1. old_book_id // PK
+2. old_book_one_mount // 재고 10% ~ 50% 까지
+3. old_book_two_mount
+4. old_book_three_mount
+5. old_book_four_mount
+6. old_book_five_mount
+7. new_book_id  // FK
+8. product_id // FKK
+
+
+#### 3.2 음반
+
+
+1. album_id // PK
+2. album_title
+3. album_title_sing
+4. album_singer
+5. album_price
+6. album_relaese
+7. product_id // FK
+
+
+
+
+
+
 
 
 <hr>

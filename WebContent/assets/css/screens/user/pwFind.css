@@ -1,0 +1,180 @@
+/* 저자 : 고결 */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+.pw_find_wrap {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333333;
+    display: block;
+    width:100%;
+    height:100%; 
+    background:rgba(0,0,0,0.5);
+    position:fixed;
+    top:0; 
+    left:0; 
+    z-index:9000;
+    visibility:hidden;
+     opacity:0;
+     transition:all 0.3s ease;
+}
+.pw_find_wrap input, input:focus{
+    outline: none !important;
+    box-shadow: none!important;
+}
+.pw_find_wrap button{
+    overflow: visible;
+}
+.pw_find_wrap .pw_find_container{
+    border: 1px solid #f5f4f0;
+    position: absolute;
+    width: 400px;
+    height: 330px;
+    /* overflow-y: auto; */
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    max-height: calc(100vh - 150px);
+    transform: translate(-50%,-50%);
+    z-index: 5;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+}
+.pw_find_wrap .pw_find_container{ z-index:10000;   
+    position:fixed; left:50%; top:50%; 
+    transform:translate(-50%, -50%); 
+     background:#fff; border-radius:6px; }
+     .pw_find_wrap .pw_find_header{
+    border-bottom: 0;
+    height: 54px;
+    padding: 16px 20px;
+    position: relative;
+    color: #333;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.pw_find_wrap .pw_find_header .icon{
+    vertical-align: middle;
+}
+
+.pw_find_wrap .icon button{
+    display: inline-block;
+    width: 45px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 15px;
+    line-height: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+.pw_find_wrap .icon button+button{
+    display: inline-block;
+    width: 45px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 15px;
+    line-height: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+.pw_find_wrap svg:not(:root){
+    overflow: hidden;
+}
+.pw_find_wrap .icon button>svg{
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    cursor: pointer;
+    width: 24px;
+    color: rgb(220, 220, 220);
+   
+}
+
+.pw_find_wrap .pw_find_body_wrap{
+    padding: 10px;
+}
+.pw_find_wrap .pw_find_body_inner{
+    position: relative;
+    padding-bottom: 32px;
+    color: #767676;
+}
+.pw_find_wrap .pw_find_phone_inner{
+    margin-top: 11px;
+}
+.pw_find_wrap .user_info{
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    
+}
+.pw_find_wrap .input_name_find{
+    margin-top: 11px;
+}
+.pw_find_wrap .input_phone_find{
+    margin-top: 11px;
+}
+.pw_find_wrap input[type=text]{
+    width: 100%;
+    height: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid #e1e2e3;
+    background-color: #fff;
+    font-size: 15px;
+    color: #333;
+    appearance: none;
+    resize: none;
+}
+.pw_find_wrap input[type=text]::placeholder{
+    color: #cacaca;
+}
+.pw_find_wrap input[type=text]:focus{
+    border: 1px solid #36f;
+}
+.pw_find_wrap .pw_find_space{
+    bottom: 0;
+    margin-top: 70px;
+    font-size: 12px;
+}
+.pw_find_wrap .buttons{
+    position: absolute;
+    top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 54px;
+    border: 0;
+    border-radius: 27px;
+    background-color: #36f;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.pw_find_wrap .buttons a {
+    text-decoration: none;
+    color: #fff;
+}
+.pw_find_wrap,.buttons a:focus{
+    text-decoration: none;
+}
+.pw_find_wrap .buttons:hover{
+    background-color: #4346f3;
+}
+
+
