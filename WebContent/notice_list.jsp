@@ -42,7 +42,7 @@
                         <tbody>
                             <tr>
                                 <td class="board_num">15</td>
-                                <td class="board_tlt"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
+                                <td class="board_tlt"><a href="./notice_read.jsp">택배노조 파업으로 인한 CJ대한통운 택배 지연 공지 [알라딘교보문고인터파크]</a></td>
                                 <td class="board_writer">작성자</td>
                                 <td class="board_date">2012.1.2</td>
                                 <td class="board_hit">10000</td>
@@ -178,7 +178,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="notice_write.jsp" class="createNotice">새 공지 등록</a>
+                    <a href="notice_add.jsp" class="createNotice">새 공지 등록</a>
                     <!-- 페이지 버튼 -->
                     <div class="page">
                         <ul>

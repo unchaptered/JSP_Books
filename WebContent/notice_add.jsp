@@ -8,7 +8,7 @@
 <!-- 공용 css -->
 <link rel="stylesheet" href="assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="assets/css/screens/notice/notice_write.css">
+<link rel="stylesheet" href="assets/css/screens/notice/notice_add.css">
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
@@ -53,5 +53,5 @@
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script src="assets/js/notice_write.js"></script>
+<script src="assets/js/notice_add.js"></script>
 </html>

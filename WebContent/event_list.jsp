@@ -88,7 +88,7 @@
 								<input type="submit" id="searchBtn" onsubmit="sendit()">
 							</div>
 							<div class="createEvent_div">
-								<a href="./event_write.jsp" class="createEvent">새 이벤트 등록</a>
+								<a href="./event_add.jsp" class="createEvent">새 이벤트 등록</a>
 							</div>
 							<!-- 이벤트 박스 -->
 							<div class="eventBox_area content__grid">

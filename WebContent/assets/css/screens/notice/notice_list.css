@@ -210,6 +210,9 @@ input[type=submit]{
     	margin-bottom: 5px;
     }
     .board_tlt>a{
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow:hidden;
         display: block;
         text-align: left;
     	font-size: 18px;
