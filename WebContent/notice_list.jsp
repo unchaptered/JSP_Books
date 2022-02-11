@@ -20,6 +20,7 @@
                 <a href="./notice_list.jsp"><strong class="title">공지사항</strong></a>
                 <!-- 폼 시작 -->
                 <form action="./notice_list.jsp" name="noticeForm" method="get" onsubmit="return sendit()">
+                    <div class="board_count">총 게시물 수 : <span>15</span> / 총 페이지 수 : <span>1</span></div>
                     <table class="notice_table">
                         <colgroup>
                             <col class="col">
@@ -40,9 +41,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="board_num">15</td>
-                                <td class="board_tlt"><a href="./notice_read.jsp">택배노조 파업으로 인한 CJ대한통운 택배 지연 공지 [알라딘교보문고인터파크]</a></td>
+                            <tr class="alert">
+                                <td class="board_num">공지</td>
+                                <td class="board_tlt"><a href="./notice_read.jsp"><strong>택배노조 파업으로 인한 CJ대한통운 택배 지연 공지 [알라딘교보문고인터파크]</strong></a></td>
                                 <td class="board_writer">작성자</td>
                                 <td class="board_date">2012.1.2</td>
                                 <td class="board_hit">10000</td>

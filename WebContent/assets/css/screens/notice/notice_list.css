@@ -1,5 +1,7 @@
 /* 저자 : carpriceksy */
-
+strong{
+    font-weight: normal;
+}
 ul, li{
     list-style: none;
 }
@@ -20,6 +22,17 @@ ul, li{
 }
 
 /* 공지사항 테이블 */
+.board_count{
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #3c3c3c;
+}
+.board_count>span:first-child{
+    color: #ec343f;
+}
+.board_count>span{
+    font-weight: bold;
+}
 .notice_table{
     position: relative;
     width: 100%;
@@ -54,6 +67,11 @@ td{
     overflow: hidden;
     text-overflow: ellipsis;
     color: #333333;
+}
+.alert>.board_num{
+    text-indent: -9999px;
+    background: url(../../../img/icon_notice.png) no-repeat center center;
+    background-size: 24px;
 }
 .board_tlt{
     text-align: left;
@@ -170,6 +188,11 @@ input[type=submit]{
         width: 100%;
         height: auto;
     }
+    .board_count{
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
     /* 테이블 */
     .notice_table{
         display: block;
@@ -209,7 +232,7 @@ input[type=submit]{
     .board_tlt{
     	margin-bottom: 5px;
     }
-    .board_tlt>a{
+    .board_tlt a{
         width: 100%;
         text-overflow: ellipsis;
         overflow:hidden;
@@ -217,10 +240,22 @@ input[type=submit]{
         text-align: left;
     	font-size: 18px;
     }
-    .board_tlt>a::after{
+    .board_tlt a::after{
         content: "";
         display: table;
         clear: both;
+    }
+    .alert .board_tlt a strong{
+        position: relative;
+    }
+    .alert .board_tlt a strong::before{
+        content: "[공지]";
+        display: inline-block;
+        color: transparent;
+        text-indent: -20px;
+        padding-left: 5px;
+        background: url(../../../img/icon_notice.png) no-repeat center center;
+        background-size: 20px;
     }
     .board_writer, .board_date, .board_hit{
         display: block;
