@@ -20,13 +20,13 @@
         <section class="main-sizer">
             <section class="shop_content">
                 <h2>구매내역</h2>
-                <p><span>홍길동</span><span id="rank">(VVIP)</span><span>님의 구매내역</span></p>
+                <p><span>김사과</span><span id="rank">(VVIP)</span><span>님의 구매내역</span></p>
                 <div id="select_period">
                     <span>기간조회</span>
-                    <button type="button">1주</button>
-                    <button type="button" class="active">1개월</button>
-                    <button type="button">3개월</button>
-                    <button type="button">6개월</button>
+                    <button type="button" class="on" onclick="select_period(this)">1주</button>
+                    <button type="button" class="on active" onclick="select_period(this)">1개월</button>
+                    <button type="button" class="on" onclick="select_period(this)">3개월</button>
+                    <button type="button" class="on" onclick="select_period(this)">6개월</button>
                     <button type="button">조회</button>
                 </div>
                 <div id="notice">
@@ -90,4 +90,5 @@
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
+<script type="text/javascript" src="assets/js/shop_bills.js"></script>
 </html>

@@ -1,7 +1,11 @@
 /* 저자 : jungbc1 */
 
 .shop_content > h2{
-    margin-top: 30px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: normal;
+    margin: 80px 0px 40px 0px;
+    padding: 20px 0;
 }
 /* float 레이아웃 사용할때, footer 위로 안올라오게 */
 /* #shop::after{
