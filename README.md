@@ -56,7 +56,7 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 ### 1.1. 유저
 
 
-1. user_id // PK
+1. user_pk // PK
 2. user_email
 3. user_name
 4. user_password
@@ -69,7 +69,7 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 ### 1.2. 관리자
 
 
-1. admin_id // PK
+1. admin_pk // PK
 2. admin_name
 3. admin_password
 4. admin_authorized
@@ -79,7 +79,7 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 ### 2. 게시글
 
 
-1. post_id
+1. post_pk
 2. post_title
 3. post_text
 4. post_owner
@@ -90,34 +90,35 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 #### 2.1. 이벤트
 
 
-1. event_id
+1. event_pk
 2. event_started
 3. event_ended
 4. event_image <<>>
 5. event_image_detail <<>>
-6. event_info
-7. post_id // FK
+6. event_like
+7. post_pk // FK
 
 
 #### 2.2. 공지사항
 
 
-1. notice_id
+1. notice_pk
 2. notice_files
-3. post_id // FK
+3. notice_important
+4. post_pk // FK
 
 
 ### 3. 상품
 
 
-1. product_id // PK
+1. product_pk // PK
 2. product_sort
 
 
 #### 3.1. 신규 도서
 
 
-1. new_book_id // PK
+1. new_book_pk // PK
 2. new_book_title
 3. new_book_subtitle
 4. new_book_info
@@ -131,46 +132,46 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 12. new_book_mount
 13. new_book_genre // FK
 14. new_book_country // FK
-15. product_id // FK
+15. product_pk // FK
 
 
 ### 3.1.1. 도서 > 장르
 
 
-1. genre_id // PK
+1. genre_pk // PK
 2. genre_name
 
 
 ### 3.1.2. 도서 > 발행국가
 
 
-1. country_id // PK
+1. country_pk // PK
 2. country_name
 
 
 #### 3.2. 중고 도서
 
 
-1. old_book_id // PK
+1. old_book_pk // PK
 2. old_book_one_mount // 재고 10% ~ 50% 까지
 3. old_book_two_mount
 4. old_book_three_mount
 5. old_book_four_mount
 6. old_book_five_mount
-7. new_book_id  // FK
-8. product_id // FKK
+7. new_book_pk  // FK
+8. product_pk // FKK
 
 
 #### 3.2 음반
 
 
-1. album_id // PK
+1. album_pk // PK
 2. album_title
 3. album_title_sing
 4. album_singer
 5. album_price
 6. album_relaese
-7. product_id // FK
+7. product_pk // FK
 
 
 

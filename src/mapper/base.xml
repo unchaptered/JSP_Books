@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="User">
+	<insert id="join" parameterType="userdto">
+		INSERT INTO t_user (userid, userpw, username, usergender,
+		zipcode, addr, addrdetail, addretc) VALUES (#{userid},
+		#{userpw}, #{username}, #{usergender}, #{zipcode},
+		#{addr}, #{addrdetail}, #{addretc})
+	</insert>
+	<!-- newUser.getUserid() -->
+	<select id="login" parameterType="hashmap" resultType="userdto">
+		select * from t_user where userid=#{userid} and userpw=#{userpw}
+	</select>
+	<select id="getList" resultType="userdto">
+		select * from t_user
+	</select>
+	<select id="checkId" parameterType="string" resultType="_int">
+		select count(*) from t_user where userid=#{userid}
+	</select>
+</mapper>
