@@ -35,19 +35,20 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 1. 22년 1월 14일 (1일) : 최초 기획 회의
 2. 22년 1월 17일 ~ 21일 (5일) : 프로토 타입 제작
 3. 22년 1월 24일 ~ 26일 (3일) : 프로토 타입 제작 및 JSP로 파일 이전 준비
-4. 22년 1월 27일 ~ 
+4. 22년 1월 27일 ~ xx일 () : 이전 하고 작업
+5. 22년 2월 16일 ~ 
 
 <hr>
 
 ## Function
 
-1. 유저 CRUD
-2. 새책 CRUD
-3. 중고책 CRUD
-4. 공지사항 CRUD
-5. 이벤트 CRUD
-6. 관리자 CRUD
-7. 음반 CRUD
+1. 유저 CRUD UserDto UserController *.us
+2. 새책 CRUD BookDto NewBookController *.nb
+3. 중고책 CRUD BookDto OldBookController *.ob
+4. 공지사항 CRUD NoticeDto PostController *.po
+5. 이벤트 CRUD EventDto PostController *.po
+6. 관리자 CRUD AdminDto AdminController *.adm
+7. 음반 CRUD AlbumDto AlbumController *.al
 
 ### 기타
 
@@ -168,20 +169,15 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 
 ### 3.1.1. 도서 > 장르
 
-
 1. genre_pk // PK
 2. genre_name
 
-
 ### 3.1.2. 도서 > 발행국가
-
 
 1. country_pk // PK
 2. country_name
 
-
 #### 3.2. 중고 도서
-
 
 1. old_book_pk // PK
 2. old_book_one_mount // 재고 10% ~ 50% 까지
@@ -195,7 +191,6 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 
 #### 3.2 음반
 
-
 1. album_pk // PK
 2. album_title
 3. album_title_sing
@@ -203,12 +198,6 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 5. album_price
 6. album_relaese
 7. product_pk // FK
-
-
-
-
-
-
 
 
 <hr>
