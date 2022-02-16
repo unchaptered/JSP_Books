@@ -61,9 +61,12 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 3. user_name
 4. user_password
 5. user_phone
-6. user_address
-7. user_bank
-8. user_bank_account
+6. user_zipcode
+7. user_address
+8. user_address_detail
+9. user_address_etc
+10. user_bank
+11. user_bank_account
 
 
 ### 1.2. 관리자
