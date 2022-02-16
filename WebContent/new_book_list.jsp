@@ -9,9 +9,9 @@
 <!-- 공용 css -->
 <link rel="stylesheet" href="assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="./assets/css/new_book/index_category.css">
-<link rel="stylesheet" href="./assets/css/new_book/main_content.css">
-<link rel="stylesheet" href="./assets/css/new_book/page_basket.css">
+<link rel="stylesheet" href="./assets/css/screens/new_book/index_category.css">
+<link rel="stylesheet" href="./assets/css/screens/new_book/main_content.css">
+<link rel="stylesheet" href="./assets/css/screens/new_book/page_basket.css">
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->

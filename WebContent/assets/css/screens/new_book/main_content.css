@@ -71,7 +71,7 @@
 
 /* 베스트셀러 배경 */
 .bestseller{
-    background: url(../../img/new_book/images/bestseller_logo.png);
+    background: url(../../../img/new_book/images/bestseller_logo.png);
     background-size: 300px;
     height: 150px;
     font-size: 36px;
@@ -99,7 +99,7 @@
     float: left;
     box-sizing: border-box;
     border: none;
-    background: url(../../img/new_book/images/gs25.png) no-repeat;
+    background: url(../../../img/new_book/images/gs25.png) no-repeat;
     background-size: contain;
     min-width: 140px;
     min-height: 180px;
@@ -110,7 +110,7 @@
     .main_content > .content_container_best > .photo{
         /* width: 100%; */
         float: left;
-        background: url(../../img/new_book/images/gs25.png) contain fixed;
+        background: url(../../../img/new_book/images/gs25.png) contain fixed;
         min-width: 140px;
         min-height: 180px;
         /* width: 150px;
@@ -123,7 +123,7 @@
 .main_content > .content_container_best > .photo2{
     box-sizing: border-box;
     border: none;
-    background: url(../../img/new_book/images/house.png) no-repeat;
+    background: url(../../../img/new_book/images/house.png) no-repeat;
     background-size: contain;
     min-width: 140px;
     min-height: 180px;
@@ -136,7 +136,7 @@
     .main_content > .content_container_best > .photo2{
         /* width: 100%; */
         float: left;
-        background: url(../../img/new_book/images/gs25.png) contain fixed;
+        background: url(../../../img/new_book/images/gs25.png) contain fixed;
         min-width: 140px;
         min-height: 180px;
         /* width: 150px;
@@ -149,7 +149,7 @@
 .main_content > .content_container_best > .photo3{
         box-sizing: border-box;
         border: none;
-        background: url(../../img/new_book/images/female.png) no-repeat;
+        background: url(../../../img/new_book/images/female.png) no-repeat;
         background-size: contain;
         min-width: 140px;
         min-height: 180px;
@@ -162,7 +162,7 @@
     .main_content > .content_container_best > .photo3{
         /* width: 100%; */
         float: left;
-        background: url(../../img/new_book/images/gs25.png) contain fixed;
+        background: url(../../../img/new_book/images/gs25.png) contain fixed;
         min-width: 140px;
         min-height: 180px;
         /* width: 150px;
@@ -240,7 +240,7 @@
     /* width: 20px; */
     height: 16px;
     top : -70px;
-    background:url(../../img/new_book/images/checkboxes_checkbox_icon_2.png) no-repeat;
+    background:url(../../../img/new_book/images/checkboxes_checkbox_icon_2.png) no-repeat;
     cursor: pointer;
     
 }
