@@ -5,13 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 수정 </title>
-<!-- 공용 css -->
 <link rel="stylesheet" href="assets/css/styles.css">
-<!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="assets/css/screens/event/event_write.css">
+<link rel="stylesheet" href="assets/css/screens/event/event_add.css">
 </head>
 <body>
-	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="views/components/nav.jsp" %>
 	
 	<main id="main">
@@ -72,6 +69,6 @@
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script src="assets/js/event_write.js"></script>
+<script src="assets/js/event_add.js"></script>
 
 </html>

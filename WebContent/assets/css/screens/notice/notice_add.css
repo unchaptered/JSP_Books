@@ -1,0 +1,123 @@
+/* 저자 : carpriceksy */
+
+@import url(./notice_read.css);
+
+.detail_title{
+    font-size: 20px;
+}
+.write_content{
+    margin: 30px 0;
+}
+input[type="text"],textarea{
+    width: 93%;
+    position: relative;
+    left: 50px;
+    font-size: 15px;
+    border: 1px solid #cfcfcf;
+}
+input[type="text"]{
+    margin: 5px 0;
+    padding: 0 20px;
+    height: 45px;
+}
+
+input[type="file"]{
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    left: -9999px;
+}
+.fileBtn label{
+    border: 1px solid #cfcfcf;
+    background-color: #e5e5e5;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+.fileBtn{
+    display: inline-block;
+    margin: 0 0 20px 0;
+    padding-left: 50px;
+}
+#showFiles{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+textarea{
+    padding: 30px;
+    resize: none;
+}
+textarea:focus{
+    outline: none;
+}
+
+.checkBox{
+    text-align: center;
+    font-size: 17px;
+}
+input[type="checkbox"]{
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+/* 등록 버튼 */
+.boardBtn{
+    margin: 20px 0;
+    text-align: center;
+}
+input[type="submit"]{
+    font-weight: bold;
+    color: #fff;
+    background-color: #3b3b3b;
+    font-size: 18px;
+    width: 70px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+}
+
+/* 목록보기 버튼 */
+.goList{
+    float: right;
+    position: relative;
+    right: 30px;
+    bottom: 60px;
+    padding: 9px 20px;
+    border: 1px solid #cfcfcf;
+    color: #3b3b3b;
+    font-size: 15px;
+}
+
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    .write_content{
+        text-align: center;
+    }
+    .detail_title{
+        text-align: left;
+    }
+    input[type="text"],textarea{
+        width: 93%;
+        left: 0;
+        margin: 0 auto;
+    }
+    .fileBtn{
+        padding: 0 20px;
+    }
+    .fileBtn label{
+        text-align: left;
+    }
+}
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    
+}

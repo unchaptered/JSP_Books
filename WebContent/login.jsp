@@ -110,7 +110,7 @@
                             <label for="" class="addr_num_text user_info">주소</label>
                             <input type="text" name="addr_num"  
                             readonly placeholder="우편번호" value id="sample6_postcode">
-                            <button type="button" class="addr_button" onclick="sample6_execDaumPostcode();" value="우편번호 찾기">우편번호 찾기</button>
+                            <button type="button" class="addr_button" onclick="sample6_execDaumPostcode();" value="우편번호 찾기"><span>우편번호 찾기</span></button>
                         </div>
                         <div class="addr_input">
                             <input type="text"  readonly name="addr_input" class="addr_input_text" 

@@ -20,6 +20,7 @@
                 <a href="./notice_list.jsp"><strong class="title">공지사항</strong></a>
                 <!-- 폼 시작 -->
                 <form action="./notice_list.jsp" name="noticeForm" method="get" onsubmit="return sendit()">
+                    <div class="board_count">총 게시물 수 : <span>15</span> / 총 페이지 수 : <span>1</span></div>
                     <table class="notice_table">
                         <colgroup>
                             <col class="col">
@@ -27,141 +28,158 @@
                             <col class="col">
                             <col class="col">
                             <col class="col">
+                            <col class="col">
                         </colgroup>
                         <thead>
-                            <tr class="th_tr">
+                            <tr>
                                 <th>번호</th>
                                 <th>제목</th>
                                 <th>작성자</th>
                                 <th>작성일</th>
                                 <th>조회</th>
+                                <th>첨부</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>15</td>
-                                <td class="notice_title"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                            <tr class="alert">
+                                <td class="board_num">공지</td>
+                                <td class="board_tlt"><a href="./notice_read.jsp"><strong>택배노조 파업으로 인한 CJ대한통운 택배 지연 공지 [알라딘교보문고인터파크]</strong></a></td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>14</td>
-                                <td class="notice_title"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_num">14</td>
+                                <td class="board_tlt"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>13</td>
-                                <td class="notice_title"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_num">13</td>
+                                <td class="board_tlt"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>12</td>
-                                <td class="notice_title"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_num">12</td>
+                                <td class="board_tlt"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>11</td>
-                                <td class="notice_title"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_num">11</td>
+                                <td class="board_tlt"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>10</td>
-                                <td class="notice_title"><a href="./notice_read.jsp">asdfasfadsfadsfsadf</a></td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_num">10</td>
+                                <td class="board_tlt"><a href="./notice_read.jsp">제목길이ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ</a></td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>9</td>
-                                <td class="notice_title"><a
+                                <td class="board_num">9</td>
+                                <td class="board_tlt"><a
                                         href="./notice_read.jsp">asdfasfadsfadsfsadfasdfsadfdsfdsfasdfsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>8</td>
-                                <td class="notice_title"><a
+                                <td class="board_num">8</td>
+                                <td class="board_tlt"><a
                                         href="./notice_read.jsp">asdfasfadsfadsfsadfasdfsadfdsfdsfasdfsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>7</td>
-                                <td class="notice_title"><a
+                                <td class="board_num">7</td>
+                                <td class="board_tlt"><a
                                         href="./notice_read.jsp">asdfasfadsfadsfsadfasdfsadfdsfdsfasdfsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>6</td>
-                                <td class="notice_title"><a
+                                <td class="board_num">6</td>
+                                <td class="board_tlt"><a
                                         href="./notice_read.jsp">asdfasfadsfadsfsadfasdfsadfdsfdsfasdfsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>5</td>
-                                <td class="notice_title"><a
+                                <td class="board_num">5</td>
+                                <td class="board_tlt"><a
                                         href="./notice_read.jsp">asdfasfadsfadsfsadfasdfsadfdsfdsfasdfsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td class="notice_title"><a
+                                <td class="board_num">4</td>
+                                <td class="board_tlt"><a
                                         href="./notice_read.jsp">asdfasfadsfadsfsadfasdfsadfdsfdsfasdfsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td class="notice_title"><a
+                                <td class="board_num">3</td>
+                                <td class="board_tlt"><a
                                         href="./notice_read.jsp">asdfasfadsfadsfsadfasdfsadfdsfdsfasdfsaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"><a href="#" download><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></a></td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td class="notice_title"><a href="./termsOfUse.jsp">이용약관</a>
+                                <td class="board_num">2</td>
+                                <td class="board_tlt"><a href="./termsOfUse.jsp">이용약관</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"></td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td class="notice_title"><a href="./privacyPolicy.jsp">개인정보 처리방침</a>
+                                <td class="board_num">1</td>
+                                <td class="board_tlt"><a href="./privacyPolicy.jsp">개인정보 처리방침</a>
                                 </td>
-                                <td>작성자</td>
-                                <td>2012.1.2</td>
-                                <td>10000</td>
+                                <td class="board_writer">작성자</td>
+                                <td class="board_date">2012.1.2</td>
+                                <td class="board_hit">10000</td>
+                                <td class="board_file"></td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="notice_write.jsp" class="createNotice">새 공지 등록</a>
+                    <a href="notice_add.jsp" class="createNotice">새 공지 등록</a>
                     <!-- 페이지 버튼 -->
                     <div class="page">
                         <ul>

@@ -132,6 +132,9 @@
     padding-bottom: 14px;
     position: relative;
     color: #767676;
+    font-weight: 0;
+    font-family: none;
+    
 }
 .join_wrap .style_email{
     position: relative;
@@ -194,11 +197,13 @@
     line-height: 1.2;
     text-align: center;
     margin: 12px auto;
+    font-family: none;
 }
 .join_wrap .body_find{
     font-size: 12px;
     font-weight: 500;
     text-align: center;
+    
 }
 .join_wrap .body_find a{
     text-decoration: none;
@@ -211,10 +216,12 @@
 }
 .join_wrap .body_find a span{
     color: #969696;
+    font-size: 13px !important;
+    font-family: none !important;
 }
 .join_wrap .body_button_next{
     text-align: center;
-    font-weight: 500;
+    font-weight: 500 !important;
     color: #969696;
     margin-top: 16px;
     font-size: 14px;
@@ -243,7 +250,7 @@
     background-color: #fff;
     position: absolute;
     left: -20px;
-    background: url(assets/img/google.png) no-repeat center;
+    background: url(../images/google.png) no-repeat center;
     background-size: cover;
     
 }
@@ -256,7 +263,7 @@
     box-sizing: border-box;
     background-color: #fff;
     position: absolute;
-    background: url(assets/img/kakao.png) no-repeat center;
+    background: url(../images/kakao.png) no-repeat center;
     background-size: cover;
 }
 
@@ -286,13 +293,15 @@
    left:130px;
 }
 .join_wrap .join_footer{
-    margin-top: 50px;
-    text-align: center;
-    font-size: 13px;
-    line-height: 18px;
-    color: #767676;
+    margin-top: 50px !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    color: #767676 !important;
+    font-family: none !important;
 }
 .join_wrap .join_footer a{
-    color: #3336ff;
+    color: #3336ff !important;
     text-decoration: underline;
+    font-size: 13px;
 }

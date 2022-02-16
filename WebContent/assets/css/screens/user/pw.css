@@ -49,15 +49,16 @@
     transform:translate(-50%, -50%); 
      background:#fff; border-radius:6px; }
 .pw_wrap .pw_header{
-    border-bottom: 0;
-    height: 54px;
-    padding: 16px 20px;
-    position: relative;
-    color: #333;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    word-wrap: break-word;
+    border-bottom: 0 !important;
+    height: 54px !important;
+    padding: 16px 20px !important;
+    position: relative !important;
+    color: #333 !important;
+    text-align: center !important;
+    font-size: 16px !important;
+    font-weight: 600 !important; 
+    word-wrap: break-word !important;
+
 }
 .pw_wrap .pw_header .pw_icon{
     vertical-align: middle;
@@ -118,8 +119,9 @@
     color: #767676;
 }
 .pw_wrap .user_info{
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: none !important;
 }
 .pw_wrap .input_pw{
     margin-top: 11px;
@@ -179,6 +181,11 @@
     font-size: 14px;
     color: #36f;
     margin-top: 10px;
+    font-family: none !important;
 }
+.pw_wrap .pw_btn2:hover{
+    text-decoration: underline;
+}
+
 
 

@@ -62,8 +62,8 @@
                     걱정마세요! 여러분의 활동은 SNS에 노출되지 않습니다.
                     <br>
                     회원가입 시
-                    <a href="notice_detail1.html" class="joinAnchor">개인정보 처리방침</a>과
-                    <a href="#" class="joinAnchor">이용약관</a>을 확인하였으며, 동의합니다.
+                    <a href="/WebContent/privacyPolicy.jsp" class="joinAnchor">개인정보 처리방침</a>과
+                    <a href="/WebContent/termsOfUse.jsp" class="joinAnchor">이용약관</a>을 확인하였으며, 동의합니다.
                    </p>
                 </div>
             </div>

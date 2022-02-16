@@ -21,12 +21,6 @@
                 <form name="noticeReadForm">
                     <div class="detail_area">
                         <div class="detail_top">
-                            <div class="noticeReadBtn">
-                                <button class="readBtn" id="noticeUpdate" formaction="notice_edit.html"
-                                    formmethod="post" onclick="return updateCheck()">수정</button>
-                                <button class="readBtn" id="noticeDelete" formaction="notice_list.html"
-                                    formmethod="post" onclick="return deleteCheck()">삭제</button>
-                            </div>
                             <strong class="detail_title">이용약관</strong>
                             <div class="detail_sub">
                                 <div class="sub">

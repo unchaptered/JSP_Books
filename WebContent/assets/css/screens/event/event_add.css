@@ -1,0 +1,184 @@
+/* 저자 : carpriceksy */
+
+@import url(./event_read.css);
+
+/* 이벤트 제목 */
+.title{
+    clear: both;
+}
+
+/* 목록보기 버튼 */
+.goList_div{
+    text-align: right;
+    margin-top: -15px;
+}
+.goList{
+    margin-right: 20px;
+    padding: 10px 20px;
+    border: 1px solid #cfcfcf;
+    color: #3b3b3b;
+    font-size: 15px;
+}
+
+/* 입력 항목 */
+
+.must{
+    color: #545861af;
+    padding-left: 20px;
+}
+.redStar{
+    color: red;
+    font-size: 18px;
+}
+
+.detail_title{
+    font-size: 18px;
+    padding: 20px;
+    color: #545861;
+    float: left;
+    width: 100%;
+}
+.write_content{
+    margin: 15px 0;
+}
+.date_start{
+    display: inline-block;
+    margin-right: 55px;
+    text-align: left;
+}
+.date_end{
+    display: inline-block;
+    margin-left: 50px;
+    text-align: left;
+}
+.detail_date{
+    text-align: center;
+}
+.detail_date p{
+    font-size: 15px;
+}
+input[type="date"]{
+    width: 218px;
+    position: relative;
+    left: 5px;
+    border: 1px solid #cfcfcf;
+    margin: 10px;
+    padding: 0 20px;
+    height: 45px;
+    font-size: 15px;
+}
+
+input[type="text"]{
+    width: 93%;
+    position: relative;
+    left: 50px;
+    font-size: 15px;
+    border: 1px solid #cfcfcf;
+    margin: 5px 0;
+    padding: 0 20px;
+    height: 45px;
+}
+textarea:focus{
+    outline: none;
+}
+
+/* 이벤트 배너 등록 */
+.fileBtn{
+    text-align: center;
+    padding: 80px 0 20px 0;
+    border-bottom: 1px solid #cfcfcf;
+}
+input[type="file"]{
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    left: -9999px;
+}
+.fileBtn label{
+    border: 1px solid #cfcfcf;
+    background-color: #e5e5e5;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+#showFileName{
+    margin: 15px 0 0 0;
+}
+
+#updateBtn_img{
+    font-size: 14px;
+    padding-left: 5px;
+}
+#updateBtn_img>span{
+    padding-left: 5px;
+}
+#updateBtn_img img{
+    display: inline-block;
+    background-size: 20px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 2px;
+}
+#imgPreview{
+    width: 100%;
+
+}
+/* 이벤트 상세 설명 */
+#eTextarea{
+    resize: none;
+    width: 93%;
+    height: 200px;
+    position: relative;
+    left: 50px;
+    font-size: 15px;
+    border: 1px solid #cfcfcf;
+    margin: 5px 0;
+    padding: 20px;
+}
+
+/* 이벤트 등록 버튼*/
+.boardBtn{
+    text-align: center;
+    margin-top: 50px;
+}
+input[type="submit"]{
+    font-weight: bold;
+    color: #fff;
+    background-color: #3b3b3b;
+    font-size: 18px;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+}
+
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    
+}
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+    .main_content {
+        width: 100%;
+        height: auto;
+    }
+    .date_start, .date_end{
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .detail_title{
+        text-align: left;
+    }
+    .write_content{
+        text-align: center;
+    }
+    #input-title, #eTextarea, #input-inform{
+        left: 0;
+    }
+}
