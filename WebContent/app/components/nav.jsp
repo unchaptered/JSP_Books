@@ -78,7 +78,9 @@
                 <a href="notice_edit.jsp">공지사항 글 수정</a>
             </section>
         </details>
-    </nav><div class="login_wrap">
+    </nav>
+    <input type="button" value="모달창 열기" id="myBtnLogin">
+    <div class="login_wrap">
         <div class="login_container">
             <div class="login_header">
                 <i class="login_icon">
@@ -89,17 +91,18 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linelogin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
+                </div>
             </div>
             <div class="login_body">
                 <div class="body_text">
-                    <h3>회원가입을 진행하시려면</h3>
+                    <h3>로그인을 진행하시려면</h3>
                     <h3>이메일을 입력해주세요.</h3>
                 </div>
                 <div class="body_input">
                 <div class="body_email">
                     <label for="email" class="style_email">이메일</label>
                     <div class="email_input">
-                        <input type="email" placeholder="이메일을 입력해주세요" id="email" value>
+                        <input type="email" placeholder="이메일을 입력해주세요." id="email" value>
                     </div>
                 </div>
                 <div class="body_button">
