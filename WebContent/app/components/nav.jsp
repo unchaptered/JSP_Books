@@ -78,7 +78,6 @@
             </section>
         </details>
     </nav>
-    <input type="button" value="모달창 열기" id="myBtnLogin">
     <div class="login_wrap">
         <div class="login_container">
             <div class="login_header">
@@ -99,7 +98,7 @@
                 </div>
                 <div class="body_input">
                 <div class="body_email">
-                    <label for="email" class="style_email">이메일</label>
+                    <label for="email"><span class="style_email">이메일</span></label>
                     <div class="email_input">
                         <input type="email" placeholder="이메일을 입력해주세요." id="email" value>
                     </div>

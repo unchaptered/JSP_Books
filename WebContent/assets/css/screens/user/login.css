@@ -1,5 +1,11 @@
 /* 저자 : 고결 */
 
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
 .login_wrap{
     font-size: 14px;
     line-height: 1.4;
@@ -10,9 +16,9 @@
     background:rgba(0,0,0,0.5);
     position:fixed;
     top:0; 
-    left:0;
-    z-index:9000;
-	visibility:hidden;
+    left:0; 
+    /* z-index:9000; */
+    visibility:hidden;
     opacity:0;
     transition:all 0.3s ease;
 }
@@ -78,26 +84,26 @@
     overflow: hidden;
 } */
 .login_wrap .icon button{
-    display: inline-block;
-    width: 45px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    padding: 15px;
-    line-height: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    color: rgb(220, 220, 220);
+    display: inline-block  !important;
+    width: 45px !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 0 !important;
+    transform: translateY(-50%) !important;
+    padding: 15px !important;
+    line-height: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    cursor: pointer !important;
+    color: rgb(220, 220, 220) !important;
 }
 .login_wrap .icon button>svg{
-    position: absolute;
-    top: 10%;
-    right: 10px;
-    cursor: pointer;
-    width: 24px;
-    color: rgb(220, 220, 220);
+    position: absolute !important;
+    top: 10% !important;
+    right: 10px !important;
+    cursor: pointer !important;
+    width: 24px !important;
+    color: rgb(220, 220, 220) !important;
     /* color: #f5f4f0; */
 }
 .login_wrap .login_body{
@@ -111,9 +117,9 @@
     margin-bottom: 40px;
 }
 
-.login_wrap .body_text h2{
+.login_wrap .body_text h3{
     line-height: 1.54;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 600;
     color: #333;
 }
@@ -135,7 +141,7 @@
     font-size: 14px;
     font-weight: 400;
     margin-bottom: 5px;
-    right: 130px;
+    right: -10px;
     
 }
 .login_wrap label{
@@ -149,6 +155,7 @@
     width: 100%;
     height: 50px;
     margin-bottom: 15px;
+    margin-top: 9px;
     padding-right: 15px;
     padding-left: 15px;
     border-radius: 5px;
@@ -240,12 +247,11 @@
 }
 .login_wrap .body_input .social_button .button_google{
     display: inline-block;
+    border: 1px solid #e1e2e3;
     box-sizing: border-box;
     background-color: #fff;
     position: absolute;
     left: -20px;
-    background: url(../images/google.png) no-repeat center;
-    background-size: cover;
     
 }
 
@@ -257,8 +263,6 @@
     box-sizing: border-box;
     background-color: #fff;
     position: absolute;
-    background: url(../images/kakao.png) no-repeat center;
-    background-size: cover;
 }
 
 .login_wrap .body_button_social .social_button{
