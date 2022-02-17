@@ -8,21 +8,17 @@
 <head>
 <meta charset="UTF-8">
 <title>join</title>
-<link href="../../assets/css/screens/user/join.css" rel="stylesheet" type="text/css">
-
+<link rel="stylesheet" href="../../assets/css/screens/user/join.css">
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	
-	
-	
-	<input type="button" value="팝업창 오픈" id="myBtn"/>
+	<input type="button" value="팝업창 오픈" id="myBtnJoin"/>
     <div class="join_wrap">
         <div class="join_container" style="overflow: auto;">
             <div class="join_header">
                 회원가입
                 <div class="icon">
-                    <button type="button" id="closejoin">
+                    <button type="button" id="closeJoin">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -214,11 +210,11 @@
          checkbox.checked = checkall.checked;
         })
     }
-    $("#myBtn").on("click", function(){
+    $("#myBtnJoin").on("click", function(){
     $(".join_wrap").css({ visibility:"visible",opacity:1});
     });
     // 모달창 닫기 이벤트 
-    $("#close").on("click", function(){
+    $("#closeJoin").on("click", function(){
             $(".join_wrap").css({ visibility:"hidden",opacity:0 });
     });
 

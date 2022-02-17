@@ -6,13 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>login</title>
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/screens/user/login.css">
+<link rel="stylesheet" href="../../assets/css/screens/user/login.css">
 </head>
 <body>
-	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="../components/nav.jsp" %>
-	<input type="button" value="모달창 열기" id="myBtn">
+	<input type="button" value="모달창 열기" id="myBtnLogin">
     <div class="login_wrap">
         <div class="login_container">
             <div class="login_header">
@@ -20,7 +17,7 @@
                     <!-- <img src="" alt=""> -->
                 </i>
                 <div class="icon">
-                    <button type="button" id="close">
+                    <button type="button" id="closeLogin">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linelogin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -71,18 +68,17 @@
         </div>
     </div>
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="../components/footer.jsp" %>
 </body>
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
     // 모달창 열기 이벤트
-    $("#myBtn").on("click", function(){
+    $("#myBtnLogin").on("click", function(){
     $(".login_wrap").css({ visibility:"visible",opacity:1});
     });
     // 모달창 닫기 이벤트 
-    $("#close").on("click", function(){
+    $("#closeLogin").on("click", function(){
             $(".login_wrap").css({ visibility:"hidden",opacity:0 });
     });
 
