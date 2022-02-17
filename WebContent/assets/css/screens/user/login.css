@@ -1,5 +1,4 @@
 /* 저자 : 고결 */
-
 .login_wrap{
     font-size: 14px;
     line-height: 1.4;
@@ -11,7 +10,7 @@
     position:fixed;
     top:0; 
     left:0; 
-    z-index:9000; 
+    z-index:10001;
     visibility:hidden;
     opacity:0;
     transition:all 0.3s ease;
@@ -239,6 +238,11 @@
     color: #737373;
     border-radius: 28px;
 }
+.login_wrap .body_button_social .social_button{
+    position: absolute;
+    left: 28%;
+    cursor: pointer;
+} 
 .login_wrap .body_input .social_button .button_google{
     display: inline-block;
     border: 1px solid #e1e2e3;
@@ -246,9 +250,17 @@
     background-color: #fff;
     position: absolute;
     left: -20px;
-    background: url(../../assets/img/google.png) no-repeat center;
+    /* background:url(../images/google.png) no-repeat center; */
     background-size: cover;
-    
+    border-radius: 27px;
+}
+.login_wrap .body_input .social_button .button_google img{
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 27px;
+    right: -1px;
+
 }
 
 .login_wrap .body_input .social_button .button_kakao{
@@ -260,21 +272,23 @@
     background-color: #fff;
     position: absolute;
 }
-
-.login_wrap .body_button_social .social_button{
+.login_wrap .body_input .social_button .button_kakao img{
     position: absolute;
-    left: 28%;
-    cursor: pointer;
-} 
+    width: 54px;
+    height: 54px;
+    border-radius: 27px;
+}
+
+
 .login_wrap .body_button_social .social_button .social_title{
     position: absolute;
     top: 62px;
     margin-top: 10px;
-    font-size: 13px;
-    font-weight: 500;
-    color: black;
-    text-align: center;
-    cursor: pointer;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: black !important;
+    text-align: center !important;
+    cursor: pointer !important;
 }
 .login_wrap .body_button_social .social_button .social_title:hover{
     text-decoration: underline;

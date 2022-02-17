@@ -116,12 +116,12 @@
                 <div class="body_button_next">다음 계정으로 접속하기</div>
                     <div class="body_button_social">
                         <div class="social_button">
-                            <a class="social_button button_google buttons" href="#"></a>
                             <div class="social_title google_title">Google</div>
+                            <a class="social_button button_google buttons" href="#"><img src="${cp}/assets/img/google.png"></a>
                         </div>
                         <div class="social_button">
-                            <a class="social_button button_kakao buttons" href="#"></a>
                             <div class="social_title kakao_title">Kakao</div>
+                            <a class="social_button button_kakao buttons" href="#"><img src="${cp}/assets/img/kakao.png"></a>
                         </div>
                     </div>
                 </div>
