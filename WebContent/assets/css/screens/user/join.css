@@ -30,7 +30,7 @@
   box-shadow: none !important;
 }
 .join_wrap button {
-  overflow: visible;
+  overflow: visible !important;
 }
 
 .join_container {
@@ -50,86 +50,86 @@
   overflow: hidden;
 }
 .join_wrap .join_container {
-  z-index: 10000;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 6px;
+  z-index: 10000 !important;
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #fff !important;
+  border-radius: 6px !important;
 }
 .join_header {
-  border-bottom: 0;
-  height: 54px;
-  padding: 16px 20px;
-  position: relative;
-  color: #333;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  word-wrap: break-word;
+  border-bottom: 0 !important;
+  height: 54px !important;
+  padding: 16px 20px !important;
+  position: relative !important;
+  color: #333 !important;
+  text-align: center !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  word-wrap: break-word !important;
 }
 .join_header .join_icon {
-  vertical-align: middle;
+  vertical-align: middle !important;
 }
 .join_wrap [class^="icon-"] {
   font-family: "icomoon" !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+  speak: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1 !important;
 }
 .icon button {
-  display: inline-block;
-  width: 45px;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  padding: 15px;
-  line-height: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-  color: rgb(220, 220, 220);
+  display: inline-block !important;
+  width: 45px !important;
+  position: absolute!important;
+  top: 50%!important;
+  right: 0 !important;
+  transform: translateY(-50%) !important;
+  padding: 15px !important;
+  line-height: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  cursor: pointer !important;
+  color: rgb(220, 220, 220) !important;
 }
 .icon button + button {
-  display: inline-block;
-  width: 45px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  padding: 15px;
-  line-height: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-  color: rgb(220, 220, 220);
+  display: inline-block !important;
+  width: 45px !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 0 !important;
+  transform: translateY(-50%) !important;
+  padding: 15px !important;
+  line-height: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  cursor: pointer !important;
+  color: rgb(220, 220, 220) !important;
 }
 .join_wrap svg:not(:root) {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 .icon button > svg {
-  position: absolute;
-  top: 10%;
-  right: 10px;
-  cursor: pointer;
-  width: 24px;
-  color: rgb(220, 220, 220);
+  position: absolute !important;
+  top: 10% !important;
+  right: 10px !important;
+  cursor: pointer !important;
+  width: 24px !important;
+  color: rgb(220, 220, 220) !important;
   /* color: #f5f4f0; */
 }
 .join_body {
-  padding-bottom: 0;
-  padding: 20px;
-  height: 813px;
+  padding-bottom: 0 !important;
+  padding: 20px !important;
+  height: 813px !important;
 }
 .name_wrap {
-  position: relative;
-  padding-bottom: 22px;
-  color: #767676;
+  position: relative !important;
+  padding-bottom: 22px !important;
+  color: #767676 !important;
 }
 .user_info {
   font-size: 14px !important;
@@ -137,182 +137,182 @@
   font-family: none !important;
 }
 .user_email_input {
-  margin-top: 11px;
+  margin-top: 11px !important;
 }
 .head_span{
   color: rgb(118, 118, 118) !important;
 }
 .user_email_space{
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
 }
 .user_name_input {
-  margin-top: 11px;
+  margin-top: 11px !important;
 }
 .user_name_input input[type="text"] {
-  width: 100%;
-  height: 50px;
-  padding-right: 15px;
-  padding-left: 15px;
-  border-radius: 5px;
-  border: 1px solid #e1e2e3;
-  background-color: #fff;
-  font-size: 15px;
-  color: #333;
-  appearance: none;
-  resize: none;
+  width: 100% !important;
+  height: 50px !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  border-radius: 5px !important;
+  border: 1px solid #e1e2e3 !important;
+  background-color: #fff !important;
+  font-size: 15px !important;
+  color: #333 !important;
+  appearance: none !important;
+  resize: none !important;
   box-shadow: none !important;
 }
 .user_name_input input:focus {
-  border: 1px solid #36f;
+  border: 1px solid #36f !important;
 }
 .join_space {
-  bottom: 0;
-  margin-top: 6px;
-  font-size: 12px;
+  bottom: 0 !important;
+  margin-top: 6px !important;
+  font-size: 12px !important;
 }
 .pw_wrap {
-  position: relative;
-  padding-bottom: 22px;
-  color: #767676;
+  position: relative !important;
+  padding-bottom: 22px !important;
+  color: #767676 !important;
 }
 .user_info {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 14px !important;
+  font-weight: 400 !important;
 }
 label {
-  display: inline-block;
-  max-width: 100%;
+  display: inline-block !important;
+  max-width: 100% !important;
 }
 .user_pw_input {
-  margin-top: 11px;
+  margin-top: 11px !important;
 }
 
 .join_wrap input[type="password"] {
-  width: 100%;
-  height: 50px;
-  padding-right: 15px;
-  padding-left: 15px;
-  border-radius: 5px;
-  border: 1px solid #e1e2e3;
-  background-color: #fff;
-  font-size: 15px;
-  color: #333;
-  appearance: none;
-  resize: none;
+  width: 100% !important;
+  height: 50px !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  border-radius: 5px !important;
+  border: 1px solid #e1e2e3 !important;
+  background-color: #fff !important;
+  font-size: 15px !important;
+  color: #333 !important;
+  appearance: none !important;
+  resize: none !important;
 }
 .join_wrap input[type="password"]:focus {
-  border: 1px solid #36f;
+  border: 1px solid #36f !important;
 }
 .user_pw_space {
-  bottom: 0;
-  margin-top: 6px;
-  font-size: 12px;
+  bottom: 0 !important;
+  margin-top: 6px !important;
+  font-size: 12px !important;
   font-family: none !important;
-  color: darkgray;
+  color: darkgray !important;
 }
 
 .user_pwre {
-  position: relative;
-  padding-bottom: 22px;
-  color: #767676;
+  position: relative !important;
+  padding-bottom: 22px !important;
+  color: #767676 !important;
 }
 .user_pwre_input {
-  margin-top: 11px;
+  margin-top: 11px !important;
 }
 .mobile_wrap {
-  padding-bottom: 22px;
+  padding-bottom: 22px !important;
 }
 .mobile_wrap_inner {
-  padding-bottom: 0;
-  position: relative;
-  color: #767676;
+  padding-bottom: 0 !important;
+  position: relative !important;
+  color: #767676 !important;
 }
 .user_phone_body {
-  margin-top: 11px;
+  margin-top: 11px !important;
 }
 
 #selectbox{
-  display: inline-block;
-  height: 50px;
-  border: 1px solid #e1e2e3;
+  display: inline-block !important;
+  height: 50px !important;
+  border: 1px solid #e1e2e3 !important;
 }
 .input_select > select {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  position: relative;
-  top: -1px;
-  left: 0;
-  width: 100%;
-  padding: 0 15px;
-  height: 50px;
-  font-size: 15px;
-  border-radius: 5px;
-  border: 1px solid #e1e2e3;
-  color: #333;
-  opacity: 1;
+  margin-top: 5px !important;
+  margin-bottom: 10px !important;
+  position: relative !important;
+  top: -1px !important;
+  left: 0 !important;
+  width: 100% !important;
+  padding: 0 15px !important;
+  height: 50px !important;
+  font-size: 15px !important;
+  border-radius: 5px !important;
+  border: 1px solid #e1e2e3 !important;
+  color: #333 !important;
+  opacity: 1 !important;
 }
 #selectbox:focus{
-  outline: 1px solid #36f;
+  outline: 1px solid #36f !important;
 }
 select {
-  text-transform: none;
-  margin: 0;
+  text-transform: none !important;
+  margin: 0 !important;
 }
 select:not(:-internul-list-box) {
   overflow: visible !important;
 }
 
 .mobile_input {
-  display: flex;
-  margin-top: 11px;
+  display: flex !important;
+  margin-top: 11px !important;
 }
 input[type="text"] {
-  width: 100%;
-  height: 50px;
-  padding-right: 15px;
-  padding-left: 15px;
-  border-radius: 5px;
-  border: 1px solid #e1e2e3;
-  background-color: #fff;
-  font-size: 15px;
-  color: #333;
-  appearance: none;
-  resize: none;
+  width: 100% !important;
+  height: 50px !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  border-radius: 5px !important;
+  border: 1px solid #e1e2e3 !important;
+  background-color: #fff !important;
+  font-size: 15px !important;
+  color: #333 !important;
+  appearance: none !important;
+  resize: none !important;
 }
 input[type="text"]:focus {
-  border: 1px solid #36f;
+  border: 1px solid #36f !important;
 }
 .mobile_input > input {
-  flex: 1 1;
+  flex: 1 1 !important;
 }
 
 .mobile_input_space {
-  height: 10px;
+  height: 10px !important;
 }
 .mobile_input_space {
-  position: relative;
+  position: relative !important;
 }
 .mobile_input_code_space {
-  bottom: 0;
-  margin-top: 6px;
-  font-size: 12px;
+  bottom: 0 !important;
+  margin-top: 6px !important;
+  font-size: 12px !important;
 }
 .addr_wrap_inner {
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
 }
 
 .addr_num {
-  position: relative;
-  display: flex;
-  box-sizing: border-box;
-  color: #767676;
+  position: relative !important;
+  display: flex !important;
+  box-sizing: border-box !important;
+  color: #767676 !important;
 }
 .addr_num .addr_num_text {
-  position: absolute;
-  top: -28px;
+  position: absolute !important;
+  top: -28px !important;
 }
 .addr_num > input {
-  flex: 1 1;
+  flex: 1 1 !important;
 }
 .addr_num.addr_button {
   width: 100% !important;
@@ -340,185 +340,184 @@ input[type="text"]:focus {
   font-family: none !important;
 }
 .addr_button:hover{
-  background-color: #4346f3;
+  background-color: #4346f3 !important;
 }
 .addr_button span{
   font-size: 13px !important;
 }
 
 .addr_input {
-  margin-top: 11px;
+  margin-top: 11px !important;
 }
 .addr_input_text_detail{
-  margin-top: 11px;
+  margin-top: 11px !important;
 }
 .acnum_wrap {
-  padding-bottom: 22px;
+  padding-bottom: 22px !important;
 }
 .acnum_wrap_inner {
-  padding-bottom: 0;
-  position: relative;
-  color: #767676;
+  padding-bottom: 0 !important;
+  position: relative !important;
+  color: #767676 !important;
 }
 .acnum_body {
-  margin-top: 11px;
+  margin-top: 11px !important;
 }
 .acunum_input_select > select {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0 15px;
-  height: 50px;
-  font-size: 15px;
-  border-radius: 5px;
-  border: 1px solid #e1e2e3;
-  color: #333;
-  opacity: 0;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  padding: 0 15px !important;
+  height: 50px !important;
+  font-size: 15px !important;
+  border-radius: 5px !important;
+  border: 1px solid #e1e2e3 !important;
+  color: #333 !important;
+  opacity: 0 !important;
 }
 .join_wrap select {
-  text-transform: none;
-  margin: 0;
+  text-transform: none !important;
+  margin: 0 !important;
 }
 .join_wrap select:not(:-internul-list-box) {
   overflow: visible !important;
 }
 .join_wrap option {
-  font-weight: normal;
-  display: block;
-  white-space: nowrap;
-  min-height: 1.2em;
-  padding: 0px 2px 1px;
+  font-weight: normal !important;
+  display: block !important;
+  white-space: nowrap !important;
+  min-height: 1.2em !important;
+  padding: 0px 2px 1px !important;
 }
 .acnum_arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 10px;
-  font-size: 20px;
-  color: #333;
-  z-index: -1;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  right: 10px !important;
+  font-size: 20px !important;
+  color: #333 !important;
+  z-index: -1 !important;
 }
 .acnum_arrow::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  display: inline-block;
-  transform: rotate(45deg);
-  position: absolute;
-  top: -5px;
-  right: 10px;
+  content: "" !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-top: 1px solid black !important;
+  border-right: 1px solid black !important;
+  display: inline-block !important;
+  transform: rotate(45deg) !important;
+  position: absolute !important;
+  top: -5px !important;
+  right: 10px !important;
 }
 .acnum_input {
-  display: flex;
-  margin-top: 11px;
+  display: flex !important;
+  margin-top: 11px !important;
 }
 
 .agree_wrap {
-  margin-top: 0px;
+  margin-top: 0px !important;
 }
 .agree_wrap_inner {
-  color: #ececec;
-  height: auto;
-  padding-bottom: 14px;
-  margin-bottom: 15px;
-  margin-left: 30px;
+  color: #ececec !important;
+  height: auto !important;
+  padding-bottom: 14px !important;
+  margin-bottom: 15px !important;
+  margin-left: 30px !important;
 }
 
 .agree_checkbox_all {
-  color: #333;
+  color: #333 !important;
   font-size: 15px !important;
-  flex: 1 1;
+  flex: 1 1 !important;
   font-family: none !important;
 }
 .join_wrap input[type="checkbox"] {
-  position: absolute;
-  left: 1px;
-  vertical-align: top;
-  cursor: pointer;
-  margin: 4px 0 0 30px;
-  box-sizing: border-box;
-  padding: 0;
+  position: absolute !important;
+  left: 1px !important;
+  vertical-align: top !important;
+  cursor: pointer !important;
+  margin: 4px 0 0 30px !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
 }
 
 .agree_wrap_inner2 {
-  color: #ececec;
-  margin-left: 30px;
+  color: #ececec !important;
+  margin-left: 30px !important;
 }
 .agree_checkbox_pilsoo {
-  color: #939393;
+  color: #939393 !important;
   font-family: none !important;
 }
 .agree_checkbox_pilsoo span {
-  color: #939393;
-  padding-left: 5px;
+  color: #939393 !important;
+  padding-left: 5px !important;
 }
 .agree_link {
-  float: right;
-  font-size: 13px;
-  line-height: 19px;
+  float: right !important;
+  font-size: 13px !important;
+  line-height: 19px !important;
   color: #767676 !important;
-  text-decoration: none;
+  text-decoration: none !important;
   
 }
 .join_wrap a {
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
+  cursor: pointer !important;
+  position: absolute !important;
+  right: 20px !important;
 }
 .agree_wrap_inner3 {
-  margin-top: 15px;
-  color: #ececec;
-  margin-left: 30px;
+  margin-top: 15px !important;
+  color: #ececec !important;
+  margin-left: 30px !important;
 }
 .agree_checkbox_eventmail {
-  color: #939393;
+  color: #939393 !important;
   font-family: none !important;
 }
 .set_join_wrap {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 3 !important;
 }
 .set_join_wrap::before {
-  content: "";
-  width: 100%;
-  height: 10px;
-  display: block;
+  content: "" !important;
+  width: 100% !important;
+  height: 10px !important;
+  display: block !important;
   background: linear-gradient((180deg, rgba(255, 255, 255, 0), #fff));
 }
 .set_join_btn {
-  width: 100%;
-  /* background-color: #fff; */
-  height: 70px;
-  box-sizing: border-box;
+  width: 100% !important;
+  height: 70px !important;
+  box-sizing: border-box !important;
 }
 .set_join_btn button {
-  margin-top: 10px;
-  background-color: #36f;
-  border-color: transparent;
-  color: #fff;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  width: 100%;
-  height: 54px;
-  border-radius: 27px;
-  font-weight: 600;
-  z-index: 100;
+  margin-top: 10px !important;
+  background-color: #36f !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  height: 54px !important;
+  border-radius: 27px !important;
+  font-weight: 600 !important;
+  z-index: 100 !important;
   
 }
 .set_join_btn button:hover{
-  background-color: #4346f3;
+  background-color: #4346f3 !important;
 }
 .join_wrap input[type="password"]::placeholder {
-  color: #cacaca;
+  color: #cacaca !important;
 }
 .join_wrap input[type="text"]::placeholder {
-  color: #cacaca;
+  color: #cacaca !important;
 }
 
