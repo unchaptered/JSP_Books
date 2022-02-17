@@ -161,19 +161,6 @@ CREATE TABLE post_event (
 ```
 ### 3. 도서
 
-#### 3.0. 도서 장르 및 국가 정보
-
-```sql
-CREATE TABLE book_genre (
-   book_genre_pk INT AUTO_INCREMENT PRIMARY KEY,
-   book_genre_name VARCHAR(300)
-);
-CREATE TABLE book_country (
-   book_country_pk INT AUTO_INCREMENT PRIMARY KEY,
-   book_country_name VARCHAR(300)
-);
-```
-
 #### 3.1. 신규도서
 
 ```sql

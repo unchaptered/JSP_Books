@@ -42,6 +42,8 @@ CREATE TABLE post_notice (
    notice_file BIGINT,
    notice_important VARCHAR(300),
    post_pk INT,
+   FOREIGN KEY (post_pk)
+      REFERENCES post (post_pk),
    FOREIGN KEY (notice_file)
       REFERENCES post_files (post_file_pk)
 );
@@ -53,19 +55,21 @@ CREATE TABLE post_event (
    event_file_detail BIGINT,
    event_like VARCHAR(300),
    post_pk INT,
+   FOREIGN KEY (post_pk)
+      REFERENCES post (post_pk),
    FOREIGN KEY (event_file)
       REFERENCES post_files (post_file_pk),
    FOREIGN KEY (event_file_detail)
       REFERENCES post_files (post_file_pk)
 );
-CREATE TABLE book_genre (
-   book_genre_pk INT AUTO_INCREMENT PRIMARY KEY,
-   book_genre_name VARCHAR(300)
-);
-CREATE TABLE book_country (
-   book_country_pk INT AUTO_INCREMENT PRIMARY KEY,
-   book_country_name VARCHAR(300)
-);
+-- CREATE TABLE book_genre (
+--    book_genre_pk INT AUTO_INCREMENT PRIMARY KEY,
+--    book_genre_name VARCHAR(300)
+-- );
+-- CREATE TABLE book_country (
+--    book_country_pk INT AUTO_INCREMENT PRIMARY KEY,
+--    book_country_name VARCHAR(300)
+-- );
 CREATE TABLE new_book (
    new_book_pk INT AUTO_INCREMENT PRIMARY KEY,
    new_book_title VARCHAR(300),
@@ -79,12 +83,12 @@ CREATE TABLE new_book (
    new_book_published VARCHAR(300),
    new_book_pages VARCHAR(300),
    new_book_mount VARCHAR(300),
-   new_book_genre INT,
-   new_book_country INT,
-   FOREIGN KEY (new_book_genre)
-      REFERENCES book_genre (book_genre_pk),
-   FOREIGN KEY (new_book_country)
-      REFERENCES book_country (book_country_pk)
+   new_book_genre VARCHAR(300),
+   new_book_country VARCHAR(300)
+   -- FOREIGN KEY (new_book_genre)
+   --    REFERENCES book_genre (book_genre_pk),
+   -- FOREIGN KEY (new_book_country)
+   --    REFERENCES book_country (book_country_pk)
 );
 CREATE TABLE old_book (
    new_book_pk INT,
