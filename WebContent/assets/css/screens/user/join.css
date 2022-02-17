@@ -18,8 +18,8 @@
     background:rgba(0,0,0,0.5);
     position:fixed;
     top:0; 
-    left:0; 
-    z-index:9000;
+    left:0;
+    z-index:9000; 
     visibility:hidden;
     opacity:0;
     transition:all 0.3s ease;
@@ -50,13 +50,13 @@
   overflow: hidden;
 }
 .join_wrap .join_container {
-  z-index: 10000 !important;
-  position: fixed !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  background: #fff !important;
-  border-radius: 6px !important;
+  z-index: 10000 ;
+  position: fixed ;
+  left: 50% ;
+  top: 50% ;
+  transform: translate(-50%, -50%) ;
+  background: #fff ;
+  border-radius: 6px ;
 }
 .join_header {
   border-bottom: 0 !important;
