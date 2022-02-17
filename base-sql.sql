@@ -33,30 +33,30 @@ CREATE TABLE post (
    post_viewed VARCHAR(300)
 );
 CREATE TABLE post_files (
-   post_files_pk BIGINT PRIMARY KEY,
-   post_files_system VARCHAR(1000),
-   post_files_origin VARCHAR(1000)
+   post_file_pk BIGINT PRIMARY KEY,
+   post_file_system VARCHAR(1000),
+   post_file_origin VARCHAR(1000)
+);
+CREATE TABLE post_notice (
+   notice_pk INT AUTO_INCREMENT PRIMARY KEY,
+   notice_file BIGINT,
+   notice_important VARCHAR(300),
+   post_pk INT,
+   FOREIGN KEY (notice_file)
+      REFERENCES post_files (post_file_pk)
 );
 CREATE TABLE post_event (
    event_pk INT AUTO_INCREMENT PRIMARY KEY,
    event_started VARCHAR(300),
    event_ended VARCHAR(300),
-   event_files BIGINT,
-   event_files_detail BIGINT,
+   event_file BIGINT,
+   event_file_detail BIGINT,
    event_like VARCHAR(300),
    post_pk INT,
-   FOREIGN KEY (event_files)
-      REFERENCES post_files (post_files_pk),
-   FOREIGN KEY (event_files_detail)
-      REFERENCES post_files (post_files_pk)
-);
-CREATE TABLE post_notice (
-   notice_pk INT AUTO_INCREMENT PRIMARY KEY,
-   notice_files BIGINT,
-   notice_important VARCHAR(300),
-   post_pk INT,
-   FOREIGN KEY (notice_files)
-      REFERENCES post_files (post_files_pk)
+   FOREIGN KEY (event_file)
+      REFERENCES post_files (post_file_pk),
+   FOREIGN KEY (event_file_detail)
+      REFERENCES post_files (post_file_pk)
 );
 CREATE TABLE book_genre (
    book_genre_pk INT AUTO_INCREMENT PRIMARY KEY,
@@ -96,6 +96,13 @@ CREATE TABLE old_book (
    old_book_five_mount VARCHAR(300),
    FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk)
+);
+CREATE TABLE album (
+   album_pk INT AUTO_INCREMENT PRIMARY KEY,
+   album_title VARCHAR(300),
+   album_title_song VARCHAR(300),
+   album_singer VARCHAR(300),
+   album_release VARCHAR(300)
 );
 
 # INSERT 문
