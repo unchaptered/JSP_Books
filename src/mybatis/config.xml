@@ -7,7 +7,7 @@
     <typeAlias type="app.admin.dao.AdminDto" alias="admindto"/>
     <typeAlias type="app.album.dao.AlbumDto" alias="ablumdto"/>
     
-    <typeAlias type="app.user.dao.UserDto" alias="userdto"/>
+    <typeAlias type="app.user.dao.UserDTO" alias="userdto"/>
     
     <typeAlias type="app.post.dao.PostDto" alias="postdto"/>
     <typeAlias type="app.post.dao.EventDto" alias="eventdto"/>
@@ -28,5 +28,6 @@
   </environments>
   <mappers>
     <mapper resource="mapper/base.xml"/>
+    <mapper resource="mapper/user.xml"/>
   </mappers>
 </configuration>

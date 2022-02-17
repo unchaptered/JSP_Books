@@ -1,6 +1,6 @@
 package app.user.dao;
 
-public class UserDto {
+public class UserDTO {
 	// Field Variables
 	
 	private int userPk; // 기본키
@@ -89,4 +89,20 @@ public class UserDto {
 	}
 	
 	// Common Method
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof UserDTO) {
+			UserDTO target = (UserDTO)obj;
+			
+			if(target.userEmail.equals(this.userEmail)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		return userPk;
+	}
+
 }
