@@ -1,17 +1,20 @@
 <!-- 작성자 : 고결 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>join</title>
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/screens/user/join.css">
+<link href="../../assets/css/screens/user/join.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="../components/nav.jsp" %>
+	
+	
 	
 	<input type="button" value="팝업창 오픈" id="myBtn"/>
     <div class="join_wrap">
@@ -196,7 +199,7 @@
     </div>
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="../components/footer.jsp" %>
+	
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
