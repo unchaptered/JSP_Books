@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title> 장바구니 - BOOKS </title>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/screens/shop/shop_bags.css">
+<link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
+<link rel="stylesheet" href="${cp}/assets/css/screens/shop/shop_bags.css">
 </head>
 <!-- 저자 : jungbc1 -->
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="../components/nav.jsp" %>
 	
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
@@ -34,7 +36,7 @@
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="a_book" id="check_a_book" onclick="toggle_box()" checked></td>
-                                <td><a href="#"><img src="./assets/img/book_sample1.jpg" alt="book"></a></td>
+                                <td><a href="#"><img src="../../assets/img/book_sample1.jpg" alt="book"></a></td>
                                 <td><a href="#">돈의 흐름에 올라타라</a></td>
                                 <td>17,000</td>
                                 <td>
@@ -49,7 +51,7 @@
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="a_book" id="check_a_book" onclick="toggle_box()" checked></td>
-                                <td><a href="#"><img src="./assets/img/book_sample2.jpg" alt="book"></a></td>
+                                <td><a href="#"><img src="../../assets/img/book_sample2.jpg" alt="book"></a></td>
                                 <td><a href="#">떠먹는 국어문법</a></td>
                                 <td>16,000</td>
                                 <td>
@@ -64,7 +66,7 @@
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="a_book" id="check_a_book" onclick="toggle_box()" checked></td>
-                                <td><a href="#"><img src="./assets/img/book_sample3.jpg" alt="book"></a></td>
+                                <td><a href="#"><img src="../../assets/img/book_sample3.jpg" alt="book"></a></td>
                                 <td><a href="#">하루 한 장 마음챙김 긍정 확언 필사집</a></td>
                                 <td>20,000</td>
                                 <td>
@@ -99,9 +101,9 @@
     </main>
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script type="text/javascript" src="assets/js/shop_bags.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/shop_bags.js"></script>
 </html>

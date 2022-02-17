@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 베이스 - BOOKS </title>
+<title> 구매내역 - BOOKS </title>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="assets/css/screens/shop/shop_bills.css">
+<link rel="stylesheet" href="${cp}/assets/css/screens/shop/shop_bills.css">
 </head>
 <!-- 저자 : jungbc1 -->
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="../components/nav.jsp" %>
 	
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
@@ -50,7 +52,7 @@
                             </td>
                             <td>17,000</td>
                             <td>
-                                <a href="#" id="book1"><img src="./assets/img/book_sample1.jpg" alt="책"><span></span></a>
+                                <a href="#" id="book1"><img src="../../assets/img/book_sample1.jpg" alt="책"><span></span></a>
                             <td>
                                 <a href="#">돈의 흐름에 올라타라</a>
                                 <button type="button">리뷰등록</button>
@@ -68,7 +70,7 @@
                             </td>
                             <td>16,000</td>
                             <td>
-                                <a href="#" id="book1"><img src="./assets/img/book_sample2.jpg" alt="책"></a>
+                                <a href="#" id="book1"><img src="../../assets/img/book_sample2.jpg" alt="책"></a>
                             </td>
                             <td>
                                 <a href="#">떠먹는 국어문법</a>
@@ -86,9 +88,9 @@
     </main>
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script type="text/javascript" src="assets/js/shop_bills.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/shop_bills.js"></script>
 </html>
