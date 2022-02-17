@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="../components/nav.jsp" %>
 	
 	<input style="margin-top:200px"type="button" value="팝업창 오픈" id="myBtn"/>
     <div class="login_wrap">
@@ -189,7 +189,7 @@
     </div>
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
@@ -201,7 +201,7 @@
     function checkall(checkall) {
         const check_box = document.getElementsByName("checkbox_agree");
         check_box.forEach((checkbox) => {
-            checkbox.checked = checkall.checked;
+         checkbox.checked = checkall.checked;
         })
     }
     $("#myBtn").on("click", function(){

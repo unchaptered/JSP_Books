@@ -13,7 +13,7 @@
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="../components/nav.jsp" %>
 	
 	<input style="margin-top:200px" type="button" id="myBtn" value="팝업창 오픈"/>
     <div class="pw_wrap" >
@@ -51,7 +51,7 @@
     </div>
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>

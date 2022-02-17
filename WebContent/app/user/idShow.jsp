@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="assets/css/screens/user/idShow.css">
 </head>
 <body>
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="../components/nav.jsp" %>
 	
 	<input type="button" id="myBtn" value="팝업창 오픈"/>
     <div class="id_show_wrap">
@@ -48,7 +48,7 @@
     </div>
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>

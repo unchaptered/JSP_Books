@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="assets/css/screens/user/idFind.css">
 </head>
 <body>	
-	<%@ include file="views/components/nav.jsp" %> 
+	<%@ include file="../components/nav.jsp" %>
 	<input type="button" id="myBtn" value="팝업창 오픈"/>
     <div class="id_find_wrap">
         <div class="id_find_container">
@@ -53,7 +53,7 @@
     </div> 
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %> 
+	<%@ include file="../components/footer.jsp" %> 
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>

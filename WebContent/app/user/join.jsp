@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="../components/nav.jsp" %>
 	<input style="margin-top: 200px;" type="button" value="모달창 열기" id="myBtn">
     <div class="join_wrap">
         <div class="join_container">
@@ -71,7 +71,7 @@
     </div>
 	</div>
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
