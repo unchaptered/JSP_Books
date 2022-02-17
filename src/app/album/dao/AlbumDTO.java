@@ -1,6 +1,6 @@
 package app.album.dao;
 
-public class AlbumDto {
+public class AlbumDTO {
 	
 	// Field Variables
 	

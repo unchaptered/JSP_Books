@@ -1,6 +1,6 @@
 package app.post.dao;
 
-public class EventDto extends PostDto {
+public class EventDTO extends PostDTO {
 	
 	// Field Variables 
 	

@@ -2,6 +2,6 @@ package app.shop.dao;
 
 import java.util.ArrayList;
 
-public class BillDto<E> {
+public class BillDTO<E> {
 	ArrayList<E> Products=new ArrayList<>();
 }

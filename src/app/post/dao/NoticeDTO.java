@@ -1,6 +1,6 @@
 package app.post.dao;
 
-public class NoticeDto extends PostDto {
+public class NoticeDTO extends PostDTO {
 	
 	// Field Variables
 	

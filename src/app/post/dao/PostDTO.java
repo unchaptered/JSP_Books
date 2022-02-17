@@ -1,6 +1,6 @@
 package app.post.dao;
 
-public class PostDto {
+public class PostDTO {
 	
 	// Field Variables
 	
