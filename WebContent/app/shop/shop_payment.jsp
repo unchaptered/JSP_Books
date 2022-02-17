@@ -88,13 +88,13 @@
                             </div> -->
                             <!-- 카드, 페이 둘중한가지로 분기 -->
                             <div id="cards">
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_card_1.png" alt="카드" onclick='preventClick(event)'>신한카드</a>
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_card_4.png" alt="카드" onclick='preventClick(event)'>현대카드</a>
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_card_7.png" alt="카드" onclick='preventClick(event)'>삼성카드</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_card_1.png" alt="카드" onclick='preventClick(event)'>신한카드</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_card_4.png" alt="카드" onclick='preventClick(event)'>현대카드</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_card_7.png" alt="카드" onclick='preventClick(event)'>삼성카드</a>
                             </div>
                             <div id="pays">
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_pay_1.png" alt="페이" onclick='preventClick(event)'>네이버페이</a>
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_pay_2.png" alt="페이" onclick='preventClick(event)'>카카오페이</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_pay_1.png" alt="페이" onclick='preventClick(event)'>네이버페이</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_pay_2.png" alt="페이" onclick='preventClick(event)'>카카오페이</a>
                             </div>
                         </div>
                     </div>
