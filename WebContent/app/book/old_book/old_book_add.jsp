@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>중고 도서 신청하기 - BOOKS</title>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="./assets/css/screens/old_book/old_book_add.css">
+<link rel="stylesheet" href="${cp}/assets/css/screens/old_book/old_book_add.css">
 </head>
 <!-- 저자 : unchaptered -->
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="../../components/nav.jsp" %>
 	
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
@@ -250,8 +252,8 @@
 	</main>
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="../../components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 </html>

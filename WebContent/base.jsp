@@ -21,5 +21,4 @@
 	<%@ include file="views/components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
 </html>

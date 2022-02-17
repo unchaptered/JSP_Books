@@ -10,7 +10,7 @@
 </head>
 <!-- 저자 : unchaptered -->
 <body>
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="app/components/nav.jsp" %>
 	
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
@@ -158,7 +158,7 @@
         </section>
 	</main>
 	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="app/components/footer.jsp" %>
 </body>
 <script type="text/javascript" src="./assets/js/nav_menu.js"></script>
 <script type="text/javascript" src="./assets/js/header.js"></script>
