@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" href="../../assets/css/screens/user/login.css">
 </head>
 <!-- 저자 : unchaptered -->
 <body>

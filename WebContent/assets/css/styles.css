@@ -13,6 +13,8 @@
 
 @import "./components/footer.css";
 
+@import "./screens/user/login.css";
+
 /* Screens : 개인 페이지에 작성한 파일은 전부 Screen 폴더로 */
 
 * {

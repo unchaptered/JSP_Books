@@ -1,11 +1,5 @@
 /* 저자 : 고결 */
 
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
 .login_wrap{
     font-size: 14px;
     line-height: 1.4;
