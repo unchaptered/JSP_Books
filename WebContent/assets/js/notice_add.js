@@ -1,16 +1,4 @@
 // 첨부 파일 이름 나타내기
-// window.onload = function () {
-//     target = document.querySelector("#input-file")
-//     target.addEventListener('change',function(){
-//         fileList = ""
-//         for (let i = 0; i < target.files.length; i++) {
-//             fileList+=target.files[i].name + '<br>'
-//         }
-//         target2 = document.getElementById("showFiles")
-//         target2.innerHTML = fileList;
-//     })
-    
-// }
 function showName(){
     let files = document.getElementById("input-file").files;
     fileList = "";

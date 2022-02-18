@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="File">
+	<insert id="insertFile" parameterType="filedto">
+		insert into post_files (post_files_system, post_files_origin, post_pk) 
+		values(#{postFilesSystem},#{postFilesOrigin},#{post_pk})
+	</insert>
+</mapper>

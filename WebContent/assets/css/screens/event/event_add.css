@@ -1,6 +1,6 @@
 /* 저자 : carpriceksy */
 
-@import url(./event_read.css);
+@import url("event_read.css");
 
 /* 이벤트 제목 */
 .title{
@@ -100,8 +100,9 @@ input[type="file"]{
     padding: 5px 20px;
     cursor: pointer;
 }
-#showFileName{
-    margin: 15px 0 0 0;
+.showFileName{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #updateBtn_img{
@@ -119,8 +120,12 @@ input[type="file"]{
     position: relative;
     top: 2px;
 }
-#imgPreview{
-    width: 100%;
+.imgPreview_div{
+	width: 100%;
+}
+.imgPreview{
+    width: auto;
+    max-width: 100%;
 
 }
 /* 이벤트 상세 설명 */

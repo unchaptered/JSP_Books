@@ -58,8 +58,6 @@
 
 /* 공지사항 상세 내용 */
 .detail_content{
-    /* clear: both;
-    float: left; */
     width: 100%;
     min-height: 200px;
     padding: 30px 20px;

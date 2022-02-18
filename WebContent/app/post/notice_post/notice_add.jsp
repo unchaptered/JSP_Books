@@ -5,21 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title> 공지사항 작성 </title>
-<!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
-<!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="assets/css/screens/notice/notice_add.css">
+<link rel="stylesheet" href="../../../assets/css/styles.css">
+<link rel="stylesheet" href="../../../assets/css/screens/notice/notice_add.css">
 </head>
 <body>
-	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="/app/components/nav.jsp" %>
 	
 	<main id="main">
         <section class="main_content">
             <div class="notice_write">
                 <strong class="title">공지사항 작성</strong>
                 <!-- 폼 시작 -->
-                <form action="./notice_list.jsp" name="noticeWriteForm" method="post" onsubmit="return sendit()" enctype="multipart/form-data">
+                <form action="" name="noticeWriteForm" method="post" onsubmit="return sendit()" enctype="multipart/form-data">
                     <div>
                         <div class="write_content">
                             <strong class="detail_title">공지사항 제목</strong>
@@ -41,17 +38,15 @@
                     <div class="boardBtn">
                         <input type="submit" id="submitBtn" value="등록" onsubmit="confirmEnroll()">
                     </div>
-                    <a href="./notice_list.jsp" class="goList">목록보기</a>
+                    <a href="" class="goList">목록보기</a>
                 </form>
                 <!-- 폼 종료 -->
             </div>
         </section>
     </main>
 	
-	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="/app/components/footer.jsp" %>
 </body>
-<!-- 경로 수정하셔야 합니다. -->
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script src="assets/js/notice_add.js"></script>
+<script type="text/javascript" src="../../../assets/js/nav_menu.js"></script>
+<script src="../../../assets/js/notice_add.js"></script>
 </html>

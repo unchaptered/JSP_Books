@@ -1,19 +1,20 @@
 package app.post.dao;
 
-public class PostDto {
+public class PostDTO {
 	
 	// Field Variables
 	
-	private String postPk;
-	private String postTitle;
-	private String postText;
-	private String postOwner;
-	private String postCreated;
-	private String postViewed;
+	private int postPk;
+	
+	private String postTitle; //게시물 제목
+	private String postText; //게시물 내용
+	private int postOwner; //게시물 작성자(유저 pk)
+	private String postCreated; //게시물 작성일자
+	private String postViewed; //게시물 조회수
 	
 	// Getter 
 	
-	public String getPostPk() {
+	public int getPostPk() {
 		return postPk;
 	}
 	public String getPostTitle() {
@@ -22,7 +23,7 @@ public class PostDto {
 	public String getPostText() {
 		return postText;
 	}
-	public String getPostOwner() {
+	public int getPostOwner() {
 		return postOwner;
 	}
 	public String getPostCreated() {
@@ -35,7 +36,7 @@ public class PostDto {
 	// Setter
 	
 
-	public void setPostPk(String postPk) {
+	public void setPostPk(int postPk) {
 		this.postPk = postPk;
 	}
 	public void setPostTitle(String postTitle) {
@@ -44,7 +45,7 @@ public class PostDto {
 	public void setPostText(String postText) {
 		this.postText = postText;
 	}
-	public void setPostOwner(String postOwner) {
+	public void setPostOwner(int postOwner) {
 		this.postOwner = postOwner;
 	}
 	public void setPostCreated(String postCreated) {

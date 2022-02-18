@@ -134,12 +134,12 @@ td{
     margin: 0 25px;
 }
 .next{
-    background: url("../../../img/page_arrow_right.png") no-repeat center center;
+    background: url(../../../img/page_arrow_right.png) no-repeat center center;
     background-size: 16px;
 }
 .prev{
     visibility: hidden;
-    background: url("../../../img/page_arrow_left.png") no-repeat center center;
+    background: url(../../../img/page_arrow_left.png) no-repeat center center;
     background-size: 16px;
 }
 
@@ -174,7 +174,7 @@ td{
     line-height: 30px;
     font-size: 0;
     border: none;
-    background: url("../../../img/icon_search.png") no-repeat center center;
+    background: url(../../../img/icon_search.png) no-repeat center center;
     background-size: cover;
 }
 input[type=submit]{

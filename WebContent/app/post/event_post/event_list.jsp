@@ -1,242 +1,100 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 리스트</title>
-<!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
-<!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="assets/css/screens/event/event_list.css">
+<c:set var="cp" value="${pageContext.request.contextPath }"/>
+<link rel="stylesheet" href="${cp}/assets/css/styles.css">
+<link rel="stylesheet" href="${cp}/assets/css/screens/event/event_list.css">
 </head>
 <body>
-	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="/app/components/nav.jsp" %>
 	
-		<!-- 컨텐츠 영역 -->
-		<main id="main">
-			<section class="main_content">
-				<div class="event">
-					<!-- 타이틀 -->
-					<a href="./event_list.jsp"><strong class="title">이벤트</strong></a>
-					<div>
-						<!-- 폼 시작 -->
-						<form action="./event_list.jsp" name="eventForm" method="get" onsubmit="return sendit()">
-							<!-- 이벤트 필터 -->
-							<!-- <div class="event_filter"> -->
-								<!-- 필터 구분 -->
-								<!-- <div class="event_tabBox">
-									<ul>
-										<li id="category" class="category tabBox on" onclick="filter_click1(this)">
-											<p>카테고리별 이벤트 찾기</p>
-										</li>
-										<li id="benefit" class="benefit tabBox" onclick="filter_click2(this)">
-											<p>혜택별 이벤트 찾기</p>
-										</li>
-									</ul>
-	
-								</div> -->
-								<!-- 필터 메뉴 -->
-								<!-- <div class="event_tabMenu"> -->
-									<!-- 카테고리별 이벤트 찾기 -->
-									<!-- <div class="category tabMenu on">
-										<div class="tabMenu_1">
-											<ul>
-												<li>
-													<a href="#" class="menu on"><span>전체</span></a>
-													<a href="#" class="menu"><span>소설</span></a>
-													<a href="#" class="menu"><span>시⦁에세이</span></a>
-													<a href="#" class="menu"><span>경제경영</span></a>
-													<a href="#" class="menu"><span>자기계발</span></a>
-													<a href="#" class="menu"><span>사회과학</span></a>
-													<a href="#" class="menu"><span>역사⦁문화</span></a>
-													<a href="#" class="menu"><span>자연⦁과학</span></a>
-													<a href="#" class="menu"><span>외국도서</span></a>
-													<a href="#" class="menu"><span>기타</span></a>
-												</li>
-											</ul>
-										</div>
-									</div> -->
-									<!-- 혜택별 이벤트 찾기 -->
-									<!-- <div class="benefit tabMenu">
-										<div class="tabMenu_1">
-											<ul>
-												<li>
-													<a href="#" class="menu on"><span>전체</span></a>
-													<a href="#" class="menu"><span>증정</span></a>
-													<a href="#" class="menu"><span>할인</span></a>
-													<a href="#" class="menu"><span>적립</span></a>
-													<a href="#" class="menu"><span>만남</span></a>
-												</li>
-											</ul>
-										</div>
-										<div class="tabMenu_hidden">
-											<ul>
-												<li>
-													<a href="#"><span>1</span></a>
-	
-												</li>
-											</ul>
-										</div>
-									</div> -->
-								<!-- </div> -->
-							<!-- </div> -->
-							<!-- 검색창 -->
-							<div class="event_search">
-								<input type="text" name="search" id="e_search" placeholder="검색어를 입력해주세요.">
-								<input type="submit" id="searchBtn" onsubmit="sendit()">
-							</div>
-							<div class="createEvent_div">
-								<a href="./event_add.jsp" class="createEvent">새 이벤트 등록</a>
-							</div>
-							<!-- 이벤트 박스 -->
-							<div class="eventBox_area content__grid">
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
+	<main id="main">
+		<section class="main_content">
+			<div class="event">
+				<!-- 타이틀 -->
+				<a href=""><strong class="title">이벤트</strong></a>
+				<div>
+					<!-- 폼 시작 -->
+					<form action="" name="eventForm" method="get" onsubmit="sendit()">					
+					<!-- 검색창 -->
+						<div class="event_search">
+							<input type="text" name="e_search" id="e_search" placeholder="검색어를 입력해주세요.">
+							<input type="submit" id="searchBtn" onclick="sendit()">
+						</div>
+						<div class="board_count">total : <span>${eventTotalCnt}</span> / pages : <span>${eventTotalPage}</span></div>
+						<div class="createEvent_div">
+							<a href="${cp}/app/post/EventAdd.po" class="createEvent">새 이벤트 등록</a>
+						</div>
+						<!-- 이벤트 박스 (한 페이지 9개)-->
+						<div class="eventBox_area">
+							<c:choose>
+								<c:when test="${eventList.size()>0 and eventList != null }">
+									<div class="content__grid">
+										<c:forEach var="event" items="${eventList}">
+											<a href="${cp}/app/post/event_post/EventRead.po?postPk=${post.postPk}&page=${page}" class="eventBox content__container-4">
+												<div class="eventBox_img">
+													<img src="${event.eventImage}" alt="배너">
+												</div>
+												<div class="eventBox_txt">
+													<strong class="box_title">
+														${post.postTitle}
+													</strong>
+													<p class="box_date">
+														기간 : ${event.eventStarted} - ${event.eventEnded}
+													</p>
+												</div>
+											</a>
+										</c:forEach>
 									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
+								</c:when>
+								<c:otherwise>
+									<div class="event_none">
+										등록된 이벤트가 없습니다.
 									</div>
-								</a>
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
-									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
-									</div>
-								</a>
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
-									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
-									</div>
-								</a>
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
-									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
-									</div>
-								</a>
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
-									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
-									</div>
-								</a>
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
-									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
-									</div>
-								</a>
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
-									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
-									</div>
-								</a>
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
-									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
-									</div>
-								</a>
-								<a href="./event_read.jsp" class="eventBox content__container-4">
-									<div class="eventBox_img">
-										<img src="assets/img/event_banner1.png" alt="김문정 에세이">
-									</div>
-									<div class="eventBox_txt">
-										<strong class="box_title">
-											4th Mini Album [Midnight Guest] 구매자 대상 영상통화
-										</strong>
-										<p class="box_date">
-											기간 : 2022. 01. 06 - 2022. 02. 13
-										</p>
-									</div>
-								</a>
-							</div>
-							<!-- 페이지 버튼 -->
-							<div class="page">
-								<ul>
-									<li><a href="#" class="pageBtn prev">이전</a></li>
-									<li><a href="#" class="pageBtn pageNum current">1</a></li>
-									<li><a href="#" class="pageBtn pageNum">2</a></li>
-									<li><a href="#" class="pageBtn pageNum">3</a></li>
-									<li><a href="#" class="pageBtn pageNum">4</a></li>
-									<li><a href="#" class="pageBtn pageNum">5</a></li>
-									<li><a href="#" class="pageBtn pageNum">6</a></li>
-									<li><a href="#" class="pageBtn pageNum">7</a></li>
-									<li><a href="#" class="pageBtn pageNum">8</a></li>
-									<li><a href="#" class="pageBtn pageNum">9</a></li>
-									<li><a href="#" class="pageBtn pageNum">10</a></li>
-									<li><a href="#" class="pageBtn next">다음</a></li>
-								</ul>
-							</div>
-						</form>
-						<!-- 폼 끝 -->
-					</div>
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<!-- 페이지 버튼 한 페이지 1~10-->
+						<div class="pagination">
+							<ul>
+								<c:choose>
+									<c:when test="${eventList.size()==0 or eventList == null }">
+										<li><span class="pageBtn pageNum current">1</span></li>
+									</c:when>
+									<c:otherwise>
+										<c:if test="${eventPage>10}">
+											<li><a href="${cp}/post/event_post/EventList.po?eventPage=${eventPage-10}" class="pageBtn prev">이전</a></li>
+										</c:if>
+										<c:forEach begin="${eventStartPage}" end="${eventEndPage}" step="1" var="i">
+											<c:choose>
+												<c:when test="${i == eventPage }">
+													<li><span class="pageBtn pageNum current">${i}</span></li>
+												</c:when>
+												<c:otherwise>
+													<li><a href="${cp}/post/event_post/EventList.po?eventPage=${i}" class="pageBtn pageNum">${i}</a></li>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+										<c:if test="${eventPage<eventTotalPage}">
+											<li><a href="${cp}/post/event_post/EventList.po?eventPage=${eventPage+10}" class="pageBtn next">다음</a></li>
+										</c:if>
+									</c:otherwise>
+								</c:choose>
+							</ul>
+						</div>
+					</form>
+					<!-- 폼 끝 -->
 				</div>
-			</section>
-		</main>
-	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+			</div>
+		</section>
+	</main>	
+	<%@ include file="/app/components/footer.jsp" %>
 </body>
-<!-- 경로 수정하셔야 합니다. -->
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script type="text/javascript" src="assets/js/event_list.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
+<script src="${cp}/assets/js/event_list.js"></script>
 </html>
