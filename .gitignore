@@ -1,1 +1,9 @@
+.project
+
+.DS_store
+.vscode
+.metadata
+.classpath
+
 /build/
+/bin/

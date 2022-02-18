@@ -5,19 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title> 공지사항 상세페이지 </title>
-<!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
-<!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="assets/css/screens/notice/notice_read.css">
+<link rel="stylesheet" href="../../../assets/css/styles.css">
+<link rel="stylesheet" href="../../../assets/css/screens/notice/notice_read.css">
 </head>
 <body>
-	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="/app/components/nav.jsp" %>
 	
 	<main id="main">
         <section class="main_content">
             <div class="notice_detail">
-                <a href="./notice_list.jsp"><strong class="title">공지사항</strong></a>
+                <a href=""><strong class="title">공지사항</strong></a>
                 <form name="noticeReadForm">
                     <div class="detail_area">
                         <div class="detail_top">
@@ -33,7 +30,7 @@
                                     <p>조회</p> <span>10000</span>
                                 </div>
                                 <div class="sub">
-                                    <p>첨부파일</p> <a href="#" download><span><img src="assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
+                                    <p>첨부파일</p> <a href="" download><span><img src="../../../assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -43,22 +40,21 @@
                             </div>
                         </div>
                         <div class="noticeReadBtn">
-                            <button class="readBtn" id="noticeUpdate" formaction="notice_edit.html" formmethod="post" onclick="return updateCheck()">수정</button>
-                            <button class="readBtn" id="noticeDelete" formaction="notice_list.html" formmethod="post" onclick="return deleteCheck()">삭제</button>
+                            <button class="readBtn" id="noticeUpdate" formaction="" formmethod="post" onclick="return updateCheck()">수정</button>
+                            <button class="readBtn" id="noticeDelete" formaction="" formmethod="post" onclick="return deleteCheck()">삭제</button>
                         </div>
                         <div class="notice_detail_nav">
                             <div class="notice_prev">
-                                <a href="./notice_read.jsp">
-                                    <span class="notice_arrow">
-                                        < </span>
-                                            <span>이전글</span>
-                                            <p>5번 게시물</p>
+                                <a href="">
+                                    <span class="notice_arrow"><</span>
+                                    <span>이전글</span>
+                                    <p>5번 게시물 제목</p>
                                 </a>
                             </div>
                             <div class="notice_next">
-                                <a href="./notice_read.jsp">
-                                    <p>3번 게시물</p>
-                                    <span class="notice_arrow">다음글</span>
+                                <a href="">
+                                    <p>3번 게시물 제목</p>
+                                    <span>다음글</span>
                                     <span class="notice_arrow">></span>
                                 </a>
                             </div>
@@ -68,11 +64,9 @@
             </div>
         </section>
     </main>
-	
-	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+		
+	<%@ include file="/app/components/footer.jsp" %>
 </body>
-<!-- 경로 수정하셔야 합니다. -->
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script src="assets/js/notice_read.js"></script>
+<script type="text/javascript" src="../../../assets/js/nav_menu.js"></script>
+<script src="../../../assets/js/notice_read.js"></script>
 </html>

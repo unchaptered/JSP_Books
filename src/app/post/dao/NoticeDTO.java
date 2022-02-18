@@ -4,6 +4,18 @@ public class NoticeDTO extends PostDTO {
 	
 	// Field Variables
 	
+	private int noticePk; //기본키
+	
+	private String noticePin; //공지사항 고정 여부
+	
+	private int postPk; //PostDTO 기본키
+	
+	
+	// Getter
+
+	public int getNoticePk() {
+		return noticePk;
+	}
 	private String noticePk;
 	private String noticeFiles;
 	private String noticeImportant;
@@ -16,10 +28,29 @@ public class NoticeDTO extends PostDTO {
 	public String getNoticeFiles() {
 		return noticeFiles;
 	}
-	public String getNoticeImportant() {
+	public String getNoticePin() {
 		return noticeImportant;
 	}
 	
+
+	public int getPostPk() {
+		return postPk;
+	}
+	
+	
+	// Setter
+
+	public void setNoticePk(int noticePk) {
+		this.noticePk = noticePk;
+	}
+	public void setNoticeImportant(String noticeImportant) {
+		this.noticeImportant = noticeImportant;
+	}
+	public void setPostPk(int postPk) {
+		this.postPk = postPk;
+	}
+	
+
 	// Setter
 
 	public void setNoticePk(String noticePk) {
@@ -28,7 +59,7 @@ public class NoticeDTO extends PostDTO {
 	public void setNoticeFiles(String noticeFiles) {
 		this.noticeFiles = noticeFiles;
 	}
-	public void setNoticeImportant(String noticeImportant) {
-		this.noticeImportant = noticeImportant;
+	public void setNoticePin(String noticePin) {
+		this.noticePin = noticePin;
 	}
 }

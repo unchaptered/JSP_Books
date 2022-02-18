@@ -56,27 +56,6 @@ ul, li{
     padding-left: 5px;
 }
 
-/* 알림 */
-.inform{
-    margin: 40px 0;
-}
-.inform>strong{
-    font-size: 18px;
-}
-.inform>img{
-    width: 30px;
-    padding-left: 3px;
-}
-.inform_content{
-    font-size: 15px;
-    margin-top: 15px;
-    height: 42px;
-}
-.inform_content>p{
-    border: 1px solid #e5e5e5;	
-    padding: 10px 15px;
-}
-
 /* 수정, 삭제 버튼 */
 .eventReadBtn{
     text-align: center;
@@ -147,17 +126,4 @@ ul, li{
         width: 98%;
         margin: 0 auto;
     }
-    .inform>strong{
-        font-size: 16px;
-        padding: 5px 10px;
-    }
-    .inform_content{
-        width: 98%;
-        margin: 0 auto;
-        margin-top: 15px;
-        padding: 10px;
-    }
-    .inform_content>p{
-        font-size: 14px;
-    }   
 }
