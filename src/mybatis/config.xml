@@ -23,7 +23,7 @@
         <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/books"/>
         <property name="username" value="root"/>
-        <property name="password" value="1234"/>
+        <property name="password" value="dkdlaktm12@"/>
       </dataSource>
     </environment>
   </environments>
