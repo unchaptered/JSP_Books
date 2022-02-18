@@ -28,7 +28,7 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="mapper/base.xml"/>
+    <!-- <mapper resource="mapper/base.xml"/> -->
     <mapper resource="mapper/user.xml"/>
     <mapper resource="mapper/old-book.xml"/>
   </mappers>
