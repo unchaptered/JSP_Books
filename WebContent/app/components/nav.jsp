@@ -157,30 +157,30 @@
             <div class="join_body">
                 <form id="set_join">
                     <div class="email_wrap">
-                        <label for="user_email" class="user_info"><span class="head_span">이메일</span></label>
+                        <label for="userEmail" class="user_info"><span class="head_span">이메일</span></label>
                         <div class="user_email_input">
-                            <input type="text" name="userEmail" id="user_email" placeholder="이메일을 입력해 주세요.">
+                            <input type="text" name="userEmail" id="userEmail" placeholder="이메일을 입력해 주세요.">
                         </div>
                         <div class="user_email_space join_space"></div>
                     </div>
                     <div class="name_wrap">
-                        <label for="user_name" class="user_info"><span class="head_span">이름</span></label>
+                        <label for="userName" class="user_info"><span class="head_span">이름</span></label>
                         <div class="user_name_input">
-                            <input type="text" name="userName" id="user_name" placeholder="이름을 입력해 주세요.">
+                            <input type="text" name="userName" id="userName" placeholder="이름을 입력해 주세요.">
                         </div>
                         <div class="user_name_space join_space"></div>
                     </div>
                     <div class="pw_wrap">
-                        <label for="user_pw" class="user_info"><span class="head_span">비밀번호</span></label>
+                        <label for="userPassword" class="user_info"><span class="head_span">비밀번호</span></label>
                         <div class="user_pw_input">
-                            <input type="password" name="userPassword" id="user_pw" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 입력해 주세요.">
+                            <input type="password" name="userPassword" id="userPassword" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 입력해 주세요.">
                         </div>
                         <div class="user_pw_space join_space">영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</div>
                     </div>
                     <div class="user_pwre">
-                        <label for="user_pwre" class="user_info"><span class="head_span">비밀번호 확인</span></label>
+                        <label for="userPasswordre" class="user_info"><span class="head_span">비밀번호 확인</span></label>
                         <div class="user_pwre_input">
-                            <input type="password" name="user_pwre" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 다시 한번 입력해주세요." id="user_pwre">
+                            <input type="password" name="userPasswordre" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 다시 한번 입력해주세요." id="userPasswordre">
                         </div>
                         <div class="user_pwre_space join_space"></div>
                     </div>
@@ -224,7 +224,7 @@
                                     
                                 </div>
                                 <div class="mobile_input">
-                                    <input type="text" name="userPhone" placeholder="(예시) 01012345678">
+                                    <input type="text" name="userPhone" placeholder="(예시) 01012345678" id="userPhone">
                                    
                                 </div>
                                 <div class="mobile_input_space join_space"></div>
@@ -279,7 +279,7 @@
                                    
                                 </div>
                                 <div class="acnum_input">
-                                    <input type="text" name="userBankAccount" placeholder=' " - " 없이 입력해주세요.'>
+                                    <input type="text" name="userBankAccount" placeholder=' " - " 없이 입력해주세요.' id="userBankAccount">
                                 </div>
                                 <div class="acnum_input_space join_space"></div>
                             </div>
