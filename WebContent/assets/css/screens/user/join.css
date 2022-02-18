@@ -333,6 +333,9 @@ input[type="text"]:focus {
   color: #fff !important;
   font-family: none !important;
 }
+.addr_button span{
+	font-size : 13px;
+}
 .addr_button:hover{
   background-color: #4346f3 !important;
 }

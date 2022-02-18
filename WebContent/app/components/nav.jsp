@@ -239,7 +239,7 @@
                             <label for="" class="addr_num_text user_info"><span class="head_span">주소</span></label>
                             <input type="text" name="addr_num"  
                             readonly placeholder="우편번호" value id="sample6_postcode">
-                            <button type="button" class="addr_button" onclick="sample6_execDaumPostcode();" value="우편번호 찾기">우편번호 찾기</button>
+                            <button type="button" class="addr_button" onclick="sample6_execDaumPostcode();" value="우편번호 찾기"><span>우편번호 찾기</span></button>
                         </div>
                         <div class="addr_input">
                             <input type="text"  readonly name="addr_input" class="addr_input_text" 
@@ -291,7 +291,6 @@
                             <div class="agree_checkbox_all agrees">
                             <input type="checkbox" name="checkbox_agree" id="checkbox_all" onclick="checkall(this);">
                             <label for="checkbox_all">전체 동의</label>
-                            <hr>
                         </div>
                         </div>
                         <div class=" agree_wrap_inner2 agree_inner">
@@ -323,16 +322,19 @@
 <script>
     // 모달창 열기 이벤트
     $("#myBtnLogin").on("click", function(){
+    $('body').css("overflow", "hidden");
     $(".login_wrap").css({ visibility:"visible",opacity:1});
     });
     // 모달창 닫기 이벤트 
     $("#closeLogin").on("click", function(){
-            $(".login_wrap").css({ visibility:"hidden",opacity:0 });
+    $('body').css("overflow-y", "scroll");
+    $(".login_wrap").css({ visibility:"hidden",opacity:0 });
     });
 
-    $(document).on("click", function(e){  
+    $(document).on("click",function(e){
     if( $(".login_wrap").is(e.target)) {
     $(".login_wrap").css({ visibility:"hidden",opacity:0 });
+    $('body').css("overflow-y", "scroll");
     }
     });
 </script>
@@ -346,17 +348,20 @@
         })
     }
     $("#myBtnJoin").on("click", function(){
-    $(".join_wrap").css({ visibility:"visible",opacity:1});
-    });
-    // 모달창 닫기 이벤트 
-    $("#closeJoin").on("click", function(){
-            $(".join_wrap").css({ visibility:"hidden",opacity:0 });
-    });
+        $('body').css("overflow", "hidden");
+        $(".join_wrap").css({ visibility:"visible",opacity:1});
+        });
+        // 모달창 닫기 이벤트 
+        $("#closeJoin").on("click", function(){
+        $('body').css("overflow-y", "scroll");
+        $(".join_wrap").css({ visibility:"hidden",opacity:0 });
+        });
 
-    $(document).on("click", function(e){  
-    if( $(".join_wrap").is(e.target)) {
-    $(".join_wrap").css({ visibility:"hidden",opacity:0 });
-    }
-    });
+        $(document).on("click",function(e){
+        if( $(".join_wrap").is(e.target)) {
+        $(".join_wrap").css({ visibility:"hidden",opacity:0 });
+        $('body').css("overflow-y", "scroll");
+        }
+        });
 </script>
 </html>
