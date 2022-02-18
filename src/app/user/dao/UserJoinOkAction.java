@@ -12,6 +12,26 @@ public class UserJoinOkAction implements Action{
 		UserDAO udao = new UserDAO();
 		UserDTO newUser = new UserDTO();
 		
-		return null;
+		newUser.setUser_email("user_email");
+		newUser.setUser_name("user_name");
+		newUser.setUser_password("user_password");
+		newUser.setUser_phone("user_phone");
+		newUser.setUser_zipcode("user_zipcode");
+		newUser.setUser_address("user_address");
+		newUser.setUser_address_detail("user_address_detail");
+		newUser.setUser_address_etc("user_address_etc");
+		newUser.setUser_bank("user_bank");
+		newUser.setUser_bank_account("user_bank_account");
+		
+		ActionTo transfer = new ActionTo();
+		if(udao.join(newUser)) {
+			transfer.setRedirect(true);
+			transfer.setPath(req.getContextPath()+"/nav.jsp");
+		}
+		else {
+			transfer.setRedirect(true);
+			transfer.setPath(req.getContextPath()+"/index.jsp");
+		}
+		return transfer;
 	}
 }

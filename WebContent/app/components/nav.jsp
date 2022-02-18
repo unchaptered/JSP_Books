@@ -137,7 +137,7 @@
     </form>
     </div>
     <div class="join_wrap">
-    <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="get">
+    <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="post" onsubmit="return sendit()">
         <div class="join_container" style="overflow: auto;">
             <div class="join_header">
                 회원가입

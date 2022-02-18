@@ -38,6 +38,8 @@ private static final long serialVersionUID = 1L;
 			} catch (Exception e) {
 				System.out.println("UserJoinOk :"+e);
 			}
+			break;
+			
 		}
 	
 	

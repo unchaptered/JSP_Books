@@ -10,4 +10,8 @@ public class UserDAO {
 	public UserDAO() {
 		sqlsession = SqlMapConfig.getFactory().openSession(true);
 	}
+
+	public boolean join(UserDTO newUser) {
+		return 1 == sqlsession.insert("User.join",newUser);
+	}
 }

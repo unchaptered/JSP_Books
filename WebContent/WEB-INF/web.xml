@@ -17,4 +17,12 @@
     <servlet-name>OldBookFrontController</servlet-name>
     <url-pattern>*.ob</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>UserFrontController</servlet-name>
+    <servlet-class>app.user.dao.UserFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserFrontController</servlet-name>
+    <url-pattern>*.us</url-pattern>
+  </servlet-mapping>
 </web-app>

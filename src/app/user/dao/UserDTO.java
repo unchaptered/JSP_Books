@@ -11,12 +11,11 @@ public class UserDTO {
 	private String user_phone; // 핸드폰번호
 	private String user_zipcode; // 우편번호
 	private String user_address; // 주소
-	private String user_addressdetail; // 상세주소
-	private String user_addressetc; // 기타
+	private String user_address_detail; // 상세주소
+	private String user_address_etc; // 기타
 	private String user_bank; // 은행명
-	private String user_bankaccount; // 계좌번호
+	private String user_bank_account; // 계좌번호
 	
-	// Getter
 	public int getUser_pk() {
 		return user_pk;
 	}
@@ -59,17 +58,17 @@ public class UserDTO {
 	public void setUser_address(String user_address) {
 		this.user_address = user_address;
 	}
-	public String getUser_addressdetail() {
-		return user_addressdetail;
+	public String getUser_address_detail() {
+		return user_address_detail;
 	}
-	public void setUser_addressdetail(String user_addressdetail) {
-		this.user_addressdetail = user_addressdetail;
+	public void setUser_address_detail(String user_address_detail) {
+		this.user_address_detail = user_address_detail;
 	}
-	public String getUser_addressetc() {
-		return user_addressetc;
+	public String getUser_address_etc() {
+		return user_address_etc;
 	}
-	public void setUser_addressetc(String user_addressetc) {
-		this.user_addressetc = user_addressetc;
+	public void setUser_address_etc(String user_address_etc) {
+		this.user_address_etc = user_address_etc;
 	}
 	public String getUser_bank() {
 		return user_bank;
@@ -77,12 +76,15 @@ public class UserDTO {
 	public void setUser_bank(String user_bank) {
 		this.user_bank = user_bank;
 	}
-	public String getUser_bankaccount() {
-		return user_bankaccount;
+	public String getUser_bank_account() {
+		return user_bank_account;
 	}
-	public void setUser_bankaccount(String user_bankaccount) {
-		this.user_bankaccount = user_bankaccount;
+	public void setUser_bank_account(String user_bank_account) {
+		this.user_bank_account = user_bank_account;
 	}
+	
+	// Getter
+	
 	
 	
 	// Common Method
@@ -94,7 +96,7 @@ public class UserDTO {
 			if(target.user_email.equals(this.user_email)) {
 				return true;
 			}
-		}
+		} 
 		return false;
 	}
 	@Override
