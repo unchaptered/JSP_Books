@@ -143,18 +143,18 @@
   margin-top: 11px !important;
 }
 .user_name_input input[type="text"] {
-  width: 100% !important;
-  height: 50px !important;
-  padding-right: 15px !important;
-  padding-left: 15px !important;
-  border-radius: 5px !important;
-  border: 1px solid #e1e2e3 !important;
-  background-color: #fff !important;
-  font-size: 15px !important;
-  color: #333 !important;
-  appearance: none !important;
-  resize: none !important;
-  box-shadow: none !important;
+  width: 100%;
+  height: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid #e1e2e3;
+  background-color: #fff;
+  font-size: 15px;
+  color: #333;
+  appearance: none;
+  resize: none;
+  box-shadow: none;
 }
 .user_name_input input:focus {
   border: 1px solid #36f !important;
@@ -261,20 +261,20 @@ select:not(:-internul-list-box) {
   margin-top: 11px !important;
 }
 input[type="text"] {
-  width: 100% !important;
-  height: 50px !important;
-  padding-right: 15px !important;
-  padding-left: 15px !important;
-  border-radius: 5px !important;
-  border: 1px solid #e1e2e3 !important;
-  background-color: #fff !important;
-  font-size: 15px !important;
-  color: #333 !important;
-  appearance: none !important;
-  resize: none !important;
+  width: 100%;
+  height: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid #e1e2e3;
+  background-color: #fff;
+  font-size: 15px;
+  color: #333;
+  appearance: none;
+  resize: none;
 }
 input[type="text"]:focus {
-  border: 1px solid #36f !important;
+  border: 1px solid #36f;
 }
 .mobile_input > input {
   flex: 1 1 !important;
@@ -488,23 +488,23 @@ input[type="text"]:focus {
   background: linear-gradient((180deg, rgba(255, 255, 255, 0), #fff));
 }
 input[type=submit]{
-  margin-top: 20px !important;
-  margin-bottom:10px !important;
-  background-color: #36f !important;
-  border-color: transparent !important;
-  color: #fff !important;
-  cursor: pointer !important;
-  justify-content: center !important;
-  align-items: center !important;
-  font-size: 16px !important;
-  width: 100% !important;
-  height: 54px !important;
-  border-radius: 27px !important;
-  font-weight: 600 !important;
-  z-index: 100 !important;
+  margin-top: 20px;
+  margin-bottom:10px;
+  background-color: #36f;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 100%;
+  height: 54px;
+  border-radius: 27px;
+  font-weight: 600;
+  z-index: 100;
 }
 input[type=submit]:hover{
-  background-color: #4346f3 !important;
+  background-color: #4346f3;
 }
 .join_wrap input[type="password"]::placeholder {
   color: #cacaca !important;

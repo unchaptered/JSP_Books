@@ -46,3 +46,18 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
+function sendit(){
+	const joinForm = document.joinForm;
+	let userEmail = joinForm.userEmail;
+	if(userEmail.value == "") {
+		console.log('다시 해봐')
+		userEmail.focus();
+		return false;	
+	}
+	let regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
+	if(!regEmail.test(userEmail.value)){
+		console.log('다시 해봐')
+		userEmail.focus();
+		return false;
+	}
+}

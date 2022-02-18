@@ -157,7 +157,7 @@
             <div class="join_body">
                 <form id="set_join">
                     <div class="email_wrap">
-                        <label for="userEmail" class="user_info"><span class="head_span">이메일</span></label>
+                        <label for="userEmail" class="user_info"><span class="head_span">이메일</span><span class="emailError"></span></label>
                         <div class="user_email_input">
                             <input type="text" name="userEmail" id="userEmail" placeholder="이메일을 입력해 주세요.">
                         </div>
@@ -190,7 +190,7 @@
                         <div class="user_phone_body">
                             <div id="user_phone">
                                 <div class="mobile_input_select input_select">
-                                    <select id="selectbox" name="selectbox">
+                                    <select id="selectboxPhone" name="selectboxPhone">
                                         <option value="+82" selected="selected">+82 South Korea</option>                      
                                         <option value="+61">+61 Austalia</option>
                                         <option value="+55">+55 Brazil</option>
@@ -265,7 +265,7 @@
                             <div id="acnum">
                                 <div class="acnum_input_select input_select">
                                    
-                                    <select id="selectbox" name="userBank">
+                                    <select id="userBank" name="userBank">
                                         <option value="" selected="selected">은행</option>
                                         <option value="">신한은행</option>
                                         <option value="">국민은행</option>
