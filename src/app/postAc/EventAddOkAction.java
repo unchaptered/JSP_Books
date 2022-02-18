@@ -22,7 +22,7 @@ public class EventAddOkAction implements Action{
 		EventDAO edao = new EventDAO();
 		
 		//파일이 저장될 경로
-		String saveFolder = "C:\\";
+		String saveFolder = "C:\\jsp_file";
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
 
@@ -54,7 +54,7 @@ public class EventAddOkAction implements Action{
 		
 		String postText = multi.getParameter("postText");
 		
-		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUser_pk();
 		
 		post.setPostTitle(postTitle);
 		post.setEventStarted(eventStarted);

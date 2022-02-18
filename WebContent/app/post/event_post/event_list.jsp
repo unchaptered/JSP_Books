@@ -36,9 +36,9 @@
 								<c:when test="${eventList.size()>0 and eventList != null }">
 									<div class="content__grid">
 										<c:forEach var="event" items="${eventList}">
-											<a href="${cp}/app/post/event_post/EventRead.po?postPk=${post.postPk}&page=${page}" class="eventBox content__container-4">
+											<a href="${cp}/app/post/event_post/EventRead.po?postPk=${post.postPk}&page=${eventPage}" class="eventBox content__container-4">
 												<div class="eventBox_img">
-													<img src="${event.eventImage}" alt="배너">
+													<img src="" alt="배너">
 												</div>
 												<div class="eventBox_txt">
 													<strong class="box_title">

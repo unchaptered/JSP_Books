@@ -25,4 +25,12 @@
     <servlet-name>UserFrontController</servlet-name>
     <url-pattern>*.us</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>PostFrontController</servlet-name>
+    <servlet-class>app.postAc.PostFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostFrontController</servlet-name>
+    <url-pattern>*.po</url-pattern>
+  </servlet-mapping>
 </web-app>

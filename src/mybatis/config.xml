@@ -9,9 +9,10 @@
     
     <typeAlias type="app.user.dao.UserDTO" alias="userdto"/>
     
-    <!-- <typeAlias type="app.post.dao.PostDTO" alias="postdto"/> -->
-    <!-- <typeAlias type="app.post.dao.EventDTO" alias="eventdto"/> -->
-    <!-- <typeAlias type="app.post.dao.NoticeDTO" alias="noticedto"/> -->
+    <typeAlias type="app.post.dao.PostDTO" alias="postdto"/>
+    <typeAlias type="app.post.dao.EventDTO" alias="eventdto"/>
+    <typeAlias type="app.post.dao.NoticeDTO" alias="noticedto"/>
+    <typeAlias type="app.post.dao.FileDTO" alias="filedto"/>
     
     <!-- <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/> -->
     <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>
@@ -31,5 +32,7 @@
     <!-- <mapper resource="mapper/base.xml"/> -->
     <mapper resource="mapper/user.xml"/>
     <mapper resource="mapper/old-book.xml"/>
+    <mapper resource="mapper/post.xml"/>
+    <mapper resource="mapper/file.xml"/>
   </mappers>
 </configuration>
