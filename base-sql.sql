@@ -93,11 +93,7 @@ CREATE TABLE new_book (
 CREATE TABLE old_book (
    new_book_pk INT,
    old_book_pk INT AUTO_INCREMENT PRIMARY KEY,
-   old_book_one_mount VARCHAR(300),
-   old_book_two_mount VARCHAR(300),
-   old_book_three_mount VARCHAR(300),
-   old_book_four_mount VARCHAR(300),
-   old_book_five_mount VARCHAR(300),
+   old_book_discount INT,
    FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk)
 );

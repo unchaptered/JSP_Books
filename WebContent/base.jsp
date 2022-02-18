@@ -11,14 +11,14 @@
 </head>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="app/components/nav.jsp" %>
 	
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
 	</main>
 	
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="app/components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 </html>
