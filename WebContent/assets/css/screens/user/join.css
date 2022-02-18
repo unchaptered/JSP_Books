@@ -142,7 +142,7 @@
 .user_name_input {
   margin-top: 11px !important;
 }
-.user_name_input input[type="text"] {
+.join_wrap .user_name_input input[type="text"] {
   width: 100%;
   height: 50px;
   padding-right: 15px;
@@ -260,7 +260,7 @@ select:not(:-internul-list-box) {
   display: flex !important;
   margin-top: 11px !important;
 }
-input[type="text"] {
+.join_wrap input[type="text"] {
   width: 100%;
   height: 50px;
   padding-right: 15px;
@@ -273,7 +273,7 @@ input[type="text"] {
   appearance: none;
   resize: none;
 }
-input[type="text"]:focus {
+.join_wrap input[type="text"]:focus {
   border: 1px solid #36f;
 }
 .mobile_input > input {
@@ -487,7 +487,7 @@ input[type="text"]:focus {
   display: block !important;
   background: linear-gradient((180deg, rgba(255, 255, 255, 0), #fff));
 }
-input[type=submit]{
+.join_wrap input[type=submit]{
   margin-top: 20px;
   margin-bottom:10px;
   background-color: #36f;
@@ -503,7 +503,7 @@ input[type=submit]{
   font-weight: 600;
   z-index: 100;
 }
-input[type=submit]:hover{
+.join_wrap input[type=submit]:hover{
   background-color: #4346f3;
 }
 .join_wrap input[type="password"]::placeholder {
