@@ -26,41 +26,35 @@ CREATE TABLE admin (
 );
 CREATE TABLE post (
    post_pk INT AUTO_INCREMENT PRIMARY KEY,
-   post_title VARCHAR(300),
-   post_text VARCHAR(300),
-   post_owner VARCHAR(300),
-   post_created VARCHAR(300),
-   post_viewed VARCHAR(300)
+   post_title VARCHAR(300) not null,
+   post_text VARCHAR(1000) not null,
+   post_owner int,
+   post_created datetime default now(),
+   post_viewed int default 0,
+   FOREIGN KEY (post_owner) 
+		REFERENCES user (user_pk)
 );
 CREATE TABLE post_files (
    post_file_pk BIGINT PRIMARY KEY,
-   post_file_system VARCHAR(1000),
-   post_file_origin VARCHAR(1000)
+   post_file_post_ownersystem VARCHAR(1000),
+   post_file_origin VARCHAR(300),
+   post_pk INT
 );
 CREATE TABLE post_notice (
    notice_pk INT AUTO_INCREMENT PRIMARY KEY,
-   notice_file BIGINT,
-   notice_important VARCHAR(300),
+   notice_pin enum('Y','N') default 'N' not null,
    post_pk INT,
    FOREIGN KEY (post_pk)
-      REFERENCES post (post_pk),
-   FOREIGN KEY (notice_file)
-      REFERENCES post_files (post_file_pk)
+		REFERENCES post (post_pk)
 );
 CREATE TABLE post_event (
    event_pk INT AUTO_INCREMENT PRIMARY KEY,
    event_started VARCHAR(300),
    event_ended VARCHAR(300),
-   event_file BIGINT,
-   event_file_detail BIGINT,
-   event_like VARCHAR(300),
+   event_like int default 0,
    post_pk INT,
    FOREIGN KEY (post_pk)
-      REFERENCES post (post_pk),
-   FOREIGN KEY (event_file)
-      REFERENCES post_files (post_file_pk),
-   FOREIGN KEY (event_file_detail)
-      REFERENCES post_files (post_file_pk)
+		REFERENCES post (post_pk)
 );
 -- CREATE TABLE book_genre (
 --    book_genre_pk INT AUTO_INCREMENT PRIMARY KEY,

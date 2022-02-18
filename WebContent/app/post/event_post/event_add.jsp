@@ -12,7 +12,9 @@
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
-	
+	<script>
+		console.log(cp);
+	</script>
 	<!-- 로그인 체크 -->
 	<%--
 	<script>let cp = "${pageContext.request.contextPath}";</script>

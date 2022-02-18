@@ -23,6 +23,7 @@ public class EventAddOkAction implements Action{
 		
 		//파일이 저장될 경로
 		String saveFolder = "C:\\jsp_file";
+
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
 
@@ -44,7 +45,7 @@ public class EventAddOkAction implements Action{
 			fcheck2 = true;
 		}
 		String orgname2 = multi.getOriginalFileName("inputFileToRead");
-		
+
 		//EventDTO
 		EventDTO post = new EventDTO();
 		
@@ -53,19 +54,20 @@ public class EventAddOkAction implements Action{
 		String eventEnded = multi.getParameter("eventEnded");
 		
 		String postText = multi.getParameter("postText");
-		
-		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUser_pk();
-		
+
+		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+
 		post.setPostTitle(postTitle);
 		post.setEventStarted(eventStarted);
 		post.setEventEnded(eventEnded);		
 		post.setPostText(postText);	
 		post.setPostOwner(postOwner);
-		
+		System.out.println("세팅후");
 		PostDAO pdao = new PostDAO();
 		String ownerName = pdao.getOwnerName(postOwner);
 		
 		req.setAttribute("ownerName", ownerName);
+		System.out.println("오너네임가져오기");
 		
 		//페이지 보내기
 		int postPk = 0;
@@ -77,16 +79,16 @@ public class EventAddOkAction implements Action{
 			if(!fcheck1) {
 				FileDTO file = new FileDTO();
 				file.setPostPk(postPk);
-				file.setPostFilesSystem(systemname1);
-				file.setPostFilesOrigin(orgname1);
+				file.setPostFileSystem(systemname1);
+				file.setPostFileOrigin(orgname1);
 				
 				fcheck1 = fdao.insertFile(file);
 			}
 			if(!fcheck2) {
 				FileDTO file = new FileDTO();
-				file.setPostFilesPk(postPk);
-				file.setPostFilesSystem(systemname2);
-				file.setPostFilesOrigin(orgname2);
+				file.setPostFilePk(postPk);
+				file.setPostFileSystem(systemname2);
+				file.setPostFileOrigin(orgname2);
 				
 				fcheck2 = fdao.insertFile(file);
 			}

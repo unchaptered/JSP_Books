@@ -4,21 +4,21 @@ public class FileDTO {
 	
 	// Field Variables
 	
-	private int postFilesPk;
-	private String postFilesSystem;
-	private String postFilesOrigin;
+	private int postFilePk;
+	private String postFileSystem;
+	private String postFileOrigin;
 	
 	private int postPk;
 	// Getter
 	
-	public int getPostFilesPk() {
-		return postFilesPk;
+	public int getPostFilePk() {
+		return postFilePk;
 	}
-	public String getPostFilesSystem() {
-		return postFilesSystem;
+	public String getPostFileSystem() {
+		return postFileSystem;
 	}
-	public String getPostFilesOrigin() {
-		return postFilesOrigin;
+	public String getPostFileOrigin() {
+		return postFileOrigin;
 	}
 	
 	public int getPostPk() {
@@ -27,14 +27,14 @@ public class FileDTO {
 		
 	// Setter
 	
-	public void setPostFilesPk(int postFilesPk) {
-		this.postFilesPk = postFilesPk;
+	public void setPostFilePk(int postFilePk) {
+		this.postFilePk = postFilePk;
 	}
-	public void setPostFilesSystem(String postFilesSystem) {
-		this.postFilesSystem = postFilesSystem;
+	public void setPostFileSystem(String postFileSystem) {
+		this.postFileSystem = postFileSystem;
 	}
-	public void setPostFilesOrigin(String postFilesOrigin) {
-		this.postFilesOrigin = postFilesOrigin;
+	public void setPostFileOrigin(String postFileOrigin) {
+		this.postFileOrigin = postFileOrigin;
 	}
 	
 	public void setPostPk(int postPk) {
