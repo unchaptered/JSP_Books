@@ -157,7 +157,7 @@
             <div class="join_body">
                 <form id="set_join">
                     <div class="email_wrap">
-                        <label for="userEmail" class="user_info"><span class="head_span">이메일</span><span class="emailError"></span></label>
+                        <label for="userEmail" class="user_info"><span class="head_span">이메일</span><span id="emailError"></span></label>
                         <div class="user_email_input">
                             <input type="text" name="userEmail" id="userEmail" placeholder="이메일을 입력해 주세요.">
                         </div>
@@ -317,6 +317,7 @@
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>const cp = "${pageContext.request.contextPath}"</script>
 <script>
     // 모달창 열기 이벤트
     $("#myBtnLogin").on("click", function(){

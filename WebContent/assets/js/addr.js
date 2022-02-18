@@ -50,14 +50,67 @@ function sendit(){
 	const joinForm = document.joinForm;
 	let userEmail = joinForm.userEmail;
 	if(userEmail.value == "") {
-		console.log('다시 해봐')
+		console.log('다시 해봐 이메일 공백')
 		userEmail.focus();
 		return false;	
 	}
 	let regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
 	if(!regEmail.test(userEmail.value)){
-		console.log('다시 해봐')
+		console.log('다시 해봐 이메일 정규식')
 		userEmail.focus();
 		return false;
 	}
+	let userName = joinForm.userName;
+	if(userName.value == ""){
+		console.log('다시 해봐 이름 공백')
+		userName.focus();
+		return false;
+	}
+	let regPassword = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,15}$/
+	let userPassword = joinForm.userPassword;
+	if(!regPassword.test(userPassword.value)){
+		console.log('다시 해봐 비밀번호 정규식')
+		userPassword.focus();
+		return false;
+	}
+	if(userPassword.value.search(/\s/) != -1){
+		console.log('다시 해봐 비밀번호 찐공백')
+		userPassword.focus();
+		return false;
+	}
+	let userPasswordre = joinForm.userPasswordre;
+	if(userPasswordre.value == ""){
+		console.log('다시 해봐 비밀번호 확인 공백')
+		userPasswordre.focus();
+		return false;
+	}
+	if(userPassword.value != userPasswordre.value){
+		console.log('다시 해봐 비밀번호확인불일치')
+		userPassword.focus();
+		return false;
+	}
+	let userPhone = joinForm.userPhone;
+	if(userPhone.value == ""){
+		console.log('다시해봐 휴대폰 공백')
+		userPhone.focus();
+		return false;
+	}
+	let userZipcode = joinForm.userZipcode;
+	if(userZipcode.value == ""){
+		sample6_execDaumPostcode();
+		return false;
+	}
+	let userAddressDetail = joinForm.userAddressDetail;
+	if(userAddressDetail.value == ""){
+		console.log('다시해봐 상세주소')
+		userAddressDetail.focus();
+		return false;
+	}
+	let userBankAccount = joinForm.userBankAccount;
+	if(userBankAccount.value == ""){
+		console.log('다시해봐 계좌번호')
+		userBankAccount.focus();
+		return false;
+	}
 }
+
