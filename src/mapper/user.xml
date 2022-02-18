@@ -5,8 +5,8 @@
 <mapper namespace="User">
 	<insert id="join" parameterType="userdto">
 		INSERT INTO user (user_email, user_name, user_password, user_phone,
-		user_zipcode, user_address, user_address_detail, user_address_etc,user_bank,user_bank_account) 
-		VALUES (#{user_email},#{user_name}, #{user_password}, #{user_phone}, #{user_zipcode},
-		#{user_address}, #{user_address_detail}, #{user_address_etc},#{user_bank},#{user_bank_account})
+		user_zipcode, user_address, user_address_detail,user_address_etc,user_bank,user_bank_account) 
+		VALUES (#{userEmail},#{userName},#{userPassword},#{userPhone},#{userZipcode},
+		#{userAddress},#{userAddressDetail},#{userAddressEtc},#{userBank},#{userBankAccount})
 	</insert>
 </mapper>

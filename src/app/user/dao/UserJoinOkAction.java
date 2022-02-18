@@ -12,21 +12,22 @@ public class UserJoinOkAction implements Action{
 		UserDAO udao = new UserDAO();
 		UserDTO newUser = new UserDTO();
 		
-		newUser.setUser_email("user_email");
-		newUser.setUser_name("user_name");
-		newUser.setUser_password("user_password");
-		newUser.setUser_phone("user_phone");
-		newUser.setUser_zipcode("user_zipcode");
-		newUser.setUser_address("user_address");
-		newUser.setUser_address_detail("user_address_detail");
-		newUser.setUser_address_etc("user_address_etc");
-		newUser.setUser_bank("user_bank");
-		newUser.setUser_bank_account("user_bank_account");
+		newUser.setUserEmail(req.getParameter("userEmail"));
+		newUser.setUserName(req.getParameter("userName"));
+		newUser.setUserPassword(req.getParameter("userPassword"));
+		newUser.setUserPhone(req.getParameter("userPhone"));
+		newUser.setUserZipcode(req.getParameter("userZipcode"));
+		newUser.setUserAddress(req.getParameter("userAddress"));
+		newUser.setUserAddressDetail(req.getParameter("userAddressDetail"));
+		newUser.setUserAddressEtc(req.getParameter("userAddressEtc"));
+		newUser.setUserBank(req.getParameter("userBank"));
+		newUser.setUserBankAccount(req.getParameter("userBankAccount"));
+		
 		
 		ActionTo transfer = new ActionTo();
 		if(udao.join(newUser)) {
 			transfer.setRedirect(true);
-			transfer.setPath(req.getContextPath()+"/app/components/nav.jsp"); 
+			transfer.setPath(req.getContextPath()+"/index.jsp"); 
 		}
 		else {
 			transfer.setRedirect(true);

@@ -159,21 +159,21 @@
                     <div class="email_wrap">
                         <label for="user_email" class="user_info"><span class="head_span">이메일</span></label>
                         <div class="user_email_input">
-                            <input type="text" name="user_email" id="user_email" placeholder="이메일을 입력해 주세요." value>
+                            <input type="text" name="userEmail" id="user_email" placeholder="이메일을 입력해 주세요.">
                         </div>
                         <div class="user_email_space join_space"></div>
                     </div>
                     <div class="name_wrap">
                         <label for="user_name" class="user_info"><span class="head_span">이름</span></label>
                         <div class="user_name_input">
-                            <input type="text" name="user_name" id="user_name" placeholder="이름을 입력해 주세요." value>
+                            <input type="text" name="userName" id="user_name" placeholder="이름을 입력해 주세요.">
                         </div>
                         <div class="user_name_space join_space"></div>
                     </div>
                     <div class="pw_wrap">
                         <label for="user_pw" class="user_info"><span class="head_span">비밀번호</span></label>
                         <div class="user_pw_input">
-                            <input type="password" name="user_pw" id="user_pw" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 입력해 주세요." value>
+                            <input type="password" name="userPassword" id="user_pw" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 입력해 주세요.">
                         </div>
                         <div class="user_pw_space join_space">영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</div>
                     </div>
@@ -224,7 +224,7 @@
                                     
                                 </div>
                                 <div class="mobile_input">
-                                    <input type="text" name="user_phone" placeholder="(예시) 01012345678" value="">
+                                    <input type="text" name="userPhone" placeholder="(예시) 01012345678">
                                    
                                 </div>
                                 <div class="mobile_input_space join_space"></div>
@@ -238,20 +238,20 @@
                     <div class="addr_wrap_inner">
                         <div class="addr_num">
                             <label for="" class="addr_num_text user_info"><span class="head_span">주소</span></label>
-                            <input type="text" name="addr_num"  
+                            <input type="text" name="userZipcode"  
                             readonly placeholder="우편번호" value id="sample6_postcode">
                             <button type="button" class="addr_button" onclick="sample6_execDaumPostcode();" value="우편번호 찾기"><span>우편번호 찾기</span></button>
                         </div>
                         <div class="addr_input">
-                            <input type="text"  readonly name="addr_input" class="addr_input_text" 
+                            <input type="text"  readonly name="userAddress" class="addr_input_text" 
                             id="sample6_address" placeholder="주소">
                         </div>
                         <div class="addr_input_detail">
-                            <input type="text" name="addr_input_detail" class="addr_input_text_detail"
+                            <input type="text" name="userAddressDetail" class="addr_input_text_detail"
                             id="sample6_detailAddress" placeholder="상세주소를 입력해 주세요.">
                         </div>
                         <div class="addr_input_detail_refer">
-                            <input type="text" name="addr_input_detail_refer" class="addr_input_text_detail"
+                            <input type="text" name="userAddressEtc" class="addr_input_text_detail"
                             id="sample6_extraAddress" placeholder="참고항목">
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                             <div id="acnum">
                                 <div class="acnum_input_select input_select">
                                    
-                                    <select id="selectbox" name="selectbox">
+                                    <select id="selectbox" name="userBank">
                                         <option value="" selected="selected">은행</option>
                                         <option value="">신한은행</option>
                                         <option value="">국민은행</option>
@@ -279,7 +279,7 @@
                                    
                                 </div>
                                 <div class="acnum_input">
-                                    <input type="text" name="user_phone" placeholder=' " - " 없이 입력해주세요.' value="">
+                                    <input type="text" name="userBankAccount" placeholder=' " - " 없이 입력해주세요.'>
                                 </div>
                                 <div class="acnum_input_space join_space"></div>
                             </div>
