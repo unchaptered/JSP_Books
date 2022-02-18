@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OldBook">
+	<select id="addOldBook"
+		resultType="_int"
+		parameterType="oldbookdto">
+		INSERT INTO old_book
+		(new_book_pk, old_book_pk, old_book_discount) VALUES
+		(#{bookPk}, #{oldBookPk}, #{oldBookDiscount});
+	</select>
+	
+	<!-- new_book 테이블 작업 완료시 join 쿼리문 추가 필요 -->
+	<select id="getOneOldBookByOldBookPk"
+		resultType="oldbookdto"
+		parameterType="_int">
+		SELECT * FROM old_book
+		WHERE old_book_pk=#{oldBookPk};
+	</select>
+	
+	<select id="getAllOldBookByLimit"
+		resultType="oldbookdto"
+		parameterType="_int">
+		SELECT * FROM old_book
+		ORDER BY old_book_pk
+		LIMIT #{limit};
+	</select>
+</mapper>

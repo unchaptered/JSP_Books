@@ -68,137 +68,151 @@ BOOKs(가제) 는 JSP 기반 웹 프로젝트입니다.
 
 ## DB
 
-### 전체 구조
+1. 유저 및 관리자
+2. 공지사항 및 이벤트글
+3. 신규도서 및 중고도서
+4. 앨범
 
+### 1. 유저 및 관리자
 
-┌ 유저
-├ 관리자
-├ 게시글
-│ └ 이벤트
-│ └ 공지사항
-└ 상품
-  └ 신규 도서 - 장르, 발행국가
-  └ 중고도서
-  └ 음반
+#### 1.1. 유저
 
+```sql
+CREATE TABLE user (
+   user_pk INT AUTO_INCREMENT PRIMARY KEY,
+   user_email VARCHAR(1000) NOT NULL,
+   user_name VARCHAR(500) NOT NULL,
+   user_password VARCHAR(500) NOT NULL,
+   user_phone VARCHAR(500) NOT NULL,
+   user_zipcode VARCHAR(500),
+   user_address VARCHAR(2000),
+   user_address_detail VARCHAR(2000),
+   user_address_etc VARCHAR(2000),
+   user_bank VARCHAR(1000),
+   user_bank_account VARCHAR(1000)
+);
+```
 
-### 1.1. 유저
+#### 1.2. 관리자
 
-
-1. user_pk // PK
-2. user_email
-3. user_name
-4. user_password
-5. user_phone
-6. user_zipcode
-7. user_address
-8. user_address_detail
-9. user_address_etc
-10. user_bank
-11. user_bank_account
-
-
-### 1.2. 관리자
-
-
-1. admin_pk // PK
-2. admin_name
-3. admin_password
-4. admin_authorized
-5. admin_expired
-
+```sql
+CREATE TABLE admin (
+   admin_pk INT AUTO_INCREMENT PRIMARY KEY,
+   admin_email VARCHAR(1000) NOT NULL,
+   admin_name VARCHAR(500) NOT NULL,
+   admin_password VARCHAR(500) NOT NULL,
+   admin_authorized VARCHAR(300),
+   admin_expired VARCHAR(300)
+);
+```
 
 ### 2. 게시글
 
+```sql
+CREATE TABLE post (
+   post_pk INT AUTO_INCREMENT PRIMARY KEY,
+   post_title VARCHAR(300),
+   post_text VARCHAR(300),
+   post_owner VARCHAR(300),
+   post_created VARCHAR(300),
+   post_viewed VARCHAR(300)
+);
+```
 
-1. post_pk
-2. post_title
-3. post_text
-4. post_owner
-5. post_created
-6. post_viewed
+#### 2.0. 게시글 첨부 파일
 
+```sql
+CREATE TABLE post_files (
+   post_file_pk BIGINT PRIMARY KEY,
+   post_file_system VARCHAR(1000),
+   post_file_origin VARCHAR(1000)
+);
+```
 
-#### 2.1. 이벤트
+#### 2.1. 공지사항 게시글
 
+```sql
+CREATE TABLE post_notice (
+   notice_pk INT AUTO_INCREMENT PRIMARY KEY,
+   notice_file BIGINT,
+   notice_important VARCHAR(300),
+   post_pk INT,
+   FOREIGN KEY (notice_file)
+      REFERENCES post_files (post_file_pk)
+);
+```
 
-1. event_pk
-2. event_started
-3. event_ended
-4. event_image <<>>
-5. event_image_detail <<>>
-6. event_like
-7. post_pk // FK
+#### 2.2. 이벤트 게시글
 
+```sql
+CREATE TABLE post_event (
+   event_pk INT AUTO_INCREMENT PRIMARY KEY,
+   event_started VARCHAR(300),
+   event_ended VARCHAR(300),
+   event_file BIGINT,
+   event_file_detail BIGINT,
+   event_like VARCHAR(300),
+   post_pk INT,
+   FOREIGN KEY (event_file)
+      REFERENCES post_files (post_file_pk),
+   FOREIGN KEY (event_file_detail)
+      REFERENCES post_files (post_file_pk)
+);
+```
+### 3. 도서
 
-#### 2.2. 공지사항
+#### 3.1. 신규도서
 
+```sql
+CREATE TABLE new_book (
+   new_book_pk INT AUTO_INCREMENT PRIMARY KEY,
+   new_book_title VARCHAR(300),
+   new_book_subtitle VARCHAR(300),
+   new_book_info VARCHAR(300),
+   new_book_info_short VARCHAR(300),
+   new_book_imgae VARCHAR(300),
+   new_book_price VARCHAR(300),
+   new_book_writer VARCHAR(300),
+   new_book_translater VARCHAR(300),
+   new_book_published VARCHAR(300),
+   new_book_pages VARCHAR(300),
+   new_book_mount VARCHAR(300),
+   new_book_genre INT,
+   new_book_country INT,
+   FOREIGN KEY (new_book_genre)
+      REFERENCES book_genre (book_genre_pk),
+   FOREIGN KEY (new_book_country)
+      REFERENCES book_country (book_country_pk)
+);
+```
 
-1. notice_pk
-2. notice_files
-3. notice_important
-4. post_pk // FK
+#### 3.2. 중고도서
 
+```sql
+CREATE TABLE old_book (
+   new_book_pk INT,
+   old_book_pk INT AUTO_INCREMENT PRIMARY KEY,
+   old_book_one_mount VARCHAR(300),
+   old_book_two_mount VARCHAR(300),
+   old_book_three_mount VARCHAR(300),
+   old_book_four_mount VARCHAR(300),
+   old_book_five_mount VARCHAR(300),
+   FOREIGN KEY (new_book_pk)
+      REFERENCES new_book (new_book_pk)
+);
+```
 
-### 3. 상품
+### 4. 앨범
 
-
-1. product_pk // PK
-2. product_sort
-
-
-#### 3.1. 신규 도서
-
-
-1. new_book_pk // PK
-2. new_book_title
-3. new_book_subtitle
-4. new_book_info
-5. new_book_info_short 
-6. new_book_imgae <<>>
-7. new_book_price
-8. new_book_writer
-9. new_book_translater
-10. new_book_published
-11. new_book_pages
-12. new_book_mount
-13. new_book_genre // FK
-14. new_book_country // FK
-15. product_pk // FK
-
-
-### 3.1.1. 도서 > 장르
-
-1. genre_pk // PK
-2. genre_name
-
-### 3.1.2. 도서 > 발행국가
-
-1. country_pk // PK
-2. country_name
-
-#### 3.2. 중고 도서
-
-1. old_book_pk // PK
-2. old_book_one_mount // 재고 10% ~ 50% 까지
-3. old_book_two_mount
-4. old_book_three_mount
-5. old_book_four_mount
-6. old_book_five_mount
-7. new_book_pk  // FK
-8. product_pk // FKK
-
-
-#### 3.2 음반
-
-1. album_pk // PK
-2. album_title
-3. album_title_sing
-4. album_singer
-5. album_price
-6. album_relaese
-7. product_pk // FK
-
+```sql
+CREATE TABLE album (
+   album_pk INT AUTO_INCREMENT PRIMARY KEY,
+   album_title VARCHAR(300),
+   album_title_song VARCHAR(300),
+   album_singer VARCHAR(300),
+   album_release VARCHAR(300)
+);
+```
 
 <hr>
 

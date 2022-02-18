@@ -1,21 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 베이스 - BOOKS </title>
+<title> 주문결제 - BOOKS </title>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
-<link rel="stylesheet" href="assets/css/screens/shop/shop_payment.css">
+<link rel="stylesheet" href="${cp}/assets/css/screens/shop/shop_payment.css">
 </head>
 <!-- 저자 : jungbc1 -->
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="views/components/nav.jsp" %>
+	<%@ include file="../components/nav.jsp" %>
 	
-	<div id="main">
+	<main id="main">
 		<!-- 컨텐츠 영역 -->
         <section class="main-sizer">
             <section class="shop_content">
@@ -25,7 +27,7 @@
                     <div id="products">
                         <h3>주문상품</h3>
                         <div>
-                            <a href="#"><img src="./assets/img/book_sample1.jpg" alt="book"></a>
+                            <a href="#"><img src="../../assets/img/book_sample1.jpg" alt="book"></a>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
@@ -36,7 +38,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="#"><img src="./assets/img/book_sample2.jpg" alt="book"></a>
+                            <a href="#"><img src="../../assets/img/book_sample2.jpg" alt="book"></a>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             <div>
@@ -86,13 +88,13 @@
                             </div> -->
                             <!-- 카드, 페이 둘중한가지로 분기 -->
                             <div id="cards">
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_card_1.png" alt="카드" onclick='preventClick(event)'>신한카드</a>
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_card_4.png" alt="카드" onclick='preventClick(event)'>현대카드</a>
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_card_7.png" alt="카드" onclick='preventClick(event)'>삼성카드</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_card_1.png" alt="카드" onclick='preventClick(event)'>신한카드</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_card_4.png" alt="카드" onclick='preventClick(event)'>현대카드</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_card_7.png" alt="카드" onclick='preventClick(event)'>삼성카드</a>
                             </div>
                             <div id="pays">
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_pay_1.png" alt="페이" onclick='preventClick(event)'>네이버페이</a>
-                                <a href='javascript:void(0);'><img src="./assets/img/icon_pay_2.png" alt="페이" onclick='preventClick(event)'>카카오페이</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_pay_1.png" alt="페이" onclick='preventClick(event)'>네이버페이</a>
+                                <a href='javascript:void(0);'><img src="../../assets/img/icon_pay_2.png" alt="페이" onclick='preventClick(event)'>카카오페이</a>
                             </div>
                         </div>
                     </div>
@@ -100,11 +102,11 @@
                 </form>
             </section>
         </section>
-    </div>
+    </main>
 	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="views/components/footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script type="text/javascript" src="assets/js/shop_payment.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/shop_payment.js"></script>
 </html>

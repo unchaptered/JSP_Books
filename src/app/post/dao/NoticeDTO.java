@@ -6,7 +6,7 @@ public class NoticeDTO extends PostDTO {
 	
 	private int noticePk; //기본키
 	
-	private String noticeImportant; //공지사항 고정 여부
+	private String noticePin; //공지사항 고정 여부
 	
 	private int postPk; //PostDTO 기본키
 	
@@ -16,10 +16,23 @@ public class NoticeDTO extends PostDTO {
 	public int getNoticePk() {
 		return noticePk;
 	}
-	public String getNoticeImportant() {
+	private String noticePk;
+	private String noticeFiles;
+	private String noticeImportant;
+	
+	// Getter
+
+	public String getNoticePk() {
+		return noticePk;
+	}
+	public String getNoticeFiles() {
+		return noticeFiles;
+	}
+	public String getNoticePin() {
 		return noticeImportant;
 	}
 	
+
 	public int getPostPk() {
 		return postPk;
 	}
@@ -37,4 +50,16 @@ public class NoticeDTO extends PostDTO {
 		this.postPk = postPk;
 	}
 	
+
+	// Setter
+
+	public void setNoticePk(String noticePk) {
+		this.noticePk = noticePk;
+	}
+	public void setNoticeFiles(String noticeFiles) {
+		this.noticeFiles = noticeFiles;
+	}
+	public void setNoticePin(String noticePin) {
+		this.noticePin = noticePin;
+	}
 }

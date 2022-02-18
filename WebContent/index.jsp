@@ -14,7 +14,7 @@
 	
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
-		        <header class="header_container">
+        <header class="header_container">
             <div class="header">
                 <div class="haeder_title_container">
                     <h2>Weekly Best</h2>

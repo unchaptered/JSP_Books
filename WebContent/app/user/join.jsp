@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="../../assets/css/screens/user/join.css">
 </head>
 <body>
-	<!-- 경로 수정하셔야 합니다. -->
 	<input type="button" value="팝업창 오픈" id="myBtnJoin"/>
     <div class="join_wrap">
         <div class="join_container" style="overflow: auto;">
@@ -193,16 +192,12 @@
             </div>
         </div>
     </div>
-	
-	<!-- 경로 수정하셔야 합니다. -->	
-	
 </body>
-<!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="./js/addr.js"></script>
+<script src="../../assets/js/addr.js"></script>
 <script type="text/javascript">
     function checkall(checkall) {
         const check_box = document.getElementsByName("checkbox_agree");

@@ -1,6 +1,6 @@
 package app.admin.dao;
 
-public class AdminDto {
+public class AdminDTO {
 	
 	// Field Variables
 	

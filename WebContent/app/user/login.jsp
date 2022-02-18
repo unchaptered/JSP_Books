@@ -21,17 +21,18 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linelogin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
+                </div>
             </div>
             <div class="login_body">
                 <div class="body_text">
-                    <h3>회원가입을 진행하시려면</h3>
+                    <h3>로그인을 진행하시려면</h3>
                     <h3>이메일을 입력해주세요.</h3>
                 </div>
                 <div class="body_input">
                 <div class="body_email">
                     <label for="email" class="style_email">이메일</label>
                     <div class="email_input">
-                        <input type="email" placeholder="이메일을 입력해주세요" id="email" value>
+                        <input type="email" placeholder="이메일을 입력해주세요." id="email" value>
                     </div>
                 </div>
                 <div class="body_button">
@@ -66,8 +67,7 @@
                 </div>
             </div>
         </div>
-    </div>
-	<!-- 경로 수정하셔야 합니다. -->	
+    </div>	
 </body>
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>

@@ -4,23 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <typeAliases>
-    <typeAlias type="app.admin.dao.AdminDto" alias="admindto"/>
-    <typeAlias type="app.album.dao.AlbumDto" alias="ablumdto"/>
+    <!-- <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/> -->
+    <!-- <typeAlias type="app.album.dao.AlbumDTO" alias="ablumdto"/> -->
     
     <typeAlias type="app.user.dao.UserDTO" alias="userdto"/>
     
-    <typeAlias type="app.post.dao.PostDto" alias="postdto"/>
-    <typeAlias type="app.post.dao.EventDto" alias="eventdto"/>
-    <typeAlias type="app.post.dao.NoticeDto" alias="noticedto"/>
+    <!-- <typeAlias type="app.post.dao.PostDTO" alias="postdto"/> -->
+    <!-- <typeAlias type="app.post.dao.EventDTO" alias="eventdto"/> -->
+    <!-- <typeAlias type="app.post.dao.NoticeDTO" alias="noticedto"/> -->
     
-    <typeAlias type="app.book.dao.BookDto" alias="bookdto"/>
+    <!-- <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/> -->
+    <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>
   </typeAliases>
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/jsp"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/books"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
       </dataSource>
@@ -29,5 +30,6 @@
   <mappers>
     <mapper resource="mapper/base.xml"/>
     <mapper resource="mapper/user.xml"/>
+    <mapper resource="mapper/old-book.xml"/>
   </mappers>
 </configuration>

@@ -1,6 +1,6 @@
 package app.book.dao;
 
-public class BookDto {
+public class BookDTO {
 	
 	// Field Varabiles
 	
