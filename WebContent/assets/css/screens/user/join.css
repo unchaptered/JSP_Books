@@ -487,13 +487,9 @@ input[type="text"]:focus {
   display: block !important;
   background: linear-gradient((180deg, rgba(255, 255, 255, 0), #fff));
 }
-.set_join_btn {
-  width: 100% !important;
-  height: 70px !important;
-  box-sizing: border-box !important;
-}
-.set_join_btn button {
-  margin-top: 10px !important;
+input[type=submit]{
+  margin-top: 20px !important;
+  margin-bottom:10px !important;
   background-color: #36f !important;
   border-color: transparent !important;
   color: #fff !important;
@@ -506,9 +502,8 @@ input[type="text"]:focus {
   border-radius: 27px !important;
   font-weight: 600 !important;
   z-index: 100 !important;
-  
 }
-.set_join_btn button:hover{
+input[type=submit]:hover{
   background-color: #4346f3 !important;
 }
 .join_wrap input[type="password"]::placeholder {

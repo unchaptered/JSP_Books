@@ -79,11 +79,10 @@
         </details>
     </nav>
     <div class="login_wrap">
+    	<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post" >
         <div class="login_container">
             <div class="login_header">
-                <i class="login_icon">
-                    <!-- <img src="" alt=""> -->
-                </i>
+                <span>Books</span>
                 <div class="icon">
                     <button type="button" id="closeLogin">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -104,7 +103,7 @@
                     </div>
                 </div>
                 <div class="body_button">
-                <button class="email_button buttons">이메일로 계속하기</button>
+                <input type="submit" class="email_button buttons" value="이메일로 계속하기">
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
@@ -135,8 +134,10 @@
                 </div>
             </div>
         </div>
+    </form>
     </div>
     <div class="join_wrap">
+    <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="get">
         <div class="join_container" style="overflow: auto;">
             <div class="join_header">
                 회원가입
@@ -278,7 +279,7 @@
                                    
                                 </div>
                                 <div class="acnum_input">
-                                    <input type="text" name="user_phone" placeholder=" - 를 넣어서 입력해주세요." value="">
+                                    <input type="text" name="user_phone" placeholder=' " - " 없이 입력해주세요.' value="">
                                 </div>
                                 <div class="acnum_input_space join_space"></div>
                             </div>
@@ -307,13 +308,10 @@
                         </div>
                     </div>
                 </form>
-                <div class="set_join_wrap">
-                    <div class="set_join_btn">
-                        <button type="submit" class="join_btn" form="set_join">회원가입하기</button>
-                    </div>
-                </div>
+                <input type="submit" value="회원가입하기" class="joinOK">
             </div>
         </div>
+        </form>
     </div>
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
