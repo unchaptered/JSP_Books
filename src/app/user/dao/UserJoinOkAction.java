@@ -26,11 +26,11 @@ public class UserJoinOkAction implements Action{
 		ActionTo transfer = new ActionTo();
 		if(udao.join(newUser)) {
 			transfer.setRedirect(true);
-			transfer.setPath(req.getContextPath()+"/nav.jsp");
+			transfer.setPath(req.getContextPath()+"/app/components/nav.jsp"); 
 		}
 		else {
 			transfer.setRedirect(true);
-			transfer.setPath(req.getContextPath()+"/index.jsp");
+			transfer.setPath(req.getContextPath()+"/index.jsp"); 
 		}
 		return transfer;
 	}
