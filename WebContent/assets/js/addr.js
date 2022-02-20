@@ -106,11 +106,18 @@ function sendit(){
 		userAddressDetail.focus();
 		return false;
 	}
+	let userBank = joinForm.userBank;
+	if(userBank.value == "은행"){
+		console.log('은행 이름 선택 오류')
+		userBank.focus();
+		return false;
+	}
 	let userBankAccount = joinForm.userBankAccount;
 	if(userBankAccount.value == ""){
 		console.log('다시해봐 계좌번호')
 		userBankAccount.focus();
 		return false;
 	}
+	
 }
 
