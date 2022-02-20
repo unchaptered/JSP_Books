@@ -52,49 +52,65 @@ function sendit(){
 	if(userEmail.value == "") {
 		console.log('다시 해봐 이메일 공백')
 		userEmail.focus();
+		$('#userEmail').css('border-color','red');
 		return false;	
 	}
+	$('#userEmail').css('border-color','#e1e2e3');
 	let regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
 	if(!regEmail.test(userEmail.value)){
 		console.log('다시 해봐 이메일 정규식')
 		userEmail.focus();
+		$('#userEmail').css('border-color','red');
 		return false;
 	}
+	$('#userEmail').css('border-color','#e1e2e3');
 	let userName = joinForm.userName;
 	if(userName.value == ""){
 		console.log('다시 해봐 이름 공백')
 		userName.focus();
+		$('#userName').css('border-color','red');
 		return false;
 	}
+	$('#userName').css('border-color','#e1e2e3');
 	let regPassword = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,15}$/
 	let userPassword = joinForm.userPassword;
 	if(!regPassword.test(userPassword.value)){
 		console.log('다시 해봐 비밀번호 정규식')
 		userPassword.focus();
+		$('#userPassword').css('border-color','red');
 		return false;
 	}
+	$('#userPassword').css('border-color','#e1e2e3');
 	if(userPassword.value.search(/\s/) != -1){
 		console.log('다시 해봐 비밀번호 찐공백')
 		userPassword.focus();
+		$('#userPassword').css('border-color','red');
 		return false;
 	}
+	$('#userPassword').css('border-color','#e1e2e3');
 	let userPasswordre = joinForm.userPasswordre;
 	if(userPasswordre.value == ""){
 		console.log('다시 해봐 비밀번호 확인 공백')
 		userPasswordre.focus();
+		$('#userPasswordre').css('border-color','red');
 		return false;
 	}
+	$('#userPasswordre').css('border-color','#e1e2e3');
 	if(userPassword.value != userPasswordre.value){
 		console.log('다시 해봐 비밀번호확인불일치')
 		userPassword.focus();
+		$('#userPassword').css('border-color','red');
 		return false;
 	}
+	$('#userPassword').css('border-color','#e1e2e3');
 	let userPhone = joinForm.userPhone;
 	if(userPhone.value == ""){
 		console.log('다시해봐 휴대폰 공백')
 		userPhone.focus();
+		$('#userPhone').css('border-color','red');
 		return false;
 	}
+	$('#userPhone').css('border-color','#e1e2e3');
 	let userZipcode = joinForm.userZipcode;
 	if(userZipcode.value == ""){
 		sample6_execDaumPostcode();
@@ -104,8 +120,10 @@ function sendit(){
 	if(userAddressDetail.value == ""){
 		console.log('다시해봐 상세주소')
 		userAddressDetail.focus();
+		$('#sample6_detailAddress').css('border-color','red');
 		return false;
 	}
+	$('#sample6_detailAddress').css('border-color','#e1e2e3');
 	let userBank = joinForm.userBank;
 	if(userBank.value == "은행"){
 		console.log('은행 이름 선택 오류')
@@ -116,6 +134,24 @@ function sendit(){
 	if(userBankAccount.value == ""){
 		console.log('다시해봐 계좌번호')
 		userBankAccount.focus();
+		$('#userBankAccount').css('border-color','red');
+		return false;
+	}
+	$('#userBankAccount').css('border-color','#e1e2e3');
+	let checkboxAll = document.getElementById("checkbox_all")
+	let checkboxPilsoo = document.getElementById("checkbox_pilsoo")
+	let checkboxEvent = document.getElementById("checkbox_eventmail")
+	let ca = $(checkboxAll).prop("checked");
+	let cp = $(checkboxPilsoo).prop("checked");
+	let ce = $(checkboxEvent).prop("checked");
+	if(ca == false && cp == false && ce == false){
+		console.log('전체동의에 체크가 안되있');
+		console.log('필수항목에 체크가 안되있');
+		console.log('이벤트알림에 체크가 안되있');
+		return false;
+	}
+	if(cp == false) {
+		console.log('필수항목에 체크해주세요.');
 		return false;
 	}
 	

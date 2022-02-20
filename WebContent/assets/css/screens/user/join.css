@@ -157,7 +157,7 @@
   box-shadow: none;
 }
 .user_name_input input:focus {
-  border: 1px solid #36f !important;
+  border: 1px solid #36f;
 }
 .join_space {
   bottom: 0 !important;
@@ -187,7 +187,7 @@ label {
   padding-right: 15px !important;
   padding-left: 15px !important;
   border-radius: 5px !important;
-  border: 1px solid #e1e2e3 !important;
+  border: 1px solid #e1e2e3;
   background-color: #fff !important;
   font-size: 15px !important;
   color: #333 !important;
@@ -195,7 +195,7 @@ label {
   resize: none !important;
 }
 .join_wrap input[type="password"]:focus {
-  border: 1px solid #36f !important;
+  border: 1px solid #36f;
 }
 .user_pw_space {
   bottom: 0 !important;
