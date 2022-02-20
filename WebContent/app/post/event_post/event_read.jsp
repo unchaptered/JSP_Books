@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 상세페이지 </title>
-<link rel="stylesheet" href="../../../assets/css/styles.css">
-<link rel="stylesheet" href="../../../assets/css/screens/event/event_read.css">
+<c:set var="cp" value="${pageContext.request.contextPath }"/>
+<link rel="stylesheet" href="${cp}/assets/css/styles.css">
+<link rel="stylesheet" href="${cp}/assets/css/screens/event/event_read.css">
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
@@ -15,13 +17,13 @@
         <section class="main_content">
             <div class="event_detail">
                 <!-- 타이틀 -->
-                <a href=""><strong class="title">이벤트</strong></a>
+                <a href="${cp}/app/post/EventList.po"><strong class="title">이벤트</strong></a>
                 <!-- 폼 시작 -->
                 <form name="eventReadForm">
                     <div>
                         <div class="top_title event_detail_topbar">
-                            <p>규현 특전 증정 이벤트</p>
-                            <span>이벤트 기간 : 2021. 01. 23 ~ 2022. 11. 11</span>
+                            <p>${post.post_title} </p>
+                            <span>이벤트 기간 : ${event.event_started} ~ ${event.event_ended}</span>
                         </div>
                         <div class="event_detail_img">
                             <img src="" alt="상세배너">

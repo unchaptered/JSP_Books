@@ -12,9 +12,6 @@
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
-	<script>
-		console.log(cp);
-	</script>
 	<!-- 로그인 체크 -->
 	<%--
 	<script>let cp = "${pageContext.request.contextPath}";</script>
@@ -33,7 +30,7 @@
                 <!-- 폼 시작 -->
                 <form action="${cp}/app/post/EventAddOk.po" name="eventAddForm" method="post" enctype="multipart/form-data">
                     <div class="goList_div">
-                        <a href="${cp}/app/post/EventList.po?eventPage=${param.eventPage==null ? 1 : param.eventPage}" class="goList">목록보기</a>
+                        <a href="${cp}/app/post/EventList.po" class="goList">목록보기</a>
                     </div>
                     <p class="must">필수 입력 항목 <span class="redStar">*</span></p>
                     <div class="write_content">
@@ -81,7 +78,7 @@
 
                     <!-- 등록 버튼 -->
                     <div class="boardBtn">
-                        <input type="submit" id="submitBtn" value="등록" onsubmit="javascript:sendit()">
+                        <input type="submit" id="submitBtn" value="등록" onclick="javascript:return sendit()">
                     </div>
                 </form>
             </div>

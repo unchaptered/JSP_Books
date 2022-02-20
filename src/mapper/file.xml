@@ -5,6 +5,6 @@
 <mapper namespace="File">
 	<insert id="insertFile" parameterType="filedto">
 		insert into post_file (post_file_system, post_file_origin, post_pk) 
-		values(#{postFileSystem},#{postFileOrigin},#{post_pk})
+		values(#{postFileSystem},#{postFileOrigin},#{postPk})
 	</insert>
 </mapper>

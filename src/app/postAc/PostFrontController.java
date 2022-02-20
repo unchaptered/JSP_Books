@@ -28,7 +28,9 @@ public class PostFrontController extends HttpServlet{
 		String command = requestURI.substring(contextPath.length());
 		ActionTo transfer = null;
 		
-		System.out.println();
+		System.out.println(requestURI);
+		System.out.println(contextPath);
+		System.out.println(command);
 		
 		switch(command) {
 		case "/app/post/EventList.po":
@@ -37,6 +39,14 @@ public class PostFrontController extends HttpServlet{
 			} catch (Exception e) {
 				System.out.println("EventList : "+e);
 			}
+			break;
+		case "/app/post/NoticeList.po":
+			try {
+				transfer = new NoticeListAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("NoticeList : "+e);
+			}
+			break;
 		case "/app/post/EventAdd.po":
 			transfer = new ActionTo();
 			transfer.setRedirect(false);
@@ -48,6 +58,14 @@ public class PostFrontController extends HttpServlet{
 			} catch (Exception e) {
 				System.out.println("EventAdd : "+e);
 			}
+			break;
+		case "/app/post/EventRead.po":
+			try {
+				transfer = new EventReadAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("EventRead : "+e);
+			}
+			break;
 		}
 		
 		

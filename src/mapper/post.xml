@@ -2,22 +2,45 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Post">
-	<!-- <insert id="insertEvent" parameterType="eventdto">
-		insert into books_post (post_title, post_text, post_owner)
-		values(#{postTitle}, #{postText}, #{postOwner})
-		insert into books_event (event_started, event_ended, event_image, event_image_detail)
-	</insert> -->
+<mapper namespace="Post">	
+	<!-- post 공통 -->
+	<select id="getPostList" resultType="postdto">
+		select * from post order by post_pk desc
+	</select>
+	<select id="getPostTitle" parameterType="_int" resultType="String">
+		select post_title from post
+		left join post_event on post.post_pk = post_event.post_pk
+		left join post_notice on post.post_pk = post_notice.post_pk
+		where post_notice.post_pk = #{postPk} or post_event.post_pk=#{postPk};
+	</select>
 	<select id="getOwnerName" parameterType="_int" resultType="String">
 		select user_name from user where user_pk = #{userPk}
 	</select>
 	<select id="getLastPostPk" parameterType="_int" resultType="_int">
 		select max(post_pk) from post where post_owner = #{postOwner}
 	</select>
+	
+	<!-- post_event -->
+	<!-- <insert id="insertEvent" parameterType="eventdto">
+		insert into post (post_title, post_text, post_owner)
+		values(#{postTitle}, #{postText}, #{postOwner})
+		insert into post_event (event_started, event_ended)
+		values(#{eventStarted}, #{eventEnded})
+	</insert> -->
 	<select id="getEventCnt" resultType="_int">
 		select count(*) from post_event
 	</select>
 	<select id="getEventList" parameterType="hashmap" resultType="eventdto">
 		select * from post_event order by event_pk desc limit #{startRow},#{pageSize}
+	</select>
+	<select id="getEventTitle" parameterType="_int" resultType="String">
+		select post_title from post
+		join post_event on post.post_pk = post_event.post_pk
+		where #{eventPk} = event_pk
+	</select>
+	
+	<!-- post_notice -->
+	<select id="getNoticeCnt" resultType="_int">
+		select count(*) from post_notice
 	</select>
 </mapper>

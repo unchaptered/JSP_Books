@@ -36,16 +36,16 @@
 								<c:when test="${eventList.size()>0 and eventList != null }">
 									<div class="content__grid">
 										<c:forEach var="event" items="${eventList}">
-											<a href="${cp}/app/post/event_post/EventRead.po?postPk=${post.postPk}&page=${eventPage}" class="eventBox content__container-4">
+											<a href="${cp}/app/post/event_post/EventRead.po?postPk=${event.post_pk}&eventPage=${eventPage}" class="eventBox content__container-4">
 												<div class="eventBox_img">
 													<img src="" alt="배너">
 												</div>
 												<div class="eventBox_txt">
 													<strong class="box_title">
-														${post.postTitle}
+														${postTitle}
 													</strong>
 													<p class="box_date">
-														기간 : ${event.eventStarted} - ${event.eventEnded}
+														기간 : ${event.event_started} - ${event.event_ended}
 													</p>
 												</div>
 											</a>

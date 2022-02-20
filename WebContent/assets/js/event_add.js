@@ -77,8 +77,6 @@ function sendit(){
         frm.postText.focus();
         return false;
     }
-    if (!confirmSave()){
-        return false;
-    }
+    
     return true;
 }
