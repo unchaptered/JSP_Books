@@ -103,13 +103,13 @@
                     </div>
                 </div>
                 <div class="body_button">
-                <input type="submit" class="email_button buttons" value="이메일로 계속하기">
+                <a href=""><input type="submit" class="email_button buttons" value="이메일로 계속하기"></a>
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
                         <a href="./emailFind.html"><span>아이디 찾기</span></a>
                         <span>/</span>
-                        <a href="#"><span>비밀번호 찾기</span></a>
+                        <a href=""><span>비밀번호 찾기</span></a>
                      </div>
                  </div>
                 <div class="body_button_next">다음 계정으로 접속하기</div>

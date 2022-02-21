@@ -1,21 +1,16 @@
 <!-- 작성자 : 고결 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>pw</title>
-<!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/screens/user/pw.css">
-<!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
+<link rel="stylesheet" href="../../assets/css/screens/user/pw.css">
 </head>
 <body>
-	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="../components/nav.jsp" %>
-	
-	<input style="margin-top:200px" type="button" id="myBtn" value="팝업창 오픈"/>
     <div class="pw_wrap" >
         <div class="pw_container">
             <div class="pw_header">
@@ -49,26 +44,25 @@
             
         </div>
     </div>
-	
-	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="../components/footer.jsp" %>
 </body>
-<!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 	$("#myBtn").on("click", function(){
+	$('body').css("overflow", "hidden");
 	 $(".pw_wrap").css({ visibility:"visible",opacity:1});
 	 });
 	 // 모달창 닫기 이벤트 
 	 $("#close").on("click", function(){
-			 $(".pw_wrap").css({ visibility:"hidden",opacity:0 });
+	$('body').css("overflow-y", "scroll");
+	$(".pw_wrap").css({ visibility:"hidden",opacity:0 });
 	 });
  
 	 $(document).on("click", function(e){  
 	 if( $(".pw_wrap").is(e.target)) {
 	 $(".pw_wrap").css({ visibility:"hidden",opacity:0 });
+	 $('body').css("overflow-y", "scroll");
 	 }
 	 });
  </script>

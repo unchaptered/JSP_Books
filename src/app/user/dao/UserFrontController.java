@@ -1,12 +1,15 @@
 package app.user.dao;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.javassist.compiler.ast.Member;
 
 import action.ActionTo;
 
@@ -22,8 +25,10 @@ private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		doProcess(req, resp);
 	}
+	
 	
 	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String requestURI = req.getRequestURI();		// ??????/user/UserJoin.us
@@ -39,7 +44,6 @@ private static final long serialVersionUID = 1L;
 				System.out.println("UserJoinOk :"+e);
 			}
 			break;
-			
 		}
 	
 	
@@ -57,4 +61,5 @@ private static final long serialVersionUID = 1L;
 			}
 		}
 	}
+	
 }
