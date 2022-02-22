@@ -46,6 +46,39 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
+function checkall(checkall) {
+    const check_box = document.getElementsByName("checkbox_agree");
+    check_box.forEach((checkbox) => {
+     checkbox.checked = checkall.checked;
+    })
+}
+function checkEmail(){
+	const xhr = new XMLHttpRequest();
+	let emailError = document.getElementById("emailError")
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == XMLHttpRequest.DONE){
+			if(xhr.status == 200){
+				let txt = xhr.responseText;
+				txt = txt.trim();
+				console.log(txt);
+				if(txt == 'O'){
+					emailError.innerHTML = "사용할 수 있는 아이디입니다!";
+				}
+				else{
+					emailError.innerHTML = "중복된 이메일이 있습니다!"
+					userEmail.value = '';
+					userEmail.focus();
+				}
+			}
+		}
+	}
+	console.log('전달 하기 전이야')
+	xhr.open("GET",cp+"/user/CheckEmail.us?userEmail="+userEmail.value);//XMLHttpRequest.OPENED
+	console.log('전달이 안돼')
+	xhr.send();
+	console.log('전달은 했어')
+}
+
 function sendit(){
 	const joinForm = document.joinForm;
 	let userEmail = joinForm.userEmail;

@@ -79,7 +79,7 @@
         </details>
     </nav>
     <div class="login_wrap">
-    	<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post" >
+    	<form name="loginForm" action="${cp}/user/UserCheckEmail.us" method="post" >
         <div class="login_container">
             <div class="login_header">
                 <span>Books</span>
@@ -97,9 +97,9 @@
                 </div>
                 <div class="body_input">
                 <div class="body_email">
-                    <label for="email"><span class="style_email">이메일</span></label>
+                    <label for="email"><span class="style_email">이메일</span><span id="emailError"></span></label>
                     <div class="email_input">
-                        <input type="email" placeholder="이메일을 입력해주세요." id="email" value>
+                        <input type="email" placeholder="이메일을 입력해주세요." id="email" onkeyup="checkEmail()">
                     </div>
                 </div>
                 <div class="body_button">
@@ -157,7 +157,7 @@
             <div class="join_body">
                 <form id="set_join">
                     <div class="email_wrap">
-                        <label for="userEmail" class="user_info"><span class="head_span">이메일</span><span id="emailError"></span></label>
+                        <label for="userEmail" class="user_info"><span class="head_span">이메일</span></label>
                         <div class="user_email_input">
                             <input type="text" name="userEmail" id="userEmail" placeholder="이메일을 입력해 주세요.">
                         </div>
@@ -340,12 +340,6 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="${cp}/assets/js/addr.js"></script>
 <script type="text/javascript">
-    function checkall(checkall) {
-        const check_box = document.getElementsByName("checkbox_agree");
-        check_box.forEach((checkbox) => {
-         checkbox.checked = checkall.checked;
-        })
-    }
     $("#myBtnJoin").on("click", function(){
         $('body').css("overflow", "hidden");
         $(".join_wrap").css({ visibility:"visible",opacity:1});
