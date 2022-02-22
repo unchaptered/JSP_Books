@@ -10,6 +10,6 @@
 		#{userAddress},#{userAddressDetail},#{userAddressEtc},#{userBank},#{userBankAccount})
 	</insert>
 	<select id="checkEmail" parameterType="string" resultType="_int">
-		select count(*) from user where user_email=#{userEmail}
+		select count(*) from user where user_email=#{email}
 	</select>
 </mapper>

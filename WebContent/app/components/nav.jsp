@@ -79,7 +79,7 @@
         </details>
     </nav>
     <div class="login_wrap">
-    	<form name="loginForm" action="${cp}/user/UserCheckEmail.us" method="post" >
+    	<form name="loginForm" action="" method="post">
         <div class="login_container">
             <div class="login_header">
                 <span>Books</span>
@@ -99,7 +99,7 @@
                 <div class="body_email">
                     <label for="email"><span class="style_email">이메일</span><span id="emailError"></span></label>
                     <div class="email_input">
-                        <input type="email" placeholder="이메일을 입력해주세요." id="email" onkeyup="checkEmail()">
+                        <input type="email" placeholder="이메일을 입력해주세요." id="email" onkeyup="checkLogin()" name="email">
                     </div>
                 </div>
                 <div class="body_button">
@@ -107,7 +107,7 @@
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
-                        <a href="./emailFind.html"><span>아이디 찾기</span></a>
+                        <a href=""><span>아이디 찾기</span></a>
                         <span>/</span>
                         <a href=""><span>비밀번호 찾기</span></a>
                      </div>
@@ -137,7 +137,7 @@
     </form>
     </div>
     <div class="join_wrap">
-    <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="post" onsubmit="return sendit()">
+    <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="post" onsubmit="return senditJoin()">
         <div class="join_container" style="overflow: auto;">
             <div class="join_header">
                 회원가입

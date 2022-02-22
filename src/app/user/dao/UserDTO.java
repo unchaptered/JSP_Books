@@ -15,7 +15,7 @@ public class UserDTO {
 	private String userAddressEtc; // 기타
 	private String userBank; // 은행명
 	private String userBankAccount; // 계좌번호
-	
+
 	public int getUserPk() {
 		return userPk;
 	}

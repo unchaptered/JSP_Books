@@ -52,34 +52,33 @@ function checkall(checkall) {
      checkbox.checked = checkall.checked;
     })
 }
-function checkEmail(){
+function checkLogin(){
 	const xhr = new XMLHttpRequest();
-	let emailError = document.getElementById("emailError")
+	let emailError = document.getElementById("emailError");
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState == XMLHttpRequest.DONE){
-			if(xhr.status == 200){
+			if(xhr.status == 200 || xhr.status == 201){
 				let txt = xhr.responseText;
+				const loginForm = document.loginForm;
+				let email = loginForm.email;
 				txt = txt.trim();
 				console.log(txt);
 				if(txt == 'O'){
 					emailError.innerHTML = "사용할 수 있는 아이디입니다!";
+					email.focus();
 				}
 				else{
-					emailError.innerHTML = "중복된 이메일이 있습니다!"
-					userEmail.value = '';
-					userEmail.focus();
+					emailError.innerHTML = "중복된 아이디가 있습니다!"
+					email.focus();
 				}
 			}
 		}
 	}
-	console.log('전달 하기 전이야')
-	xhr.open("GET",cp+"/user/CheckEmail.us?userEmail="+userEmail.value);//XMLHttpRequest.OPENED
-	console.log('전달이 안돼')
+	xhr.open("GET",cp+"/user/CheckEmailOk.us?email="+email.value);//XMLHttpRequest.OPENED
 	xhr.send();
-	console.log('전달은 했어')
 }
 
-function sendit(){
+function senditJoin(){
 	const joinForm = document.joinForm;
 	let userEmail = joinForm.userEmail;
 	if(userEmail.value == "") {

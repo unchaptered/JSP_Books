@@ -19,8 +19,9 @@ public class UserDAO {
 		return 1 == sqlsession.insert("User.join",newUser);
 	}
 
-	public boolean checkEmail(String userEmail) {
-		return (Integer)sqlsession.selectOne("User.checkEmail",userEmail) == 0;
+	public boolean checkEmail(String email) {
+		return 0 == (Integer)sqlsession.selectOne("User.checkEmail",email);
 	}
+
 	}
 
