@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.ActionTo;
 
-public class CheckEmailOkAction implements Action{
+public class JoinCheckEmailOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String email = req.getParameter("email");
+		String userEmail = req.getParameter("userEmail");
 		UserDAO udao = new UserDAO();
 		PrintWriter out = resp.getWriter();
-		if(udao.checkEmail(email)) {
+		if(udao.JoincheckEmail(userEmail)) {
 			out.write("O");
 		}else {
 			out.write("X");

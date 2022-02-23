@@ -45,12 +45,20 @@ private static final long serialVersionUID = 1L;
 				System.out.println("UserJoinOk :"+e);
 			}
 			break;
-		case "/user/CheckEmailOk.us":
+		case "/user/LoginCheckEmailOk.us":
 			try {
-				transfer = new CheckEmailOkAction().execute(req,resp);
+				new LoginCheckEmailOkAction().execute(req,resp);
 			} catch (Exception e) {
-				System.out.println("CheckEmailOk: "+e);
+				System.out.println("LoginCheckEmailOk: "+e);
 			}
+			break;
+		case "/user/JoinCheckEmailOk.us":
+			try {
+				new JoinCheckEmailOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("JoinCheckEmailOk :"+e);
+			}
+			
 		}
 	
 	
