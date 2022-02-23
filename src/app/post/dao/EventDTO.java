@@ -7,7 +7,7 @@ public class EventDTO extends PostDTO {
 	
 	private String eventStarted; // 이벤트 시작일
 	private String eventEnded; // 이벤트 종료일
-	private String eventLike; // 이벤트 좋아요 수
+	private int eventLike; // 이벤트 좋아요 수
 	
 	private int postPk;
 	
@@ -22,7 +22,7 @@ public class EventDTO extends PostDTO {
 	public String getEventEnded() {
 		return eventEnded;
 	}
-	public String getEventLike() {
+	public int getEventLike() {
 		return eventLike;
 	}
 	
@@ -41,7 +41,7 @@ public class EventDTO extends PostDTO {
 	public void setEventEnded(String eventEnded) {
 		this.eventEnded = eventEnded;
 	}
-	public void setEventLike(String eventLike) {
+	public void setEventLike(int eventLike) {
 		this.eventLike = eventLike;
 	}
 	public void setPostPk(int postPk) {

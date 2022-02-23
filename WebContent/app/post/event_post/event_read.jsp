@@ -17,27 +17,33 @@
         <section class="main_content">
             <div class="event_detail">
                 <!-- 타이틀 -->
-                <a href="${cp}/app/post/EventList.po"><strong class="title">이벤트</strong></a>
+                <a href="${cp}/app/post/EventList.po?eventPage=${param.eventPage == null ? 1 : param.eventPage}"><strong class="title">이벤트</strong></a>
                 <!-- 폼 시작 -->
-                <form name="eventReadForm">
+                <form>
                     <div>
                         <div class="top_title event_detail_topbar">
-                            <p>${post.post_title} </p>
-                            <span>이벤트 기간 : ${event.event_started} ~ ${event.event_ended}</span>
+                            <p>${event.postTitle} </p>
+                            <span>이벤트 기간 : ${event.eventStarted} ~ ${event.eventEnded}</span>&nbsp;
+                            <span>조회수 : ${event.postViewed}</span>&nbsp;
+                            <a href="javascript:like(${event.eventPk})">♡</a><span id="likeResult">${event.eventLike}</span>
                         </div>
-                        <div class="event_detail_img">
-                            <img src="" alt="상세배너">
-                        </div>
+                        <c:if test="${files != null and files.size()>0 }">
+	                        <div class="event_detail_img">
+	                            <img src="" alt="상세배너">
+	                        </div>
+                        </c:if>
                         <div class="event_detail_txt">
-                            <p class="detail_txt">
-                                구매한 상품의 사진과 함께 구매후기를 남겨주세요. <br><br>추첨을 통해 원하시는걸로 챙겨가시라고 괴산장터에서 현금처럼 사용가능한 포인트를 드립니다.
-                                <br><br><br>많은 참여하셔서 푸짐한 선물 꼭 ! 받아가세요. </p>
+                            <p class="detail_txt">${event.postText}</p>
                         </div>
                         <div class="eventReadBtn">
-                            <button class="readBtn" id="eventUpdate" formaction="" formmethod="post" onclick="return updateCheck()">수정</button>
-                            <button class="readBtn" id="eventDelete" formaction="" formmethod="post" onclick="return deleteCheck()">삭제</button>
+                            <button class="readBtn" id="eventUpdate" formaction="${cp}/app/post/EventEdit.po?eventPk=${event.eventPk}" 
+                            	formmethod="post" onclick="return updateCheck()">수정</button>
+                            <button class="readBtn" id="eventDelete" formaction="javascript:document.eventRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
                         </div>
                     </div>
+                </form>
+                <form name="eventRemoveForm" action="${cp}/app/post/EventRemove.po" method="get">
+                	<input type="hidden" name="eventPk" value="${event.eventPk}">
                 </form>
             </div>
         </section>
@@ -45,6 +51,6 @@
 		
 	<%@ include file="/app/components/footer.jsp" %>
 </body>
-<script type="text/javascript" src="/WebContent/assets/js/nav_menu.js"></script>
-<script src="/WebContent/assets/js/event_read.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
+<script src="${cp}/assets/js/event_read.js"></script>
 </html>

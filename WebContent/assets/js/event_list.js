@@ -1,11 +1,12 @@
 // <!-- 검색창 -->
-    function sendit() {
-    	let e_search = document.getElementById("e_search");
-        let frm = document.eventForm
-        if (frm.e_search.value == "") {
-            alert("검색어를 입력해주세요.")
-            frm.search.focus()
-            break;
-        }
-        location.href = cp+"/app/post/EventList.po?keyword="+e_search.value;
+function searchEvent() {
+    const frm = document.eventForm
+    if (frm.keyword.value == "" || frm.keyword.value == null) {
+    	alert("검색어를 입력해주세요.")
+        frm.keyword.focus()
+        break;
     }
+    else{
+    	location.href = cp+"/app/post/EventList.po?keyword="+frm.keyword.value;
+    }
+}
