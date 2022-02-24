@@ -36,7 +36,7 @@ CREATE TABLE post (
 );
 CREATE TABLE post_files (
    post_file_pk BIGINT PRIMARY KEY,
-   post_file_post_ownersystem VARCHAR(1000),
+   post_file_system VARCHAR(1000),
    post_file_origin VARCHAR(300),
    post_pk INT
 );

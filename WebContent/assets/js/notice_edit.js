@@ -22,8 +22,8 @@ const confirmEnroll = function(){
     
 }
 // 폼 유효성 검사
-function addNotice(){
-    let frm = document.noticeAddForm;
+function editNotice(){
+    let frm = document.noticeEditForm;
 
     if (frm.postTitle.value == ""){
         alert("제목을 입력해주세요")
