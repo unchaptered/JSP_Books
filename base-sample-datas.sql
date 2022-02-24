@@ -229,14 +229,22 @@ INSERT INTO old_book
 (25, 100, 20, 10, 3, 4), (26, 100, 20, 10, 3, 4);
 
 INSERT INTO old_book_selled
-(new_book_pk, old_book_discount_10, old_book_discount_20, old_book_discount_30, old_book_discount_40, old_book_discount_50) VALUES
-(1, 0, 0, 0, 0, 0), (2, 0, 0, 0, 0, 0), (3, 0, 0, 0, 0, 0), (4, 0, 0, 0, 0, 0),
-(5, 0, 0, 0, 0, 0), (6, 0, 0, 0, 0, 0), (7, 0, 0, 0, 0, 0), (8, 0, 0, 0, 0, 0),
+(new_book_pk, old_book_selled_10, old_book_selled_20, old_book_selled_30, old_book_selled_40, old_book_selled_50) VALUES
+(1, 10, 70, 0, 0, 0), (2, 20, 60, 0, 0, 0), (3, 30, 50, 0, 0, 0), (4, 40, 40, 0, 0, 0),
+(5, 60, 30, 0, 0, 0), (6, 60, 200, 0, 0, 0), (7, 60, 0, 0, 0, 0), (8, 0, 0, 0, 0, 0),
 (9, 0, 0, 0, 0, 0), (10, 0, 0, 0, 0, 0), (11, 0, 0, 0, 0, 0), (12, 0, 0, 0, 0, 0),
 (13, 0, 0, 0, 0, 0), (14, 0, 0, 0, 0, 0), (15, 0, 0, 0, 0, 0), (16, 0, 0, 0, 0, 0),
 (17, 0, 0, 0, 0, 0), (18, 0, 0, 0, 0, 0), (19, 0, 0, 0, 0, 0), (20, 0, 0, 0, 0, 0),
 (21, 0, 0, 0, 0, 0), (22, 0, 0, 0, 0, 0), (23, 0, 0, 0, 0, 0), (24, 0, 0, 0, 0, 0),
 (25, 0, 0, 0, 0, 0), (26, 0, 0, 0, 0, 0);
+
+INSERT INTO new_book
+(new_book_title) VALUES
+('임시제목');
+
+INSERT INTO old_book
+(new_book_pk) VALUES
+(27);
 
 # SELECT 문
 
@@ -245,7 +253,22 @@ SELECT * FROM new_book;
 SELECT * FROM new_book WHERE new_book_created=date(current_date);
 
 SELECT * FROM old_book;
+
 SELECT * FROM old_book_selled;
+
+SELECT * FROM old_book_selled
+	LEFT OUTER JOIN new_book
+		ON old_book_selled.new_book_pk = new_book.new_book_pk
+	ORDER BY old_book_selled_10 DESC,
+			old_book_selled_20 DESC;
+	
+
+-- 중고도서 1 개 선택
+
+SELECT * FROM old_book
+LEFT OUTER JOIN new_book
+ON old_book.new_book_pk = new_book.new_book_pk
+WHERE old_book_pk = 3;
 
 -- 중고도서 조회
 SELECT 
@@ -281,6 +304,19 @@ LEFT OUTER JOIN new_book
 ON old_book.new_book_pk = new_book.new_book_pk
 WHERE new_book_country = '국내'
 LIMIT 6;
+
+-- 장르 및 국가 기준, 중고 도서 수량 조회
+SELECT
+new_book.new_book_pk,
+new_book_title, new_book_genre, new_book_country,
+old_book_pk,
+old_book_discount_10, old_book_discount_20, old_book_discount_30, old_book_discount_40, old_book_discount_50
+FROM old_book
+LEFT OUTER JOIN new_book
+ON old_book.new_book_pk = new_book.new_book_pk
+WHERE new_book_genre = '시/에세이' AND new_book_country = '국외'
+LIMIT 6;
+
 
 # UPDATE 문
 
