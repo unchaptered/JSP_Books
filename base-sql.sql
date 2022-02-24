@@ -70,7 +70,7 @@ CREATE TABLE new_book (
    new_book_subtitle VARCHAR(300),
    new_book_info TEXT,
    new_book_info_short TEXT,
-   new_book_org_image
+   new_book_org_image VARCHAR(300),
    new_book_image VARCHAR(300),
    new_book_price VARCHAR(300),
    new_book_writer VARCHAR(300),
