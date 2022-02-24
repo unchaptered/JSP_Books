@@ -70,15 +70,16 @@ CREATE TABLE new_book (
    new_book_subtitle VARCHAR(300),
    new_book_info VARCHAR(300),
    new_book_info_short VARCHAR(300),
-   new_book_imgae VARCHAR(300),
+   new_book_image VARCHAR(300),
    new_book_price VARCHAR(300),
    new_book_writer VARCHAR(300),
    new_book_translater VARCHAR(300),
-   new_book_published VARCHAR(300),
+   new_book_publisher VARCHAR(300),
    new_book_pages VARCHAR(300),
    new_book_mount VARCHAR(300),
    new_book_genre VARCHAR(300),
-   new_book_country VARCHAR(300)
+   new_book_country VARCHAR(300),
+   new_book_created DATE DEFAULT (current_date)
    -- FOREIGN KEY (new_book_genre)
    --    REFERENCES book_genre (book_genre_pk),
    -- FOREIGN KEY (new_book_country)
@@ -113,9 +114,144 @@ INSERT INTO user
 INSERT INTO admin
 (admin_email,admin_name,admin_password) VALUES
 ('sample@gmail.com','샘플','1111');
-INSERT INTO book_genre (book_genre_name) VALUES
-('소설'),('시/에세이'),('경제/경영'),('자기계발'),('사회/과학'),
-('역사/문화'),('인문'),('자연과학'),('어린이'),('문학'),
-('경제인문'),('컴퓨터'),('기타');
-INSERT INTO book_country (book_country_name) VALUES
-('국내'),('국외');
+
+-- 샘플 DATA 1유형 (오늘 날짜 자동으로 설정)
+INSERT INTO new_book
+(new_book_title, new_book_subtitle,
+new_book_info, new_book_info_short,
+new_book_image, new_book_price,
+new_book_writer, new_book_translater, new_book_publisher,
+new_book_pages, new_book_mount, new_book_genre, new_book_country, new_book_created) VALUES
+(
+   '익명의 책 AAA', '보조실록',
+   '익명의 책 AAA 의 책 설명입니다.', '익명의 책 AAA의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 AAA', '익명의 번역가 AAA', '불광출판사',
+   '432', '0', '소설', '국내', '2022-02-09'
+),
+(
+   '익명의 책 BBB', '보조실록',
+   '익명의 책 BBB 의 책 설명입니다.', '익명의 책 BBB의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 BBB', '익명의 번역가 BBB', '불광출판사',
+   '432', '0', '소설', '국외', '2022-02-09'
+),
+(
+   '익명의 책 CCC', '보조실록',
+   '익명의 책 CCC 의 책 설명입니다.', '익명의 책 CCC의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 CCC', '익명의 번역가 CCC', '불광출판사',
+   '432', '0', '소설', '국내', '2022-02-09'
+),
+(
+   '익명의 책 DDD', '보조실록',
+   '익명의 책 DDD 의 책 설명입니다.', '익명의 책 DDD의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 DDD', '익명의 번역가 DDD', '불광출판사',
+   '432', '0', '소설', '국외', '2022-02-09'
+),
+(
+   '익명의 책 EEE', '보조실록',
+   '익명의 책 EEE 의 책 설명입니다.', '익명의 책 EEE의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 EEE', '익명의 번역가 EEE', '불광출판사',
+   '432', '0', '소설', '국내', '2022-02-09'
+),
+(
+   '익명의 책 FFF', '보조실록',
+   '익명의 책 FFF 의 책 설명입니다.', '익명의 책 FFF의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 FFF', '익명의 번역가 FFF', '불광출판사',
+   '432', '0', '소설', '국외', '2022-02-09'
+),
+(
+   '익명의 책 GGG', '보조실록',
+   '익명의 책 GGG 의 책 설명입니다.', '익명의 책 GGG의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 GGG', '익명의 번역가 GGG', '불광출판사',
+   '432', '0', '소설', '국내', '2022-02-09'
+),
+(
+   '익명의 책 HHH', '보조실록',
+   '익명의 책 HHH 의 책 설명입니다.', '익명의 책 HHH의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 HHH', '익명의 번역가 HHH', '불광출판사',
+   '432', '0', '소설', '국외', '2022-02-09'
+);
+
+-- 샘플 DATA 2유형 (오늘 날짜 수동으로 설정)
+INSERT INTO new_book
+(new_book_title, new_book_subtitle,
+new_book_info, new_book_info_short,
+new_book_image, new_book_price,
+new_book_writer, new_book_translater, new_book_publisher,
+new_book_pages, new_book_mount, new_book_genre, new_book_country) VALUES
+(
+   '익명의 책 A', '보조실록',
+   '익명의 책 A 의 책 설명입니다.', '익명의 책 A의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 A', '익명의 번역가 A', '불광출판사',
+   '432', '0', '소설', '국내'
+),
+(
+   '익명의 책 B', '보조실록',
+   '익명의 책 B 의 책 설명입니다.', '익명의 책 B의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 B', '익명의 번역가 B', '불광출판사',
+   '432', '0', '소설', '국외'
+),
+(
+   '익명의 책 C', '보조실록',
+   '익명의 책 C 의 책 설명입니다.', '익명의 책 C의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 C', '익명의 번역가 C', '불광출판사',
+   '432', '0', '소설', '국내'
+),
+(
+   '익명의 책 D', '보조실록',
+   '익명의 책 D 의 책 설명입니다.', '익명의 책 D의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 D', '익명의 번역가 D', '불광출판사',
+   '432', '0', '소설', '국외'
+),
+(
+   '익명의 책 E', '보조실록',
+   '익명의 책 E 의 책 설명입니다.', '익명의 책 E의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 E', '익명의 번역가 E', '불광출판사',
+   '432', '0', '소설', '국내'
+),
+(
+   '익명의 책 F', '보조실록',
+   '익명의 책 F 의 책 설명입니다.', '익명의 책 F의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 F', '익명의 번역가 F', '불광출판사',
+   '432', '0', '소설', '국외'
+),
+(
+   '익명의 책 G', '보조실록',
+   '익명의 책 G 의 책 설명입니다.', '익명의 책 G의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 G', '익명의 번역가 G', '불광출판사',
+   '432', '0', '소설', '국내'
+),
+(
+   '익명의 책 H', '보조실록',
+   '익명의 책 H 의 책 설명입니다.', '익명의 책 H의 짧은 소개입니다.',
+   'none', '43200',
+   '익명의 작가 H', '익명의 번역가 H', '불광출판사',
+   '432', '0', '소설', '국외'
+);
+
+# SELECT 문
+
+SELECT * FROM new_book;
+
+SELECT * FROM new_book WHERE new_book_created=date(current_date)
+
+-- INSERT INTO book_genre (book_genre_name) VALUES
+-- ('소설'),('시/에세이'),('경제/경영'),('자기계발'),('사회/과학'),
+-- ('역사/문화'),('인문'),('자연과학'),('어린이'),('문학'),
+-- ('경제인문'),('컴퓨터'),('기타');
+-- INSERT INTO book_country (book_country_name) VALUES
+-- ('국내'),('국외');
