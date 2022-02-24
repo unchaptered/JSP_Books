@@ -88,12 +88,12 @@ CREATE TABLE old_book (
       ON UPDATE CASCADE
 );
 CREATE TABLE old_book_selled (
-   old_book_pk INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
-   old_book_discount_10 INT DEFAULT 0 NOT NULL,
-   old_book_discount_20 INT DEFAULT 0 NOT NULL,
-   old_book_discount_30 INT DEFAULT 0 NOT NULL,
-   old_book_discount_40 INT DEFAULT 0 NOT NULL,
-   old_book_discount_50 INT DEFAULT 0 NOT NULL,
+   old_book_selled_pk INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
+   old_book_selled_10 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_10 >= 0 ),
+   old_book_selled_20 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_20 >= 0 ),
+   old_book_selled_30 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_30 >= 0 ),
+   old_book_selled_40 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_40 >= 0 ),
+   old_book_selled_50 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_50 >= 0 ),
    new_book_pk INT UNIQUE NOT NULL,
    FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk)
