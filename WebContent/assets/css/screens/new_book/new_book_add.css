@@ -1,41 +1,162 @@
 /* 저자 : sunsetkk */
-
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .content{
     padding: 150px 0px;
     display: flex;
     justify-content: center;
     height: 100%;
     margin: 0;
+    font-family: 'GowunDodum-Regular';
+    font-weight: bold;
 }
 
-/* 그리드 시작 */
-.register_input{
+
+
+.registerInput{
+    /* background-color: #3D3F40; */
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    width: 500px;
-    border-collapse: collapse;
+    gap: 10px;
+    width: 1015px;
+    height: 600px;
+    grid-template-columns: 250px 220px 220px 270px;
+    /* grid-template-columns: repeat(5, 1fr); */
+    grid-template-rows: repeat(12,1fr);
+    grid-template-areas: 
+
+    "img . . ."
+
+    "img title title writer"
+    "img subtitle subtitle translater"
+    "img publisher publisher pages"
+    "img genre genre price"
+    "img created created ."
+
+    "img . . ."
+
+    "info info infoShort infoShort"
+    " info info infoShort infoShort"
+    " info info infoShort infoShort"
+    " info info infoShort infoShort"
+    " btn btn btn btn"
+    
+    ;
 }
 
-.register_input > .image_upload {
-    grid-column: span 5;
-}
-.register_input > label,
-.register_input > input,
-#book_sogea,#mokcha {
-    grid-column: span 5;
-}
-.register_input > .form_inline-1 {
-    grid-column: 1/3;
-}
-.register_input > .form_inline-2 {
-    grid-column: 3/5;
-}
-#reg_reset{grid-column: 1/3;}
-#reg_submit{grid-column: 4/-1;}
-/* 그리드 끝 */
+.imageUpload {grid-area: img;}
+.title{grid-area: title;}
+.subtitle{grid-area: subtitle;}
+.created{grid-area: created;}
+.publisher{grid-area: publisher;}
+.genre{grid-area: genre;}
+.writer{grid-area: writer;}
+.translater{grid-area: translater;}
+.price{grid-area: price;}
+.pages{grid-area: pages;}
+.btn{grid-area: btn;}
+.info{grid-area: info;}
+.infoShort{grid-area: infoShort;}
+.btn{grid-area: btn;}
 
-/* 이미지 업로드 시작 */
-.image_upload{
+/* design */
+
+#info, #infoShort{resize: vertical;}
+.star {color: tomato;}
+.textCnt{
+    font-size: small;
+    font-weight: lighter;
+    float: right;
+}
+.info, .infoShort{padding: 5px;}
+.infoShort > textarea,
+.info > textarea{
+    width: 460px;
+    height: 150px;
+    padding: 10px;
+}
+
+.registerInput > label > input{
+    float: right;
+    height: 35px;
+    padding: 5px;
+}
+
+.genre > select{
+    border-radius: 5px;
+    margin-left: 60px;
+    width: 180px;
+    height: 35px;
+    padding: 5px;
+}
+.genre > select:last-child{
+    margin-left: 10px;
+    width: 150px;
+    float: right;
+}
+.created > input{
+    margin-right: 200px;
+}
+
+.registerInput > label > input,
+.registerInput > label > textarea,
+.btn > input, .genre > select{
+    border: 1px solid #ccc;
+    /* padding: 5px 5px 5px 150px; */
+}
+.registerInput > label > input:focus,
+.registerInput > label > textarea:focus,
+.btn > input:focus, .genre > select:focus{
+    outline:none;
+    border:1px solid #778899;
+}
+.btn > input{
+    float: right;
+    padding: 10px;
+    background-color: #DA4444;
+}
+
+#regReset,
+#regSubmit{
+    margin: 20px;
+    border: 1px solid #ccc;
+    background-color: #c4c4c4;
+    color: white;
+    /* padding: 10px; */
+    width: 200px;
+    border-radius: 3px;
+    /* width: 200px; */
+}
+
+#regReset:focus,
+#regSubmit:focus,
+#regReset:hover,
+#regSubmit:hover{
+    outline: none;
+    border: 1px solid #778899;
+    color: black;
+}
+
+
+#title, #subtitle, #publisher {
+    width: 350px;
+    height: 35px;
+    padding: 5px;
+}
+
+/* image */
+.sizeInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 110px; */
+    font-weight: lighter;
+    color: #acacac;
+}
+.imageUpload{
     /* flex 기본 방향은 가로 */
     display: flex;
     flex-direction: column;
@@ -44,127 +165,94 @@
     /* justify-contents 기본방향을 보고 중앙을 잡아요 */
     justify-content: center;
 }
-.img_show{
-    height: 300px;
-    width: 250px;
+
+.imgShow{
+    height: 288px;
+    width: 200px;
     border: 3px double #c4c4c4;
     background-size: contain;
-    
+    /* margin: 30px 0px; */
 }
-.img_submit{
+
+.imgSubmit{
     float: right;
     background-color: #c4c4c4;
     color: white;
-    padding: 1px 10px;
-    border-radius: 1px;
+    /* padding: 1px 10px; */
+    /* border-radius: 1px; */
 }
-.img_submit:hover, 
-#reg_reset:hover, #reg_submit:hover,
-#Info_reset:hover, #Info_submit:hover{
-    cursor: pointer;
-}
-.fileContainer{margin: 15px 0px;}
-/* 이미지 업로드 끝 */
 
-/* 퀵메뉴 시작 */
-.side_quick{
-    position: fixed;
-    right: 0;
-    padding: 10px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #778899;
-}
-@media screen and (max-width:800px){
-    .side_quick{
-        display: none;
+
+
+
+@media screen and (max-width:768px) {
+    .content{width: 100%;}
+    .registerInput{
+        /* background-color: aqua; */
+        /* display: grid; */
+        width: 600px;
+        height: 1300px;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(18,1fr);
+        grid-template-areas: 
+        "img img img img"
+        "img img img img"
+        "img img img img"
+        "img img img img"
+        "img img img img"
+
+        "title title title title"
+        "subtitle subtitle subtitle subtitle"
+        "publisher publisher publisher publisher"
+
+        "genre genre genre genre"
+        "pages pages pages ."
+        "writer writer created created"
+        "translater translater price price"
+
+        "info info infoShort infoShort"
+        "info info infoShort infoShort"
+
+        "info info infoShort infoShort"
+        "info info infoShort infoShort"
+        "info info infoShort infoShort"
+        "btn btn btn btn"
+        ;
+    }
+
+    .genre > select{
+        margin-left: 108px;
+    }
+    .genre > select:last-child{
+        margin-left: 0px;
+        margin-right: 50px;
+    }
+
+    #title, #subtitle, #publisher {
+        width: 350px;
+        height: 35px;
+        padding: 5px;
+        margin-right: 50px;
+    }
+    .registerInput > label{
+        margin-left: 50px;
+    }
+    
+    #info, #infoShort{
+        width: 240px;
+        height: 250px;
+    }
+
+    .created > input{
+        margin-right: 0px;
+    }
+    .pages > input{
+        margin-right: 70px;
+    }
+    #regReset, #regSubmit{
+    width: 150px;
+    }
+    #regReset{
+    margin-right: 100px;
     }
 }
-.side_quick > h2,
-.side_quick > p{
-    margin: 0px 10px;
-}
-.quickmenu_tit{
-    background: #778899;
-    color: white;
-    line-height: 36px;
-    text-align: center;
-    font-weight: normal;
-    font-size: 12px;
-    width: 120px;
-    margin-top: 10px;
-}
-#Info_reset,
-#Info_submit{
-    border: 1px solid #c4c4c4;
-    width: 120px;
-    line-height: 30px;
-    color: #778899;
-}
-.quick_top{margin-top: 10px;}
-.quick_top, 
-.quick_down{
-    border: 1px solid #c4c4c4;
-    width: 120px;
-    line-height: 20px;
-    text-align: center;
-    font-weight: normal;
-    font-size: 12px;
-}
-
-/* 퀵메뉴 끝 */
-
-.register_input > label{
-    padding: 5px;
-    margin-top: 10px;
-}
-.register_input > input{
-    margin: 0px 60px 0px 30px;
-}
-#mokcha, #book_sogea{
-    margin: 0px 60px 0px 30px;
-    resize: vertical;
-    height: 180px;
-}
-#genre, #publication_date{
-    margin: 0px 0px 0px 20px;
-    height: 38.89px;
-    width: 180px;
-}
-.form_inline{margin-top: 10px;}
-.form_inline {height: 80px;}
-.form_inline-2{margin-left: 40px;}
-
-.star{color: tomato;}
-
-.register_input > input, 
-#publication_date, 
-#book_sogea, 
-#mokcha,
-#genre{
-    padding: 10px 15px 10px 10px;
-    border: 1px solid #ccc;
-}
-
-.register_input > input:focus, 
-#genre:focus, 
-#mokcha:focus, 
-#book_sogea:focus,
-#publication_date:focus{
-    outline:none;
-    border:1px solid #778899;
-}
-
-#reg_reset,
-#reg_submit{
-    margin-top: 20px;
-    background-color: #c4c4c4;
-    color: white;
-    padding: 10px 15px 10px 10px;
-    border-radius: 3px;
-}
-
-#reg_reset{margin: 20px 0px 0px 30px;}
-#reg_submit{margin: 20px 50px 0px -20px;}
