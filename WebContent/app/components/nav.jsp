@@ -186,7 +186,7 @@
                     </div>
                     <div class="mobile_wrap">
                         <div class="mobile_wrap_inner">
-                        <label for="user_phone" class="user_info"><span class="head_span">휴대폰 번호&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPhoneError"class="error"></span></label>
+                        <label for="user_phone" class="user_info"><span class="head_span">휴대폰 번&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPhoneError"class="error"></span></label>
                         <div class="user_phone_body">
                             <div id="user_phone">
                                 <div class="mobile_input_select input_select">
