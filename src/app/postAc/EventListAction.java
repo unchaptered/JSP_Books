@@ -9,17 +9,12 @@ import action.Action;
 import action.ActionTo;
 import app.post.dao.EventDAO;
 import app.post.dao.EventDTO;
-import app.post.dao.NoticeDTO;
-import app.post.dao.PostDAO;
-import app.post.dao.PostDTO;
-
+import app.post.dao.FileDAO;
+//검색 시 페이징 처리, files 처리 필요
 public class EventListAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		PostDTO pdto = new PostDTO();
-		EventDTO edto = new EventDTO();
-
-		PostDAO pdao = new PostDAO();
+		EventDTO event = new EventDTO();
 		EventDAO edao = new EventDAO();
 		
 		String temp = req.getParameter("eventPage");
@@ -28,17 +23,16 @@ public class EventListAction implements Action{
 		//현재 페이지(초기 화면이라면 1, 아니면 page값)
 		int eventPage = temp == null ? 1 : Integer.parseInt(temp);
 		//한 페이지에 보여줄 게시글의 개수
-		int pageSize = 15;
+		int pageSize = 9;
 		//페이징 처리시 보여줄 페이지의 개수
-		int pageCnt = 15;
+		int pageCnt = 10;
 		
 		//총 이벤트 수
 		int eventTotalCnt = edao.getEventCnt();
-		System.out.println(eventTotalCnt);
-		System.out.println("asdfg");
-		//시작 게시물
+
+		//시작 게시물 번호
 		int startRow = (eventPage-1)*pageSize;
-		
+
 		//한 화면에서 보여질 첫 페이지
 		int startPage = ((eventPage-1)/pageCnt)*pageCnt+1;
 		//한 화면에서 보여질 마지막 페이지
@@ -59,12 +53,10 @@ public class EventListAction implements Action{
 		req.setAttribute("endPage", endPage);
 		req.setAttribute("keyword", keyword);
 		
-//		List<PostDTO> postList = pdao.getPostList();
-		
-//		req.setAttribute("postList", postList);
-//		String postTitle = pdao.getPostTitle(postPk);
-		
-//		req.setAttribute("postTitle", postTitle);
+		//첨부파일 세팅 //수정필요
+		FileDAO fdao = new FileDAO();
+		req.setAttribute("files", fdao.getFiles(event.getPostPk()));		
+
 		
 		//보내기
 		ActionTo transfer = new ActionTo();

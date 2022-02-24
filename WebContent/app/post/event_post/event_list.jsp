@@ -17,18 +17,18 @@
 		<section class="main_content">
 			<div class="event">
 				<!-- 타이틀 -->
-				<a href=""><strong class="title">이벤트</strong></a>
+				<a href="${cp}/app/post/EventList.po"><strong class="title">이벤트</strong></a>
 				<div>
 					<!-- 폼 시작 -->
-					<form action="" name="eventForm" method="get" onsubmit="sendit()">					
+ 					<form action="" name="eventForm" method="get">				
 					<!-- 검색창 -->
 						<div class="event_search">
-							<input type="text" name="e_search" id="e_search" placeholder="검색어를 입력해주세요.">
-							<input type="submit" id="searchBtn" onclick="sendit()">
+							<input type="text" name="keyword" id="e_search" placeholder="검색어를 입력해주세요." value="${param.keyword == null? null : param.keyword}">
+							<input type="submit" id="searchBtn" onclick="searchEvent()">
 						</div>
 						<div class="board_count">total : <span>${eventTotalCnt}</span> / pages : <span>${eventTotalPage}</span></div>
 						<div class="createEvent_div">
-							<a href="${cp}/app/post/EventAdd.po" class="createEvent">새 이벤트 등록</a>
+							<a href="${cp}/app/post/EventAdd.po?eventPage=${eventPage}" class="createEvent">새 이벤트 등록</a>
 						</div>
 						<!-- 이벤트 박스 (한 페이지 9개)-->
 						<div class="eventBox_area">
@@ -36,16 +36,24 @@
 								<c:when test="${eventList.size()>0 and eventList != null }">
 									<div class="content__grid">
 										<c:forEach var="event" items="${eventList}">
-											<a href="${cp}/app/post/event_post/EventRead.po?postPk=${event.post_pk}&eventPage=${eventPage}" class="eventBox content__container-4">
+											<a href="${cp}/app/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
 												<div class="eventBox_img">
-													<img src="" alt="배너">
+													<c:choose>
+														<c:when test="${files != null and files.size()>0 }">
+															<img src="" alt="배너">
+														</c:when>
+														<c:otherwise>
+															<img src="../../../assets/img/event_banner1.png
+															" alt="배너">
+														</c:otherwise>
+													</c:choose>
 												</div>
 												<div class="eventBox_txt">
 													<strong class="box_title">
-														${postTitle}
+														${event.postTitle}
 													</strong>
 													<p class="box_date">
-														기간 : ${event.event_started} - ${event.event_ended}
+														기간 : ${event.eventStarted} - ${event.eventEnded}
 													</p>
 												</div>
 											</a>
@@ -59,35 +67,37 @@
 								</c:otherwise>
 							</c:choose>
 						</div>
-						<!-- 페이지 버튼 한 페이지 1~10-->
+						<!-- 페이지 버튼 한 페이지 1~10 > 11~20-->
 						<div class="pagination">
 							<ul>
-								<c:choose>
-									<c:when test="${eventList.size()==0 or eventList == null }">
-										<li><span class="pageBtn pageNum current">1</span></li>
-									</c:when>
-									<c:otherwise>
-										<c:if test="${eventPage>10}">
-											<li><a href="${cp}/post/event_post/EventList.po?eventPage=${eventPage-10}" class="pageBtn prev">이전</a></li>
-										</c:if>
-										<c:forEach begin="${eventStartPage}" end="${eventEndPage}" step="1" var="i">
-											<c:choose>
-												<c:when test="${i == eventPage }">
-													<li><span class="pageBtn pageNum current">${i}</span></li>
-												</c:when>
-												<c:otherwise>
-													<li><a href="${cp}/post/event_post/EventList.po?eventPage=${i}" class="pageBtn pageNum">${i}</a></li>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-										<c:if test="${eventPage<eventTotalPage}">
-											<li><a href="${cp}/post/event_post/EventList.po?eventPage=${eventPage+10}" class="pageBtn next">다음</a></li>
-										</c:if>
-									</c:otherwise>
-								</c:choose>
+								<c:if test="${eventPage>10}">
+									<li><a href="${cp}/app/post/EventList.po?eventPage=${eventPage-10}" class="pageBtn prev">이전</a></li>
+								</c:if>
+										
+								<c:forEach begin="${startPage}" end="${endPage}" step="1" var="i">
+									<c:choose>
+										<c:when test="${i == eventPage }">
+											<li><span class="pageBtn pageNum current">${i}</span></li>
+										</c:when>
+										<c:when test="${i == 0}">
+											<li><span class="pageBtn pageNum current">1</span></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="${cp}/app/post/EventList.po?eventPage=${i}&keyword=${keyword}" class="pageBtn pageNum">${i}</a></li>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+								
+							<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 eventPage+10, 없으면 마지막페이지로)-->
+								<c:if test="${eventPage>10 && eventPage<eventTotalPage && eventPage+10 < eventTotalPage}">
+									<li><a href="${cp}/app/post/EventList.po?eventPage=${eventPage+10}" class="pageBtn next">다음</a></li>
+								</c:if>
+								<c:if test="${eventPage>10 && eventPage<eventTotalPage && eventPage+10 >= eventTotalPage}">
+									<li><a href="${cp}/app/post/EventList.po?eventPage=${eventTotalPage}" class="pageBtn next">다음</a></li>
+								</c:if>
 							</ul>
 						</div>
-					</form>
+ 					</form>
 					<!-- 폼 끝 -->
 				</div>
 			</div>

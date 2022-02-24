@@ -59,8 +59,6 @@ ul, li{
     border: none;
     background: url(../../../img/icon_search.png) no-repeat center center;
     background-size: cover;
-}
-input[type=submit]{
     cursor: pointer;
 }
 

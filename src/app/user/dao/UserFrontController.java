@@ -20,6 +20,7 @@ public class UserFrontController extends HttpServlet{
 private static final long serialVersionUID = 1L;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		doProcess(req, resp);
 	}
 	
@@ -44,6 +45,20 @@ private static final long serialVersionUID = 1L;
 				System.out.println("UserJoinOk :"+e);
 			}
 			break;
+		case "/user/LoginCheckEmailOk.us":
+			try {
+				new LoginCheckEmailOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("LoginCheckEmailOk: "+e);
+			}
+			break;
+		case "/user/JoinCheckEmailOk.us":
+			try {
+				new JoinCheckEmailOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("JoinCheckEmailOk :"+e);
+			}
+			
 		}
 	
 	

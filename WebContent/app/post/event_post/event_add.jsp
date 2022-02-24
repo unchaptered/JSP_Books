@@ -13,12 +13,13 @@
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
 	<!-- 로그인 체크 -->
-	<%--
-	<script>let cp = "${pageContext.request.contextPath}";</script>
+	
+	<%-- <script>let cp = "${pageContext.request.contextPath}";</script>
 	<c:if test="${loginUser == null }">
 		<script>
 			alert("로그인 후 이용하세요!");
-			location.replace(cp+"/user/");
+			/* location.replace(cp+"/app/user/login.jsp"); */
+			return false;
 		</script>
 	</c:if> --%>
 	
@@ -30,7 +31,7 @@
                 <!-- 폼 시작 -->
                 <form action="${cp}/app/post/EventAddOk.po" name="eventAddForm" method="post" enctype="multipart/form-data">
                     <div class="goList_div">
-                        <a href="${cp}/app/post/EventList.po" class="goList">목록보기</a>
+                        <a href="${cp}/app/post/EventList.po?eventPage=${param.eventPage==null ? 1 : param.eventPage}" class="goList">목록보기</a>
                     </div>
                     <p class="must">필수 입력 항목 <span class="redStar">*</span></p>
                     <div class="write_content">
@@ -51,7 +52,8 @@
                     <div class="write_content">
                         <strong class="detail_title">이벤트 배너 이미지</strong>
                         <div class="fileBtn">
-                            <label for="input-file1">첨부 파일</label> <input type="file" name="inputFileToList"  id="input-file1" class="input-file"
+                            <label for="input-file1">첨부 파일</label>
+                            <input type="file" name="inputFileToList"  id="input-file1" class="input-file"
                                 accept="image/*" onchange="setThumbnail_list(this);"/>
                             <div class="showFileName" id="showFileName1">
                                 이벤트 리스트에 나타낼 이미지를 등록하세요
@@ -61,7 +63,8 @@
                             </div>
                         </div>
                         <div class="fileBtn">
-                            <label for="input-file2">첨부 파일</label> <input type="file" name="inputFileToRead" id="input-file2" class="input-file"
+                            <label for="input-file2">첨부 파일</label> 
+                            <input type="file" name="inputFileToRead" id="input-file2" class="input-file"
                                 accept="image/*" onchange="setThumbnail_read(this);"/>
                             <div class="showFileName" id="showFileName2">
                                 상세페이지에 나타낼 이미지를 등록하세요
@@ -78,7 +81,7 @@
 
                     <!-- 등록 버튼 -->
                     <div class="boardBtn">
-                        <input type="submit" id="submitBtn" value="등록" onclick="javascript:return sendit()">
+                        <input type="submit" id="submitBtn" value="등록" onclick="return addEvent()">
                     </div>
                 </form>
             </div>

@@ -79,7 +79,7 @@
         </details>
     </nav>
     <div class="login_wrap">
-    	<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post" >
+    	<form name="loginForm" action="" method="post">
         <div class="login_container">
             <div class="login_header">
                 <span>Books</span>
@@ -97,9 +97,9 @@
                 </div>
                 <div class="body_input">
                 <div class="body_email">
-                    <label for="email"><span class="style_email">이메일</span></label>
+                    <label for="email"><span class="style_email">이메일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="loginEmailError" class="error"></span></label>
                     <div class="email_input">
-                        <input type="email" placeholder="이메일을 입력해주세요." id="email" value>
+                        <input type="email" placeholder="이메일을 입력해주세요." id="email" onkeyup="checkLogin()" name="email">
                     </div>
                 </div>
                 <div class="body_button">
@@ -107,7 +107,7 @@
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
-                        <a href="./emailFind.html"><span>아이디 찾기</span></a>
+                        <a href=""><span>아이디 찾기</span></a>
                         <span>/</span>
                         <a href=""><span>비밀번호 찾기</span></a>
                      </div>
@@ -137,7 +137,7 @@
     </form>
     </div>
     <div class="join_wrap">
-    <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="post" onsubmit="return sendit()">
+    <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="post" onsubmit="return senditJoin()">
         <div class="join_container" style="overflow: auto;">
             <div class="join_header">
                 회원가입
@@ -157,28 +157,28 @@
             <div class="join_body">
                 <form id="set_join">
                     <div class="email_wrap">
-                        <label for="userEmail" class="user_info"><span class="head_span">이메일</span><span id="emailError"></span></label>
+                        <label for="userEmail" class="user_info"><span class="head_span">이메일&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinEmailError" class="error"></span></label>
                         <div class="user_email_input">
-                            <input type="text" name="userEmail" id="userEmail" placeholder="이메일을 입력해 주세요.">
+                            <input type="text" name="userEmail" id="userEmail" placeholder="이메일을 입력해 주세요." onkeyup="checkJoin()">
                         </div>
                         <div class="user_email_space join_space"></div>
                     </div>
                     <div class="name_wrap">
-                        <label for="userName" class="user_info"><span class="head_span">이름</span></label>
+                        <label for="userName" class="user_info"><span class="head_span">이름&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinNameError"class="error"></span></label>
                         <div class="user_name_input">
                             <input type="text" name="userName" id="userName" placeholder="이름을 입력해 주세요.">
                         </div>
                         <div class="user_name_space join_space"></div>
                     </div>
                     <div class="pw_wrap">
-                        <label for="userPassword" class="user_info"><span class="head_span">비밀번호</span></label>
+                        <label for="userPassword" class="user_info"><span class="head_span">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPasswordError"class="error"></span></label>
                         <div class="user_pw_input">
                             <input type="password" name="userPassword" id="userPassword" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 입력해 주세요.">
                         </div>
                         <div class="user_pw_space join_space">영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</div>
                     </div>
                     <div class="user_pwre">
-                        <label for="userPasswordre" class="user_info"><span class="head_span">비밀번호 확인</span></label>
+                        <label for="userPasswordre" class="user_info"><span class="head_span">비밀번호 확인&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPasswordreError"class="error"></span></label>
                         <div class="user_pwre_input">
                             <input type="password" name="userPasswordre" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 다시 한번 입력해주세요." id="userPasswordre">
                         </div>
@@ -186,7 +186,7 @@
                     </div>
                     <div class="mobile_wrap">
                         <div class="mobile_wrap_inner">
-                        <label for="user_phone" class="user_info"><span class="head_span">휴대폰 번호</span></label>
+                        <label for="user_phone" class="user_info"><span class="head_span">휴대폰 번&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPhoneError"class="error"></span></label>
                         <div class="user_phone_body">
                             <div id="user_phone">
                                 <div class="mobile_input_select input_select">
@@ -237,7 +237,7 @@
                 <div class="addr_wrap">
                     <div class="addr_wrap_inner">
                         <div class="addr_num">
-                            <label for="" class="addr_num_text user_info"><span class="head_span">주소</span></label>
+                            <label for="" class="addr_num_text user_info"><span class="head_span">주소&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinAdressError"class="error"></span></label>
                             <input type="text" name="userZipcode"  
                             readonly placeholder="우편번호" value id="sample6_postcode">
                             <button type="button" class="addr_button" onclick="sample6_execDaumPostcode();" value="우편번호 찾기"><span>우편번호 찾기</span></button>
@@ -260,7 +260,7 @@
                 <!-- 계좌번호 -->
                 <div class="acnum_wrap">
                     <div class="acnum_wrap_inner">
-                        <label for="acnum" class="user_info"><span class="head_span">은행</span></label>
+                        <label for="acnum" class="user_info"><span class="head_span">은행&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinBankError"class="error"></span></label>
                         <div class="acnum_body">
                             <div id="acnum">
                                 <div class="acnum_input_select input_select">
@@ -291,7 +291,7 @@
                         <div class="agree_wrap_inner agree_inner">
                             <div class="agree_checkbox_all agrees">
                             <input type="checkbox" name="checkbox_agree" id="checkbox_all" onclick="checkall(this);">
-                            <label for="checkbox_all">전체 동의</label>
+                            <label for="checkbox_all">전체 동의&nbsp;&nbsp;&nbsp;&nbsp;</label><span id="joinAgreeError"class="error"></span>
                         </div>
                         </div>
                         <div class=" agree_wrap_inner2 agree_inner">
@@ -318,49 +318,8 @@
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>const cp = "${pageContext.request.contextPath}"</script>
-<script>
-    // 모달창 열기 이벤트
-    $("#myBtnLogin").on("click", function(){
-    $('body').css("overflow", "hidden");
-    $(".login_wrap").css({ visibility:"visible",opacity:1});
-    });
-    // 모달창 닫기 이벤트 
-    $("#closeLogin").on("click", function(){
-    $('body').css("overflow-y", "scroll");
-    $(".login_wrap").css({ visibility:"hidden",opacity:0 });
-    });
-
-    $(document).on("click",function(e){
-    if( $(".login_wrap").is(e.target)) {
-    $(".login_wrap").css({ visibility:"hidden",opacity:0 });
-    $('body').css("overflow-y", "scroll");
-    }
-    });
-</script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="${cp}/assets/js/addr.js"></script>
-<script type="text/javascript">
-    function checkall(checkall) {
-        const check_box = document.getElementsByName("checkbox_agree");
-        check_box.forEach((checkbox) => {
-         checkbox.checked = checkall.checked;
-        })
-    }
-    $("#myBtnJoin").on("click", function(){
-        $('body').css("overflow", "hidden");
-        $(".join_wrap").css({ visibility:"visible",opacity:1});
-        });
-        // 모달창 닫기 이벤트 
-        $("#closeJoin").on("click", function(){
-        $('body').css("overflow-y", "scroll");
-        $(".join_wrap").css({ visibility:"hidden",opacity:0 });
-        });
-
-        $(document).on("click",function(e){
-        if( $(".join_wrap").is(e.target)) {
-        $(".join_wrap").css({ visibility:"hidden",opacity:0 });
-        $('body').css("overflow-y", "scroll");
-        }
-        });
-</script>
+<script type="text/javascript" src="${cp}/assets/js/nav_login.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_join.js"></script>
 </html>

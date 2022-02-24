@@ -46,9 +46,71 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
-function sendit(){
+function checkall(checkall) {
+    const check_box = document.getElementsByName("checkbox_agree");
+    check_box.forEach((checkbox) => {
+     checkbox.checked = checkall.checked;
+    })
+}
+function checkLogin(){
+	const xhr = new XMLHttpRequest();
+	let loginEmailError = document.getElementById("loginEmailError");
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == XMLHttpRequest.DONE){
+			if(xhr.status == 200){
+				let txt = xhr.responseText;
+				const loginForm = document.loginForm;
+				let email = loginForm.email;
+				txt = txt.trim();
+				console.log(txt);
+				if(txt == 'O'){
+					loginEmailError.innerHTML = "사용할 수 있는 이메일입니다.";
+					email.focus();
+				}
+				else{
+					loginEmailError.innerHTML = "중복된 이메일이 있습니다.";
+					email.focus();
+				}
+			}
+		}
+	}
+	xhr.open("GET",cp+"/user/LoginCheckEmailOk.us?email="+email.value);
+	xhr.send();
+}
+
+function checkJoin() {
+	const xhr = new XMLHttpRequest();
+	let joinEmailError = document.getElementById("joinEmailError");
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == XMLHttpRequest.DONE){
+			if(xhr.status == 200){
+				let txt = xhr.responseText;
+				const joinForm = document.joinForm;
+				let userEmail = joinForm.userEmail;
+				txt = txt.trim();
+				console.log(txt);
+				if(txt == 'O'){
+					joinEmailError.innerHTML = "사용할 수 있는 이메일입니다.";
+					joinEmailError.style="color:rgb(93,176,226)";
+					userEmail.focus();
+				}
+				else{
+					joinEmailError.innerHTML = "중복된 이메일이 있습니다.";
+					joinEmailError.style="color:red";
+					userEmail.focus();
+				}
+			}
+		}
+	}
+	xhr.open("GET",cp+"/user/JoinCheckEmailOk.us?userEmail="+userEmail.value);//XMLHttpRequest.OPENED
+	xhr.send();
+}
+
+
+function senditJoin(){
 	const joinForm = document.joinForm;
 	let userEmail = joinForm.userEmail;
+	let joinEmailError = document.getElementById("joinEmailError");
 	if(userEmail.value == "") {
 		console.log('다시 해봐 이메일 공백')
 		userEmail.focus();
@@ -62,42 +124,68 @@ function sendit(){
 		userEmail.focus();
 		return false;
 	}
+	if(joinEmailError.innerText == "중복된 이메일이 있습니다."){
+		console.log("중복된 이메일")
+		userEmail.focus();
+		return false;
+	}
 	let userName = joinForm.userName;
+	let joinNameError = document.getElementById("joinNameError");
 	if(userName.value == ""){
 		console.log('다시 해봐 이름 공백')
+		joinNameError.innerHTML = "이름을 입력해주세요."
+		joinNameError.style="color:red"
 		userName.focus();
 		return false;
 	}
+		joinNameError.innerHTML = "";
 	let regPassword = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,15}$/
+	let joinPasswordError = document.getElementById("joinPasswordError");
 	let userPassword = joinForm.userPassword;
 	if(!regPassword.test(userPassword.value)){
 		console.log('다시 해봐 비밀번호 정규식')
+		joinPasswordError.innerHTML = "비밀번호를 양식에 맞게 다시 입력해주세요."
+		joinPasswordError.style="color:red";
 		userPassword.focus();
 		return false;
 	}
 	if(userPassword.value.search(/\s/) != -1){
 		console.log('다시 해봐 비밀번호 찐공백')
+		joinPasswordError.innerHTML = "비밀번호를 입력해주세요."
+		joinPasswordError.style="color:red";
 		userPassword.focus();
 		return false;
 	}
+		joinPasswordError.innerHTML = "";
 	let userPasswordre = joinForm.userPasswordre;
+	let joinPasswordreError = document.getElementById("joinPasswordreError");
 	if(userPasswordre.value == ""){
 		console.log('다시 해봐 비밀번호 확인 공백')
+		joinPasswordreError.innerHTML = "비밀번호 확인을 입력해주세요."
+		joinPasswordreError.style="color:red";
 		userPasswordre.focus();
 		return false;
 	}
 	if(userPassword.value != userPasswordre.value){
 		console.log('다시 해봐 비밀번호확인불일치')
+		joinPasswordreError.innerHTML = "비밀번호가 일치하지 않습니다."
+		joinPasswordreError.style="color:red";
 		userPassword.focus();
 		return false;
 	}
+		joinPasswordreError.innerHTML = "";
 	let userPhone = joinForm.userPhone;
+	let joinPhoneError = document.getElementById("joinPhoneError");
 	if(userPhone.value == ""){
 		console.log('다시해봐 휴대폰 공백')
+		joinPhoneError.innerHTML = "휴대폰 번호를 입력해주세요."
+		joinPhoneError.style="color:red";
 		userPhone.focus();
 		return false;
 	}
+		joinPhoneError.innerHTML = "";
 	let userZipcode = joinForm.userZipcode;
+	let joinAdressError = document.getElementById("joinAdressError");
 	if(userZipcode.value == ""){
 		sample6_execDaumPostcode();
 		return false;
@@ -105,24 +193,35 @@ function sendit(){
 	let userAddressDetail = joinForm.userAddressDetail;
 	if(userAddressDetail.value == ""){
 		console.log('다시해봐 상세주소')
+		joinAdressError.innerHTML = "상세주소를 입력해주세요."
+		joinAdressError.style="color:red";
 		userAddressDetail.focus();
 		return false;
 	}
+		joinAdressError.innerHTML = "";
 	let userBank = joinForm.userBank;
+	let joinBankError = document.getElementById("joinBankError");
 	if(userBank.value == "은행"){
 		console.log('은행 이름 선택 오류')
+		joinBankError.innerHTML = "은행을 선택해주세요."
+		joinBankError.style="color:red";
 		userBank.focus();
 		return false;
 	}
+		joinBankError.innerHTML = "";
 	let userBankAccount = joinForm.userBankAccount;
 	if(userBankAccount.value == ""){
 		console.log('다시해봐 계좌번호')
+		joinBankError.innerHTML = "계좌번호를 입력해주세요."
+		joinBankError.style="color:red";	
 		userBankAccount.focus();
 		return false;
 	}
+		joinBankError.innerHTML = "";
 	let checkboxAll = document.getElementById("checkbox_all")
 	let checkboxPilsoo = document.getElementById("checkbox_pilsoo")
 	let checkboxEvent = document.getElementById("checkbox_eventmail")
+	let joinAgreeError = document.getElementById("joinAgreeError")
 	let ca = $(checkboxAll).prop("checked");
 	let cp = $(checkboxPilsoo).prop("checked");
 	let ce = $(checkboxEvent).prop("checked");
@@ -130,12 +229,18 @@ function sendit(){
 		console.log('전체동의에 체크가 안되있');
 		console.log('필수항목에 체크가 안되있');
 		console.log('이벤트알림에 체크가 안되있');
+		joinAgreeError.innerHTML = "개인정보 수집 및 이용동의에 체크해주세요."
+		joinAgreeError.style="color:red";
 		return false;
 	}
+		joinAgreeError.innerHTML = "";
 	if(cp == false) {
 		console.log('필수항목에 체크해주세요.');
+		joinAgreeError.innerHTML = "필수항목에 체크해주세요."
+		joinAgreeError.style="color:red";
 		return false;
 	}
+		joinAgreeError.innerHTML = "";
 	
 }
 

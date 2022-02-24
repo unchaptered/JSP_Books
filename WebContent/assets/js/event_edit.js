@@ -49,8 +49,8 @@ const confirmEnroll = function(){
 }
 
 // 폼 유효성 검사
-function addEvent(){
-    let frm = document.eventAddForm;
+function EditEvent(){
+    let frm = document.eventEditForm;
 
     if(frm.postTitle.value == ""){
         alert("이벤트 제목을 작성해주세요");

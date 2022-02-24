@@ -1,8 +1,5 @@
 package app.post.dao;
 
-import java.util.HashMap;
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
 import mybatis.SqlMapConfig;
@@ -13,23 +10,26 @@ public class PostDAO {
 	public PostDAO() {
 		sqlsession = SqlMapConfig.getFactory().openSession(true);
 	}
-	//포스트 리스트 가져오기
-//	public List<PostDTO> getPostList() {
-//		return sqlsession.selectList("Post.getPostList");
-//	}
-//	//포스트 제목 가져오기
-//	public String getPostTitle(int postPk) {
-//		return sqlsession.selectOne("Post.getPostTitle",postPk);
-//	}
-//	
-	//포스트 작성자 이름 가져오기
-	public String getOwnerName(int userPk) {
-		return sqlsession.selectOne("Post.getOwnerName",userPk);
-	}
 
 	//마지막 게시물 번호 가져오기
 	public int getLastPostPk(int postOwner) {
 		return sqlsession.selectOne("Post.getLastPostPk",postOwner);
+	}
+	//포스트 작성
+	public boolean insertPost(PostDTO post) {
+		return 1 == sqlsession.insert("Post.insertPost",post);
+	}
+	//포스트 수정
+	public boolean updatePost(PostDTO post) {
+		return 1 == sqlsession.update("Post.updatePost",post);
+	}
+	//포스트 삭제
+	public boolean removePost(int postPk) {
+		return 1 == sqlsession.delete("Post.removePost",postPk);
+	}
+	//조회수 증가
+	public void updateViewed(int postPk) {
+		sqlsession.update("Post.updateViewed",postPk);		
 	}
 
 	
