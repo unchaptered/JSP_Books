@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NewBook">
+	<insert id="insertNewBook" parameterType="bookdto">
+		INSERT INTO new_book (new_book_title, new_book_subtitle, new_book_info, new_book_info_short,
+		 new_book_org_image, new_book_image, new_book_price, new_book_writer, new_book_translater, new_book_publisher,
+		  new_book_created, new_book_pages) 
+		  values(#{bookTitle}, #{bookSubtitle},#{bookInfo},#{bookInfoShort},#{bookOrgImage},#{bookImage},#{bookPrice},#{bookWriter},#{bookTranslater},#{bookPublisher},
+		  		#{bookCreated}, #{bookPages})
+	</insert>
+	<update id="updateBook" parameterType="bookdto">
+		UPDATE new_book SET new_book_title=#{bookTitle}, new_book_subtitle=#{bookSubtitle}, new_book_info=#{bookInfo}, new_book_info_short=#{bookInfoShort},
+			new_book_org_image=#{bookOrgImage},new_book_image=#{bookImage}, new_book_price=#{bookPrice}, new_book_writer=#{bookWriter}, new_book_translater=#{bookTranslater},
+			new_book_publisher=#{bookPublisher}, new_book_created=#{bookCreated}, new_book_pages=#{bookPages}
+WHERE new_book_Pk=#{bookPk}
+	</update>
+	<select id="getBook" parameterType="_int" resultType="bookdto">
+		SELECT * FROM WHERE new_book_pk=#{bookPk}
+	</select>
+	<delete id="deleteByName" parameterType="string">
+		DELETE FROM new_book WHERE new_book_title=#{bookTitle}, new_book_subtitle=#{bookSubtitle}, new_book_info=#{bookInfo}, new_book_info_short=#{bookInfoShort},
+			new_book_org_image=#{bookOrgImage},new_book_image=#{bookImage}, new_book_price=#{bookPrice}, new_book_writer=#{bookWriter}, new_book_translater=#{bookTranslater},
+			new_book_publisher=#{bookPublisher}, new_book_created=#{bookCreated}, new_book_pages=#{bookPages}
+	</delete>
+</mapper>
