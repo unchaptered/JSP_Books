@@ -3,27 +3,185 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OldBook">
-	<select id="addOldBook"
-		resultType="_int"
-		parameterType="oldbookdto">
+
+<!-- 설정용 쿼리문 -->
+	<!-- 중고 도서 최초 등록 시, 필수 실행 [중고 도서 재고량 테이블]-->
+	<insert id="addOldBookStock"
+		parameterType="_int">
 		INSERT INTO old_book
-		(new_book_pk, old_book_pk, old_book_discount) VALUES
-		(#{bookPk}, #{oldBookPk}, #{oldBookDiscount});
+			(new_book_pk)
+		VALUES
+			( #{bookPk} );
+	</insert>
+	
+	<!-- 중고 도서 최초 등록 시, 필수 실행 [중고 도서 판매량 기록 테이블] -->
+	<insert id="addOldBookSalesVolume"
+		parameterType="_int">
+		INSERT INTO old_book_selled
+			(old_book_pk)
+		VALUES
+			( #{bookPk};)
+	</insert>
+	
+	<!-- 중고 도서 최초 등록 시, [중고 도서 재고량 기록 테이블] 생성 시,
+	          기준 신규 도서 Pk 를 기준으로 [중고 도서 재고량 기록 테이블] 기본키 값 검색 가능 -->
+	<select id="getOldBookPkByNewBookPk"
+		parameterType="_int"
+		resultType="_int">
+		SELECT old_book_pk
+		FROM old_book
+		WHERE new_book_pk = #{bookPk}
+		LIMIT 1;
 	</select>
 	
-	<!-- new_book 테이블 작업 완료시 join 쿼리문 추가 필요 -->
+	<!-- 중고 도서 최초 등록 시, [중고 도서 판매량 기록 테이블] 생성 시,
+	         기준 신규 도서 Pk 를 기준으로 [중고 도서 판매량 기록 테이블] 기본키 값 검색 가능 -->
+	<select id="getOldBookSelledPkByNewBookPk"
+		parameterType="_int"
+		resultType="_int">
+		SELECT old_book_selled_pk
+		FROM old_book_selled
+		WHERE new_book_pk = #{bookPk}
+		LIMIT 1;
+	</select>
+	
+<!-- DTO 습득용 쿼리문 -->
+	<!-- #{oldBookPk} 와 일치하는 1개의 old_book 을 받아오기 -->
 	<select id="getOneOldBookByOldBookPk"
-		resultType="oldbookdto"
-		parameterType="_int">
+		parameterType="_int"
+		resultType="oldbookdto">
 		SELECT * FROM old_book
-		WHERE old_book_pk=#{oldBookPk};
+			LEFT OUTER JOIN new_book
+			ON old_book.new_book_pk = new_book.new_book_pk
+		WHERE old_book_pk = #{oldBookPk}
+		LIMIT 1;
 	</select>
 	
-	<select id="getAllOldBookByLimit"
-		resultType="oldbookdto"
-		parameterType="_int">
+	<!-- #{bookPk} 와 일치하는 1 개의 old_book 을 받아오기  -->
+	<select id="getOldBook"
+		parameterType="_int"
+		resultType="oldbookdto">
 		SELECT * FROM old_book
-		ORDER BY old_book_pk
+			LEFT OUTER JOIN new_book
+			ON old_book.new_book_pk = new_book.new_book_pk
+		WHERE old_book_pk = #{bookPk}
+		LIMIT 1;
+	</select>
+	
+	<!-- #{limit} 개의 old_book 을 받아오기-->
+	<select id="getOldBooksUpToCustom"
+		parameterType="_int"
+		resultType="oldbookdto">
+		SELECT * FROM old_book
+			LEFT OUTER JOIN new_book
+			ON old_book.new_book_pk = new_book.new_book_pk
 		LIMIT #{limit};
+	</select>
+	
+	<!-- 6 개의 old_book 을 받아오기 -->
+	<select id="getOldBooksUpToSix"
+		resultType="oldbookdto">
+		SELECT 
+			new_book.new_book_pk,
+			new_book_title, new_book_genre, new_book_country,
+			old_book_pk,
+			old_book_discount_10, old_book_discount_20, old_book_discount_30, old_book_discount_40, old_book_discount_50
+		FROM old_book
+			LEFT OUTER JOIN new_book
+			ON old_book.new_book_pk = new_book.new_book_pk
+		LIMIT 6;
+	</select>
+	
+	<!-- 장르 기준, 중고 도서 수량 조회 -->
+	<select id="getOldBooksByGenre"
+		parameterType="hashmap"
+		resultType="oldbookdto">
+		SELECT
+			new_book.new_book_pk,
+			new_book_title, new_book_genre, new_book_country,
+			old_book_pk,
+			old_book_discount_10, old_book_discount_20, old_book_discount_30, old_book_discount_40, old_book_discount_50
+		FROM old_book
+			LEFT OUTER JOIN new_book
+			ON old_book.new_book_pk = new_book.new_book_pk
+			WHERE new_book_genre = #{bookGenre}
+		LIMIT 6;
+	</select>
+	
+	<!-- 국가 기준, 중고 도서 수량 조회 -->
+	<select id="getOldBooksByCountry"
+		parameterType="hashmap"
+		resultType="oldbookdto">
+		SELECT
+			new_book.new_book_pk,
+			new_book_title, new_book_genre, new_book_country,
+			old_book_pk,
+			old_book_discount_10, old_book_discount_20, old_book_discount_30, old_book_discount_40, old_book_discount_50
+		FROM old_book
+			LEFT OUTER JOIN new_book
+			ON old_book.new_book_pk = new_book.new_book_pk
+			WHERE new_book_country = #{bookCountry}
+		LIMIT 6;
+	</select>
+	
+	<!-- 장르&&국가 기준, 중고 도서 수량 조회 -->
+	<select id="getOldBooksByGenreAndCountry"
+		parameterType="hashmap"
+		resultType="oldbookdto">
+		SELECT
+			new_book.new_book_pk,
+			new_book_title, new_book_genre, new_book_country,
+			old_book_pk,
+			old_book_discount_10, old_book_discount_20, old_book_discount_30, old_book_discount_40, old_book_discount_50
+		FROM old_book
+			LEFT OUTER JOIN new_book
+			ON old_book.new_book_pk = new_book.new_book_pk
+			WHERE new_book_genre = #{bookGenre} AND new_book_country = #{bookCountry}
+		LIMIT 6;
+	</select>
+	
+	<!-- 중고 도서 재고 증가 (old_book_discount_10,20,30,40,50)-->
+	<update id="updateOldBookDiscountIncrease"
+		parameterType="hashmap">
+		UPDATE
+			old_book
+		SET
+			#{columnName} = #{columnName} + 1
+			WHERE #{oldBookPk} = 1;
+	</update>
+	
+	<!-- 중고 도서 재고 감소 (old_book_discount_10,20,30,40,50)-->
+	<update id="updateOldBookDiscountDecreases"
+		parameterType="hashmap">
+		UPDATE
+			old_book
+		SET #{columnName} = #{columnName} - 1
+			WHERE #{oldBookPk} = 1 AND #{columnName} > 0;
+	</update>
+
+
+<!-- 통계용 쿼리문 -->
+	<!-- 판매량 기준, 중고 도서 검색-->
+	<select id="getOldBooksSortedBySalesVolumes"
+		parameterType="hashmap">
+		SELECT * FROM old_book_selled
+			<if test="size == 1">
+				<trim prefix="ORDER BY">
+					<if test='selled10 != null'>#{selled10} #{sorted10}</if>
+					<if test="selled20 != null">#{selled20} #{sorted20}</if>
+					<if test="selled30 != null">#{selled30} #{sorted30}</if>
+					<if test="selled40 != null">#{selled40} #{sorted40}</if>
+					<if test="selled50 != null">#{selled50} #{sorted50}</if>
+				</trim>
+			</if>
+			<if test="size > 1">
+				<trim prefix="ORDER BY">
+					<if test='selled10 != null'>#{selled10} #{sorted10}</if>
+					<if test="selled20 != null">#{selled20} #{sorted20}</if>
+					<if test="selled30 != null">#{selled30} #{sorted30}</if>
+					<if test="selled40 != null">#{selled40} #{sorted40}</if>
+					<if test="selled50 != null">#{selled50} #{sorted50}</if>
+				</trim>
+			</if>;
 	</select>
 </mapper>
