@@ -1,5 +1,24 @@
-// 저자 : sunsetkk
-const img_submit = document.getElementById('img_submit');
+//저자 : sunsetkk
+
+function categoryChange(genre) {
+	var bookGenre_kor = ["소설", "시⦁에세이", "경제⦁경영", "자기계발", "사회⦁과학", "역사⦁문화", "인문", "자연과학", "기타"];
+	var bookGenre_forg= ["어린이", "문학", "경제인문", "컴퓨터", "기타"];
+	var target = document.getElementById("bookGenre");
+
+	if(genre.value == "kor") var d = bookGenre_kor;
+	else if(genre.value == "forg") var d = bookGenre_forg;
+
+	target.options.length = 0;
+
+	for (x in d) {
+		var opt = document.createElement("option");
+		opt.value = d[x];
+		opt.innerHTML = d[x];
+		target.appendChild(opt);
+	}	
+}
+
+const img_submit = document.getElementById('imgSubmit');
 
 let count = 1;
 function loadFile(input) {
@@ -21,7 +40,7 @@ function loadFile(input) {
     newImage.style.objectFit = "contain";
     
     //이미지를 img_show div에 추가
-    const container = document.getElementById('img_show');
+    const container = document.getElementById("imgShow");
     if(count !== 1){
         const old_img = document.querySelector(`.img_no-${count-1}`);
         old_img.remove();
@@ -34,8 +53,6 @@ function loadFile(input) {
 }
 
 
-//[] <--문자 범위 [^] <--부정 [0-9] <-- 숫자  
-//[0-9] => \d , [^0-9] => \D
 let rgx1 = /\D/g;  // /[^0-9]/g 와 같은 표현
 let rgx2 = /(\d+)(\d{3})/; 
 
@@ -59,8 +76,8 @@ function setComma(inNum){
     return outNum;
 }
 
-const price = document.getElementById('price');
+const title = document.getElementById("title");
 
 function focus_re(){
-    price.focus();
+    title.focus();
 }
