@@ -45,7 +45,7 @@
 						<tbody>
 							<c:choose>
 								<c:when test="${noticeList.size()>0 and noticeList != null}">
-									<c:forEach var="notice" items="${noticeList}">
+									<c:forEach var="notice" items="${noticeList}" varStatus="status">
 										<c:choose>
 											<c:when test="${notice.noticePin == 'Y'}">
 												<tr class="alert">
@@ -53,7 +53,7 @@
 													<td class="board_tlt">
 														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
 													</td>
-													<td class="board_writer">${ownerName}</td>
+													<td class="board_writer">${ownerName[status.index]}</td>
 													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
 													<td class="board_hit">${notice.postViewed}</td>
 													<%-- <c:if test="">
@@ -69,7 +69,7 @@
 													<td class="board_tlt">
 														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
 													</td>
-													<td class="board_writer">${ownerName}</td>
+													<td class="board_writer">${ownerName[status.index]}</td>
 													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
 													<td class="board_hit">${notice.postViewed}</td>
 													<%-- <c:if test="">
@@ -111,8 +111,9 @@
 										<li><a href="${cp}/app/post/NoticeList.po?noticePage=${i}&keyword=${keyword}" class="pageBtn pageNum">${i}</a></li>
 									</c:otherwise>
 								</c:choose>
+								
 							</c:forEach>
-							<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 eventPage+10, 없으면 마지막페이지로)-->
+							<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 noticePage+10, 없으면 마지막페이지로)-->
 							<c:if test="${noticePage > 10 && noticePage < noticeTotalPage && noticePage+10 < noticeTotalPage}">
 								<li><a href="${cp}/app/post/NoticeList.po?noticePage=${noticePage+10}" class="pageBtn next">다음</a></li>
 							</c:if>

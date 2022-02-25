@@ -31,10 +31,10 @@ public class PostDAO {
 	public void updateViewed(int postPk) {
 		sqlsession.update("Post.updateViewed",postPk);		
 	}
+	//포스트 작성자 이름 하나 가져오기
+	public String getPostOwnerName(int postPk) {
+		return sqlsession.selectOne("Post.getPostOwnerName",postPk);
+	}
 
-	
-	
-	
-	
 	
 }

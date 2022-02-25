@@ -65,7 +65,7 @@ public class EventEditOkAction implements Action{
 					multi.getOriginalFileName("inputFileToRead")
 				};
 				
-				List<FileDTO> files = fdao.getFiles(postPk);
+				List<FileDTO> files = fdao.getFile(postPk);
 				
 				String[] newFilenames = multi.getParameterValues("filename");
 				

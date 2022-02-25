@@ -53,4 +53,36 @@
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="${cp}/assets/js/event_read.js"></script>
+<script>
+	//좋아요 //아이디 당 한 번씩 수정 필요 //누르면 +1, 또 누르면 -1되게 likeaction수정
+	let flag = false;
+	function like(eventPk){		
+		const result = document.getElementById("likeResult");
+		const xhr = new XMLHttpRequest();
+		if(!flag){
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == XMLHttpRequest.DONE){
+					if(xhr.status == 200){
+						result.innerHTML = Number(result.innerHTML)+1;
+					}
+				}
+			}	
+			xhr.open("GET","${pageContext.request.contextPath}/app/post/EventLike.po?eventPk="+eventPk,true);
+			xhr.send();
+			flag = true;
+		}
+		else{
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == XMLHttpRequest.DONE){
+					if(xhr.status == 200){
+						result.innerHTML = Number(result.innerHTML)-1;
+					}
+				}
+			}	
+			xhr.open("GET","${pageContext.request.contextPath}/app/post/EventLike.po?eventPk="+eventPk,true);
+			xhr.send();
+			flag = false;
+		}
+	}
+</script>
 </html>

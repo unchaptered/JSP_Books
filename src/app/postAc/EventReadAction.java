@@ -25,10 +25,11 @@ public class EventReadAction implements Action{
 	
 		//조회수
 		pdao.updateViewed(postPk);
-
+		event.setPostViewed(event.getPostViewed()+1);
+		
 		//첨부파일 세팅
 		FileDAO fdao = new FileDAO();
-		req.setAttribute("files", fdao.getFiles(postPk));		
+		req.setAttribute("files", fdao.getFile(postPk));		
 		
 		req.setAttribute("event", event);
 				

@@ -26,10 +26,11 @@ public class EventAddOkAction implements Action{
 		PostDAO pdao = new PostDAO();
 		
 		//파일이 저장될 경로
-		String saveFolder = "C:\\";
+		String saveFolder = "C:\\0900_GB_KSY";
 
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
+//		String fullfilename = "";
 
 		//cos
 		MultipartRequest multi = new MultipartRequest(req, saveFolder, size,
@@ -56,7 +57,8 @@ public class EventAddOkAction implements Action{
 		String eventStarted = multi.getParameter("eventStarted");
 		String eventEnded = multi.getParameter("eventEnded");		
 
-		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+//		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+		int postOwner = 3;
 //		int postOwner = pdao.getPostOwner(ownerEmail);
 //		String ownerName = pdao.getOwnerName(ownerEmail);
 		

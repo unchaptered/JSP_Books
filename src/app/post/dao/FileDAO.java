@@ -1,7 +1,5 @@
 package app.post.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
 import mybatis.SqlMapConfig;
@@ -18,8 +16,8 @@ public class FileDAO {
 		return 1 == sqlsession.insert("File.insertFile",file);
 	}
 	//파일 가져오기
-	public List<FileDTO> getFiles(int postPk) {
-		return sqlsession.selectList("File.getFiles",postPk);
+	public FileDTO getFile(int postPk) {
+		return sqlsession.selectOne("File.getFile",postPk);
 	}
 	//파일 삭제하기
 	public void deleteByName(String postFileSystem) {

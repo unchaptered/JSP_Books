@@ -1,7 +1,6 @@
 package app.postAc;
 
 import java.io.File;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,8 +43,6 @@ public class NoticeEditOkAction implements Action {
 		post.setPostText(postText);
 		if(noticePin == "on") {
 			notice.setNoticePin("Y");
-		}else {
-			notice.setNoticePin("N");
 		}
 		
 		ActionTo transfer = new ActionTo();
@@ -55,35 +52,34 @@ public class NoticeEditOkAction implements Action {
 				String systemname = multi.getFilesystemName("noticeFile");
 				String orgname = multi.getOriginalFileName("noticeFile");
 				
-				List<FileDTO> files = fdao.getFiles(postPk);
+				FileDTO oldFile = fdao.getFile(postPk);
 				
-//				String newFilename = multi.getParameter("filename");
+				String newFilename = multi.getParameter("noticeFileName");
 				
-				if(systemname == null) {
-					
-				}
-				else {
-					if(files != null) {
-						File file = new File(saveFolder, files.get(0).getPostFileSystem());
-						
-						if(file.exists()) {
-							file.delete();
-						}
-						fdao.deleteByName(files.get(0).getPostFileSystem());
+				if(newFilename != null && !newFilename.equals("")) {
+					if(systemname == null) {						
 					}
-					FileDTO fdto = new FileDTO();
-					fdto.setPostPk(postPk);
-					fdto.setPostFileSystem(systemname);
-					fdto.setPostFileOrigin(orgname);
-					fdao.insertFile(fdto);
+					else {
+						if(oldFile != null) {
+							File file = new File(saveFolder, oldFile.getPostFileSystem());
+							
+							if(file.exists()) {
+								file.delete();
+							}
+							fdao.deleteByName(oldFile.getPostFileSystem());
+						}
+						FileDTO newFile = new FileDTO();
+						newFile.setPostPk(postPk);
+						newFile.setPostFileSystem(systemname);
+						newFile.setPostFileOrigin(orgname);
+						fdao.insertFile(newFile);
+						transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
+					}
 				}
-				transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
 			}
-		}
-		else {
+		}else {
 			transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?u=f&noticePk="+noticePk);
 		}
 		return transfer;
-	}
-		
+	}		
 }
