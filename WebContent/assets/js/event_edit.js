@@ -1,14 +1,3 @@
-// 첨부 파일 이름 나타내기
-//function showName(){
-//    let files = document.getElementById("input-file").files;
-//    fileList = "";
-//    for (let i = 0; i < files.length; i++) {
-//        fileList += files[i].name + '<br>';
-//    }
-//    target = document.getElementById("showFiles")
-//    target.innerHTML = fileList;
-//}
-                        
 // 첨부 파일 이미지 미리보기
 function setThumbnail_list(input){
     if(input.files && input.files[0]){

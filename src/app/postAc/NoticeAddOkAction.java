@@ -26,7 +26,7 @@ public class NoticeAddOkAction implements Action{
 		PostDAO pdao = new PostDAO();
 		
 		//파일이 저장될 경로
-		String saveFolder = "C:\\";
+		String saveFolder = "C:\\0900_GB_KSY";
 
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
@@ -37,6 +37,7 @@ public class NoticeAddOkAction implements Action{
 		
 		boolean fcheck = false;
 		
+		//파일 시스템이름, 지정이름 받아오기
 		String systemname = multi.getFilesystemName("noticeFile");
 		if(systemname == null) {
 			fcheck = true;
@@ -47,7 +48,8 @@ public class NoticeAddOkAction implements Action{
 		String postText = multi.getParameter("postText");
 		String noticePin = multi.getParameter("noticePin");
 		
-		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+//		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+		int postOwner = 3;
 		
 		post.setPostTitle(postTitle);
 		post.setPostText(postText);
@@ -74,8 +76,7 @@ public class NoticeAddOkAction implements Action{
 							
 					fcheck = fdao.insertFile(file);
 				}
-						
-				if(fcheck) {
+				else{
 				int noticePk = notice.getNoticePk();
 				
 				transfer.setRedirect(true);

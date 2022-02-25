@@ -45,7 +45,7 @@ public class PostFrontController extends HttpServlet{
 			try {
 				transfer = new EventAddOkAction().execute(req,resp);
 			} catch (Exception e) {
-				System.out.println("EventAdd : "+e);
+				System.out.println("EventAddOk : "+e);
 			}
 			break;
 		case "/app/post/EventRead.po":
@@ -131,9 +131,14 @@ public class PostFrontController extends HttpServlet{
 				System.out.println("NoticeRemove : "+e);
 			}
 			break;
+		case "/app/post/FileDownload.po":
+			try {
+				new FileDownloadAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("FileDownload : "+e);
+			}
+			break;
 		}
-		
-		
 		
 		if(transfer != null) {
 			if(transfer.isRedirect()) {

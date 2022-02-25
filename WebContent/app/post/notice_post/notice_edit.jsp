@@ -28,8 +28,8 @@
                         <div class="write_content">
                             <strong class="detail_title plus">공지사항 상세</strong>
                             <div class="fileBtn">
-                                <label for="input-file">첨부 파일</label> <input type="file" name="noticeFile" id="input-file" multiple onchange="showName()"></input>
-                                <div id="showFiles"></div>
+                                <label for="input-file">첨부 파일</label> <input type="file" name="noticeFile" id="input-file" onchange="showName()"></input>
+                                <div id="showFiles"><input type="hidden" name="noticeFileName" value="${file.postFileOrigin}"></div>
                             </div>
                             <textarea name="postText" cols="100" rows="20" placeholder="내용을 입력하세요." id="input-text">${notice.postText}</textarea>
                         </div>

@@ -18,8 +18,8 @@ public class EventDAO {
 		return 1 == sqlsession.insert("Post.insertEvent",event);
 	}
 	//이벤트 개수 가져오기
-	public int getEventCnt() {
-		return sqlsession.selectOne("Post.getEventCnt");
+	public int getEventCnt(String keyword) {
+		return sqlsession.selectOne("Post.getEventCnt",keyword);
 	}
 	//이벤트 리스트 가져오기
 		public List<EventDTO> getEventList(int startRow, int pageSize, String keyword) {

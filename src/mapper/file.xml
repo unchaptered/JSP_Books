@@ -7,8 +7,8 @@
 		insert into post_files (post_file_system, post_file_origin, post_pk) 
 		values(#{postFileSystem},#{postFileOrigin},#{postPk})
 	</insert>
-	<select id="getFiles" parameterType="_int" resultType="filedto">
-		select post_file_pk, post_file_system, post_file_origin, post_pk
+	<select id="getFile" parameterType="_int" resultType="filedto">
+		select post_file_pk as postFilePk, post_file_system as postFileSystem, post_file_origin as postFileOrigin, post_pk as postPk
 		from post_files where post_pk=#{postPk}
 	</select>
 	<delete id="deleteByName" parameterType="String">

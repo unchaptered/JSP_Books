@@ -10,7 +10,7 @@ public class PostDTO {
 	private String postText; //게시물 내용
 	private int postOwner; //게시물 작성자(유저 pk)
 	private String postCreated; //게시물 작성일자
-	private String postViewed; //게시물 조회수
+	private int postViewed; //게시물 조회수
 	
 	// Getter 
 	
@@ -29,7 +29,7 @@ public class PostDTO {
 	public String getPostCreated() {
 		return postCreated;
 	}
-	public String getPostViewed() {
+	public int getPostViewed() {
 		return postViewed;
 	}
 	
@@ -51,7 +51,7 @@ public class PostDTO {
 	public void setPostCreated(String postCreated) {
 		this.postCreated = postCreated;
 	}
-	public void setPostViewed(String postViewed) {
+	public void setPostViewed(int postViewed) {
 		this.postViewed = postViewed;
 	}
 }

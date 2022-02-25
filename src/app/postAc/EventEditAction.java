@@ -19,7 +19,7 @@ public class EventEditAction implements Action{
 		int postPk = event.getPostPk();
 		
 		req.setAttribute("event", event);
-		req.setAttribute("files", fdao.getFiles(postPk));
+		req.setAttribute("files", fdao.getFile(postPk));
 		
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);

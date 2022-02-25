@@ -19,7 +19,7 @@ public class NoticeEditAction implements Action{
 		int postPk = notice.getPostPk();
 		
 		req.setAttribute("notice", notice);
-		req.setAttribute("files", fdao.getFiles(postPk));
+		req.setAttribute("file", fdao.getFile(postPk));
 		
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);
