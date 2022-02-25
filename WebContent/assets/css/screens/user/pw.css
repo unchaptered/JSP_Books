@@ -1,10 +1,4 @@
 /* 저자 : 고결 */
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
 .pw_wrap{
     font-size: 14px;
     line-height: 1.4;
@@ -18,8 +12,8 @@
     left:0; 
     z-index:9000;
     visibility:hidden;
-     opacity:0;
-     transition:all 0.3s ease;
+    opacity:0;
+    transition:all 0.3s ease;
 }
 .pw_wrap input, input:focus{
     outline: none !important;
@@ -44,7 +38,7 @@
     background: #fff;
     overflow: hidden;
 }
-.pw_wrap .pw_container{ z-index:10000;   
+.pw_wrap .pw_container{ z-index:10001;   
     position:fixed; left:50%; top:50%; 
     transform:translate(-50%, -50%); 
      background:#fff; border-radius:6px; }

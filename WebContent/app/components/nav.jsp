@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <div class="body_button">
-                <a href=""><input type="submit" class="email_button buttons" value="이메일로 계속하기"></a>
+                <input type="button" class="email_button buttons" value="이메일로 계속하기" id="myBtnPw">
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
@@ -136,6 +136,7 @@
         </div>
     </form>
     </div>
+    
     <div class="join_wrap">
     <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="post" onsubmit="return senditJoin()">
         <div class="join_container" style="overflow: auto;">
@@ -186,7 +187,7 @@
                     </div>
                     <div class="mobile_wrap">
                         <div class="mobile_wrap_inner">
-                        <label for="user_phone" class="user_info"><span class="head_span">휴대폰 번&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPhoneError"class="error"></span></label>
+                        <label for="user_phone" class="user_info"><span class="head_span">휴대폰 번호&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPhoneError"class="error"></span></label>
                         <div class="user_phone_body">
                             <div id="user_phone">
                                 <div class="mobile_input_select input_select">
@@ -313,6 +314,40 @@
         </div>
         </form>
     </div>
+    <div class="pw_wrap" >
+        <form>
+        <div class="pw_container">
+            <div class="pw_header">
+                비밀번호 입력
+                <div class="icon">
+                    <button type="button" id="closePw">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                    <button type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                      </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="pw_body_wrap">
+                <div class="pw_body_wrap_inner">
+                    <div class="pw_body_inner">
+                        <label for="password_input" class="user_info">비밀번호</label>
+                        <div class="input_pw">
+                            <input type="password" id="password_input" placeholder="비밀번호" autocomplete="current-password" value>
+                        </div>
+                        <div class="pw_space"></div>
+                        <button type="button" class="pw_btn buttons" id="pw_login">로그인</button>
+                        <button type="button" class="pw_btn2 buttons">비밀번호 찾기/변경</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
@@ -322,4 +357,5 @@
 <script src="${cp}/assets/js/addr.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/nav_login.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/nav_join.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_pw.js"></script>
 </html>

@@ -11,12 +11,13 @@
 <link rel="stylesheet" href="../../assets/css/screens/user/pw.css">
 </head>
 <body>
+	<input type="button" id="myBtn" value="이걸 눌러">
     <div class="pw_wrap" >
         <div class="pw_container">
             <div class="pw_header">
                 비밀번호 입력
                 <div class="icon">
-                    <button type="button" id="close">
+                    <button type="button" id="closePw">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
