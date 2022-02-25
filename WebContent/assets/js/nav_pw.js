@@ -16,3 +16,15 @@
     $('body').css("overflow-y", "scroll");
     }
     });
+    
+    function pw() {
+    	let password_input = document.getElementById("password_input")
+    	let pwError = document.getElementById("pwError");
+    	if(password_input.value==""){
+    		console.log('다시 해봐 비밀번호 찐공백')
+    		pwError.innerHTML = "비밀번호를 입력해주세요."
+    		pwError.style="color:red";
+    		password_input.focus();
+    		return false;
+    }
+    }

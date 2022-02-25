@@ -315,7 +315,7 @@
         </form>
     </div>
     <div class="pw_wrap" >
-        <form>
+        <form name="pwForm">
         <div class="pw_container">
             <div class="pw_header">
                 비밀번호 입력
@@ -335,12 +335,12 @@
             <div class="pw_body_wrap">
                 <div class="pw_body_wrap_inner">
                     <div class="pw_body_inner">
-                        <label for="password_input" class="user_info">비밀번호</label>
+                        <label for="password_input" class="user_info"><span>비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="pwError" class="error"></span></label>
                         <div class="input_pw">
-                            <input type="password" id="password_input" placeholder="비밀번호" autocomplete="current-password" value>
+                            <input type="password" id="password_input" placeholder="비밀번호를 입력해 주세요." autocomplete="current-password" name="password_input">
                         </div>
                         <div class="pw_space"></div>
-                        <button type="button" class="pw_btn buttons" id="pw_login">로그인</button>
+                        <input type="submit" class="pw_btn buttons" id="pw_login" value="로그인" onclick="pw()">
                         <button type="button" class="pw_btn2 buttons">비밀번호 찾기/변경</button>
                     </div>
                 </div>
