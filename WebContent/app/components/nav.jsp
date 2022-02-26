@@ -107,9 +107,9 @@
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
-                        <a href=""><span>아이디 찾기</span></a>
+                        <span id="myBtnIdFind" class=loginIdFind>아이디 찾기</span>
                         <span>/</span>
-                        <a href=""><span>비밀번호 찾기</span></a>
+                        <span class="loginPwFind" id="myBtnLoginPwFind">비밀번호 찾기</span>
                      </div>
                  </div>
                 <div class="body_button_next">다음 계정으로 접속하기</div>
@@ -348,6 +348,48 @@
         </div>
         </form>
     </div>
+     <div class="id_find_wrap">
+     <form>
+        <div class="id_find_container">
+            <div class="id_find_header">
+                이메일 찾기
+                <div class="icon">
+                    <button type="button" id="closeIdFind">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                    <button type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                      </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="id_find_body_wrap">
+                <div class="id_find_body_wrap_inner">
+                    <div class="id_find_body_inner">
+                        <div class="id_find_name_inner">
+                        <label for="id_find_name_input" class="user_info">이름</label>
+                        <div class="input_name_id_find">
+                            <input type="text" id="name_input_find" placeholder="이름을 입력해주세요." value>
+                        </div>
+                    </div>
+                    <div class="id_find_phone_inner">
+                        <label for="id_find_phone_input" class="user_info">휴대폰 번호</label>
+                        <div class="input_phone_id_find">
+                            <input type="text" id="phone_input_find" placeholder="(예시) 01012345678" value>
+                        </div>
+                    </div>
+                        <div class="id_find_space"></div>
+                        <button type="button" class="id_find_btn buttons" id="id_find_login"><a href="./emailShow.html">이메일 찾기</a></button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        </form>
+    </div> 
     <div class="pw_find_wrap">
     <form>
         <div class="pw_find_container">
@@ -397,8 +439,5 @@
 <script>const cp = "${pageContext.request.contextPath}"</script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="${cp}/assets/js/addr.js"></script>
-<script type="text/javascript" src="${cp}/assets/js/nav_login.js"></script>
-<script type="text/javascript" src="${cp}/assets/js/nav_join.js"></script>
-<script type="text/javascript" src="${cp}/assets/js/nav_pw.js"></script>
-<script type="text/javascript" src="${cp}/assets/js/nav_pwFind.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_user.js"></script>
 </html>

@@ -17,6 +17,8 @@
 @import "./screens/user/join.css";
 @import "./screens/user/pw.css";
 @import "./screens/user/pwFind.css";
+@import "./screens/user/idFind.css";
+
 
 /* Screens : 개인 페이지에 작성한 파일은 전부 Screen 폴더로 */
 
