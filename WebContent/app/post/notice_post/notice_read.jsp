@@ -27,14 +27,14 @@
                                     <p>작성자 </p><span>${ownerName}</span>
                                 </div>
                                 <div class="sub">
-                                    <p>작성일</p> <span>${fn:substring(notice.postCreated,0,10)}</span>
+                                    <p>작성일</p><span>${fn:substring(notice.postCreated,0,10)}</span>
                                 </div>
                                 <div class="sub">
                                     <p>조회</p> <span>${notice.postViewed}</span>
                                 </div>
-                                <c:if test="${file != null }">
+                                <c:if test="${file != null or file.postFileOrigin != null or file.postFileSystem != null}">
 	                                <div class="sub">
-	                                    <p>첨부파일</p> <a href="${cp}/app/post/FileDownload.po?systemname=${file.postFileSystem}&orgname=${file.postFileOrigin}"><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
+	                                    <p>첨부파일</p> <span>${file.postFileOrigin}</span><a href="${cp}/app/post/FileDownload.po?systemname=${file.postFileSystem}&orgname=${file.postFileOrigin}"><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
 	                                </div>
                                 </c:if>
                             </div>

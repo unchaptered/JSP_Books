@@ -14,7 +14,7 @@ import app.post.dao.FileDAO;
 public class EventListAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		EventDTO event = new EventDTO();
+		FileDAO fdao = new FileDAO();		
 		EventDAO edao = new EventDAO();
 		
 		String temp = req.getParameter("eventPage");
@@ -54,8 +54,6 @@ public class EventListAction implements Action{
 		req.setAttribute("keyword", keyword);
 		
 		//첨부파일 세팅 //수정필요
-		FileDAO fdao = new FileDAO();
-			
 
 		
 		//보내기

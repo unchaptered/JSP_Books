@@ -54,6 +54,11 @@ public class EventDAO {
 		public boolean removeEvent(int eventPk) {
 			return 1 == sqlsession.delete("Post.removeEvent",eventPk);
 		}
+		//postPk로 eventPk받아오기
+		public int getLastEventPk(int postPk) {
+			return sqlsession.selectOne("Post.getLastEventPk",postPk);
+		}
+		
 		
 	
 }

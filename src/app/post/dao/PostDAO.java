@@ -35,6 +35,10 @@ public class PostDAO {
 	public String getPostOwnerName(int postPk) {
 		return sqlsession.selectOne("Post.getPostOwnerName",postPk);
 	}
+	//포스트 가져오기
+	public PostDTO getPostRead(int postPk) {
+		return sqlsession.selectOne("Post.getPostRead",postPk);
+	}
 
 	
 }

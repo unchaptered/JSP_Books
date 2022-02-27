@@ -131,6 +131,13 @@ public class PostFrontController extends HttpServlet{
 				System.out.println("NoticeRemove : "+e);
 			}
 			break;
+		case "/app/post/NoticeFileRemove.po":
+			try {
+				new NoticeFileRemove().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("NoticeFileRemove : "+e);
+			}
+			break;
 		case "/app/post/FileDownload.po":
 			try {
 				new FileDownloadAction().execute(req,resp);

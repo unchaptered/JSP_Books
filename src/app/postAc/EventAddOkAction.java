@@ -22,8 +22,9 @@ public class EventAddOkAction implements Action{
 		EventDTO event = new EventDTO();
 		PostDTO post = new PostDTO();
 		
-		EventDAO edao = new EventDAO();
+		FileDAO fdao = new FileDAO();
 		PostDAO pdao = new PostDAO();
+		EventDAO edao = new EventDAO();
 		
 		//파일이 저장될 경로
 		String saveFolder = "C:\\0900_GB_KSY";
@@ -39,17 +40,17 @@ public class EventAddOkAction implements Action{
 		boolean fcheck1 = false;
 		boolean fcheck2 = false;
 		
-		String systemname1 = multi.getFilesystemName("inputFileToList");
-		if(systemname1 == null) {
+		String eventFileSystem = multi.getFilesystemName("eventFile");
+		if(eventFileSystem == null) {
 			fcheck1 = true;
 		}
-		String orgname1 = multi.getOriginalFileName("inputFileToList");
+		String eventFileOrigin = multi.getOriginalFileName("eventFile");
 		
-		String systemname2 = multi.getFilesystemName("inputFileToRead");
-		if(systemname2 == null) {
+		String eventFileDetailSystem = multi.getFilesystemName("eventFileDetail");
+		if(eventFileDetailSystem == null) {
 			fcheck2 = true;
 		}
-		String orgname2 = multi.getOriginalFileName("inputFileToRead");
+		String eventFileDetailOrigin = multi.getOriginalFileName("eventFileDetail");
 
 		//EventDTO	
 		String postTitle = multi.getParameter("postTitle");
@@ -58,7 +59,7 @@ public class EventAddOkAction implements Action{
 		String eventEnded = multi.getParameter("eventEnded");		
 
 //		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
-		int postOwner = 3;
+		int postOwner = 2;
 //		int postOwner = pdao.getPostOwner(ownerEmail);
 //		String ownerName = pdao.getOwnerName(ownerEmail);
 		
@@ -75,34 +76,38 @@ public class EventAddOkAction implements Action{
 		if(pdao.insertPost(post)) {
 			postPk = pdao.getLastPostPk(postOwner);
 			event.setPostPk(postPk);
-			if(edao.insertEvent(event)) {
-				FileDAO fdao = new FileDAO();		
-				if(!fcheck1) {
-					FileDTO file = new FileDTO();
-					file.setPostPk(postPk);
-					file.setPostFileSystem(systemname1);
-					file.setPostFileOrigin(orgname1);
+			if(!fcheck1) {
+				FileDTO file = new FileDTO();
+				file.setPostFileSystem(eventFileSystem);
+				file.setPostFileOrigin(eventFileOrigin);
 					
-					fcheck1 = fdao.insertFile(file);
-				}
-				if(!fcheck2) {
-					FileDTO file = new FileDTO();
-					file.setPostFilePk(postPk);
-					file.setPostFileSystem(systemname2);
-					file.setPostFileOrigin(orgname2);
+				if(fdao.insertFile(file)) {
+					int eventFile = fdao.getLastPostFilePk(eventFileSystem);
+					event.setEventFile(eventFile);
+					fcheck1 = true;
+				}	
+			}
+			if(!fcheck2) {
+				FileDTO file = new FileDTO();
+				file.setPostFileSystem(eventFileDetailSystem);
+				file.setPostFileOrigin(eventFileDetailOrigin);
 					
-					fcheck2 = fdao.insertFile(file);
-				}
-				if(fcheck1 && fcheck2) {
-					int eventPk = event.getEventPk();
+				if(fdao.insertFile(file)) {
+					int eventFileDetail = fdao.getLastPostFilePk(eventFileDetailSystem);
+					event.setEventFileDetail(eventFileDetail);
+					fcheck2 = true;
+				}	
+			}
+			if(fcheck1 && fcheck2) {
+				if(edao.insertEvent(event)) {
+					int eventPk = edao.getLastEventPk(postPk);
 					
 					transfer.setRedirect(true);
 					transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
 					return transfer;
 				}
 			}
-			
-		}
+		}	
 		transfer.setPath(req.getContextPath()+"/app/post/EventList.po?w=f");	
 		return transfer;
 	}

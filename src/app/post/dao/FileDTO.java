@@ -1,6 +1,6 @@
 package app.post.dao;
 
-public class FileDTO {
+public class FileDTO{
 	
 	// Field Variables
 	
@@ -8,7 +8,6 @@ public class FileDTO {
 	private String postFileSystem;
 	private String postFileOrigin;
 	
-	private int postPk;
 	// Getter
 	
 	public int getPostFilePk() {
@@ -19,10 +18,6 @@ public class FileDTO {
 	}
 	public String getPostFileOrigin() {
 		return postFileOrigin;
-	}
-	
-	public int getPostPk() {
-		return postPk;
 	}
 		
 	// Setter
@@ -37,8 +32,5 @@ public class FileDTO {
 		this.postFileOrigin = postFileOrigin;
 	}
 	
-	public void setPostPk(int postPk) {
-		this.postPk = postPk;
-	}
 	
 }

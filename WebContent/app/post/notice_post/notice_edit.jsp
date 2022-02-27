@@ -19,6 +19,7 @@
                 <strong class="title">공지사항 수정</strong>
                 <!-- 폼 시작 -->
                 <form action="${cp}/app/post/NoticeEditOk.po" name="noticeEditForm" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="noticePk" value="${notice.noticePk}">
                     <div>
                         <div class="write_content">
                             <strong class="detail_title">공지사항 제목</strong>
@@ -27,26 +28,32 @@
                         </div>
                         <div class="write_content">
                             <strong class="detail_title plus">공지사항 상세</strong>
+                            
                             <div class="fileBtn">
-                                <label for="input-file">첨부 파일</label> <input type="file" name="noticeFile" id="input-file" onchange="showName()"></input>
-                                <div id="showFiles"><input type="hidden" name="noticeFileName" value="${file.postFileOrigin}"></div>
+		                    	<label for="input-file">첨부 파일</label> 
+		                        <input type="file" name="noticeFile" id="input-file" onchange="showName()"/>
+		                        <div id="showFiles">${file.postFileOrigin}</div>
+		                        <a href="javascript:removeFile(${notice.noticePk})" id="removeBtn">삭제</a>
+				                <input type="hidden" id="stageOrigin" name="stageOrigin" value="${file.postFileOrigin }">
+		                        <input type="hidden" id="stageSystem" name="stageSystem" value="${file.postFileSystem}">
                             </div>
+                            
                             <textarea name="postText" cols="100" rows="20" placeholder="내용을 입력하세요." id="input-text">${notice.postText}</textarea>
                         </div>
                         <div class="checkBox">
                             <label for="notice_check" class="lbl">중요 공지사항으로 등록</label>
                             <c:choose>
 	                            <c:when test="${notice.noticePin == 'Y'}">
-	                            	<input type="checkbox" name="important_check" id="notice_check" checked>
+	                            	<input type="checkbox" name="noticePin" id="notice_check" checked>
 	                            </c:when>
 	                            <c:otherwise>
-	                            	<input type="checkbox" name="important_check" id="notice_check">
+	                            	<input type="checkbox" name="noticePin" id="notice_check">
 	                            </c:otherwise>
                             </c:choose> 
                         </div>
                     </div>
                     <div class="boardBtn">
-                        <input type="submit" id="submitBtn" value="수정" onsubmit="javascript:document.noticeEditForm.submit()">
+                        <input type="submit" id="submitBtn" value="수정" onclick="return editNotice()">
                     </div>
                     <a href="${cp}/app/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
                 </form>
@@ -59,4 +66,19 @@
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="${cp}/assets/js/notice_edit.js"></script>
+<script>
+	function removeFile(noticePk){
+		const removeBtn = document.getElementById("removeBtn")
+		const xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == XMLHttpRequest.DONE){
+				if(xhr.status == 200){
+					removeBtn.innerHTML = "";
+				}
+			}
+		}
+		xhr.open("GET","${pageContext.request.contextPath}/app/post/NoticeFileRemove.po?noticePk="+noticePk,true);
+		xhr.send();
+	}
+</script>
 </html>

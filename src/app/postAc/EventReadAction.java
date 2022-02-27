@@ -1,7 +1,5 @@
 package app.postAc;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,23 +14,31 @@ import app.post.dao.PostDAO;
 public class EventReadAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		FileDAO fdao = new FileDAO();
 		PostDAO pdao = new PostDAO();
 		EventDAO edao = new EventDAO();
 		int eventPk = Integer.parseInt(req.getParameter("eventPk"));
 
 		EventDTO event = edao.getEventRead(eventPk);
 		int postPk = event.getPostPk();
-	
+
+		req.setAttribute("event", event);
+		
 		//조회수
 		pdao.updateViewed(postPk);
 		event.setPostViewed(event.getPostViewed()+1);
 		
-		//첨부파일 세팅
-		FileDAO fdao = new FileDAO();
-		req.setAttribute("files", fdao.getFile(postPk));		
+		//첨부파일 세팅 imgRoot정하기 > 프로젝트 안에 img폴더를 만들고 add+꺼내올건지 어쩔건지
+		int eventFileDetail = event.getEventFileDetail();
+		if(eventFileDetail != 0) {
+			FileDTO file = fdao.getFile(eventFileDetail);
+			String eventFileDetailSystem = file.getPostFileSystem();
+			req.setAttribute("file", file);		
+			req.setAttribute("eventFileDetailSystem", eventFileDetailSystem);		
+			String imgRoot = "C:/0900_GB_KSY/"+eventFileDetailSystem;
+			req.setAttribute("imgRoot", imgRoot);
+		}
 		
-		req.setAttribute("event", event);
-				
 		//파일 보내기
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);

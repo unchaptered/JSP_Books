@@ -21,12 +21,13 @@ import app.post.dao.PostDTO;
 public class EventEditOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String saveFolder = "C:\\jsp_file";
+		String saveFolder = "C:\\0900_GB_KSY";
 		int size = 5*1024*1024;
 		
 		PostDAO pdao = new PostDAO();
 		EventDAO edao = new EventDAO();
 		FileDAO fdao = new FileDAO();
+		
 		MultipartRequest multi = new MultipartRequest(req, saveFolder,
 				size,"UTF-8",new DefaultFileRenamePolicy());
 		
@@ -34,68 +35,82 @@ public class EventEditOkAction implements Action{
 		String postText = multi.getParameter("postText");
 		String eventStarted = multi.getParameter("eventStarted");
 		String eventEnded = multi.getParameter("eventEnded");
+		
 		int eventPk = Integer.parseInt(multi.getParameter("eventPk"));
 		
-		System.out.println(eventPk);
+		EventDTO event = edao.getEventRead(eventPk);
+		int postPk = event.getPostPk();
 		
-		PostDTO post = new PostDTO();
-		EventDTO event = new EventDTO();
-		EventDTO edto = edao.getEventRead(eventPk);
-		int postPk = edto.getPostPk();
-		
-		System.out.println(postPk);
-		
+		PostDTO post = pdao.getPostRead(postPk);
+
 		post.setPostTitle(postTitle);
 		post.setPostText(postText);
+		
 		event.setEventStarted(eventStarted);
 		event.setEventEnded(eventEnded);
+
+		int eventFilePk = event.getEventFile();
+		int eventFileDetailPk = event.getEventFileDetail();
+		fdao.removeFile(eventFilePk);
+		fdao.removeFile(eventFileDetailPk);
 		
-		System.out.println("액션 전");
-		
+		//페이지 보내기
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(true);
+		
+		String newOrigin = multi.getOriginalFileName("eventFile");
+		String newSystem = multi.getFilesystemName("eventFile");
+		String stageOrigin = multi.getOriginalFileName("stageEventFileOrigin");
+		String stageSystem = multi.getFilesystemName("stageEventFileSystem");
+		
+		String newDetailOrigin = multi.getOriginalFileName("eventFileDetail");
+		String newDetailSystem = multi.getFilesystemName("eventFileDetail");
+		String stageDetailOrigin = multi.getOriginalFileName("stageEventFileDetailOrigin");
+		String stageDetailSystem = multi.getFilesystemName("stageEventFileDetailSystem");
+		
+		if(newSystem == null) {
+			if(stageSystem != null || stageSystem != "") {
+				FileDTO stageFile = new FileDTO();
+				stageFile.setPostFileSystem(stageSystem);
+				stageFile.setPostFileOrigin(stageOrigin);
+				if(fdao.insertFile(stageFile)) {
+					int stageEventFile = fdao.getLastPostFilePk(stageSystem);
+					event.setEventFile(stageEventFile);
+				}
+			}
+		}
+		else {
+			FileDTO newFile = new FileDTO();
+			newFile.setPostFileSystem(newSystem);
+			newFile.setPostFileOrigin(newOrigin);
+			if(fdao.insertFile(newFile)){
+				int newEventFile = fdao.getLastPostFilePk(newSystem);
+				event.setEventFile(newEventFile);
+			}
+		}
+		if(newDetailSystem == null) {
+			if(stageDetailSystem != null || stageDetailSystem != "") {
+				FileDTO stageDetailFile = new FileDTO();
+				stageDetailFile.setPostFileSystem(stageDetailSystem);
+				stageDetailFile.setPostFileOrigin(stageDetailOrigin);
+				if(fdao.insertFile(stageDetailFile)) {
+					int stageEventDetailFile = fdao.getLastPostFilePk(stageDetailSystem);
+					event.setEventFile(stageEventDetailFile);
+				}
+			}
+		}
+		else {
+			FileDTO newDetailFile = new FileDTO();
+			newDetailFile.setPostFileSystem(newDetailSystem);
+			newDetailFile.setPostFileOrigin(newDetailOrigin);
+			if(fdao.insertFile(newDetailFile)){
+				int newEventDetailFile = fdao.getLastPostFilePk(newDetailSystem);
+				event.setEventFile(newEventDetailFile);
+			}
+		}
+			
 		if(pdao.updatePost(post)) {
 			if(edao.updateEvent(event)) {
-				String[] systemname = {
-					multi.getFilesystemName("inputFileToList"),
-					multi.getFilesystemName("inputFileToRead")
-				};
-				String[] orgname = {
-					multi.getOriginalFileName("inputFileToList"),
-					multi.getOriginalFileName("inputFileToRead")
-				};
-				
-				List<FileDTO> files = fdao.getFile(postPk);
-				
-				String[] newFilenames = multi.getParameterValues("filename");
-				
-				int cnt = 0;
-				for (int i = 0; i < newFilenames.length; i++) {
-					if(newFilenames[i] != null && !newFilenames[i].equals("")) {
-						cnt++;
-					}
-				}
-				
-				for (int i = 0; i < cnt; i++) {
-					if(systemname[i] == null) {
-						
-					}
-					else {
-						if(files.size()>i) {
-							File file = new File(saveFolder,files.get(i).getPostFileSystem());
-							
-							if(file.exists()) {
-								file.delete();
-							}
-							fdao.deleteByName(files.get(i).getPostFileSystem());
-						}
-						FileDTO fdto = new FileDTO();
-						fdto.setPostPk(postPk);
-						fdto.setPostFileSystem(systemname[i]);
-						fdto.setPostFileOrigin(orgname[i]);
-						fdao.insertFile(fdto);
-					}
-				}
 				transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
 			}
 		}

@@ -73,6 +73,14 @@ public class NoticeDAO {
 		}
 		return result;
 	}
+	//postPk로 noticePk 받아오기 (notice작성 후)
+	public int getLastNoticePk(int postPk) {
+		return sqlsession.selectOne("Post.getLastNoticePk",postPk);
+	}
+//	//고정된 공지사항 개수 가져오기
+//	public int getPinCnt() {
+//		return sqlsession.selectOne("Post.getPinCnt");
+//	}
 
 
 }

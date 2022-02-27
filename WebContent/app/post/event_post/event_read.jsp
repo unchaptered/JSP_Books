@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +24,13 @@
                     <div>
                         <div class="top_title event_detail_topbar">
                             <p>${event.postTitle} </p>
-                            <span>이벤트 기간 : ${event.eventStarted} ~ ${event.eventEnded}</span>&nbsp;
+                            <span>이벤트 기간 : ${event.eventStarted} - ${event.eventEnded}</span>&nbsp;
                             <span>조회수 : ${event.postViewed}</span>&nbsp;
                             <a href="javascript:like(${event.eventPk})">♡</a><span id="likeResult">${event.eventLike}</span>
                         </div>
-                        <c:if test="${files != null and files.size()>0 }">
+                        <c:if test="${file != null}">
 	                        <div class="event_detail_img">
-	                            <img src="" alt="상세배너">
+	                            <img src="${imgRoot}" alt="이벤트 상세이미지">
 	                        </div>
                         </c:if>
                         <div class="event_detail_txt">
