@@ -16,6 +16,7 @@
     
     <!-- <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/> -->
     <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>
+    <typeAlias type="app.book.dao.BookDTO2" alias="bookdto"/>
   </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -33,6 +34,7 @@
     <mapper resource="mapper/user.xml"/>
     <mapper resource="mapper/new-book.xml"/>
     <mapper resource="mapper/old-book.xml"/>
+    <mapper resource="mapper/book.xml"/>
     <mapper resource="mapper/post.xml"/>
     <mapper resource="mapper/file.xml"/>
   </mappers>

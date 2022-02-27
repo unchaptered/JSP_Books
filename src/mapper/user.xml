@@ -15,5 +15,7 @@
 	<select id="JoincheckEmail" parameterType="string" resultType="_int">
 		select count(*) from user where user_email=#{userEmail}
 	</select>
-	
+	<select id="loginEmail" parameterType="hashmap" resultType="userdto">
+		select * from user where user_email=#{userEmail}
+	</select>
 </mapper>

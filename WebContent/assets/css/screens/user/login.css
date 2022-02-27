@@ -200,22 +200,21 @@
     font-size: 12px;
     font-weight: 500;
     text-align: center;
+    color : #969696;
+    font-family : none !important;
+    cursor: pointer;
     
 }
-.login_wrap .body_find a{
+.login_wrap .body_find span{
     text-decoration: none;
 }
-.login_wrap .body_find a:hover{
+.login_wrap .body_find span:hover{
     text-decoration: underline;
 }
-.login_wrap .body_find a:active{
+.login_wrap .body_find span:active{
     text-decoration: none;
 }
-.login_wrap .body_find a span{
-    color: #969696;
-    font-size: 13px !important;
-    font-family: none !important;
-}
+
 .login_wrap .body_button_next{
     text-align: center;
     font-weight: 500 !important;
