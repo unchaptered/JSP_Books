@@ -21,7 +21,12 @@ import app.post.dao.PostDTO;
 public class EventEditOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String saveFolder = "C:\\0900_GB_KSY";
+
+		//파일이 저장될 경로
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		
+		String saveFolder = rootPath+"media";	
+		
 		int size = 5*1024*1024;
 		
 		PostDAO pdao = new PostDAO();

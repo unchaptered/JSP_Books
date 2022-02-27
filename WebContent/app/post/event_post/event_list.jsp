@@ -35,16 +35,15 @@
 							<c:choose>
 								<c:when test="${eventList.size()>0 and eventList != null }">
 									<div class="content__grid">
-										<c:forEach var="event" items="${eventList}">
+										<c:forEach var="event" items="${eventList}" varStatus="status">
 											<a href="${cp}/app/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
 												<div class="eventBox_img">
 													<c:choose>
-														<c:when test="${files != null && files.size() > 0}">
-															<img src="C:\\{}" alt="배너">
+														<c:when test="${fileList[status.index] != null}">
+															<img src="/media/${fileList[status.index]}" alt="배너">
 														</c:when>
 														<c:otherwise>
-															<img src="../../../assets/img/event_banner1.png
-															" alt="배너">
+															<img src="/assets/img/event_banner1.png" alt="배너">
 														</c:otherwise>
 													</c:choose>
 												</div>

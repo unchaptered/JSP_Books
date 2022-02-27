@@ -44,6 +44,8 @@ public class PostFrontController extends HttpServlet{
 		case "/app/post/EventAddOk.po":
 			try {
 				transfer = new EventAddOkAction().execute(req,resp);
+				
+//				this.getServletContext().getRealPath("/");
 			} catch (Exception e) {
 				System.out.println("EventAddOk : "+e);
 			}
@@ -129,13 +131,6 @@ public class PostFrontController extends HttpServlet{
 				transfer = new NoticeRemoveAction().execute(req,resp);
 			} catch (Exception e) {
 				System.out.println("NoticeRemove : "+e);
-			}
-			break;
-		case "/app/post/NoticeFileRemove.po":
-			try {
-				new NoticeFileRemove().execute(req,resp);
-			} catch (Exception e) {
-				System.out.println("NoticeFileRemove : "+e);
 			}
 			break;
 		case "/app/post/FileDownload.po":

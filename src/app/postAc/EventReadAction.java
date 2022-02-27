@@ -32,11 +32,7 @@ public class EventReadAction implements Action{
 		int eventFileDetail = event.getEventFileDetail();
 		if(eventFileDetail != 0) {
 			FileDTO file = fdao.getFile(eventFileDetail);
-			String eventFileDetailSystem = file.getPostFileSystem();
 			req.setAttribute("file", file);		
-			req.setAttribute("eventFileDetailSystem", eventFileDetailSystem);		
-			String imgRoot = "C:/0900_GB_KSY/"+eventFileDetailSystem;
-			req.setAttribute("imgRoot", imgRoot);
 		}
 		
 		//파일 보내기

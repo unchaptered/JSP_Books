@@ -9,6 +9,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/event/event_add.css">
+<link rel="stylesheet" href="${cp}/assets/css/summernote/summernote-lite.css">
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
@@ -66,7 +67,7 @@
                     </div>
                     <div class="write_content">
                         <strong class="detail_title">이벤트 상세 <span class="redStar">*</span></strong>
-                        <textarea class="summernote" name="postText" id="eTextarea" placeholder="이벤트 내용을 입력하세요."></textarea>
+                        <textarea name="postText" id="eTextarea" placeholder="이벤트 내용을 입력하세요."></textarea>
                     </div>
 
                     <!-- 등록 버튼 -->
@@ -82,4 +83,6 @@
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="${cp}/assets/js/event_add.js"></script>
+<script src="${cp}/assets/js/summernote/summernote-lite.js"></script>
+<script src="${cp}/assets/js/summernote/lang/summernote-ko-KR.js"></script>
 </html>

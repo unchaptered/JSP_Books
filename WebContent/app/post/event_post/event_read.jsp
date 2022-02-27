@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title> 이벤트 상세페이지 </title>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
+<c:set var="imgRoot" value="${pageContext.request.requestURI}"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/event/event_read.css">
 </head>
@@ -28,13 +29,20 @@
                             <span>조회수 : ${event.postViewed}</span>&nbsp;
                             <a href="javascript:like(${event.eventPk})">♡</a><span id="likeResult">${event.eventLike}</span>
                         </div>
-                        <c:if test="${file != null}">
-	                        <div class="event_detail_img">
-	                            <img src="${imgRoot}" alt="이벤트 상세이미지">
-	                        </div>
-                        </c:if>
+                        <div class="event_detail_img">
+		                    <c:choose>
+								<c:when test="${file != null}">
+									<img src="/media/${file.postFileSystem}" alt="${file.postFileOrigin}">
+								</c:when>
+								<c:otherwise>
+									<img src="/assets/img/event_banner1.png" alt="배너">
+								</c:otherwise>
+							</c:choose>
+	                    </div>
                         <div class="event_detail_txt">
-                            <p class="detail_txt">${event.postText}</p>
+                            <p class="detail_txt">
+                            	${event.postText}
+                            </p>
                         </div>
                         <div class="eventReadBtn">
                             <button class="readBtn" id="eventUpdate" formaction="${cp}/app/post/EventEdit.po?eventPk=${event.eventPk}" 

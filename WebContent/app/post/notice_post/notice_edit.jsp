@@ -9,6 +9,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/notice/notice_add.css">
+<link rel="stylesheet" href="${cp}/assets/css/summernote/summernote-lite.css">
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
@@ -33,7 +34,7 @@
 		                    	<label for="input-file">첨부 파일</label> 
 		                        <input type="file" name="noticeFile" id="input-file" onchange="showName()"/>
 		                        <div id="showFiles">${file.postFileOrigin}</div>
-		                        <a href="javascript:removeFile(${notice.noticePk})" id="removeBtn">삭제</a>
+		                        <!-- <a href="" id="removeBtn">X</a> -->
 				                <input type="hidden" id="stageOrigin" name="stageOrigin" value="${file.postFileOrigin }">
 		                        <input type="hidden" id="stageSystem" name="stageSystem" value="${file.postFileSystem}">
                             </div>
@@ -66,19 +67,6 @@
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="${cp}/assets/js/notice_edit.js"></script>
-<script>
-	function removeFile(noticePk){
-		const removeBtn = document.getElementById("removeBtn")
-		const xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function(){
-			if(xhr.readyState == XMLHttpRequest.DONE){
-				if(xhr.status == 200){
-					removeBtn.innerHTML = "";
-				}
-			}
-		}
-		xhr.open("GET","${pageContext.request.contextPath}/app/post/NoticeFileRemove.po?noticePk="+noticePk,true);
-		xhr.send();
-	}
-</script>
+<script src="${cp}/assets/js/summernote/summernote-lite.js"></script>
+<script src="${cp}/assets/js/summernote/lang/summernote-ko-KR.js"></script>
 </html>

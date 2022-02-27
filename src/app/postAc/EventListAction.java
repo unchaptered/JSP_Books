@@ -10,6 +10,7 @@ import action.ActionTo;
 import app.post.dao.EventDAO;
 import app.post.dao.EventDTO;
 import app.post.dao.FileDAO;
+import app.post.dao.FileDTO;
 //files 처리 필요
 public class EventListAction implements Action{
 	@Override
@@ -54,7 +55,14 @@ public class EventListAction implements Action{
 		req.setAttribute("keyword", keyword);
 		
 		//첨부파일 세팅 //수정필요
-
+		String[] fileList = new String[eventList.size()];
+		for (int i = 0; i < eventList.size(); i++) {
+			FileDTO file = fdao.getFile(eventList.get(i).getEventFile());
+			if(file != null) {
+				fileList[i] = file.getPostFileSystem();
+			}
+		}
+		req.setAttribute("fileList", fileList);
 		
 		//보내기
 		ActionTo transfer = new ActionTo();
