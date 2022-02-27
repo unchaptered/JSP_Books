@@ -37,12 +37,12 @@ CREATE TABLE post (
 CREATE TABLE post_files (
    post_file_pk BIGINT PRIMARY KEY,
    post_file_system VARCHAR(1000),
-   post_file_origin VARCHAR(300),
-   post_pk INT
+   post_file_origin VARCHAR(300)
 );
 CREATE TABLE post_notice (
    notice_pk INT AUTO_INCREMENT PRIMARY KEY,
-   notice_pin enum('Y','N') default 'N' not null,
+   notice_pin enum('Y','N') default 'N',
+   notice_file BIGINT,
    post_pk INT,
    FOREIGN KEY (post_pk)
 		REFERENCES post (post_pk)
@@ -51,6 +51,8 @@ CREATE TABLE post_event (
    event_pk INT AUTO_INCREMENT PRIMARY KEY,
    event_started VARCHAR(300),
    event_ended VARCHAR(300),
+   event_file BIGINT,
+   event_file_detail BIGINT,
    event_like int default 0,
    post_pk INT,
    FOREIGN KEY (post_pk)
