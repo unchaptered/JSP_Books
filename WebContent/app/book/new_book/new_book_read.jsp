@@ -27,7 +27,7 @@
 		<div class="category_part">
 			<div class="kor">
 				<ul class="kor_0">
-					<a href="#">국내도서</a>
+					<a href="#">국내도서</a> 
 				</ul>
 				<ul class="ul_part1">
 					<li><a href="#" class="kor_1">소설</a></li>
@@ -63,7 +63,7 @@
 	<div class="main_content book_explain">
 		<section class="book">
 			<div class="book_name">
-				<h2>불편한 편의점(15만부 기념 윈터 에디션) : 김호연 장편소설${bookList }</h2>
+				<h2>불편한 편의점(15만부 기념 윈터 에디션) : 김호연 장편소설${book.bookPk }</h2>
 			</div>
 		</section>
 		<div class="book_explain_content">
@@ -99,7 +99,7 @@
 						value='+' />
 					<div id='result'>0</div>
 					<input type='button' class="buy_num_minus" onclick='count("minus")'
-						value='-' />남은수량 123
+						value='-' />남은수량 
 				</div>
 			</div>
 			<!-- 주문수량 끝 -->

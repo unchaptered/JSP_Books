@@ -2,7 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="cp" value="${pageContext.request.contextPath }" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +23,7 @@
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="../../../app/components/nav.jsp"%>
-
+<c:set var="arData" value="<%=new int[]{1,2,3} %>"/>
 	<main id="main">
 		<div class="grid_part">
 			<div class="bestseller">
@@ -29,11 +31,14 @@
 			</div>
 			<section class="main_content backimg">
 			<!-- ------------------------------------------------------------- -->
+				<c:set var="arData" value="<%=new int[]{1,2,3} %>"/>
 			<c:choose>
 			<c:when test="${bookList2.size()>0 and bookList2 != null}">
-			<c:forEach var="best" items="${bookList2}">
+			<c:forEach var="best" items="${bookList2 }">
 			<div class="content_container_best">
-					<img src="${cp }/assets/img/new_book/images/best-1.png" alt="">
+					<c:forEach var="i" begin="0" end="2" step="1">			
+						<img src="${cp }/assets/img/new_book/images/best-${i+1}.png" alt="">
+					</c:forEach>
 					<div class="photo"></div>
 					<div class="book_name">
 						<p>
@@ -147,7 +152,7 @@
 						</div>
 							<div class="book_name">
 							<p>
-								<a href="${cp }/book/NewBookRead.nb"> 
+								<a href="${cp }/book/NewBookRead.nb?bookPk=${title.bookPk}"> 
 								<h3>${title.bookTitle}</h3>
 								</a> 
 								<input type="button" value="${title.bookWriter }" name="writer"><br>

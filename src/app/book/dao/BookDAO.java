@@ -50,7 +50,11 @@ public class BookDAO {
 		List<BookDTO> result = sqlsession.selectList("book.getBookBest");
 		return result;
 	}
-	
-	
+
+	public BookDTO getDetail(int bookPk) {
+		return sqlsession.selectOne("book.getDetail");
+	}
+
+
 	
 }
