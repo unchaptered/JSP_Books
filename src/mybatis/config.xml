@@ -3,6 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+    <setting name="mapUnderscoreToCamelCase" value="true"/>
+  </settings>
   <typeAliases>
     <!-- <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/> -->
     <!-- <typeAlias type="app.album.dao.AlbumDTO" alias="ablumdto"/> -->
@@ -25,7 +28,7 @@
         <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/books"/>
         <property name="username" value="root"/>
-        <property name="password" value="1234"/>
+        <property name="password" value="12345678"/>
       </dataSource>
     </environment>
   </environments>

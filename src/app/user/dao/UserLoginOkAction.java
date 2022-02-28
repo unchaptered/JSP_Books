@@ -19,12 +19,12 @@ public class UserLoginOkAction implements Action{
 		ActionTo transfer = new ActionTo();
 		if(loginUser != null) {
 			session.setAttribute("loginUser", loginUser);
-			transfer.setRedirect(false);
-			transfer.setPath("./index.jsp"); 
+			transfer.setRedirect(true);
+			transfer.setPath(req.getContextPath()+"/index.jsp?login=t"); 
 		}
 		else {
-			transfer.setRedirect(false);
-			transfer.setPath("/base.jsp"); 
+			transfer.setRedirect(true);
+			transfer.setPath(req.getContextPath()+"/index.jsp?login=f"); 
 		}
 		return transfer;
 	}
