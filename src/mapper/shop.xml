@@ -5,7 +5,7 @@
 <mapper namespace="Shop">
 	<!-- userpk받아서 List<cartdto> 받음 -->
 	<select id="getCartList" resultType="cartdto" parameterType="_int">
-		select cartnum, new_book_imgae AS image, bookpk, new_book_title AS title, quantity, 
+		select cartnum, new_book_image AS image, bookpk, new_book_title AS title, quantity, 
 			new_book_price AS price, new_book_mount AS mount
 		from cart c
 			join new_book b on c.bookpk = b.new_book_pk
@@ -13,7 +13,7 @@
 	</select>
 	<!-- 장바구니view에서 체크된 카트(arr[String cartnum])들만 List<cartdto> 받음. 마이바티스 동적sql처리-->
 	<select id="getCartListByChecked"  resultType="cartdto">
-		select cartnum, new_book_imgae AS image, bookpk, new_book_title AS title, quantity, 
+		select cartnum, new_book_image AS image, bookpk, new_book_title AS title, quantity, 
 			new_book_price AS price, new_book_mount AS mount
 		from cart c
 			join new_book b on c.bookpk = b.new_book_pk
@@ -36,7 +36,7 @@
 	</select>
 	<!-- 주문결제view에서 체크된 카트(arr[String products])들만 List<bookdto> 받음. 마이바티스 동적sql처리-->
 	<select id="getBookList"  resultType="bookdto">
-<!-- 		select cartnum, new_book_imgae AS image, bookpk, new_book_title AS title, quantity, 
+<!-- 		select cartnum, new_book_image AS image, bookpk, new_book_title AS title, quantity, 
 			new_book_price AS price, new_book_mount AS mount -->
 		select b.new_book_title as bookTitle , b.new_book_subtitle as bookSubtitle,
         b.new_book_info as bookInfo, b.new_book_info_short as bookInfoShort, b.new_book_image as bookImage,
