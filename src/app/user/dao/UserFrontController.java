@@ -38,6 +38,7 @@ private static final long serialVersionUID = 1L;
 		ActionTo transfer = null;
 		
 		switch(command) {
+		
 		case "/user/UserJoinOk.us":
 			try {
 				transfer = new UserJoinOkAction().execute(req,resp);
