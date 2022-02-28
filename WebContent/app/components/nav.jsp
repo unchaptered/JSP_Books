@@ -41,7 +41,7 @@
             <summary class="nav_menu_summary">도서</summary>
             <section class="nav_menu_linkers">
             	<!-- kmhyeon -->
-                <a href="new_book_list.jsp">책 리스트</a>
+                <a href="${cp}/book/NewBookList.nb">책 리스트</a>
                 <a href="new_book_read.jsp">책 디테일</a>
                 <!-- sunsetkk -->
                 <a href="new_book_add.jsp">책 등록하기</a>
@@ -79,7 +79,7 @@
         </details>
     </nav>
     <div class="login_wrap">
-    	<form name="loginForm" action="" method="post">
+    	<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post">
         <div class="login_container">
             <div class="login_header">
                 <span>Books</span>
@@ -102,14 +102,20 @@
                         <input type="email" placeholder="이메일을 입력해주세요." id="email" onkeyup="checkLogin()" name="email">
                     </div>
                 </div>
+                <div class="body_pw">
+                    <label for="loginPw"><span class="style_pw">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="loginPwError" class="error"></span></label>
+                    <div class="pw_input">
+                        <input type="password" placeholder="비밀번호를 입력해주세요." id="loginPw" name="loginPw">
+                    </div>
+                </div>
                 <div class="body_button">
-                <input type="button" class="email_button buttons" value="이메일로 계속하기" id="myBtnPw">
+                <input type="submit" class="email_button buttons" value="로그인" id="myBtnPw">
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
-                        <a href=""><span>아이디 찾기</span></a>
+                        <span id="myBtnIdFind" class=loginIdFind>아이디 찾기</span>
                         <span>/</span>
-                        <a href=""><span>비밀번호 찾기</span></a>
+                        <span class="loginPwFind" id="myBtnLoginPwFind">비밀번호 찾기</span>
                      </div>
                  </div>
                 <div class="body_button_next">다음 계정으로 접속하기</div>
@@ -171,7 +177,7 @@
                         </div>
                         <div class="user_name_space join_space"></div>
                     </div>
-                    <div class="pw_wrap">
+                    <div class="join_pw_wrap">
                         <label for="userPassword" class="user_info"><span class="head_span">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPasswordError"class="error"></span></label>
                         <div class="user_pw_input">
                             <input type="password" name="userPassword" id="userPassword" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 입력해 주세요.">
@@ -314,13 +320,13 @@
         </div>
         </form>
     </div>
-    <div class="pw_wrap" >
-        <form name="pwForm">
-        <div class="pw_container">
-            <div class="pw_header">
-                비밀번호 입력
+     <div class="id_find_wrap">
+     <form>
+        <div class="id_find_container">
+            <div class="id_find_header">
+                이메일 찾기
                 <div class="icon">
-                    <button type="button" id="closePw">
+                    <button type="button" id="closeIdFind">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -332,19 +338,69 @@
                     </button>
                 </div>
             </div>
-            <div class="pw_body_wrap">
-                <div class="pw_body_wrap_inner">
-                    <div class="pw_body_inner">
-                        <label for="password_input" class="user_info"><span>비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="pwError" class="error"></span></label>
-                        <div class="input_pw">
-                            <input type="password" id="password_input" placeholder="비밀번호를 입력해 주세요." autocomplete="current-password" name="password_input">
+            <div class="id_find_body_wrap">
+                <div class="id_find_body_wrap_inner">
+                    <div class="id_find_body_inner">
+                        <div class="id_find_name_inner">
+                        <label for="id_find_name_input" class="user_info">이름</label>
+                        <div class="input_name_id_find">
+                            <input type="text" id="email_name_input_find" placeholder="이름을 입력해주세요.">
                         </div>
-                        <div class="pw_space"></div>
-                        <input type="submit" class="pw_btn buttons" id="pw_login" value="로그인" onclick="pw()">
-                        <button type="button" class="pw_btn2 buttons">비밀번호 찾기/변경</button>
+                    </div>
+                    <div class="id_find_phone_inner">
+                        <label for="id_find_phone_input" class="user_info">휴대폰 번호</label>
+                        <div class="input_phone_id_find">
+                            <input type="text" id="email_phone_input_find" placeholder="(예시) 01012345678">
+                        </div>
+                    </div>
+                        <div class="id_find_space"></div>
+                        <button type="button" class="id_find_btn buttons" id="id_find_login"><a href="./emailShow.html">이메일 찾기</a></button>
                     </div>
                 </div>
             </div>
+            
+        </div>
+        </form>
+    </div> 
+    <div class="pw_find_wrap">
+    <form>
+        <div class="pw_find_container">
+            <div class="pw_find_header">
+                비밀번호 찾기
+                <div class="icon">
+                    <button type="button" id="closePwFind">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                    <button type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                      </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="pw_find_body_wrap">
+                <div class="pw_find_body_wrap_inner">
+                    <div class="pw_find_body_inner">
+                        <div class="pw_find_name_inner">
+                        <label for="pw_find_name_input" class="user_info">이메일</label>
+                        <div class="input_name_find">
+                            <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해주세요.">
+                        </div>
+                    </div>
+                    <div class="pw_find_phone_inner">
+                        <label for="pw_find_phone_input" class="user_info">휴대폰 번호</label>
+                        <div class="input_phone_find">
+                            <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678">
+                        </div>
+                    </div>
+                        <div class="pw_find_space"></div>
+                        <button type="button" class="pw_find_btn buttons" id="pw_find_login"><a href="./pwShow.html">비밀번호 찾기</a></button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         </form>
     </div>
@@ -355,7 +411,5 @@
 <script>const cp = "${pageContext.request.contextPath}"</script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="${cp}/assets/js/addr.js"></script>
-<script type="text/javascript" src="${cp}/assets/js/nav_login.js"></script>
-<script type="text/javascript" src="${cp}/assets/js/nav_join.js"></script>
-<script type="text/javascript" src="${cp}/assets/js/nav_pw.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_user.js"></script>
 </html>

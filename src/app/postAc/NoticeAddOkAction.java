@@ -24,9 +24,10 @@ public class NoticeAddOkAction implements Action{
 		
 		NoticeDAO ndao = new NoticeDAO();
 		PostDAO pdao = new PostDAO();
+		FileDAO fdao = new FileDAO();
 		
 		//파일이 저장될 경로
-		String saveFolder = "C:\\";
+		String saveFolder = "C:\\0900_GB_KSY";
 
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
@@ -37,26 +38,29 @@ public class NoticeAddOkAction implements Action{
 		
 		boolean fcheck = false;
 		
-		String systemname = multi.getFilesystemName("noticeFile");
-		if(systemname == null) {
+		//파일 시스템이름, 지정이름 받아오기
+		String noticeFileSystem = multi.getFilesystemName("noticeFile");
+		if(noticeFileSystem == null) {
 			fcheck = true;
 		}
-		String orgname = multi.getOriginalFileName("noticeFile");
+		String noticeFileOrigin = multi.getOriginalFileName("noticeFile");
 		
 		String postTitle = multi.getParameter("postTitle");
 		String postText = multi.getParameter("postText");
-		String noticePin = multi.getParameter("noticePin");
-		
-		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+		String noticePin = "";
+		if(multi.getParameter("noticePin") != null) {
+			noticePin = "Y";
+		}else {
+			noticePin = "N";
+		}
+
+//		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+		int postOwner = 2;
 		
 		post.setPostTitle(postTitle);
 		post.setPostText(postText);
 		post.setPostOwner(postOwner);
-		if(noticePin == "on") {
-			notice.setNoticePin("Y");
-		}else {
-			notice.setNoticePin("N");
-		}
+		notice.setNoticePin(noticePin);
 		
 		//페이지 보내기
 		int postPk = 0;
@@ -64,26 +68,34 @@ public class NoticeAddOkAction implements Action{
 		if(pdao.insertPost(post)) {
 			postPk = pdao.getLastPostPk(postOwner);
 			notice.setPostPk(postPk);
-			if(ndao.insertNotice(notice)) {
-				FileDAO fdao = new FileDAO();		
-				if(!fcheck) {
-					FileDTO file = new FileDTO();
-					file.setPostPk(postPk);
-					file.setPostFileSystem(systemname);
-					file.setPostFileOrigin(orgname);
+			if(!fcheck) { //첨부파일 존재
+				FileDTO file = new FileDTO();
+				file.setPostFileSystem(noticeFileSystem);
+				file.setPostFileOrigin(noticeFileOrigin);
 							
-					fcheck = fdao.insertFile(file);
-				}
+				if(fdao.insertFile(file)) {
+					int noticeFile = fdao.getLastPostFilePk(noticeFileSystem);
+					notice.setNoticeFile(noticeFile);
+					if(ndao.insertNotice(notice)) {
+						int noticePk = ndao.getLastNoticePk(postPk);
 						
-				if(fcheck) {
-				int noticePk = notice.getNoticePk();
-				
-				transfer.setRedirect(true);
-				transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
-				return transfer;
+						transfer.setRedirect(true);
+						transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
+						return transfer;
+					}
 				}
-			}					
-		}
+			}
+			else{
+				if(ndao.insertNotice(notice)) {
+					int noticePk = ndao.getLastNoticePk(postPk);
+					
+					transfer.setRedirect(true);
+					transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
+					return transfer;
+				}
+			}
+		}					
+		
 		transfer.setPath(req.getContextPath()+"/app/post/NoticeList.po?w=f");	
 		return transfer;
 	}

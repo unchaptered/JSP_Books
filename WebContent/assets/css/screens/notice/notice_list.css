@@ -1,6 +1,6 @@
 /* 저자 : carpriceksy */
 strong{
-    font-weight: normal;
+    /* font-weight: normal; */
 }
 ul, li{
     list-style: none;
@@ -45,7 +45,7 @@ ul, li{
     word-break: break-all;
 }
 .col{
-    width: 80px;
+    width: 8%;
 }
 tr{
     border-top: 1px solid #f1f1f1;
@@ -250,10 +250,10 @@ input[type=submit]{
         display: table;
         clear: both;
     }
-    .alert>.board_tlt a strong{
+    .alert>.board_tlt>a>strong{
         position: relative;
     }
-    .alert>.board_tlt a strong::before{
+    .alert>.board_tlt>a>strong::before{
         content: "[공지]";
         display: inline-block;
         color: transparent;

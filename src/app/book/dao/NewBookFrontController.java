@@ -54,6 +54,21 @@ public class NewBookFrontController extends HttpServlet{
 				System.out.println("NewBookEdit"+e);
 			}
 			break;
+		case "/book/NewBookList.nb":
+			try {
+				transfer = new NewBookListAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("NewBookList : " + e);
+			}
+			break;
+		case "/book/NewBookRead.nb":
+			try {
+				transfer = new NewBookReadAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("NewBookRead : " +e);
+			}
+			
+			break; 
 		}
 		
 		

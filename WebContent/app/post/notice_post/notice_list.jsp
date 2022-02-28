@@ -29,7 +29,6 @@
 							<col class="col">
 							<col class="col">
 							<col class="col">
-							<col class="col">
 						</colgroup>
 						<thead>
 							<tr>
@@ -38,29 +37,23 @@
 								<th>작성자</th>
 								<th>작성일</th>
 								<th>조회</th>
-								<th>첨부</th>
 							</tr>
 						</thead>
 						<!-- 공지 테이블 내용 : 한 페이지에 중요공지 포함 15개 -->
 						<tbody>
 							<c:choose>
 								<c:when test="${noticeList.size()>0 and noticeList != null}">
-									<c:forEach var="notice" items="${noticeList}">
+									<c:forEach var="notice" items="${noticeList}" varStatus="status">
 										<c:choose>
 											<c:when test="${notice.noticePin == 'Y'}">
 												<tr class="alert">
 													<td class="board_num">${notice.noticePk}</td>
 													<td class="board_tlt">
-														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
+														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}"><strong>${notice.postTitle}</strong></a>
 													</td>
-													<td class="board_writer">${ownerName}</td>
+													<td class="board_writer">${ownerName[status.index]}</td>
 													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
 													<td class="board_hit">${notice.postViewed}</td>
-													<%-- <c:if test="">
-														<td class="board_file"><a href="${cp}/app/FileDownload.po?systemname="
-															download><img src="${cp}/assets/img/icon_download.png" alt="파일"
-																id="fileDownLoad"></a></td>
-													</c:if> --%>
 												</tr>
 											</c:when>
 											<c:otherwise>
@@ -69,14 +62,9 @@
 													<td class="board_tlt">
 														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
 													</td>
-													<td class="board_writer">${ownerName}</td>
+													<td class="board_writer">${ownerName[status.index]}</td>
 													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
 													<td class="board_hit">${notice.postViewed}</td>
-													<%-- <c:if test="">
-														<td class="board_file"><a href="${cp}/app/FileDownload.po?systemname="
-																			download><img src="${cp}/assets/img/icon_download.png" alt="파일"
-																				id="fileDownLoad"></a></td>
-													</c:if> --%>
 												</tr>
 											</c:otherwise>
 										</c:choose>
@@ -84,7 +72,7 @@
 								</c:when>
 								<c:otherwise>
 									<tr>
-										<td class="notice_none" colspan="6">
+										<td class="notice_none" colspan="5">
 											등록된 공지사항이 없습니다.
 										</td>
 									</tr>
@@ -111,8 +99,9 @@
 										<li><a href="${cp}/app/post/NoticeList.po?noticePage=${i}&keyword=${keyword}" class="pageBtn pageNum">${i}</a></li>
 									</c:otherwise>
 								</c:choose>
+								
 							</c:forEach>
-							<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 eventPage+10, 없으면 마지막페이지로)-->
+							<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 noticePage+10, 없으면 마지막페이지로)-->
 							<c:if test="${noticePage > 10 && noticePage < noticeTotalPage && noticePage+10 < noticeTotalPage}">
 								<li><a href="${cp}/app/post/NoticeList.po?noticePage=${noticePage+10}" class="pageBtn next">다음</a></li>
 							</c:if>

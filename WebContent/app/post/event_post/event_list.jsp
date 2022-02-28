@@ -23,8 +23,8 @@
  					<form action="" name="eventForm" method="get">				
 					<!-- 검색창 -->
 						<div class="event_search">
-							<input type="text" name="keyword" id="e_search" placeholder="검색어를 입력해주세요." value="${param.keyword == null? null : param.keyword}">
-							<input type="submit" id="searchBtn" onclick="searchEvent()">
+							<input type="text" name="keyword" id="e_search" placeholder="이벤트 제목을 입력하세요" value="${param.keyword}">
+							<input type="submit" id="searchBtn" onclick="return searchEvent()">
 						</div>
 						<div class="board_count">total : <span>${eventTotalCnt}</span> / pages : <span>${eventTotalPage}</span></div>
 						<div class="createEvent_div">
@@ -35,16 +35,15 @@
 							<c:choose>
 								<c:when test="${eventList.size()>0 and eventList != null }">
 									<div class="content__grid">
-										<c:forEach var="event" items="${eventList}">
+										<c:forEach var="event" items="${eventList}" varStatus="status">
 											<a href="${cp}/app/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
 												<div class="eventBox_img">
 													<c:choose>
-														<c:when test="${files != null and files.size()>0 }">
-															<img src="" alt="배너">
+														<c:when test="${fileList[status.index] != null}">
+															<img src="/media/${fileList[status.index]}" alt="배너">
 														</c:when>
 														<c:otherwise>
-															<img src="../../../assets/img/event_banner1.png
-															" alt="배너">
+															<img src="/assets/img/event_banner1.png" alt="배너">
 														</c:otherwise>
 													</c:choose>
 												</div>

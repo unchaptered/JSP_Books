@@ -10,11 +10,12 @@ import action.ActionTo;
 import app.post.dao.EventDAO;
 import app.post.dao.EventDTO;
 import app.post.dao.FileDAO;
-//검색 시 페이징 처리, files 처리 필요
+import app.post.dao.FileDTO;
+//files 처리 필요
 public class EventListAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		EventDTO event = new EventDTO();
+		FileDAO fdao = new FileDAO();		
 		EventDAO edao = new EventDAO();
 		
 		String temp = req.getParameter("eventPage");
@@ -27,8 +28,8 @@ public class EventListAction implements Action{
 		//페이징 처리시 보여줄 페이지의 개수
 		int pageCnt = 10;
 		
-		//총 이벤트 수
-		int eventTotalCnt = edao.getEventCnt();
+		//총 이벤트 수+검색 키워드
+		int eventTotalCnt = edao.getEventCnt(keyword);
 
 		//시작 게시물 번호
 		int startRow = (eventPage-1)*pageSize;
@@ -54,9 +55,14 @@ public class EventListAction implements Action{
 		req.setAttribute("keyword", keyword);
 		
 		//첨부파일 세팅 //수정필요
-		FileDAO fdao = new FileDAO();
-		req.setAttribute("files", fdao.getFiles(event.getPostPk()));		
-
+		String[] fileList = new String[eventList.size()];
+		for (int i = 0; i < eventList.size(); i++) {
+			FileDTO file = fdao.getFile(eventList.get(i).getEventFile());
+			if(file != null) {
+				fileList[i] = file.getPostFileSystem();
+			}
+		}
+		req.setAttribute("fileList", fileList);
 		
 		//보내기
 		ActionTo transfer = new ActionTo();

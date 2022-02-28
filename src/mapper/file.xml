@@ -4,14 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="File">
 	<insert id="insertFile" parameterType="filedto">
-		insert into post_files (post_file_system, post_file_origin, post_pk) 
-		values(#{postFileSystem},#{postFileOrigin},#{postPk})
+		insert into post_files (post_file_system, post_file_origin) 
+		values(#{postFileSystem},#{postFileOrigin})
 	</insert>
-	<select id="getFiles" parameterType="_int" resultType="filedto">
-		select post_file_pk, post_file_system, post_file_origin, post_pk
-		from post_files where post_pk=#{postPk}
-	</select>
-	<delete id="deleteByName" parameterType="String">
-		delete from post_files where post_file_system = #{postFileSystem}
+	<delete id="removeFile" parameterType="_int">
+		delete from post_files where post_file_pk = #{postFilePk}
 	</delete>
+	<select id="getFile" parameterType="_int" resultType="filedto">
+		select post_file_pk as postFilePk, post_file_system as postFileSystem, post_file_origin as postFileOrigin
+		from post_files 
+		where post_file_pk = #{postFilePk}
+	</select>
+	<select id="getLastPostFilePk" parameterType="String" resultType="_int">
+		select max(post_file_pk)
+		from post_files
+		where post_file_system = #{postFileSystem}
+	</select>
 </mapper>

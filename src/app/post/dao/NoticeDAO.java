@@ -14,8 +14,8 @@ public class NoticeDAO {
 		sqlsession = SqlMapConfig.getFactory().openSession(true);
 	}
 	//공지사항 총 개수 가져오기
-	public int getNoticeCnt() {
-		return sqlsession.selectOne("Post.getNoticeCnt");
+	public int getNoticeCnt(String keyword) {
+		return sqlsession.selectOne("Post.getNoticeCnt",keyword);
 	}
 	//공지사항 리스트 가져오기
 	public List<NoticeDTO> getNoticeList(int startRow, int pageSize, String keyword) {
@@ -49,6 +49,38 @@ public class NoticeDAO {
 	public boolean updateNotice(NoticeDTO notice) {
 		return 1 == sqlsession.update("Post.updateNotice", notice);
 	}
+	//이전글 pk받아오기
+	public Integer getPrevNotice(int noticePk) {
+		return sqlsession.selectOne("Post.getPrevNotice",noticePk);
+	}
+	//다음글 pk받아오기
+	public Integer getNextNotice(int noticePk) {
+		return sqlsession.selectOne("Post.getNextNotice",noticePk);
+	}
+	//공지사항 작성자 리스트로 받아오기
+	public List<String> getOwnerName(int startRow, int pageSize, String keyword) {
+		HashMap<String, Object> datas = new HashMap<String, Object>();
+		List<String> result;
+		datas.put("startRow",startRow);
+		datas.put("pageSize",pageSize);
+
+		if(keyword == null) {
+			result = sqlsession.selectList("Post.getOwnerName", datas);
+		}
+		else {
+			datas.put("keyword",keyword);
+			result = sqlsession.selectList("Post.getOwnerNameWithKey", datas);
+		}
+		return result;
+	}
+	//postPk로 noticePk 받아오기 (notice작성 후)
+	public int getLastNoticePk(int postPk) {
+		return sqlsession.selectOne("Post.getLastNoticePk",postPk);
+	}
+//	//고정된 공지사항 개수 가져오기
+//	public int getPinCnt() {
+//		return sqlsession.selectOne("Post.getPinCnt");
+//	}
 
 
 }

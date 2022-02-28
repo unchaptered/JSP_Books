@@ -9,6 +9,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/notice/notice_add.css">
+<link rel="stylesheet" href="${cp}/assets/css/summernote/summernote-lite.css">
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
@@ -27,7 +28,8 @@
                         <div class="write_content">
                             <strong class="detail_title plus">공지사항 상세</strong>
                             <div class="fileBtn">
-                                <label for="input-file">첨부 파일</label> <input type="file" name="noticeFile" id="input-file" multiple onchange="showName()"></input>
+                                <label for="input-file">첨부 파일</label> 
+                                <input type="file" name="noticeFile" id="input-file" onchange="showName()"/>
                                 <div id="showFiles"></div>
                             </div>
                             <textarea name="postText" cols="100" rows="20" placeholder="내용을 입력하세요." id="input-text"></textarea>
@@ -51,4 +53,6 @@
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="${cp}/assets/js/notice_add.js"></script>
+<script src="${cp}/assets/js/summernote/summernote-lite.js"></script>
+<script src="${cp}/assets/js/summernote/lang/summernote-ko-KR.js"></script>
 </html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="book">
+	<select id="getBookList" resultType="bookdto" parameterType="hashmap"><!-- class명을 다쓰지 않기 위해  config-->
+		select * from new_book order by new_book_pk desc limit #{startRow},#{pageSize}
+		<!-- 전체내용 불러오기 -->
+	</select>
+	<select id="getBookCnt" resultType="_int">
+		select count(*) from new_book
+	</select>
+
+</mapper>

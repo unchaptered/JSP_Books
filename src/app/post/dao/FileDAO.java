@@ -1,5 +1,6 @@
 package app.post.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,13 +19,21 @@ public class FileDAO {
 		return 1 == sqlsession.insert("File.insertFile",file);
 	}
 	//파일 가져오기
-	public List<FileDTO> getFiles(int postPk) {
-		return sqlsession.selectList("File.getFiles",postPk);
+	public FileDTO getFile(int postFilePk) {
+		return sqlsession.selectOne("File.getFile",postFilePk);
 	}
-	//파일 삭제하기
-	public void deleteByName(String postFileSystem) {
-		sqlsession.delete("File.deleteByName",postFileSystem);
-		
+//	//파일 삭제하기
+//	public void deleteByName(String postFileSystem) {
+//		sqlsession.delete("File.deleteByName",postFileSystem);
+//		
+//	}
+	//마지막 파일번호
+	public int getLastPostFilePk(String postFileSystem) {
+		return sqlsession.selectOne("File.getLastPostFilePk",postFileSystem);
+	}
+	//파일 삭제
+	public boolean removeFile(int postFilePk) {
+		return 1 == sqlsession.delete("File.removeFile",postFilePk);
 	}
 	
 }

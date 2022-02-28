@@ -7,6 +7,7 @@ import action.Action;
 import action.ActionTo;
 import app.post.dao.EventDAO;
 import app.post.dao.FileDAO;
+import app.post.dao.FileDTO;
 import app.post.dao.EventDTO;
 
 public class EventEditAction implements Action{
@@ -14,12 +15,18 @@ public class EventEditAction implements Action{
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		EventDAO edao = new EventDAO();
 		FileDAO fdao = new FileDAO();
+		
 		int eventPk = Integer.parseInt(req.getParameter("eventPk"));
 		EventDTO event = edao.getEventRead(eventPk);
-		int postPk = event.getPostPk();
+		int eventFilePk = event.getEventFile();
+		int eventFileDetailPk = event.getEventFileDetail();
+		
+		FileDTO eventFile = fdao.getFile(eventFilePk);
+		FileDTO eventFileDetail = fdao.getFile(eventFileDetailPk);
 		
 		req.setAttribute("event", event);
-		req.setAttribute("files", fdao.getFiles(postPk));
+		req.setAttribute("eventFile", eventFile);
+		req.setAttribute("eventFileDetail", eventFileDetail);
 		
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);

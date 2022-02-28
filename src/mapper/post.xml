@@ -9,10 +9,12 @@
 		values(#{postTitle}, #{postText}, #{postOwner})
 	</insert>
 	<update id="updateViewed" parameterType="_int">
-		update post set post_viewed = post_viewed+1 where post_pk = #{postPk}
+		update post set post_viewed = post_viewed+1 
+		where post_pk = #{postPk}
 	</update>
 	<update id="updatePost" parameterType="postdto">
-		update post set post_title = #{postTitle}, post_text = #{postText}
+		update post set post_title = #{postTitle}, post_text = #{postText}, post_created = now()
+		where post_pk = #{postPk}
 	</update>
 	<delete id="removePost" parameterType="_int">
 		delete from post where post_pk = #{postPk}
@@ -20,71 +22,134 @@
 	<select id="getLastPostPk" parameterType="_int" resultType="_int">
 		select max(post_pk) from post where post_owner = #{postOwner}
 	</select>
+	<select id="getPostOwnerName" parameterType="_int" resultType="String">
+		select user_name from user
+		join post on user.user_pk = post.post_owner
+		where post.post_pk = #{postPk}
+	</select>
+	<select id="getPostRead" parameterType="_int" resultType="postdto">
+		select post_pk as postPk, post_title as postTitle, post_text as postText
+		from post
+		where post_pk = #{postPk}
+	</select>
 	
 	<!-- post_event -->
 	<insert id="insertEvent" parameterType="eventdto">
-		insert into post_event (event_started, event_ended, post_pk)
-		values(#{eventStarted}, #{eventEnded}, #{postPk})
+		insert into post_event (event_started, event_ended, event_file, event_file_detail, post_pk)
+		values(#{eventStarted}, #{eventEnded}, #{eventFile}, #{eventFileDetail}, #{postPk})
 	</insert>
 	<update id="updateEvent" parameterType="eventdto">
 		update post_event set event_started = #{eventStarted}, event_ended = #{eventEnded}
+		where post_pk = #{postPk}
 	</update>
-	<!-- 좋아요 수정 필요 -->
 	<update id="updateEventLike" parameterType="_int">
-		update post_event set event_like = event_like+1 where event_pk = #{eventPk}
+		update post_event set event_like = event_like+1 
+		where event_pk = #{eventPk}
 	</update>
 	<delete id="removeEvent" parameterType="_int">
 		delete from post_event where event_pk = #{eventPk}
 	</delete>
-	<select id="getEventCnt" resultType="_int">
-		select count(*) from post_event
+	<select id="getEventCnt" parameterType="String" resultType="_int">
+		select count(*) from post_event		
+		<if test="keyword != null">
+			join post on post.post_pk = post_event.post_pk
+			where post.post_pk = post_event.post_pk and post_title like(concat('%',#{keyword},'%'))
+		</if>
 	</select>
 	<select id="getEventList" parameterType="hashmap" resultType="eventdto">
-		select post_event.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, event_pk as eventPk, event_started as eventStarted, event_ended as eventEnded, event_like as eventLike
+		select post_event.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, event_pk as eventPk, event_started as eventStarted, event_ended as eventEnded, event_file as eventFile, event_file_detail as eventFileDetail, event_like as eventLike
 		from post_event join post on post.post_pk = post_event.post_pk
 		where post.post_pk = post_event.post_pk
 		order by post.post_pk desc limit #{startRow},#{pageSize}
 	</select>
 	<select id="getEventListWithKey" parameterType="hashmap" resultType="eventdto">
-		select post_event.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, event_pk as eventPk, event_started as eventStarted, event_ended as eventEnded, event_like as eventLike
+		select post_event.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, event_pk as eventPk, event_started as eventStarted, event_ended as eventEnded, event_file as eventFile, event_file_detail as eventFileDetail, event_like as eventLike
 		from post_event join post on post.post_pk = post_event.post_pk
 		where post.post_pk = post_event.post_pk and post_title like(concat('%',#{keyword},'%'))
 		order by post.post_pk desc limit #{startRow},#{pageSize}
 	</select>
 	<select id="getEventRead" parameterType="_int" resultType="eventdto">
-		select post_event.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, event_pk as eventPk, event_started as eventStarted, event_ended as eventEnded, event_like as eventLike
+		select post_event.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, event_pk as eventPk, event_started as eventStarted, event_ended as eventEnded, event_file as eventFile, event_file_detail as eventFileDetail, event_like as eventLike
 		from post_event join post on post.post_pk = post_event.post_pk
 		where event_pk = #{eventPk}
 	</select>
+	<select id="getLastEventPk" parameterType="_int" resultType="_int">
+		select event_pk
+		from post_event
+		where post_pk = #{postPk}
+	</select>
+	
 	<!-- post_notice -->
 	<insert id="insertNotice" parameterType="noticedto">
-		insert into post_notice (notice_pin, post_pk)
-		values(#{noticePin}, #{postPk})
+		insert into post_notice (notice_pin, notice_file, post_pk)
+		values(#{noticePin}, #{noticeFile}, #{postPk})
 	</insert>
 	<update id="updateNotice" parameterType="noticedto">
-		update post_notice set notice_pin = #{noticePin}
+		update post_notice set notice_pin = #{noticePin}, notice_file = #{noticeFile}
+		where post_pk = #{postPk}
 	</update>
 	<delete id="removeNotice" parameterType="_int">
 		delete from post_notice where notice_pk = #{noticePk}
 	</delete>
-	<select id="getNoticeCnt" resultType="_int">
+	<select id="getNoticeCnt" parameterType="String" resultType="_int">
 		select count(*) from post_notice
+		<if test="keyword != null">
+			join post on post.post_pk = post_notice.post_pk
+			where post.post_pk = post_notice.post_pk and post_title like(concat('%',#{keyword},'%'))
+		</if>
 	</select>
 	<select id="getNoticeList" parameterType="hashmap" resultType="noticedto">
-		select post_notice.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, notice_pk as noticePk, notice_pin as noticePin
-		from post_notice join post on post.post_pk = post_notice.post_pk
+		select post_notice.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, notice_pk as noticePk, notice_pin as noticePin, notice_file as noticeFile
+		from post_notice 
+		join post on post.post_pk = post_notice.post_pk
 		where post.post_pk = post_notice.post_pk
 		order by notice_pin asc, post.post_pk desc limit #{startRow},#{pageSize}
 	</select>
 	<select id="getNoticeListWithKey" parameterType="hashmap" resultType="noticedto">
-		select post_notice.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, notice_pk as noticePk, notice_pin as noticePin
-		from post_notice join post on post.post_pk = post_notice.post_pk
+		select post_notice.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, notice_pk as noticePk, notice_pin as noticePin, notice_file as noticeFile
+		from post_notice 
+		join post on post.post_pk = post_notice.post_pk
 		where post.post_pk = post_notice.post_pk and post_title like(concat('%',#{keyword},'%'))
 		order by notice_pin asc, post.post_pk desc limit #{startRow},#{pageSize}
 	</select>
 	<select id="getNoticeRead" parameterType="_int" resultType="noticedto">
-		select post_notice.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, notice_pk as noticePk, notice_pin as noticePin
-		from post_notice join post on post.post_pk = post_notice.post_pk
+		select post_notice.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, notice_pk as noticePk, notice_pin as noticePin, notice_file as noticeFile
+		from post_notice 
+		join post on post.post_pk = post_notice.post_pk
 		where notice_pk = #{noticePk}
 	</select>
+	<select id="getPrevNotice" parameterType="_int" resultType="_int">
+		select min(notice_pk) from post_notice
+		where notice_pk <![CDATA[ > ]]> #{noticePk} and NOT notice_pin ='Y'
+	</select>
+	<select id="getNextNotice" parameterType="_int" resultType="_int">
+		select max(notice_pk) from post_notice
+		where notice_pk <![CDATA[ < ]]> #{noticePk} and NOT notice_pin ='Y'
+	</select>
+	<select id="getOwnerName" parameterType="hashmap" resultType="String">
+		select user_name as userName
+		from user 
+		join post on user.user_pk = post.post_owner
+		join post_notice on post.post_pk = post_notice.post_pk
+		where post.post_pk = post_notice.post_pk
+		order by notice_pin asc, post.post_pk desc limit #{startRow},#{pageSize}
+	</select>
+	<select id="getOwnerNameWithKey" parameterType="hashmap" resultType="String">
+		select user_name as userName
+		from user 
+		join post on user.user_pk = post.post_owner
+		join post_notice on post.post_pk = post_notice.post_pk
+		where post.post_pk = post_notice.post_pk and post_title like(concat('%',#{keyword},'%'))
+		order by notice_pin asc, post.post_pk desc limit #{startRow},#{pageSize}
+	</select>
+	<select id="getLastNoticePk" parameterType="_int" resultType="_int">
+		select notice_pk
+		from post_notice
+		where post_pk = #{postPk}
+	</select>
+	<!-- <select id="getPinCnt" resultType="_int">
+		select count(*)
+		from post_notice
+		where notice_pin = 'Y'
+	</select> -->
 </mapper>

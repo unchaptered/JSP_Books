@@ -27,14 +27,16 @@
                                     <p>작성자 </p><span>${ownerName}</span>
                                 </div>
                                 <div class="sub">
-                                    <p>작성일</p> <span>${fn:substring(notice.postCreated,0,10)}</span>
+                                    <p>작성일</p><span>${fn:substring(notice.postCreated,0,10)}</span>
                                 </div>
                                 <div class="sub">
                                     <p>조회</p> <span>${notice.postViewed}</span>
                                 </div>
-                                <div class="sub">
-                                    <p>첨부파일</p> <a href="" download><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
-                                </div>
+                                <c:if test="${file != null or file.postFileOrigin != null or file.postFileSystem != null}">
+	                                <div class="sub">
+	                                    <p>첨부파일</p> <span>${file.postFileOrigin}</span><a href="${cp}/app/post/FileDownload.po?systemname=${file.postFileSystem}&orgname=${file.postFileOrigin}"><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
+	                                </div>
+                                </c:if>
                             </div>
                         </div>
                         <div class="detail_content">
@@ -47,22 +49,32 @@
                             	formmethod="post" onclick="return updateCheck()">수정</button>
                             <button class="readBtn" id="noticeDelete" formaction="javascript:document.noticeRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
                         </div>
-                        <div class="notice_detail_nav">
-                            <div class="notice_prev">
-                                <a href="${cp}/app/post/NoticeRead.po?noticePk=${prevNotice}">
-                                    <span class="notice_arrow"><</span>
-                                    <span>이전글</span>
-                                    <p>${prevNoticeTitle}</p>
-                                </a>
-                            </div>
-                            <div class="notice_next">
-                                <a href="${cp}/app/post/NoticeRead.po?noticePk=${nextNotice}">
-                                    <p>${nextNoticeTitle}</p>
-                                    <span>다음글</span>
-                                    <span class="notice_arrow">></span>
-                                </a>
-                            </div>
-                        </div>
+                        <c:choose>
+                        	<c:when test="${notice.noticePin == 'Y' || (prevNoticePk == null && nextNoticePk == null) }">
+	                        </c:when>
+	                        <c:otherwise> 
+		                        <div class="notice_detail_nav">
+		                        	<c:if test="${prevNoticePk != null}">
+			                            <div class="notice_prev">
+			                                <a href="${cp}/app/post/NoticeRead.po?noticePk=${prevNoticePk}">
+			                                    <span class="notice_arrow">&lt;</span>
+			                                    <span>이전글</span>
+			                                    <p>${prevNoticeTitle}</p>
+			                                </a>
+			                            </div>
+		                        	</c:if>
+		                        	<c:if test="${nextNoticePk != null}">
+			                            <div class="notice_next">
+			                                <a href="${cp}/app/post/NoticeRead.po?noticePk=${nextNoticePk}">
+			                                    <p>${nextNoticeTitle}</p>
+			                                    <span>다음글</span>
+			                                    <span class="notice_arrow">&gt;</span>
+			                                </a>
+			                            </div>
+		                            </c:if>
+		                        </div>
+		                    </c:otherwise>    
+                        </c:choose>
                     </div>
                 </form>
                 <form name="noticeRemoveForm" action="${cp}/app/post/NoticeRemove.po" method="get">

@@ -59,11 +59,11 @@ private static final long serialVersionUID = 1L;
 				System.out.println("JoinCheckEmailOk :"+e);
 			}
 			break;
-		case "/user/UserLoginEmailOk.us":
+		case "/user/UserLoginOk.us":
 			try {
-				transfer = new UserLoginEmailOkAction().execute(req,resp);
+				transfer = new UserLoginOkAction().execute(req,resp);
 			} catch (Exception e) {
-				System.out.println("UserLoginEmailOk : "+e);
+				System.out.println("UserLoginOk : "+e);
 			}
 			break;
 			

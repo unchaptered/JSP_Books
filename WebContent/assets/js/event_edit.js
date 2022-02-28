@@ -1,14 +1,28 @@
-// 첨부 파일 이름 나타내기
-//function showName(){
-//    let files = document.getElementById("input-file").files;
-//    fileList = "";
-//    for (let i = 0; i < files.length; i++) {
-//        fileList += files[i].name + '<br>';
-//    }
-//    target = document.getElementById("showFiles")
-//    target.innerHTML = fileList;
-//}
-                        
+//썸머노트
+$(document).ready(function() {
+		$('#eTextarea').summernote({
+			toolbar: [
+				// [groupName, [list of button]]
+				['fontname',['fontname']],
+				['fontsize', ['fontsize']],
+				['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
+				['color', ['forecolor','color']],
+				['para', ['ul', 'ol', 'paragraph']],
+				['height', ['height']],
+				['insert',['link']]
+			],  
+			height: 300,		  
+			lang: "ko-KR",
+			focus: true,
+			placeholder: '내용을 입력하세요',
+			disableResizeEditor: true,
+			  
+			fontNames: ['맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체','Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+		});
+	});
+
+
 // 첨부 파일 이미지 미리보기
 function setThumbnail_list(input){
     if(input.files && input.files[0]){
