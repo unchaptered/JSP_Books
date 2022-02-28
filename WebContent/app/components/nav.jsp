@@ -79,7 +79,7 @@
         </details>
     </nav>
     <div class="login_wrap">
-    	<form name="loginForm" action="" method="post" onsubmit="return senditLogin()">
+    	<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post">
         <div class="login_container">
             <div class="login_header">
                 <span>Books</span>
@@ -103,13 +103,13 @@
                     </div>
                 </div>
                 <div class="body_pw">
-                    <label for="pw"><span class="style_pw">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="loginPwError" class="error"></span></label>
+                    <label for="loginPw"><span class="style_pw">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="loginPwError" class="error"></span></label>
                     <div class="pw_input">
-                        <input type="password" placeholder="비밀번호를 입력해주세요." id="pw" name="pw">
+                        <input type="password" placeholder="비밀번호를 입력해주세요." id="loginPw" name="loginPw">
                     </div>
                 </div>
                 <div class="body_button">
-                <input type="button" class="email_button buttons" value="로그인" id="myBtnPw">
+                <input type="submit" class="email_button buttons" value="로그인" id="myBtnPw">
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
@@ -344,13 +344,13 @@
                         <div class="id_find_name_inner">
                         <label for="id_find_name_input" class="user_info">이름</label>
                         <div class="input_name_id_find">
-                            <input type="text" id="name_input_find" placeholder="이름을 입력해주세요." value>
+                            <input type="text" id="email_name_input_find" placeholder="이름을 입력해주세요.">
                         </div>
                     </div>
                     <div class="id_find_phone_inner">
                         <label for="id_find_phone_input" class="user_info">휴대폰 번호</label>
                         <div class="input_phone_id_find">
-                            <input type="text" id="phone_input_find" placeholder="(예시) 01012345678" value>
+                            <input type="text" id="email_phone_input_find" placeholder="(예시) 01012345678">
                         </div>
                     </div>
                         <div class="id_find_space"></div>
@@ -386,13 +386,13 @@
                         <div class="pw_find_name_inner">
                         <label for="pw_find_name_input" class="user_info">이메일</label>
                         <div class="input_name_find">
-                            <input type="text" id="name_input_find" placeholder="이메일을 입력해주세요." value>
+                            <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해주세요.">
                         </div>
                     </div>
                     <div class="pw_find_phone_inner">
                         <label for="pw_find_phone_input" class="user_info">휴대폰 번호</label>
                         <div class="input_phone_find">
-                            <input type="text" id="phone_input_find" placeholder="(예시) 01012345678" value>
+                            <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678">
                         </div>
                     </div>
                         <div class="pw_find_space"></div>

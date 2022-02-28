@@ -27,12 +27,13 @@ public class UserDAO {
 		return 0 == (Integer)sqlsession.selectOne("User.JoincheckEmail",userEmail);
 	}
 
-	public UserDTO loginEmail(String userEmail) {
+	public UserDTO login(String email,String loginPw) {
 		HashMap<String, String> datas = new HashMap<String, String>();
-		datas.put("userEmail",userEmail);
-		UserDTO loginEmail = sqlsession.selectOne("User.loginEmail",datas);
-		return loginEmail;
+		datas.put("email",email);
+		datas.put("loginPw",loginPw);
+		UserDTO loginUser = sqlsession.selectOne("User.login",datas);
+		System.out.println();
+		return loginUser;
 	}
-
 	}
 
