@@ -16,7 +16,7 @@
     
     <!-- <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/> -->
     <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>
-    <typeAlias type="app.book.dao.BookDTO2" alias="bookdto"/>
+    <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/>
   </typeAliases>
   <environments default="development">
     <environment id="development">
