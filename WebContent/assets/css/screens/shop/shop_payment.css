@@ -55,12 +55,12 @@
 #delivery_info p{
     padding-left: 15px;
 }
-#addr{
+#postcode{
     right: 0;
     width: 100px;
     margin-right: 8px;
 }
-#addr+button{
+#postcode+input[type=button]{
     border: 1px solid rgb(118,118,118);
     vertical-align: middle;
     height: 24px;
@@ -107,6 +107,7 @@
     margin-bottom: 10px;
 }
 #products img{
+    display: inline-block;
     width: 72px;
     height: 106px;
 }
@@ -157,4 +158,8 @@
     border: 1px solid slategray;
     float: right;
     cursor: pointer;
+}
+
+#payment_info .active{
+	border: 1px solid slategray;
 }

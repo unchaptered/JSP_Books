@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Shop">
+	<!-- userpk받아서 List<cartdto> 받음 -->
+	<select id="getCartList" resultType="cartdto" parameterType="_int">
+		select cartnum, new_book_imgae AS image, bookpk, new_book_title AS title, quantity, 
+			new_book_price AS price, new_book_mount AS mount
+		from cart c
+			join new_book b on c.bookpk = b.new_book_pk
+		where c.userpk = #{userpk};
+	</select>
+	<!-- 장바구니view에서 체크된 카트(arr[String cartnum])들만 List<cartdto> 받음. 마이바티스 동적sql처리-->
+	<select id="getCartListByChecked"  resultType="cartdto">
+		select cartnum, new_book_imgae AS image, bookpk, new_book_title AS title, quantity, 
+			new_book_price AS price, new_book_mount AS mount
+		from cart c
+			join new_book b on c.bookpk = b.new_book_pk
+		WHERE c.cartnum IN
+		<foreach collection="array" item="cartnum" open="(" close=")" separator=",">
+		 #{cartnum}
+		</foreach>
+		ORDER BY c.cartnum DESC;	<!-- 생성순(ASC기본값), 최근순(DESC) -->
+	</select>
+	<!-- 반환하는 cartnum이 없을경우 _int는 null을 담지 못해 처리를 못하니 객체타입 Integer로 result -->
+	<select id="checkCart" resultType="Integer" parameterType="cartdto">
+		select cartnum from cart where userpk=#{userpk} and bookpk=#{bookpk}
+	</select>
+	<select id="getProdMount" resultType="string" parameterType="_int">
+		select n.new_book_mount
+			<!-- n.new_book_title 책이름까지 2개 결과 받으려면 resultType hashmap 이용 -->
+		from new_book n
+			join cart c on c.bookpk = n.new_book_pk
+		where c.cartnum=#{cartnum};
+	</select>
+	<!-- 주문결제view에서 체크된 카트(arr[String products])들만 List<bookdto> 받음. 마이바티스 동적sql처리-->
+	<select id="getBookList"  resultType="bookdto">
+<!-- 		select cartnum, new_book_imgae AS image, bookpk, new_book_title AS title, quantity, 
+			new_book_price AS price, new_book_mount AS mount -->
+		select b.new_book_title as bookTitle , b.new_book_subtitle as bookSubtitle,
+        b.new_book_info as bookInfo, b.new_book_info_short as bookInfoShort, b.new_book_image as bookImage,
+        b.new_book_org_image as bookOrgImage, b.new_book_price as bookPrice, b.new_book_writer as bookWriter,
+        b.new_book_translater as bookTranslater, b.new_book_publisher as bookPublisher ,b.new_book_created as bookCreated,
+        b.new_book_pages as bookPages, b.new_book_mount as bookMount, b.new_book_genre as bookGenre, b.new_book_country as bookCountry
+		from cart c
+			join new_book b on c.bookpk = b.new_book_pk
+		WHERE c.cartnum IN
+		<foreach collection="array" item="products" open="(" close=")" separator=",">
+		 #{products}
+		</foreach>
+	</select>
+	<!--  	<select id="getBookList" resultType="bookdto" parameterType="_int">
+		select *
+		from new_book n
+			join cart c on c.bookpk = n.new_book_pk
+		where c.cartnum=#{cartnum};
+	</select> -->
+	<insert id="addCart" parameterType="cartdto">
+		insert into cart (quantity, userpk, bookpk)
+		values(#{quantity}, #{userpk}, #{bookpk})
+	</insert>
+	<update id="updateCartQuantity" parameterType="hashmap">
+		update cart set quantity = quantity + #{quantity} where cartnum = #{cartnum}
+	</update>
+	<update id="updateCartQuantityOverwrite" parameterType="hashmap">
+		update cart set quantity = #{quantity} where cartnum = #{cartnum}
+	</update>
+	<delete id="delCartOne" parameterType="_int">
+		delete from cart where cartnum = #{cartnum}
+	</delete>
+	<delete id="delCartAll" parameterType="_int">
+		delete from cart where userpk = #{userpk}
+	</delete>
+</mapper>
