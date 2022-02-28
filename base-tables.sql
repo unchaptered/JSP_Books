@@ -60,22 +60,24 @@ CREATE TABLE post_event (
 );
 CREATE TABLE new_book (
    new_book_pk INT AUTO_INCREMENT PRIMARY KEY,
-   new_book_title VARCHAR(300),
+   new_book_title VARCHAR(300) NOT NULL,
    new_book_subtitle VARCHAR(300),
    new_book_info TEXT,
    new_book_info_short TEXT,
-   new_book_image VARCHAR(300),
-   new_book_org_image VARCHAR(300),
-   new_book_price VARCHAR(300),
-   new_book_writer VARCHAR(300),
+   new_book_org_image VARCHAR(300) NOT NULL,
+   new_book_image VARCHAR(300) NOT NULL,
+   new_book_price VARCHAR(300) NOT NULL,
+   new_book_writer VARCHAR(300) NOT NULL,
    new_book_translater VARCHAR(300),
-   new_book_publisher VARCHAR(300),
-   new_book_pages VARCHAR(300),
-   new_book_mount VARCHAR(300),
-   new_book_genre VARCHAR(300),
-   new_book_country VARCHAR(300),
-   new_book_created DATE DEFAULT (current_date)
+   new_book_publisher VARCHAR(300) NOT NULL,
+   new_book_created DATE DEFAULT (current_date) NOT NULL,
+   new_book_pages VARCHAR(300) NOT NULL,
+   new_book_mount INT NOT NULL,
+   new_book_genre VARCHAR(300) NOT NULL,
+   new_book_country VARCHAR(300) NOT NULL
 );
+select * from new_book;
+select * from new_book where new_book_pk ;
 CREATE TABLE old_book (
    old_book_pk INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
    old_book_discount_10 INT DEFAULT 0 NOT NULL CHECK ( old_book_discount_10 >= 0 ),

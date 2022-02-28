@@ -9,6 +9,7 @@
 </head>
 <!-- 저자 : unchaptered -->
 <body>
+
     <nav id="nav">
         <section class="nav-sizer">
             <div class="nav_column">
@@ -31,8 +32,15 @@
             <div class="nav_column">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 nav_svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 <!-- kogyul -->
+                
+            	
+                <c:if test="${loginUser == null }">
                 <input type="button" value="login" id="myBtnLogin">
                 <input type="button" value="join" id="myBtnJoin">
+				</c:if>
+				<c:if test="${loginUser != null }">
+                <input type="button" value="Logout" id="myBtnLogout">
+                </c:if>
             </div>
         </section>
     </nav>

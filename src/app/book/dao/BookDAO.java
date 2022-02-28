@@ -35,17 +35,26 @@ public class BookDAO {
 	public int getBookCnt() {
 		return sqlsession.selectOne("book.getBookCnt");
 	}
-	public List<BookDTO2> getBookList(int startRow, int pageSize) {
+	public List<BookDTO> getBookList(int startRow, int pageSize) {
 		HashMap<String, Integer> datas = new HashMap<String, Integer>();
 		datas.put("startRow", startRow);
 		datas.put("pageSize", pageSize);
-		List<BookDTO2> result = sqlsession.selectList("book.getBookList",datas);//getBookList는 쿼리문
+		List<BookDTO> result = sqlsession.selectList("book.getBookList",datas);//getBookList는 쿼리문
 		//여러개를 쓸거기 때문에 selectList를 씀
 		//여러가지 정보를 가져와야하다 보니까 DTO가 필요함 -> 그래서 DTO생성
 		//쿼리문은 매퍼에 쓰기로함
 		return result;	
 	}
-	
-	
+
+	public List<BookDTO> getbookBest() {
+		List<BookDTO> result = sqlsession.selectList("book.getBookBest");
+		return result;
+	}
+
+	public BookDTO getDetail(int bookPk) {
+		return sqlsession.selectOne("book.getDetail");
+	}
+
+
 	
 }

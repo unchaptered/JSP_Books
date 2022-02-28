@@ -38,9 +38,12 @@ public class NewBookListAction implements Action{
 		endPage = endPage>totalPage ? totalPage : endPage;
 		
 		
-		List<BookDTO2> bookList = bookdao.getBookList(startRow,pageSize);//타입 애매할때는 int해놓고 체인지타입
+		List<BookDTO> bookList = bookdao.getBookList(startRow,pageSize);//타입 애매할때는 int해놓고 체인지타입
+		List<BookDTO> bookList2 = bookdao.getbookBest();
 		
-		req.setAttribute("bookList", bookList);
+		req.setAttribute("bookList2", bookList2);//베스트 파트
+		
+		req.setAttribute("bookList", bookList);//리스트 파트
 		req.setAttribute("totalPage", totalPage);
 		req.setAttribute("totalCnt", totalCnt);
 		req.setAttribute("page", page);
