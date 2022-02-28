@@ -29,11 +29,15 @@ public class FileDAO {
 //	}
 	//마지막 파일번호
 	public int getLastPostFilePk(String postFileSystem) {
-		return sqlsession.selectOne("File.getLastPostFilePk",postFileSystem);
+		return sqlsession.selectOne("File.getLastPostFilePk", postFileSystem);
 	}
 	//파일 삭제
 	public boolean removeFile(int postFilePk) {
-		return 1 == sqlsession.delete("File.removeFile",postFilePk);
+		return 1 == sqlsession.delete("File.removeFile", postFilePk);
+	}
+//	파일 수정
+	public boolean updateFile(FileDTO newFile) {
+		return 1== sqlsession.update("File.updateFile", newFile);
 	}
 	
 }

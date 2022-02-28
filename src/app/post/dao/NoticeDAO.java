@@ -81,6 +81,11 @@ public class NoticeDAO {
 //	public int getPinCnt() {
 //		return sqlsession.selectOne("Post.getPinCnt");
 //	}
+	//파일 지우기
+	public boolean removeNoticeFile(int noticeFile) {
+		return 1 == sqlsession.update("Post.removeNoticeFile",noticeFile);
+		
+	}
 
 
 }

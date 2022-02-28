@@ -124,5 +124,4 @@
 	<%@ include file="/app/components/footer.jsp" %>
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
-<script src="${cp}/assets/js/notice_list.js"></script>
 </html>

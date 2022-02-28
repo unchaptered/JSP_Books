@@ -1,3 +1,4 @@
+<!-- 저자 : carpriceksy -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -32,7 +33,7 @@
                                 <div class="sub">
                                     <p>조회</p> <span>${notice.postViewed}</span>
                                 </div>
-                                <c:if test="${file != null or file.postFileOrigin != null or file.postFileSystem != null}">
+                                <c:if test="${file != null or file.postFileSystem != null or not empty file.postFileSystem}">
 	                                <div class="sub">
 	                                    <p>첨부파일</p> <span>${file.postFileOrigin}</span><a href="${cp}/app/post/FileDownload.po?systemname=${file.postFileSystem}&orgname=${file.postFileOrigin}"><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
 	                                </div>

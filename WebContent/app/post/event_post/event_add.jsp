@@ -1,3 +1,4 @@
+<!-- 저자 : carpriceksy -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -45,9 +46,9 @@
                         <div class="fileBtn">
                             <label for="input-file1">첨부 파일</label>
                             <input type="file" name="eventFile"  id="input-file1" class="input-file"
-                                accept="image/*" onchange="setThumbnail_list(this);"/>
+                                accept="image/*" onchange="javascript:setThumbnail(this,1);showName(1);"/>
                             <div class="showFileName" id="showFileName1">
-                                	이벤트 리스트에 나타낼 배너를 등록하세요
+                                	목록에 나타낼 이미지를 등록하세요
                             </div>
                             <div class="imgPreview_div">
                                 <img class="imgPreview" id="imgPreview1"/>
@@ -56,7 +57,7 @@
                         <div class="fileBtn">
                             <label for="input-file2">첨부 파일</label> 
                             <input type="file" name="eventFileDetail" id="input-file2" class="input-file"
-                                accept="image/*" onchange="setThumbnail_read(this);"/>
+                                accept="image/*" onchange="javascript:setThumbnail(this,2);showName(2);"/>
                             <div class="showFileName" id="showFileName2">
                                 	상세페이지에 나타낼 이미지를 등록하세요
                             </div>

@@ -13,7 +13,6 @@ $(document).ready(function() {
 			],  
 			height: 300,		  
 			lang: "ko-KR",
-			focus: true,
 			placeholder: '내용을 입력하세요',
 			disableResizeEditor: true,
 			  
@@ -29,9 +28,19 @@ $(document).ready(function() {
 function showName(){
     let files = document.getElementById("input-file").files;
     fileList = "";
-    fileList = files[0].name + '<br><a href="" id="removeBtn">X</a>';
-    target = document.getElementById("showFiles")
+    fileList = files[0].name + '&nbsp;&nbsp;<input type="button" id="removeBtn" name="removeBtn" onclick="removeFile()" value="[X]">';
+    target = document.getElementById("showFiles");
     target.innerHTML = fileList;
+}
+
+//첨부파일 삭제
+function removeFile(){
+	let showFiles = document.getElementById("showFiles");
+	let inputFile = document.getElementById("input-file");
+
+	inputFile.value ="";
+	
+	showFiles.innerHTML = "";
 }
 
 // 폼 제출
@@ -39,7 +48,6 @@ const confirmEnroll = function(){
     let check = confirm("게시물을 등록하시겠습니까?")
 
     if(check){
-        alert("게시물이 등록되었습니다")
         return true;
     }else{
         return false;

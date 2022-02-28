@@ -58,7 +58,12 @@ public class EventDAO {
 		public int getLastEventPk(int postPk) {
 			return sqlsession.selectOne("Post.getLastEventPk",postPk);
 		}
-		
-		
-	
+		//eventFile 삭제(update)
+		public boolean removeEventFile(int eventFile) {
+			return 1 == sqlsession.update("Post.removeEventFile",eventFile);
+		}
+		public boolean removeEventFileDetail(int eventFileDetail) {
+			return 1 == sqlsession.update("Post.removeEventFileDetail",eventFileDetail);
+		}
+
 }

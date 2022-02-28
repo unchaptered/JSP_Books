@@ -7,6 +7,10 @@
 		insert into post_files (post_file_system, post_file_origin) 
 		values(#{postFileSystem},#{postFileOrigin})
 	</insert>
+	<update id="updateFile" parameterType="filedto">
+		update post_files set post_file_system = #{postFileSystem}, post_file_origin = #{postFileOrigin}
+		where post_file_pk = #{postFilePk}
+	</update>
 	<delete id="removeFile" parameterType="_int">
 		delete from post_files where post_file_pk = #{postFilePk}
 	</delete>
