@@ -39,7 +39,10 @@ public class NewBookAddOkAction implements Action{
 		String publisher = multi.getParameter("publisher");
 		String created = multi.getParameter("created");
 		String pages = multi.getParameter("pages");
-//		String genre = multi.getParameter("");
+		
+		String mount = multi.getParameter("mount");
+//		String country = multi.getParameter("country");
+//		String genre = multi.getParameter("genre");
 		
 		BookDTO bdto = new BookDTO();
 		bdto.setBookTitle(title);
@@ -54,6 +57,10 @@ public class NewBookAddOkAction implements Action{
 		bdto.setBookPages(pages);
 		bdto.setBookImage(image);
 		bdto.setBookOrgImage(orgImage);
+		
+		bdto.setBookMount(mount);
+		bdto.setBookCountry(multi.getParameter("country"));
+		bdto.setBookGenre(multi.getParameter("genre"));
 		
 		ActionTo transfer = new ActionTo();
 		
