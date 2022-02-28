@@ -4,11 +4,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="book">
 	<select id="getBookList" resultType="bookdto" parameterType="hashmap"><!-- class명을 다쓰지 않기 위해  config-->
-		select * from new_book order by new_book_pk desc limit #{startRow},#{pageSize}
+		select new_book_pk as bookPk, new_book_title as bookTitle , new_book_subtitle as bookSubtitle,
+		new_book_info as bookInfo, new_book_info_short as bookInfoShort, new_book_image as bookImage,
+		new_book_org_image as bookOrgImage, new_book_price as bookPrice, new_book_writer as bookWriter,
+		new_book_translater as bookTranslater, new_book_publisher as bookPublisher ,new_book_created as bookCreated,
+		new_book_pages as bookPages, new_book_mount as bookMount, new_book_genre as bookGenre, new_book_country as bookCountry
+		from new_book order by new_book_pk desc limit #{startRow},#{pageSize}
+	<!-- 	select * from new_book order by new_book_pk desc limit #{startRow},#{pageSize} -->
 		<!-- 전체내용 불러오기 -->
+	</select>
+	<select id="getBookBest" resultType="bookdto">
+		select new_book_mount as bookMount,new_book_title as bookTitle, new_book_writer as bookWriter,
+		new_book_publisher as bookPublisher, new_book_price as bookPrice,
+		new_book_info as bookInfo
+		from new_book order by new_book_mount desc limit 3;
 	</select>
 	<select id="getBookCnt" resultType="_int">
 		select count(*) from new_book
 	</select>
+	<select id="getBest" resultType="bookdto">
+		select * from new_book 
+	</select>
 
 </mapper>
+
+
+<!-- 내가 현재 해야할꺼는 베스트 파트를 하면 됩니다 -->

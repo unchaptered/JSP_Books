@@ -99,7 +99,7 @@
 						value='+' />
 					<div id='result'>0</div>
 					<input type='button' class="buy_num_minus" onclick='count("minus")'
-						value='-' />
+						value='-' />남은수량 123
 				</div>
 			</div>
 			<!-- 주문수량 끝 -->

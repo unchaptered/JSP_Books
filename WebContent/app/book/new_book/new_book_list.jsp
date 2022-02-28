@@ -28,21 +28,25 @@
 				<img src="${cp }/assets/img/new_book/images/Best_logo.png" alt="">
 			</div>
 			<section class="main_content backimg">
-				<div class="content_container_best">
+			<!-- ------------------------------------------------------------- -->
+			<c:choose>
+			<c:when test="${bookList2.size()>0 and bookList2 != null}">
+			<c:forEach var="best" items="${bookList2}">
+			<div class="content_container_best">
 					<img src="${cp }/assets/img/new_book/images/best-1.png" alt="">
 					<div class="photo"></div>
 					<div class="book_name">
 						<p>
-							<a href=""><h3>불편한 편의점</h3></a> <input type="button" value="작가"
-								name="writer">· <input type="button" value="출판사"
-								name="company"><br> 11000원
+							<a href=""><h3>${best.bookTitle }</h3></a> 
+							<input type="button" value="${best.bookWriter }" name="writer">· 
+							<input type="button" value="${best.bookPublisher }" name="company">
+							<br> ${best.bookPrice}원
 						</p>
 					</div>
 					<div class="blank"></div>
 					<div class="book_content">
 						<p>
-							불편한데 자꾸 가고 싶은 편의점이 있다! 힘들게 살아낸 오늘을 위로하는 편의점의 밤 정체불명의 알바로부터 시작된
-							웃음과 감동의 나비효과...
+							${best.bookInfo}
 							<!--『망원동 브라더스』 김호연의 ‘동네 이야기’ 시즌 2
                             청파동 골목에 자리 잡은 작은 편의점 ALWAYS.
                             어느 날 서울역에서 살던 사내가 야간 알바로 들어오면서
@@ -50,32 +54,34 @@
 						</p>
 					</div>
 				</div>
+			</c:forEach>
+			</c:when>
+			<c:otherwise>
 				<div class="content_container_best">
-					<img src="${cp }/assets/img/new_book/images/best-2.png" alt="">
-					<div class="photo2"></div>
+					<img src="${cp }/assets/img/new_book/images/best-1.png" alt="">
+					<div class="photo"></div>
 					<div class="book_name">
 						<p>
-							<a href="#"><h3>벼랑 위의 집</h3></a> <input type="button" value="작가"
-								name="writer">· <input type="button" value="출판사"
-								name="company"><br> 11000원
+							<a href=""><h3>${best.bookTitle }</h3></a> 
+							<input type="button" value="${best.bookWriter }" name="writer">· 
+							<input type="button" value="${best.bookPublisher }" name="company">
+							<br> ${best.bookPrice}원
 						</p>
 					</div>
 					<div class="blank"></div>
-					<div class="book_content">내용</div>
-				</div>
-				<div class="content_container_best">
-					<img src="${cp }/assets/img/new_book/images/best-3.png" alt="">
-					<div class="photo3"></div>
-					<div class="book_name">
+					<div class="book_content">
 						<p>
-							<a href=""><h3>센 강의 이름 모를 여인</h3></a> <input type="button"
-								value="작가" name="writer">· <input type="button"
-								value="출판사" name="company"><br> 11000원
+							${best.bookInfo}dfsdfdsfsdfdsfsd
+							<!--『망원동 브라더스』 김호연의 ‘동네 이야기’ 시즌 2
+                            청파동 골목에 자리 잡은 작은 편의점 ALWAYS.
+                            어느 날 서울역에서 살던 사내가 야간 알바로 들어오면서
+                            편의점에 변화의 바람이 일기 시작한다!-->
 						</p>
 					</div>
-					<div class="blank"></div>
-					<div class="book_content">내용</div>
 				</div>
+			</c:otherwise>
+			</c:choose>
+			<!-- --------------------------------------------------------------- -->
 			</section>
 			<hr>
 			<section class="category">
@@ -137,16 +143,16 @@
 						<input type="checkbox" id="check" name="check1" value="왼쪽위"
 							onclick="checkthis()">
 						<div class="photo">
-							<img src="${title.new_book_image }" alt="">
+							<img src="${title.bookImage }" alt="">
 						</div>
 							<div class="book_name">
 							<p>
 								<a href="${cp }/book/NewBookRead.nb"> 
-								<h3>${title.new_book_title}</h3>
+								<h3>${title.bookTitle}</h3>
 								</a> 
-								<input type="button" value="${title.new_book_writer }" name="writer"><br>
-								<input type="button" value="${title.new_book_publisher }" name="company"><br>
-								${title.new_book_price }
+								<input type="button" value="${title.bookWriter }" name="writer"><br>
+								<input type="button" value="${title.bookPublisher }" name="company"><br>
+								${title.bookPrice }
 							</p>
 							</div>
 						</div>

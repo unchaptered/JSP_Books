@@ -14,7 +14,7 @@
     <typeAlias type="app.post.dao.NoticeDTO" alias="noticedto"/>
     <typeAlias type="app.post.dao.FileDTO" alias="filedto"/>
     
-    <!-- <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/> -->
+
     <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>
     <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/>
   </typeAliases>
