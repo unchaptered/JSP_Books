@@ -79,7 +79,7 @@
         </details>
     </nav>
     <div class="login_wrap">
-    	<form name="loginForm" action="" method="post">
+    	<form name="loginForm" action="" method="post" onsubmit="return senditLogin()">
         <div class="login_container">
             <div class="login_header">
                 <span>Books</span>
@@ -102,8 +102,14 @@
                         <input type="email" placeholder="이메일을 입력해주세요." id="email" onkeyup="checkLogin()" name="email">
                     </div>
                 </div>
+                <div class="body_pw">
+                    <label for="pw"><span class="style_pw">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="loginPwError" class="error"></span></label>
+                    <div class="pw_input">
+                        <input type="password" placeholder="비밀번호를 입력해주세요." id="pw" name="pw">
+                    </div>
+                </div>
                 <div class="body_button">
-                <input type="button" class="email_button buttons" value="이메일로 계속하기" id="myBtnPw">
+                <input type="button" class="email_button buttons" value="로그인" id="myBtnPw">
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
@@ -310,40 +316,6 @@
                     </div>
                 </form>
                 <input type="submit" value="회원가입하기" class="joinOK">
-            </div>
-        </div>
-        </form>
-    </div>
-    <div class="pw_wrap" >
-        <form name="pwForm">
-        <div class="pw_container">
-            <div class="pw_header">
-                비밀번호 입력
-                <div class="icon">
-                    <button type="button" id="closePw">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                    <button type="button">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
-                      </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="pw_body_wrap">
-                <div class="pw_body_wrap_inner">
-                    <div class="pw_body_inner">
-                        <label for="password_input" class="user_info"><span>비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="pwError" class="error"></span></label>
-                        <div class="input_pw">
-                            <input type="password" id="password_input" placeholder="비밀번호를 입력해 주세요." autocomplete="current-password" name="password_input">
-                        </div>
-                        <div class="pw_space"></div>
-                        <input type="submit" class="pw_btn buttons" id="pw_login" value="로그인" onclick="pw()">
-                        <button type="button" class="pw_btn2 buttons" id="myBtnPwFind">비밀번호 찾기/변경</button>
-                    </div>
-                </div>
             </div>
         </div>
         </form>
