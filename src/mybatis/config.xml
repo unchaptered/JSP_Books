@@ -11,12 +11,15 @@
     <!-- <typeAlias type="app.album.dao.AlbumDTO" alias="ablumdto"/> -->
     
     <typeAlias type="app.user.dao.UserDTO" alias="userdto"/>
-    <!-- <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/> -->
+    
     <typeAlias type="app.post.dao.PostDTO" alias="postdto"/>
     <typeAlias type="app.post.dao.EventDTO" alias="eventdto"/>
     <typeAlias type="app.post.dao.NoticeDTO" alias="noticedto"/>
     <typeAlias type="app.post.dao.FileDTO" alias="filedto"/>
+    
     <typeAlias type="app.shop.dao.CartDTO" alias="cartdto"/>
+    <typeAlias type="app.shop.dao.BillDTO" alias="billdto"/>
+    <typeAlias type="app.shop.dao.ProductDTO" alias="productdto"/>
     
     <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/>
     <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>

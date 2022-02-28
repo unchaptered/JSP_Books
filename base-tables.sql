@@ -128,6 +128,7 @@ CREATE TABLE products (
 	product_pk BIGINT AUTO_INCREMENT PRIMARY KEY,	-- 주문상품번호
     product_quantity INT,							-- 상품수량
     product_total_price VARCHAR(300),				-- n개상품 총금액, 구매시점에 따라 상품가격변동
+--  product_discount INT,							-- 할인율
 	new_book_pk INT,								-- 책번호
     bill_pk BIGINT,									-- 주문번호
 	FOREIGN KEY (new_book_pk)

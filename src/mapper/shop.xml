@@ -60,11 +60,22 @@
 		insert into cart (quantity, userpk, bookpk)
 		values(#{quantity}, #{userpk}, #{bookpk})
 	</insert>
+	<insert id="insertBill" parameterType="billdto" useGeneratedKeys="true" keyProperty="billPk">
+		insert into bill (bill_payment, bill_total_price, bill_zipcode, bill_addr, user_pk)
+		values(#{billPayment}, #{billTotalPrice}, #{billZipCode}, #{billAddr}, #{userPk})
+	</insert>
+	<insert id="insertProduct" parameterType="productdto">
+		insert into products (product_quantity, product_total_price, new_book_pk, bill_pk)
+		values(#{productQuantity}, #{productTotalPrice}, #{newBookPk}, #{billPk})
+	</insert>
 	<update id="updateCartQuantity" parameterType="hashmap">
 		update cart set quantity = quantity + #{quantity} where cartnum = #{cartnum}
 	</update>
 	<update id="updateCartQuantityOverwrite" parameterType="hashmap">
 		update cart set quantity = #{quantity} where cartnum = #{cartnum}
+	</update>
+	<update id="updateBookMount" parameterType="hashmap">
+		update new_book set new_book_mount = new_book_mount - #{prodQty} where new_book_pk = #{bookPk}
 	</update>
 	<delete id="delCartOne" parameterType="_int">
 		delete from cart where cartnum = #{cartnum}

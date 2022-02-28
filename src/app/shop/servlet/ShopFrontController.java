@@ -81,9 +81,9 @@ public class ShopFrontController extends HttpServlet{
 //		구매내역 페이지로 이동합니다. 로그인유저의 구매내역리스트DB를 전달. 세션필요
 		case "/shop/ShopBills.sh":
 			try {
-				transfer = new CartListAction().execute(req,resp);
+				transfer = new ShopBillListOkAction().execute(req,resp);
 			} catch (Exception e) {
-				System.out.println("CartList : "+e);
+				System.out.println("BillListOk : "+e);
 			}
 			break;
 			

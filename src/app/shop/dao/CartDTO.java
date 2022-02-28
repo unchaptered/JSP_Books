@@ -81,10 +81,7 @@ public class CartDTO {
 	public boolean equals(Object obj) {
 		if(obj instanceof CartDTO) {
 			CartDTO target = (CartDTO)obj;
-			
-			if(target.title.equals(this.title)) {
-				return true;
-			}
+			return target.title.equals(this.title);
 		}
 		return false;
 	}

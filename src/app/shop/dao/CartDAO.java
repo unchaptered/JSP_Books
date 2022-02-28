@@ -31,7 +31,6 @@ public class CartDAO {
 		sqlsession.update("Shop.updateCartQuantityOverwrite", datas);
 	}
 	public boolean addCart(CartDTO cdto) {
-		System.out.println(cdto.getBookpk());
 		return sqlsession.insert("Shop.addCart", cdto) == 1;
 	}
 
