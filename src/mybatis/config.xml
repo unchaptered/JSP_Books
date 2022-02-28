@@ -3,6 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+    <setting name="mapUnderscoreToCamelCase" value="true"/>
+  </settings>
   <typeAliases>
     <!-- <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/> -->
     <!-- <typeAlias type="app.album.dao.AlbumDTO" alias="ablumdto"/> -->
@@ -13,10 +16,10 @@
     <typeAlias type="app.post.dao.EventDTO" alias="eventdto"/>
     <typeAlias type="app.post.dao.NoticeDTO" alias="noticedto"/>
     <typeAlias type="app.post.dao.FileDTO" alias="filedto"/>
+    <typeAlias type="app.shop.dao.CartDTO" alias="cartdto"/>
     
-    <!-- <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/> -->
+    <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/>
     <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>
-    <typeAlias type="app.book.dao.BookDTO2" alias="bookdto"/>
   </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -37,5 +40,6 @@
     <mapper resource="mapper/book.xml"/>
     <mapper resource="mapper/post.xml"/>
     <mapper resource="mapper/file.xml"/>
+    <mapper resource="mapper/shop.xml"/>
   </mappers>
 </configuration>

@@ -109,3 +109,40 @@ CREATE TABLE album (
    album_singer VARCHAR(300),
    album_release VARCHAR(300)
 );
+
+CREATE TABLE bill (
+	bill_pk BIGINT AUTO_INCREMENT PRIMARY KEY,	-- 주문번호
+    bill_payment VARCHAR(300),					-- 결제수단
+	bill_total_price VARCHAR(300),				-- 결제총금액
+    bill_date datetime default now(),			-- 주문일시
+    bill_zipcode VARCHAR(300),					-- 배송우편번호
+    bill_addr VARCHAR(300),						-- 배송주소
+    bill_cost VARCHAR(300) default '0',			-- 배송비
+    bill_status VARCHAR(300) default '배송준비중', -- 배송상태
+    user_pk INT,
+	FOREIGN KEY (user_pk)
+      REFERENCES user (user_pk)
+);
+
+CREATE TABLE products (
+	product_pk BIGINT AUTO_INCREMENT PRIMARY KEY,	-- 주문상품번호
+    product_quantity INT,							-- 상품수량
+    product_total_price VARCHAR(300),				-- n개상품 총금액, 구매시점에 따라 상품가격변동
+	new_book_pk INT,								-- 책번호
+    bill_pk BIGINT,									-- 주문번호
+	FOREIGN KEY (new_book_pk)
+      REFERENCES new_book (new_book_pk),
+	FOREIGN KEY (bill_pk)
+      REFERENCES bill (bill_pk)
+);
+
+CREATE TABLE cart (
+	cartnum BIGINT AUTO_INCREMENT PRIMARY KEY,		-- 장바구니 카트번호
+	quantity INT DEFAULT 1,							-- 구매수량
+	userpk INT,
+	bookpk INT,
+	FOREIGN KEY (userpk)
+      REFERENCES user (user_pk),
+	FOREIGN KEY (bookpk)
+      REFERENCES new_book (new_book_pk)
+);

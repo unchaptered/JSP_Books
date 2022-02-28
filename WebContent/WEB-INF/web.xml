@@ -41,4 +41,12 @@
     <servlet-name>PostFrontController</servlet-name>
     <url-pattern>*.po</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>ShopFrontController</servlet-name>
+    <servlet-class>app.shop.servlet.ShopFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShopFrontController</servlet-name>
+    <url-pattern>*.sh</url-pattern>
+  </servlet-mapping>
 </web-app>

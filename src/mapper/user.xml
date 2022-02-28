@@ -9,13 +9,13 @@
 		VALUES (#{userEmail},#{userName},#{userPassword},#{userPhone},#{userZipcode},
 		#{userAddress},#{userAddressDetail},#{userAddressEtc},#{userBank},#{userBankAccount})
 	</insert>
-	<select id="LogincheckEmail" parameterType="string" resultType="_int">
+	 <select id="LogincheckEmail" parameterType="string" resultType="_int">
 		select count(*) from user where user_email=#{email}
-	</select>
+	</select> 
 	<select id="JoincheckEmail" parameterType="string" resultType="_int">
 		select count(*) from user where user_email=#{userEmail}
 	</select>
-	<select id="login" parameterType="hashmap" resultType="userdto">
-		select * from user where user_email=#{email} and user_password=#{loginPw}
+	<select id="UserLogin" parameterType="hashmap" resultType="userdto">
+		select * from user where user_email=#{email} AND user_password=#{loginPw}
 	</select>
 </mapper>
