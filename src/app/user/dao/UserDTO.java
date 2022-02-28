@@ -4,7 +4,6 @@ public class UserDTO {
 	// Field Variables
 	
 	private int userPk; // 기본키
-	
 	private String userEmail; // 이메일
 	private String userName; // 이름
 	private String userPassword; // 비밀번호

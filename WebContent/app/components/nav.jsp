@@ -41,7 +41,7 @@
             <summary class="nav_menu_summary">도서</summary>
             <section class="nav_menu_linkers">
             	<!-- kmhyeon -->
-                <a href="new_book_list.jsp">책 리스트</a>
+                <a href="${cp}/book/NewBookList.nb">책 리스트</a>
                 <a href="new_book_read.jsp">책 디테일</a>
                 <!-- sunsetkk -->
                 <a href="new_book_add.jsp">책 등록하기</a>
