@@ -38,7 +38,7 @@
 	<select id="getBookList"  resultType="bookdto">
 <!-- 		select cartnum, new_book_image AS image, bookpk, new_book_title AS title, quantity, 
 			new_book_price AS price, new_book_mount AS mount -->
-		select b.new_book_title as bookTitle , b.new_book_subtitle as bookSubtitle,
+		select b.new_book_pk as bookPk, b.new_book_title as bookTitle , b.new_book_subtitle as bookSubtitle,
         b.new_book_info as bookInfo, b.new_book_info_short as bookInfoShort, b.new_book_image as bookImage,
         b.new_book_org_image as bookOrgImage, b.new_book_price as bookPrice, b.new_book_writer as bookWriter,
         b.new_book_translater as bookTranslater, b.new_book_publisher as bookPublisher ,b.new_book_created as bookCreated,
