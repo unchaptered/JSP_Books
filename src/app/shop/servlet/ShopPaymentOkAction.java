@@ -34,8 +34,9 @@ public class ShopPaymentOkAction implements Action{
 				String BookTitle = bookList.get(index).getBookTitle();
 				prodMount = Integer.parseInt(bookList.get(index).getBookMount());
 				if(Integer.parseInt(qty[index])>prodMount) {
-					// 재고부족. 에러메시지 쿠키나 세션에 등록
-					String errorMSG=String.format("상품 '%s'의 재고가 부족합니다.", bookList.get(index).getBookTitle());
+					// 재고부족. 에러메시지는 이어지는 페이지에 담아 이동후 보여줌
+					String errorMsg=String.format("상품 '%s'의 재고가 부족합니다.", bookList.get(index).getBookTitle());
+					req.setAttribute("errorMsg", errorMsg);	// 다음페이지에 넘길정보 담음
 					transfer.setPath("/shop/ShopBags.sh");	// 장바구니로 이동
 					transfer.setRedirect(false);
 					return transfer;
@@ -93,7 +94,7 @@ public class ShopPaymentOkAction implements Action{
 		}
 		// 주문성공
 		transfer.setPath("/shop/ShopBills.sh");	// 구매내역으로 이동
-		transfer.setRedirect(false);
+		transfer.setRedirect(true);	// 중요한DB수정이 있었음. forward로 하면 주소가 변경되지 않아 새로고침시 DB수정이 반복됨.
 		return transfer;
 	}
 

@@ -23,6 +23,12 @@
 			location.replace(cp+"/user/UserLoginEmailOk.us");
 		</script>
 	</c:if>	 --%>
+	<!-- 주문결제 페이지에서 구매오류로 넘어왔을때 출력 -->
+	<c:if test="${requestScope.errorMsg != null}">
+		<script>
+			alert("${requestScope.errorMsg}");
+		</script>
+	</c:if>
 	
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="../components/nav.jsp" %>
