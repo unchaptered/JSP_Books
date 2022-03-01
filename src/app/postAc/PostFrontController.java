@@ -162,6 +162,13 @@ public class PostFrontController extends HttpServlet{
 				System.out.println("RemoveEventFileDetail : "+e);
 			}
 			break;
+		case "/app/post/RemoveCheckNotice.po":
+			try {
+				new RemoveCheckNoticeAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("RemoveCheckNotice : "+e);
+			}
+			break;
 		}
 		
 		if(transfer != null) {

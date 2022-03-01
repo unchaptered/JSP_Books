@@ -107,3 +107,37 @@ function addEvent(){
     }   
     return true;
 }
+//폼 유효성 검사
+function editEvent(){
+    let frm = document.eventEditForm;
+
+    if(frm.postTitle.value == ""){
+        alert("이벤트 제목을 작성해주세요");
+        frm.postTitle.focus();
+        return false;
+    }
+    if(frm.eventStarted.value == ""){
+        alert("이벤트 시작일을 설정해주세요")
+        frm.eventStarted.focus();
+        return false;
+    }
+    if(frm.eventEnded.value == ""){
+        alert("이벤트 종료일을 설정해주세요")
+        frm.eventEnded.focus();
+        return false;
+    }
+    if(frm.eventEnded.value <= frm.eventStarted.value){
+        alert("이벤트 종료일은 시작일보다 늦게 설정해야 합니다.")
+        frm.eventEnded.focus();
+        return false;
+    }
+    if(frm.postText.value == ""){
+    	alert("이벤트 내용을 작성해주세요")
+        frm.postText.focus();
+        return false;
+    }
+    if(!confirmSave()){
+    	return false;
+    }   
+    return true;
+}

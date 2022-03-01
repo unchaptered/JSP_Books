@@ -3,7 +3,6 @@ package app.postAc;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.user.dao.UserDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -28,8 +27,9 @@ public class EventAddOkAction implements Action{
 		
 		//파일이 저장될 경로
 		String rootPath = req.getSession().getServletContext().getRealPath("/");
-	
+		System.out.println(rootPath);
 		String saveFolder = rootPath+"media";	
+		System.out.println(saveFolder);
 		
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
@@ -58,8 +58,8 @@ public class EventAddOkAction implements Action{
 		String postText = multi.getParameter("postText");
 		String eventStarted = multi.getParameter("eventStarted");
 		String eventEnded = multi.getParameter("eventEnded");		
-
-//		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
+		
+		//로그인 세션(이메일)받아오기
 		int postOwner = 2;
 //		int postOwner = pdao.getPostOwner(ownerEmail);
 //		String ownerName = pdao.getOwnerName(ownerEmail);

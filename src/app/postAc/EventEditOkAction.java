@@ -133,7 +133,13 @@ public class EventEditOkAction implements Action{
 		
 		if(pdao.updatePost(post)) {
 			if(edao.updateEvent(event)) {
+				System.out.println("eventok");
+				System.out.println(fcheckNew);
+				System.out.println(fcheckStage);
+				System.out.println(fcheckDetailNew);
+				System.out.println(fcheckDetailStage);
 				if(fcheckNew && fcheckStage && fcheckDetailNew && fcheckDetailStage) {
+					System.out.println("allok");
 					transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
 				}
 			}

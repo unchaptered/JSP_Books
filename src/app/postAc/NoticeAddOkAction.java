@@ -27,7 +27,8 @@ public class NoticeAddOkAction implements Action{
 		FileDAO fdao = new FileDAO();
 		
 		//파일이 저장될 경로
-		String saveFolder = "C:\\0900_GB_KSY";
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		String saveFolder = rootPath+"media";	
 
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
