@@ -52,7 +52,7 @@ public class BookDAO {
 	}
 
 	public BookDTO getDetail(int bookPk) {
-		return sqlsession.selectOne("book.getDetail");
+		return sqlsession.selectOne("book.getDetail", bookPk);
 	}
 
 

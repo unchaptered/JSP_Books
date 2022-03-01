@@ -76,8 +76,6 @@ CREATE TABLE new_book (
    new_book_genre VARCHAR(300) NOT NULL,
    new_book_country VARCHAR(300) NOT NULL
 );
-select * from new_book;
-select * from new_book where new_book_pk ;
 CREATE TABLE old_book (
    old_book_pk INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
    old_book_discount_10 INT DEFAULT 0 NOT NULL CHECK ( old_book_discount_10 >= 0 ),
