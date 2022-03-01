@@ -34,17 +34,14 @@
 				<c:set var="arData" value="<%=new int[]{1,2,3} %>"/>
 			<c:choose>
 			<c:when test="${bookList2.size()>0 and bookList2 != null}">
-			<c:forEach var="best" items="${bookList2 }">
-			<div class="content_container_best">
-					<c:forEach var="i" begin="0" end="2" step="1">			
-						<img src="${cp }/assets/img/new_book/images/best-${i+1}.png" alt="">
-					</c:forEach>
+			<c:forEach var="best" items="${bookList2 }" varStatus="status">
+			<div class="content_container_best">		
+						<img src="${cp }/assets/img/new_book/images/best-${status.index+1}.png" alt="">
 					<div class="photo"></div>
 					<div class="book_name">
 						<p>
 							<a href=""><h3>${best.bookTitle }</h3></a> 
-							<input type="button" value="${best.bookWriter }" name="writer">· 
-							<input type="button" value="${best.bookPublisher }" name="company">
+							<input type="button" value="${best.bookWriter}" name="writer">/<input type="button" value="${best.bookPublisher }" name="company">
 							<br> ${best.bookPrice}원
 						</p>
 					</div>
@@ -76,7 +73,7 @@
 					<div class="blank"></div>
 					<div class="book_content">
 						<p>
-							${best.bookInfo}dfsdfdsfsdfdsfsd
+							${best.bookInfo}
 							<!--『망원동 브라더스』 김호연의 ‘동네 이야기’ 시즌 2
                             청파동 골목에 자리 잡은 작은 편의점 ALWAYS.
                             어느 날 서울역에서 살던 사내가 야간 알바로 들어오면서

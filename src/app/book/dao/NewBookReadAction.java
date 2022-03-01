@@ -14,16 +14,15 @@ public class NewBookReadAction implements Action{
 		HttpSession sessioin = req.getSession();
 
 
-		int bookPk = 0;
-		bookPk = Integer.parseInt(req.getParameter("bookPk"));
-//		System.out.println(bookPk);
+		int bookPk = Integer.parseInt(req.getParameter("bookPk"));
+		System.out.println(bookPk);
 
 //		
 		BookDTO book = bookdao.getDetail(bookPk);
+		System.out.println(book);
 //
 //
 		req.setAttribute("book", book);
-		System.out.println(book);
 //		req.setAttribute("notice", notice);
 //		int noticePk = Integer.parseInt(req.getParameter("noticePk"));
 //		

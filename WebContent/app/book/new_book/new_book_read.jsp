@@ -63,7 +63,7 @@
 	<div class="main_content book_explain">
 		<section class="book">
 			<div class="book_name">
-				<h2>불편한 편의점(15만부 기념 윈터 에디션) : 김호연 장편소설${book.bookPk }</h2>
+				<h2>${book.bookTitle}(15만부 기념 윈터 에디션) : 김호연 장편소설${book.bookPk }</h2>
 			</div>
 		</section>
 		<div class="book_explain_content">
