@@ -1,5 +1,8 @@
 /* 저자 : 김명현 */
 /* 카테고리 파트 */
+li{
+	list-style: none;
+}
 .category{
     width: 100%;
     /* width: 1100px; */

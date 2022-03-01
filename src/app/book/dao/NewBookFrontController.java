@@ -67,7 +67,6 @@ public class NewBookFrontController extends HttpServlet{
 			} catch (Exception e) {
 				System.out.println("NewBookRead : " +e);
 			}
-			
 			break; 
 		}
 		
