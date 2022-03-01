@@ -1,3 +1,4 @@
+//저자 : carpriceksy
 package app.postAc;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,9 +26,11 @@ public class NoticeRemoveAction implements Action{
 		
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(true);
+		
 		if(ndao.removeNotice(noticePk)) {
 			if(pdao.removePost(postPk)) {
 				if(fdao.removeFile(noticeFile)) {
+
 				}
 				transfer.setPath(req.getContextPath()+"/app/post/NoticeList.po");
 			}

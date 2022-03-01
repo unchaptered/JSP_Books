@@ -1,3 +1,4 @@
+<!-- 저자 : carpriceksy -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -21,6 +22,9 @@
                 <!-- 폼 시작 -->
                 <form action="${cp}/app/post/NoticeEditOk.po" name="noticeEditForm" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="noticePk" value="${notice.noticePk}">
+                    <div class="goList_div">
+                    	<a href="${cp}/app/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
+                    </div>
                     <div>
                         <div class="write_content">
                             <strong class="detail_title">공지사항 제목</strong>
@@ -33,8 +37,14 @@
                             <div class="fileBtn">
 		                    	<label for="input-file">첨부 파일</label> 
 		                        <input type="file" name="noticeFile" id="input-file" onchange="showName()"/>
-		                        <div id="showFiles">${file.postFileOrigin}</div>
-		                        <!-- <a href="" id="removeBtn">X</a> -->
+		                        <c:choose>
+		                        	<c:when test="${not empty file.postFileSystem || file.postFileSystem != null}">
+		                        		<div id="showFiles">${file.postFileOrigin}&nbsp;&nbsp;<a href="javascript:removeNoticeFile(${file.postFilePk})">[X]</a></div>
+		                        	</c:when>
+		                        	<c:otherwise>
+		                        		<div id="showFiles"></div>
+		                        	</c:otherwise>
+		                        </c:choose>
 				                <input type="hidden" id="stageOrigin" name="stageOrigin" value="${file.postFileOrigin }">
 		                        <input type="hidden" id="stageSystem" name="stageSystem" value="${file.postFileSystem}">
                             </div>
@@ -55,8 +65,7 @@
                     </div>
                     <div class="boardBtn">
                         <input type="submit" id="submitBtn" value="수정" onclick="return editNotice()">
-                    </div>
-                    <a href="${cp}/app/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
+                    </div>                   
                 </form>
                 <!-- 폼 종료 -->
             </div>
@@ -66,7 +75,29 @@
 	<%@ include file="/app/components/footer.jsp" %>
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
-<script src="${cp}/assets/js/notice_edit.js"></script>
+<script src="${cp}/assets/js/notice_add.js"></script>
 <script src="${cp}/assets/js/summernote/summernote-lite.js"></script>
 <script src="${cp}/assets/js/summernote/lang/summernote-ko-KR.js"></script>
+<script>
+	function removeNoticeFile(postFilePk){
+		const showFiles = document.getElementById("showFiles");
+		const stageOrigin = document.getElementById("stageOrigin");
+		const stageSystem = document.getElementById("stageSystem");
+		const xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == XMLHttpRequest.DONE){
+				if(xhr.status == 200){
+					if(confirm("파일을 완전히 삭제하시겠습니까?")){
+						showFiles.innerHTML = "";
+						stageOrigin.remove();
+						stageSystem.remove();
+					}
+				}
+			}
+		}	
+		xhr.open("GET","${pageContext.request.contextPath}/app/post/RemoveNoticeFile.po?postFilePk="+postFilePk,true);
+		xhr.send();
+		flag = true;
+	}
+</script>
 </html>

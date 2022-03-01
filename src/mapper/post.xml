@@ -13,7 +13,7 @@
 		where post_pk = #{postPk}
 	</update>
 	<update id="updatePost" parameterType="postdto">
-		update post set post_title = #{postTitle}, post_text = #{postText}, post_created = now()
+		update post set post_title = #{postTitle}, post_text = #{postText}
 		where post_pk = #{postPk}
 	</update>
 	<delete id="removePost" parameterType="_int">
@@ -39,12 +39,20 @@
 		values(#{eventStarted}, #{eventEnded}, #{eventFile}, #{eventFileDetail}, #{postPk})
 	</insert>
 	<update id="updateEvent" parameterType="eventdto">
-		update post_event set event_started = #{eventStarted}, event_ended = #{eventEnded}
+		update post_event set event_started = #{eventStarted}, event_ended = #{eventEnded}, event_file = #{eventFile}, event_file_detail = #{eventFileDetail}
 		where post_pk = #{postPk}
 	</update>
 	<update id="updateEventLike" parameterType="_int">
 		update post_event set event_like = event_like+1 
 		where event_pk = #{eventPk}
+	</update>
+	<update id="removeEventFile" parameterType="_int">
+		update post_event set event_file = 0
+		where event_file = #{eventFile}
+	</update>
+	<update id="removeEventFileDetail" parameterType="_int">
+		update post_event set event_file_detail = 0
+		where event_file_detail = #{eventFileDetail}
 	</update>
 	<delete id="removeEvent" parameterType="_int">
 		delete from post_event where event_pk = #{eventPk}
@@ -87,6 +95,10 @@
 	<update id="updateNotice" parameterType="noticedto">
 		update post_notice set notice_pin = #{noticePin}, notice_file = #{noticeFile}
 		where post_pk = #{postPk}
+	</update>
+	<update id="removeNoticeFile" parameterType="_int">
+		update post_notice set notice_file = 0
+		where notice_file = #{noticeFile}
 	</update>
 	<delete id="removeNotice" parameterType="_int">
 		delete from post_notice where notice_pk = #{noticePk}

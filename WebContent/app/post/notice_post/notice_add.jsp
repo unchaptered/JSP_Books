@@ -1,6 +1,7 @@
+<!-- 저자 : carpriceksy -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +21,9 @@
                 <strong class="title">공지사항 작성</strong>
                 <!-- 폼 시작 -->
                 <form action="${cp}/app/post/NoticeAddOk.po" name="noticeAddForm" method="post" enctype="multipart/form-data">
+                    <div class="goList_div">
+                    	<a href="${cp}/app/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
+                    </div>
                     <div>
                         <div class="write_content">
                             <strong class="detail_title">공지사항 제목</strong>
@@ -41,8 +45,7 @@
                     </div>
                     <div class="boardBtn">
                         <input type="submit" id="submitBtn" value="등록" onclick="return addNotice()">
-                    </div>
-                    <a href="${cp}/app/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
+                    </div>                    
                 </form>
                 <!-- 폼 종료 -->
             </div>

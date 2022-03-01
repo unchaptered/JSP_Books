@@ -77,11 +77,13 @@ input[type="submit"]{
 }
 
 /* 목록보기 버튼 */
+.goList_div{
+    margin-top: 15px;
+}
 .goList{
     float: right;
     position: relative;
     right: 30px;
-    bottom: 60px;
     padding: 9px 20px;
     border: 1px solid #cfcfcf;
     color: #3b3b3b;

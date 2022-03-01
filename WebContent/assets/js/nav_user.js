@@ -91,6 +91,28 @@
         }
         });
         
+    // pwFindBack.js
+        
+        $("#backLoginPw").on("click", function(){
+            $('body').css("overflow", "hidden");
+            $(".pw_find_wrap").css({ visibility:"hidden",opacity:0});
+            $(".login_wrap").css({ visibility:"visible",opacity:1});
+            });
+            // 모달창 닫기 이벤트 
+            $("#closePwFind").on("click", function(){
+            $('body').css("overflow-y", "scroll");
+            $(".pw_find_wrap").css({ visibility:"hidden",opacity:0 });
+            });
+
+            $(document).on("click",function(e){
+            if( $(".pw_find_wrap").is(e.target)) {
+            $(".pw_find_wrap").css({ visibility:"hidden",opacity:0 });
+            $('body').css("overflow-y", "scroll");
+            }
+            });
+        
+        
+        
     // idFind.js
         
         // 모달창 열기 이벤트
@@ -111,6 +133,25 @@
         $('body').css("overflow-y", "scroll");
         }
         });
+    // idFindBack.js
+        
+        $("#backLoginId").on("click", function(){
+            $('body').css("overflow", "hidden");
+            $(".id_find_wrap").css({ visibility:"hidden",opacity:0});
+            $(".login_wrap").css({ visibility:"visible",opacity:1});
+            });
+            // 모달창 닫기 이벤트 
+            $("#closeIdFind").on("click", function(){
+            $('body').css("overflow-y", "scroll");
+            $(".id_find_wrap").css({ visibility:"hidden",opacity:0 });
+            });
+
+            $(document).on("click",function(e){
+            if( $(".id_find_wrap").is(e.target)) {
+            $(".id_find_wrap").css({ visibility:"hidden",opacity:0 });
+            $('body').css("overflow-y", "scroll");
+            }
+            });
         
         
         

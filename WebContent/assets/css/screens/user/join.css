@@ -133,6 +133,9 @@
 .user_email_input {
   margin-top: 11px !important;
 }
+.join_wrap #userEmail:focus{
+	border: 1px solid #36f;
+}
 .join_wrap .error{
 	font-size:12px;
 }

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
@@ -18,12 +18,13 @@
 			<div class="notice">
 				<a href="${cp}/app/post/NoticeList.po"><strong class="title">공지사항</strong></a>
 				<!-- 폼 시작 -->
-				<form action="" name="noticeForm" method="get" onsubmit="sendit()">
+				<form name="noticeForm" method="get">
 					<div class="board_count">
 						total : <span>${noticeTotalCnt}</span> / pages : <span>${noticeTotalPage}</span>
 					</div>
 					<table class="notice_table">
 						<colgroup>
+							<col class="colcheck">
 							<col class="col">
 							<col>
 							<col class="col">
@@ -32,6 +33,7 @@
 						</colgroup>
 						<thead>
 							<tr>
+								<th><input type="checkbox" id="thCheck" name="thCheck" onclick="checkAll()"></th>
 								<th>번호</th>
 								<th>제목</th>
 								<th>작성자</th>
@@ -47,6 +49,7 @@
 										<c:choose>
 											<c:when test="${notice.noticePin == 'Y'}">
 												<tr class="alert">
+													<td class="board_check"><input type="checkbox" name="nCheck" id="nCheck" class="boardCheck" value="${notice.noticePk}"></td>
 													<td class="board_num">${notice.noticePk}</td>
 													<td class="board_tlt">
 														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}"><strong>${notice.postTitle}</strong></a>
@@ -58,6 +61,7 @@
 											</c:when>
 											<c:otherwise>
 												<tr>
+													<td class="board_check"><input type="checkbox" name="nCheck" id="nCheck" class="boardCheck" value="${notice.noticePk}"></td>
 													<td class="board_num">${notice.noticePk}</td>
 													<td class="board_tlt">
 														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
@@ -72,7 +76,7 @@
 								</c:when>
 								<c:otherwise>
 									<tr>
-										<td class="notice_none" colspan="5">
+										<td class="notice_none" colspan="6">
 											등록된 공지사항이 없습니다.
 										</td>
 									</tr>
@@ -80,7 +84,8 @@
 							</c:choose>
 						</tbody>
 					</table>
-					<a href="${cp}/app/post/NoticeAdd.po?noticePage=${noticePage}" class="createNotice">새 공지 등록</a>
+					<a href="${cp}/app/post/NoticeAdd.po?noticePage=${noticePage}" class="noticeBtn createNotice">새 공지 등록</a>
+					<a href="javascript:deleteCheck();" class="noticeBtn deleteCheckBtn">선택삭제</a>
 					<!-- 페이지 버튼 : 한 페이지 1~10-->
 					<div class="pagination">
 						<ul>

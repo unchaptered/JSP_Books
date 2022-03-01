@@ -1,7 +1,5 @@
+//저자 : carpriceksy
 package app.postAc;
-
-import java.io.File;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,70 +51,97 @@ public class EventEditOkAction implements Action{
 		
 		event.setEventStarted(eventStarted);
 		event.setEventEnded(eventEnded);
-
-		int eventFilePk = event.getEventFile();
-		int eventFileDetailPk = event.getEventFileDetail();
-		fdao.removeFile(eventFilePk);
-		fdao.removeFile(eventFileDetailPk);
+		
+		int eventFile = event.getEventFile();
+		int eventFileDetail = event.getEventFileDetail();
 		
 		//페이지 보내기
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(true);
 		
+
 		String newOrigin = multi.getOriginalFileName("eventFile");
-		String newSystem = multi.getFilesystemName("eventFile");
-		String stageOrigin = multi.getOriginalFileName("stageEventFileOrigin");
-		String stageSystem = multi.getFilesystemName("stageEventFileSystem");
-		
+		String newSystem = multi.getFilesystemName("eventFile");		
+
 		String newDetailOrigin = multi.getOriginalFileName("eventFileDetail");
 		String newDetailSystem = multi.getFilesystemName("eventFileDetail");
-		String stageDetailOrigin = multi.getOriginalFileName("stageEventFileDetailOrigin");
-		String stageDetailSystem = multi.getFilesystemName("stageEventFileDetailSystem");
+		
+		boolean fcheckStage = false;
+		boolean fcheckNew = false;
+		boolean fcheckDetailStage = false;
+		boolean fcheckDetailNew = false;
 		
 		if(newSystem == null) {
-			if(stageSystem != null || stageSystem != "") {
-				FileDTO stageFile = new FileDTO();
-				stageFile.setPostFileSystem(stageSystem);
-				stageFile.setPostFileOrigin(stageOrigin);
-				if(fdao.insertFile(stageFile)) {
-					int stageEventFile = fdao.getLastPostFilePk(stageSystem);
-					event.setEventFile(stageEventFile);
-				}
-			}
+			fcheckNew = true;
 		}
-		else {
-			FileDTO newFile = new FileDTO();
-			newFile.setPostFileSystem(newSystem);
-			newFile.setPostFileOrigin(newOrigin);
-			if(fdao.insertFile(newFile)){
-				int newEventFile = fdao.getLastPostFilePk(newSystem);
-				event.setEventFile(newEventFile);
-			}
+		if(eventFile == 0) {
+			fcheckStage = true;
 		}
 		if(newDetailSystem == null) {
-			if(stageDetailSystem != null || stageDetailSystem != "") {
-				FileDTO stageDetailFile = new FileDTO();
-				stageDetailFile.setPostFileSystem(stageDetailSystem);
-				stageDetailFile.setPostFileOrigin(stageDetailOrigin);
-				if(fdao.insertFile(stageDetailFile)) {
-					int stageEventDetailFile = fdao.getLastPostFilePk(stageDetailSystem);
-					event.setEventFile(stageEventDetailFile);
+			fcheckDetailNew = true;
+		}
+		if(eventFileDetail == 0) {
+			fcheckDetailStage = true;
+		}
+		
+		//리스트 배너 이미지
+		if(!fcheckNew) {//input 있을 경우
+			if(!fcheckStage) { //input있고 원래 파일이 있었을 경우(수정)
+				FileDTO newFile = new FileDTO();
+				newFile.setPostFilePk(eventFile);
+				newFile.setPostFileSystem(newSystem);
+				newFile.setPostFileOrigin(newOrigin);
+				
+				fcheckStage = fdao.updateFile(newFile);
+				
+			}
+			else { //input있고 원래 파일 없었을 경우(파일x>파일추가)
+				FileDTO newFile = new FileDTO();
+				newFile.setPostFileSystem(newSystem);
+				newFile.setPostFileOrigin(newOrigin);
+				if(fdao.insertFile(newFile)) {
+					int newEventFile = fdao.getLastPostFilePk(newSystem);
+					event.setEventFile(newEventFile);
 				}
 			}
+			fcheckNew = true;
 		}
-		else {
-			FileDTO newDetailFile = new FileDTO();
-			newDetailFile.setPostFileSystem(newDetailSystem);
-			newDetailFile.setPostFileOrigin(newDetailOrigin);
-			if(fdao.insertFile(newDetailFile)){
-				int newEventDetailFile = fdao.getLastPostFilePk(newDetailSystem);
-				event.setEventFile(newEventDetailFile);
+		
+		
+		//상세페이지 이미지
+		if(!fcheckDetailNew) {//input 있을 경우
+			if(!fcheckDetailStage) { //input있고 원래 파일이 있었을 경우(수정)
+				FileDTO newDetailFile = new FileDTO();
+				newDetailFile.setPostFilePk(eventFileDetail);
+				newDetailFile.setPostFileSystem(newDetailSystem);
+				newDetailFile.setPostFileOrigin(newDetailOrigin);
+				
+				fcheckDetailStage = fdao.updateFile(newDetailFile);
+				
 			}
+			else { //input있고 원래 파일 없었을 경우(파일x>파일추가)
+				FileDTO newDetailFile = new FileDTO();
+				newDetailFile.setPostFileSystem(newDetailSystem);
+				newDetailFile.setPostFileOrigin(newDetailOrigin);
+				if(fdao.insertFile(newDetailFile)) {
+					int newEventDetailFile = fdao.getLastPostFilePk(newDetailSystem);
+					event.setEventFileDetail(newEventDetailFile);
+				}
+			}
+			fcheckDetailNew = true;
 		}
-			
+		
 		if(pdao.updatePost(post)) {
 			if(edao.updateEvent(event)) {
-				transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
+				System.out.println("eventok");
+				System.out.println(fcheckNew);
+				System.out.println(fcheckStage);
+				System.out.println(fcheckDetailNew);
+				System.out.println(fcheckDetailStage);
+				if(fcheckNew && fcheckStage && fcheckDetailNew && fcheckDetailStage) {
+					System.out.println("allok");
+					transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
+				}
 			}
 		}
 		else {
