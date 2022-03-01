@@ -38,5 +38,16 @@ public class UserDAO {
 		return 0 == (Integer)sqlsession.selectOne("User.JoincheckEmail",userEmail);
 	}
 
+	public UserDTO findEmail(String emailFindName, String emailFindPhone) {
+		HashMap<String, Object> emailDatas = new HashMap<String, Object>();
+		emailDatas.put("emailFindName",emailFindName);
+		emailDatas.put("emailFindPhone",emailFindPhone);
+		System.out.println(emailDatas);
+		UserDTO findUser = null;
+		findUser = (UserDTO)sqlsession.selectOne("User.UserFindEmail",emailDatas);
+		System.out.println(findUser);
+		return findUser;
+	}
+
 	}
 

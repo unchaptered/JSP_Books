@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
+<% Object a = session.getAttribute("findUser");
+	String b = (String)a;
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<c:set var="cp" value="${pageContext.request.contextPath}"/>
+
 </head>
 <!-- 저자 : unchaptered -->
 <body>
-
     <nav id="nav">
         <section class="nav-sizer">
             <div class="nav_column">
@@ -39,7 +42,7 @@
                 <input type="button" value="join" id="myBtnJoin">
 				</c:if>
 				<c:if test="${loginUser != null }">
-                <input type="button" value="Logout" id="myBtnLogout">
+                <a href="${cp}/user/UserLogoutOk.us">Logout</a>
                 </c:if>
             </div>
         </section>
@@ -141,7 +144,7 @@
                 <p class="login_footer">
                     걱정마세요! 여러분의 활동은 SNS에 노출되지 않습니다.
                     <br>
-                    회원가입 시
+                    회원가입 시${b}
                     <a href="notice_detail1.html" class="loginAnchor">개인정보 처리방침</a>과
                     <a href="#" class="loginAnchor">이용약관</a>을 확인하였으며, 동의합니다.
                    </p>
@@ -162,11 +165,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                    <button type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
-                    </svg>
-                    </button>
+                    
                 </div>
             </div>
             <div class="join_body">
@@ -329,7 +328,7 @@
         </form>
     </div>
      <div class="id_find_wrap">
-     <form>
+     <form name="idFindForm" action="${cp}/user/UserIdFindOk.us" method="post">
         <div class="id_find_container">
             <div class="id_find_header">
                 이메일 찾기
@@ -339,7 +338,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                    <button type="button">
+                    <button type="button" id="backLoginId">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                       </svg>
@@ -352,17 +351,17 @@
                         <div class="id_find_name_inner">
                         <label for="id_find_name_input" class="user_info">이름</label>
                         <div class="input_name_id_find">
-                            <input type="text" id="email_name_input_find" placeholder="이름을 입력해주세요.">
+                            <input type="text" id="email_name_input_find" placeholder="이름을 입력해주세요." name="email_name_input_find">
                         </div>
                     </div>
                     <div class="id_find_phone_inner">
                         <label for="id_find_phone_input" class="user_info">휴대폰 번호</label>
                         <div class="input_phone_id_find">
-                            <input type="text" id="email_phone_input_find" placeholder="(예시) 01012345678">
+                            <input type="text" id="email_phone_input_find" placeholder="(예시) 01012345678" name="email_phone_input_find">
                         </div>
                     </div>
                         <div class="id_find_space"></div>
-                        <button type="button" class="id_find_btn buttons" id="id_find_login"><a href="./emailShow.html">이메일 찾기</a></button>
+                        <input type="submit" class="id_find_btn buttons" id="id_find_login" name="id_find_login" value="이메일 찾기"></button>
                     </div>
                 </div>
             </div>
@@ -381,7 +380,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                    <button type="button">
+                    <button type="button" id="backLoginPw">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                       </svg>
@@ -394,13 +393,13 @@
                         <div class="pw_find_name_inner">
                         <label for="pw_find_name_input" class="user_info">이메일</label>
                         <div class="input_name_find">
-                            <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해주세요.">
+                            <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해주세요." name="pw_email_input_find">
                         </div>
                     </div>
                     <div class="pw_find_phone_inner">
                         <label for="pw_find_phone_input" class="user_info">휴대폰 번호</label>
                         <div class="input_phone_find">
-                            <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678">
+                            <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678" name="pw_phone_input_find">
                         </div>
                     </div>
                         <div class="pw_find_space"></div>
