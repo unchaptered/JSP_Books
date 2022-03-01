@@ -92,7 +92,7 @@ public class ShopFrontController extends HttpServlet{
 		//전송 일괄처리(어디인지, 어떤 방식인지는 몰라도 그냥 transfer 객체에 담겨있는 정보대로 페이지를 이동시키는 코드)
 		if(transfer != null) {
 			if(transfer.isRedirect()) {
-				resp.sendRedirect(transfer.getPath());
+				resp.sendRedirect(req.getContextPath()+transfer.getPath());	// path 오류로 req.getContextPath() 추가함.
 			}
 			else {
 				RequestDispatcher disp = req.getRequestDispatcher(transfer.getPath());
