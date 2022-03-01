@@ -41,9 +41,9 @@ public class ShopFrontController extends HttpServlet{
 //		장바구니 페이지로 이동합니다. 로그인유저의 카트리스트DB를 전달. 세션필요
 		case "/shop/ShopBags.sh":
 			try {
-				transfer = new CartListAction().execute(req,resp);
+				transfer = new CartListOkAction().execute(req,resp);
 			} catch (Exception e) {
-				System.out.println("CartList : "+e);
+				System.out.println("CartListOk : "+e);
 			}
 			break;
 //		카트1개 삭제
@@ -59,11 +59,11 @@ public class ShopFrontController extends HttpServlet{
 			try {
 				transfer = new UpdateCartOverwriteOkAction().execute(req,resp);
 			} catch (Exception e) {
-				System.out.println("UpdateCartOverwrite : "+e);
+				System.out.println("UpdateCartOverwriteOk : "+e);
 			}
 			break;
 //		주문결제페이지로 이동합니다. 장바구니 체크된 카트들의 cartList를 생성후 넘김 
-		case "/shop/ShopCartOk.sh":
+		case "/shop/Payment.sh":
 			try {
 				transfer = new ShopCartOkAction().execute(req,resp);
 			} catch (Exception e) {

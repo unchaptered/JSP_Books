@@ -24,12 +24,13 @@ public class ShopPaymentOkAction implements Action{
 		String[] products = req.getParameterValues("products");
 		String[] qty = req.getParameterValues("quantity");
 		ActionTo transfer = new ActionTo();
+		int index=0;
 		
 		List<BookDTO> bookList = cdao.getBookList(products);	// 마이바티스 안에서 foreach 동적처리함.
+		//	재고수량보다 더 많이 구매신청했는지 체크
 		if(bookList!=null) {
-//		재고수량보다 많이 구매신청했는지 체크
-			int index=0;
 			int prodMount=0;
+			index=0;
 			for (BookDTO bdto : bookList) {
 				String BookTitle = bookList.get(index).getBookTitle();
 				prodMount = Integer.parseInt(bookList.get(index).getBookMount());
@@ -47,8 +48,11 @@ public class ShopPaymentOkAction implements Action{
 		
 		// bill,products테이블에 등록. cart테이블에서 구매카트삭제
 		int sum=0;	// 모든 상품가격
+		int prodQty=0;
+		index=0;
 		for (BookDTO bdto : bookList) {
-			sum+=(Integer.parseInt(bdto.getBookMount()))*(Integer.parseInt(bdto.getBookPrice()));
+			prodQty=Integer.parseInt(qty[index]);	// 구매수량
+			sum+=(prodQty)*(Integer.parseInt(bdto.getBookPrice()));
 		}
 //		sum=(int)(sum*0.9);	// 10% 할인. (100-10)/100
 //		int delivCost = (sum<10000) ? 2000 : 0;	// 10,000원이상 배송비 무료. 기본배송료 2000원
@@ -73,10 +77,12 @@ public class ShopPaymentOkAction implements Action{
 		// productDTO에 저장될 데이터 셋팅
 		int billPk=billDTO.getBillPk();	// insert후 오토인크리드된 주문번호billPk 가져옴
 		
-		int index=0;
+		index=0;
+		prodQty=0;
+		int bookPk=0;
 		for (BookDTO bdto : bookList) {
-			int prodQty=Integer.parseInt(qty[index]);	// 구매수량
-			int bookPk=Integer.parseInt(bdto.getBookPk());
+			prodQty=Integer.parseInt(qty[index]);	// 구매수량
+			bookPk=Integer.parseInt(bdto.getBookPk());
 			String prodTotalPrice=prodQty*(Integer.parseInt(bdto.getBookPrice()))+""; // (수량*한품목가격)
 			ProductDTO pdto = new ProductDTO();
 			pdto.setBillPk(billPk);

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>	<!-- 금액 3자리마다 콤마찍을라고 넣음 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,14 @@
 </head>
 <!-- 저자 : jungbc1 -->
 <body>
+	<!-- 로그인확인. 그냥 url로 들어올경우 방지 -->
+	<c:if test="${loginUser == null }">
+        <script>
+            let cp = "${pageContext.request.contextPath}";
+            alert("로그인 후 이용하세요!");
+            location.href=cp+"/index.jsp";
+        </script>
+    </c:if>
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="../components/nav.jsp" %>
 	
@@ -22,7 +31,7 @@
         <section class="main-sizer">
             <section class="shop_content">
                 <h2>구매내역</h2>
-                <p><span>김사과</span><span id="rank">(VVIP)</span><span>님의 구매내역</span></p>
+                <p><span>${loginUser.userName}</span><span id="rank">(VVIP)</span><span>님의 구매내역</span></p>
                 <div id="select_period">
                     <span>기간조회</span>
                     <button type="button" class="on" onclick="select_period(this)">1주</button>
@@ -40,45 +49,39 @@
                 <div id="prd_list">
                     <table id="prd_table">
                         <tr id="prd_thead">
-                            <th>주문번호</th>
-                            <th>주문금액</th>
-                            <th colspan="2">상품정보</th>
-                            <th>수량</th>
-                            <th>주문상태</th>
+                            <th width="20%">주문번호</th>
+                            <th width="40%" colspan="2">상품정보</th>
+                            <th width="10%">수량</th>
+                            <th width="15%">판매가 합계</th>
+                            <th width="15%">주문상태</th>
                         </tr>
-                        <tr>
-                            <td>
-                                <a href="#">02243291</a>
-                            </td>
-                            <td>17,000</td>
-                            <td>
-                                <a href="#" id="book1"><img src="../../assets/img/book_sample1.jpg" alt="책"><span></span></a>
-                            <td>
-                                <a href="#">돈의 흐름에 올라타라</a>
-                                <button type="button">리뷰등록</button>
-                            </td>
-                            </td>
-                            <td>1</td>
-                            <td>
-                                <p>배송완료</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">02345348</a>
-                            </td>
-                            <td>16,000</td>
-                            <td>
-                                <a href="#" id="book1"><img src="../../assets/img/book_sample2.jpg" alt="책"></a>
-                            </td>
-                            <td>
-                                <a href="#">떠먹는 국어문법</a>
-                            </td>
-                            <td>1</td>
-                            <td>
-                                <p>배송중</p>
-                            </td>
-                        </tr>
+                         <c:choose>
+	                        <c:when test="${prodList.size()>0 and prodList != null}">
+	                        	<c:forEach var="prod" items="${prodList}">
+		                        	<tr>
+			                            <td>
+			                                <a href="#">${prod.billPk}</a><br><span>${prod.billDate}</span>
+			                            </td>
+			                            <td>
+			                                <a href="#"><img src="${prod.newBookImage}" alt="책"></a>
+			                            <td>
+			                                <a href="#">${prod.newBookTitle}</a>
+			                                <button type="button">리뷰등록</button>
+			                            </td>
+			                            <td>${prod.productQuantity}</td>
+			                            <td><fmt:formatNumber value="${prod.productTotalPrice}" pattern="#,###" />원</td>
+			                            <td><p>${prod.billStatus}</p></td>
+		                        	</tr>
+	                        	</c:forEach>
+	                        </c:when>
+	                        <c:otherwise>
+								<tr>
+									<td colspan="6" style="text-align:center; font-size: 20px">
+										<strong>구매내역이 없습니다.</strong>
+									</td>
+								</tr>
+							</c:otherwise>
+						</c:choose>
                     </table>
                 </div>
             </section>

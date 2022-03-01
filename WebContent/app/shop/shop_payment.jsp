@@ -16,29 +16,20 @@
 <!-- 저자 : jungbc1 -->
 <body>
 	<!-- 로그인확인. 그냥 url로 들어올경우 방지 -->
-<%-- 	<c:if test="${loginEmail == null }">
-		<script>
-			let cp = "${pageContext.request.contextPath}";
-			alert("로그인 후 이용하세요!");
-			location.replace(cp+"/user/UserLoginEmailOk.us");
-		</script>
-	</c:if>
-	<c:set var="userEmail" value="${loginEmail.userEmail}"/>
-	<c:set var="userName" value="${loginEmail.userName}"/>
-	<c:set var="userPhone" value="${loginEmail.userPhone}"/>
-	<c:set var="userZipcode" value="${loginEmail.userZipcode}"/>
-	<c:set var="userAddr" value="${loginEmail.userAddress}"/>
-	<c:set var="userAddrDetail" value="${loginEmail.userAddressDetail}"/> --%>
+	<c:if test="${loginUser == null }">
+        <script>
+            let cp = "${pageContext.request.contextPath}";
+            alert("로그인 후 이용하세요!");
+            location.href=cp+"/index.jsp";
+        </script>
+    </c:if>
+	<c:set var="userEmail" value="${loginUser.userEmail}"/>
+	<c:set var="userName" value="${loginUser.userName}"/>
+	<c:set var="userPhone" value="${loginUser.userPhone}"/>
+	<c:set var="userZipcode" value="${loginUser.userZipcode}"/>
+	<c:set var="userAddr" value="${loginUser.userAddress}"/>
+	<c:set var="userAddrDetail" value="${loginUser.userAddressDetail}"/>
 	
-	
-	<c:set var="userEmail" value="tonke1234@naver.com"/>
-	<c:set var="userName" value="정병찬"/>
-	<c:set var="userPhone" value="010-3083-3187"/>
-	<c:set var="userZipcode" value="10009"/>
-	<c:set var="userAddr" value="서울시 강남구 역삼동"/>
-	<c:set var="userAddrDetail" value="르네상스호텔"/>
-	
-	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="../components/nav.jsp" %>
 	
 	<main id="main">
@@ -56,7 +47,7 @@
 								<c:forEach var="product" items="${cartList}" varStatus="status">	<!-- varStatus="status" 인덱싱처리위해서-->
 					                <div id="cart${status.count}">
 										<input type="hidden" name="products" value="${product.cartnum}">	<!-- 구매상품배열 req로 넘김 --> 
-										<input type="hidden" name="quantity" value="${product.quantity}">	<!-- 구매상품배열 req로 넘김 --> 
+										<input type="hidden" name="quantity" value="${product.quantity}">	<!-- 구매수량배열 req로 넘김 --> 
 			                            <a href="#"><img src="${cp}/assets/img/book_sample1.jpg" alt="book"></a>
 			                            <svg onclick="delCart(`cart${status.count}`)" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -80,7 +71,7 @@
                             <label for="agree1">비회원 개인정보 수집 및 이용동의(필수)</label><br>
                             <input type="checkbox" name="agree2" id="agree2" required>
                             <label for="agree2">주문내역확인 동의(필수)</label><br>
-                            <button>결제하기</button>
+                            <button id="btn_submit">결제하기</button>
                             <button type="button" onclick="location.href='${cp}/shop/ShopBags.sh'">장바구니가기</button>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ public class ShopCartOkAction implements Action{
 			List<CartDTO> cartList = cdao.getCartList(carts);	// 마이바티스 안에서 foreach 동적처리함.
 			req.setAttribute("cartList", cartList);
 //			for (String cartnum : carts) {
-//			cartList.add(cdao.getCartList(cartnum));
+//				cartList.add(cdao.getCart(cartnum));
 //			}
 		}
 		

@@ -56,6 +56,16 @@
 			join cart c on c.bookpk = n.new_book_pk
 		where c.cartnum=#{cartnum};
 	</select> -->
+	
+	<!-- userpk받아서 List<productdto> 받음 -->
+	<select id="getProdList" resultType="productdto" parameterType="_int">
+ 		select *
+		from products p
+			join bill b on b.bill_pk = p.bill_pk
+			join new_book n on n.new_book_pk = p.new_book_pk
+		where b.user_pk=#{userpk}
+		ORDER BY b.bill_pk DESC;
+	</select>
 	<insert id="addCart" parameterType="cartdto">
 		insert into cart (quantity, userpk, bookpk)
 		values(#{quantity}, #{userpk}, #{bookpk})

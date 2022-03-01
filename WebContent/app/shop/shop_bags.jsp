@@ -16,13 +16,13 @@
 <!-- 저자 : jungbc1 -->
 <body>
 	<!-- 로그인확인. 그냥 url로 들어올경우 방지 -->
-<%-- 	<c:if test="${loginEmail == null }">
-		<script>
-			let cp = "${pageContext.request.contextPath}";
-			alert("로그인 후 이용하세요!");
-			location.replace(cp+"/user/UserLoginEmailOk.us");
-		</script>
-	</c:if>	 --%>
+	<c:if test="${loginUser == null }">
+        <script>
+            let cp = "${pageContext.request.contextPath}";
+            alert("로그인 후 이용하세요!");
+            location.href=cp+"/index.jsp";
+        </script>
+    </c:if>
 	<!-- 주문결제 페이지에서 구매오류로 넘어왔을때 출력 -->
 	<c:if test="${requestScope.errorMsg != null}">
 		<script>
@@ -39,7 +39,7 @@
             <section class="shop_content">
                 <h2>장바구니</h2>
                 <div id="cart_items">
-                    <form action="${cp}/shop/ShopCartOk.sh" method="post" id="purchase" name="cartForm">
+                    <form action="${cp}/shop/Payment.sh" method="post" id="purchase" name="cartForm">
                         <table id="cart_table">
                             <tr id="cart_thead">
                                 <th width="7%"></th>

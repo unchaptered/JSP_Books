@@ -42,11 +42,14 @@ function purchase_submit()  {
 		alert("주문할 상품이 없습니다!");
 		return false;
 	}
-//	let pass = window.prompt("온라인결제 비밀번호를 입력해주세요. (6자리)"); //string 타입. 입력 그대로 노출문제. 자바스크립트에서는 비밀번호 보안 개취약
-//	document.getElementById("btn_submit").disabled = "disabled";
-//	return true;
-	//폼 name을 찾아서 submit(). 장바구니 폼정보 넘기면서 주문결제 페이지로 이동
-//	document.cartForm.submit();
+//	인증번호 발송
+//	let pass = window.prompt("1회용 인증번호를 입력해주세요."); //string 타입. 입력 그대로 노출문제. 자바스크립트에서는 비밀번호 보안 개취약
+	if(!confirm("결제인증 하시겠습니까?")){
+		return false;
+	}
+	document.getElementById("btn_submit").disabled = "disabled";
+	return true;
+//	document.cartForm.submit();	//폼 name을 찾아서 submit(). 장바구니 폼정보 넘기면서 주문결제 페이지로 이동
 }
 
 // 결제방법 선택

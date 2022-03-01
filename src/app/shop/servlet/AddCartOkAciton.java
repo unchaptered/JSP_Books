@@ -22,19 +22,17 @@ public class AddCartOkAciton implements Action{
 		HttpSession session = req.getSession();
 		
 //		jsp에서 쓰던 out.print()의 JAVA식	응답하기 위한 resp객체에서 getWriter()로 받아 out객체 생성. 
-//		PrintWriter out = resp.getWriter();
-//		if(session.getAttribute("loginEmail") == null) {// 세션이 null값일때 들어오면 nullPointException
-//			out.write("X");	//Ajax용 이름없는 페이지 XHR.responseText로 날라감.
-//			out.close();	// out객체 해제
-//			return null;
-//		}
+		PrintWriter out = resp.getWriter();
+		if(session.getAttribute("loginUser") == null) {// 세션이 null값일때 들어오면 nullPointException
+			out.write("X");	//Ajax용 이름없는 페이지 XHR.responseText로 날라감.
+			out.close();	// out객체 해제
+			return null;
+		}
 		
-//		int userpk = ((UserDTO)session.getAttribute("loginEmail")).getUserPk();
+		int userpk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
 		int quantity = Integer.parseInt(req.getParameter("quantity"));
-		
 		cdto.setQuantity(quantity);
-		cdto.setUserpk(7);	// 테스트후 삭제
-//		cdto.setUserpk(Integer.parseInt(req.getParameter("userpk")));
+		cdto.setUserpk(userpk);
 		cdto.setBookpk(Integer.parseInt(req.getParameter("bookpk")));
 		
 		
