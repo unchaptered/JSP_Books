@@ -35,7 +35,7 @@
                                 </div>
                                 <c:if test="${file != null or file.postFileSystem != null or not empty file.postFileSystem}">
 	                                <div class="sub">
-	                                    <p>첨부파일</p> <span>${file.postFileOrigin}</span><a href="${cp}/app/post/FileDownload.po?systemname=${file.postFileSystem}&orgname=${file.postFileOrigin}"><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
+	                                    <p>첨부파일</p> <span>${file.postFileOrigin}</span><a href="${cp}/app/post/FileDownload.po?postFileSystem=${file.postFileSystem}&postFileOrigin=${file.postFileOrigin}"><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
 	                                </div>
                                 </c:if>
                             </div>
