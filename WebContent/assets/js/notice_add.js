@@ -73,3 +73,21 @@ function addNotice(){
     }
     return true;
 }
+function editNotice(){
+    let frm = document.noticeAddForm;
+
+    if (frm.postTitle.value == ""){
+        alert("제목을 입력해주세요")
+        frm.postTitle.focus()
+        return false
+    }
+    if(frm.postText.value == ""){
+        alert("내용을 입력해주세요")
+        frm.postText.focus()
+        return false;
+    }
+    if (!confirmEnroll()){
+        return false;
+    }
+    return true;
+}

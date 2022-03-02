@@ -3,37 +3,46 @@ package app.postAc;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.ActionTo;
 import app.post.dao.EventDAO;
+import app.post.dao.LikeDTO;
+import app.user.dao.UserDAO;
+import app.user.dao.UserDTO;
 //누르면 +1, 또 누르면 -1되게 수정 필요
 public class EventLikeAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		EventDAO edao = new EventDAO();
-
+		HttpSession session = req.getSession();
+		
 		int eventPk = Integer.parseInt(req.getParameter("eventPk"));
-//		int userPk = Integer.parseInt(req.getParameter("userPk"));
-		int userPk = 2;
-		
-		//유저의 좋아요 누른 상태 if검사(check)
-//		if(안 누른 상태) {
-//			edao.updateEventLike(eventPk,구분컬럼); //좋아요+1
-			//유저가 좋아요 했는지 안했는지 구분할 컬럼에 좋아요 ok 넣기
-			//if(user.insert(update)성공했다면){
-				//통과
-			//}
-//		}
-//		else{누른 상태
-//			edao.updateEventLike(eventPk,구분컬럼); //좋아요-1 //sql문 내에서 if문으로 구분컬럼 검사
-			//유저가 좋아요 했는지 안했는지 구분할 컬럼에 좋아요 x 넣기
-			//if(user.insert(update)성공했다면){
-				//통과
-			//}
-//		}		
-		
+		int userPk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
+//		int userPk = 2;
 
+		if(edao.getLikeStatus(userPk,eventPk).isEmpty()) {
+			edao.upEventLike(eventPk);
+			
+			LikeDTO status = new LikeDTO();
+			status.setEventLikePost(eventPk);
+			status.setEventLikeUser(userPk);
+
+			if(edao.insertLikeStatus(status)) {
+				System.out.println("좋아요+1성공");
+			}
+		}
+		else {			
+			edao.downEventLike(eventPk);
+			
+			LikeDTO status = edao.getLikeStatus(userPk,eventPk).get(0);
+			int eventLikePk = status.getEventLikePk();
+			if(edao.removeLikeStatus(eventLikePk)) {
+				System.out.println("좋아요-1성공");
+			}
+		}	
+		
 		return null;
 	}
 }

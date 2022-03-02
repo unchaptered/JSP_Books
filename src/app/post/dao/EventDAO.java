@@ -41,11 +41,7 @@ public class EventDAO {
 		public EventDTO getEventRead(int eventPk) {
 			return sqlsession.selectOne("Post.getEventRead",eventPk);
 		}
-		//좋아요 증가
-		public void updateEventLike(int eventPk) {
-			sqlsession.update("Post.updateEventLike",eventPk);
-			
-		}
+		
 		//이벤트 수정
 		public boolean updateEvent(EventDTO event) {
 			return 1 == sqlsession.update("Post.updateEvent",event);
@@ -64,6 +60,32 @@ public class EventDAO {
 		}
 		public boolean removeEventFileDetail(int eventFileDetail) {
 			return 1 == sqlsession.update("Post.removeEventFileDetail",eventFileDetail);
+		}
+			
+		//유저의 like상태 가져오기
+		public List<LikeDTO> getLikeStatus(int userPk, int eventPk) {
+			HashMap<String, Integer> datas = new HashMap<String, Integer>();
+			datas.put("userPk", userPk);
+			datas.put("eventPk", eventPk);
+			List<LikeDTO> result;
+			
+			result = sqlsession.selectList("Post.getLikeStatus", datas);
+			return result;
+		}
+		
+		public boolean insertLikeStatus(LikeDTO status) {
+			return 1 == sqlsession.insert("Post.insertLikeStatus", status);
+		}
+		//좋아요 증가
+		public void upEventLike(int eventPk) {
+			sqlsession.update("Post.upEventLike",eventPk);					
+		}
+		//좋아요 감소
+		public void downEventLike(int eventPk) {
+			sqlsession.update("Post.downEventLike",eventPk);			
+		}
+		public boolean removeLikeStatus(int eventLikePk) {
+			return 1 == sqlsession.delete("Post.removeLikeStatus", eventLikePk);
 		}
 
 }

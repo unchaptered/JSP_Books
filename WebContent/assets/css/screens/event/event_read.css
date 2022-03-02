@@ -4,6 +4,8 @@
     width: 1100px;
     height: auto;
     margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     min-height: calc(100vh - 86px);
 }
 .title{
@@ -54,6 +56,29 @@ ul, li{
     margin-top: 40px;
     font-size: 17px;
     padding-left: 5px;
+}
+/* 좋아요 버튼 */
+.likeBtnArea{
+    margin: 0 auto;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.likeBtn{
+    border: 1px solid #000;
+    padding: 20px 40px;
+    text-align: center;
+    color: rgba(51, 51, 51, 0.904);
+}
+.likeHeart{
+	position: relative;
+	top: 6px;
+	width: 25px;	
+}
+
+.likeClicked{
+    color:#fff;
+    background-color: #3b3b3b;
 }
 
 /* 수정, 삭제 버튼 */
