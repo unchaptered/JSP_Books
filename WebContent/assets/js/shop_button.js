@@ -1,3 +1,5 @@
+// 저자 : jungbc1
+
 // 장바구니버튼 bookpk:책상품번호, quantity:구매수량
 const addCart = function(bookpk, quantity) {
 	if (quantity==0){
