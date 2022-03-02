@@ -1,10 +1,9 @@
+<%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
-<% Object a = session.getAttribute("findUser");
-	String b = (String)a;
-%>
+<% session.getAttribute("findUser");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +16,6 @@
         <section class="nav-sizer">
             <div class="nav_column">
                 <svg class="nav_menu_btn" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 nav_svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-	            
                 <!-- jungbc1 -->
 	            <a href="shop_bags.jsp">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
@@ -30,18 +28,17 @@
 				</a>
             </div>
             <div class="nav_column">
-                <a href="${cp}/index.jsp" class="nav_logo">Books</a>
+                <a href="${cp}/index.jsp" class="nav_logo">Books</a> 
             </div>
             <div class="nav_column">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 nav_svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 <!-- kogyul -->
-                
-            	
-                <c:if test="${loginUser == null }">
+                <c:if test="${loginUser == null}">
                 <input type="button" value="login" id="myBtnLogin">
                 <input type="button" value="join" id="myBtnJoin">
 				</c:if>
-				<c:if test="${loginUser != null }">
+				<c:if test="${loginUser != null}">
+				<a href="${cp}/user/UserInfo.us">${loginUser.userName}</a>
                 <a href="${cp}/user/UserLogoutOk.us">Logout</a>
                 </c:if>
             </div>
@@ -90,7 +87,7 @@
         </details>
     </nav>
     <div class="login_wrap">
-    	<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post">
+    	<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post" onsubmit="return senditLogin()">
         <div class="login_container">
             <div class="login_header">
                 <span>Books</span>
@@ -110,13 +107,13 @@
                 <div class="body_email">
                     <label for="email"><span class="style_email">이메일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="loginEmailError" class="error"></span></label>
                     <div class="email_input">
-                        <input type="email" placeholder="이메일을 입력해주세요." id="email" onkeyup="checkLogin()" name="email">
+                        <input type="email" placeholder="이메일을 입력해 주세요." id="email" onkeyup="checkLoginEmail()" name="email">
                     </div>
                 </div>
                 <div class="body_pw">
                     <label for="loginPw"><span class="style_pw">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="loginPwError" class="error"></span></label>
                     <div class="pw_input">
-                        <input type="password" placeholder="비밀번호를 입력해주세요." id="loginPw" name="loginPw">
+                        <input type="password" placeholder="비밀번호를 입력해 주세요." id="loginPw" name="loginPw">
                     </div>
                 </div>
                 <div class="body_button">
@@ -124,7 +121,7 @@
                 <div class="body_button_or"></div>
                 <div class="body_find">
                     <div class="body_find_id">
-                        <span id="myBtnIdFind" class=loginIdFind>아이디 찾기</span>
+                        <span id="myBtnIdFind" class=loginIdFind>이메일 찾기</span>
                         <span>/</span>
                         <span class="loginPwFind" id="myBtnLoginPwFind">비밀번호 찾기</span>
                      </div>
@@ -142,11 +139,11 @@
                     </div>
                 </div>
                 <p class="login_footer">
-                    걱정마세요! 여러분의 활동은 SNS에 노출되지 않습니다.
+                   		 걱정마세요! 여러분의 활동은 SNS에 노출되지 않습니다.
                     <br>
-                    회원가입 시${b}
-                    <a href="notice_detail1.html" class="loginAnchor">개인정보 처리방침</a>과
-                    <a href="#" class="loginAnchor">이용약관</a>을 확인하였으며, 동의합니다.
+                 		   회원가입 시
+                    <a href="${cp}/user/terms.us" class="loginAnchor">개인정보 처리방침</a>과
+                    <a href="${cp}/user/terms.us" class="loginAnchor">이용약관</a>을 확인하였으며, 동의합니다.
                    </p>
                 </div>
             </div>
@@ -158,7 +155,7 @@
     <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="post" onsubmit="return senditJoin()">
         <div class="join_container" style="overflow: auto;">
             <div class="join_header">
-                회원가입
+                		회원가입
                 <div class="icon">
                     <button type="button" id="closeJoin">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -194,7 +191,7 @@
                     <div class="user_pwre">
                         <label for="userPasswordre" class="user_info"><span class="head_span">비밀번호 확인&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="joinPasswordreError"class="error"></span></label>
                         <div class="user_pwre_input">
-                            <input type="password" name="userPasswordre" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 다시 한번 입력해주세요." id="userPasswordre">
+                            <input type="password" name="userPasswordre" autocomplete="new-password" maxlength="16" placeholder="비밀번호를 다시 한번 입력해 주세요." id="userPasswordre">
                         </div>
                         <div class="user_pwre_space join_space"></div>
                     </div>
@@ -293,7 +290,7 @@
                                    
                                 </div>
                                 <div class="acnum_input">
-                                    <input type="text" name="userBankAccount" placeholder=' " - " 없이 입력해주세요.' id="userBankAccount">
+                                    <input type="text" name="userBankAccount" placeholder=' " - " 없이 입력해 주세요.' id="userBankAccount">
                                 </div>
                                 <div class="acnum_input_space join_space"></div>
                             </div>
@@ -311,7 +308,7 @@
                         <div class=" agree_wrap_inner2 agree_inner">
                             <div class="agree_checkbox_pilsoo agrees">
                                 <input type="checkbox" name="checkbox_agree" id="checkbox_pilsoo" value="checkbox_pilsoo">
-                                <label for="checkbox_pilsoo">개인정보 수집 및 이용 동의 <span>(필수)</span><a href="./notice_detail1.html" target="_blank" class="agree_link">자세히</a></label>
+                                <label for="checkbox_pilsoo">개인정보 수집 및 이용 동의 <span>(필수)</span><a href="${cp}/user/terms.us"class="agree_link">자세히</a></label>
                             </div>
                         </div>
                         <div class="agree_wrap_inner3 agree_inner">
@@ -327,6 +324,7 @@
         </div>
         </form>
     </div>
+    
      <div class="id_find_wrap">
      <form name="idFindForm" action="${cp}/user/UserIdFindOk.us" method="post">
         <div class="id_find_container">
@@ -349,19 +347,19 @@
                 <div class="id_find_body_wrap_inner">
                     <div class="id_find_body_inner">
                         <div class="id_find_name_inner">
-                        <label for="id_find_name_input" class="user_info">이름</label>
+                        <label for="email_name_input_find" class="user_info">이름</label>
                         <div class="input_name_id_find">
-                            <input type="text" id="email_name_input_find" placeholder="이름을 입력해주세요." name="email_name_input_find">
+                            <input type="text" id="email_name_input_find" placeholder="이름을 입력해 주세요." name="email_name_input_find">
                         </div>
                     </div>
                     <div class="id_find_phone_inner">
-                        <label for="id_find_phone_input" class="user_info">휴대폰 번호</label>
+                        <label for="email_phone_input_find" class="user_info">휴대폰 번호</label>
                         <div class="input_phone_id_find">
                             <input type="text" id="email_phone_input_find" placeholder="(예시) 01012345678" name="email_phone_input_find">
                         </div>
                     </div>
                         <div class="id_find_space"></div>
-                        <input type="submit" class="id_find_btn buttons" id="id_find_login" name="id_find_login" value="이메일 찾기"></button>
+                        <input type="submit" class="id_find_btn buttons" id="id_find_login" name="id_find_login" value="이메일 찾기" onclick="showEmail()">
                     </div>
                 </div>
             </div>
@@ -393,7 +391,7 @@
                         <div class="pw_find_name_inner">
                         <label for="pw_find_name_input" class="user_info">이메일</label>
                         <div class="input_name_find">
-                            <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해주세요." name="pw_email_input_find">
+                            <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해 주세요." name="pw_email_input_find">
                         </div>
                     </div>
                     <div class="pw_find_phone_inner">
@@ -410,6 +408,34 @@
             
         </div>
         </form>
+    </div>
+    <div class="id_show_wrap">
+        <div class="id_show_container">
+            <div class="id_show_header">
+                이메일 찾기
+                <div class="icon">
+                    <button type="button" id="closeIdShow">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                </div>
+            </div>
+            <div class="id_show_body_wrap">
+                <div class="id_show_body_wrap_inner">
+                    <div class="id_show_body_inner">
+                        <div class="id_show_body_text">
+                            <h3>회원님의 이메일은</h3><br>
+                            <h2><strong id="showEmail">${findUser.userEmail}</strong></h2><br>
+                            <h3>입니다.</h3>
+                        </div>
+                        <div class="id_show_space"></div>
+                        <button type="button" class="id_show_btn buttons" id="id_show_login"><a href="./join.html">로그인 하기</a></button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>

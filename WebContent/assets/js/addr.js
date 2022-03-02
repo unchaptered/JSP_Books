@@ -53,7 +53,7 @@ function checkall(checkall) {
     })
 }
 
-function checkLogin(){
+function checkLoginEmail(){
 	const xhr = new XMLHttpRequest();
 	let loginEmailError = document.getElementById("loginEmailError");
 	xhr.onreadystatechange = function(){
@@ -79,6 +79,30 @@ function checkLogin(){
 	}
 	xhr.open("GET",cp+"/user/LoginCheckEmailOk.us?email="+email.value);
 	xhr.send();
+}
+function senditLogin() {
+	const loginForm = document.loginForm;
+	let email = loginForm.email;
+	let loginEmailError = document.getElementById("loginEmailError");
+	if(loginEmailError.innerText == "일치하는 이메일이 존재하지 않습니다."){
+		email.focus();
+		return false;
+	}
+	if(email.value == "") {
+		email.focus();
+		loginEmailError.innerHTML = "이메일을 입력해 주세요.";
+		loginEmailError.style="color:red";
+		return false;
+	}
+	let loginPw = loginForm.loginPw;
+	let loginPwError = document.getElementById("loginPwError");
+	if(loginPw.value == "") {
+		loginPw.focus();
+		loginPwError.innerHTML = "비밀번호를 입력해 주세요."
+		loginPwError.style="color:red";
+		return false;
+	}
+	
 }
 
 
@@ -137,7 +161,7 @@ function senditJoin(){
 	let joinNameError = document.getElementById("joinNameError");
 	if(userName.value == ""){
 		console.log('다시 해봐 이름 공백')
-		joinNameError.innerHTML = "이름을 입력해주세요."
+		joinNameError.innerHTML = "이름을 입력해 주세요."
 		joinNameError.style="color:red"
 		userName.focus();
 		return false;
@@ -148,14 +172,14 @@ function senditJoin(){
 	let userPassword = joinForm.userPassword;
 	if(!regPassword.test(userPassword.value)){
 		console.log('다시 해봐 비밀번호 정규식')
-		joinPasswordError.innerHTML = "비밀번호를 양식에 맞게 다시 입력해주세요."
+		joinPasswordError.innerHTML = "비밀번호를 양식에 맞게 다시 입력해 주세요."
 		joinPasswordError.style="color:red";
 		userPassword.focus();
 		return false;
 	}
 	if(userPassword.value.search(/\s/) != -1){
 		console.log('다시 해봐 비밀번호 찐공백')
-		joinPasswordError.innerHTML = "비밀번호를 입력해주세요."
+		joinPasswordError.innerHTML = "비밀번호를 입력해 주세요."
 		joinPasswordError.style="color:red";
 		userPassword.focus();
 		return false;
@@ -165,7 +189,7 @@ function senditJoin(){
 	let joinPasswordreError = document.getElementById("joinPasswordreError");
 	if(userPasswordre.value == ""){
 		console.log('다시 해봐 비밀번호 확인 공백')
-		joinPasswordreError.innerHTML = "비밀번호 확인을 입력해주세요."
+		joinPasswordreError.innerHTML = "비밀번호 확인을 입력해 주세요."
 		joinPasswordreError.style="color:red";
 		userPasswordre.focus();
 		return false;
@@ -182,7 +206,7 @@ function senditJoin(){
 	let joinPhoneError = document.getElementById("joinPhoneError");
 	if(userPhone.value == ""){
 		console.log('다시해봐 휴대폰 공백')
-		joinPhoneError.innerHTML = "휴대폰 번호를 입력해주세요."
+		joinPhoneError.innerHTML = "휴대폰 번호를 입력해 주세요."
 		joinPhoneError.style="color:red";
 		userPhone.focus();
 		return false;
@@ -197,7 +221,7 @@ function senditJoin(){
 	let userAddressDetail = joinForm.userAddressDetail;
 	if(userAddressDetail.value == ""){
 		console.log('다시해봐 상세주소')
-		joinAdressError.innerHTML = "상세주소를 입력해주세요."
+		joinAdressError.innerHTML = "상세주소를 입력해 주세요."
 		joinAdressError.style="color:red";
 		userAddressDetail.focus();
 		return false;
@@ -207,7 +231,7 @@ function senditJoin(){
 	let joinBankError = document.getElementById("joinBankError");
 	if(userBank.value == "은행"){
 		console.log('은행 이름 선택 오류')
-		joinBankError.innerHTML = "은행을 선택해주세요."
+		joinBankError.innerHTML = "은행을 선택해 주세요."
 		joinBankError.style="color:red";
 		userBank.focus();
 		return false;
@@ -216,7 +240,7 @@ function senditJoin(){
 	let userBankAccount = joinForm.userBankAccount;
 	if(userBankAccount.value == ""){
 		console.log('다시해봐 계좌번호')
-		joinBankError.innerHTML = "계좌번호를 입력해주세요."
+		joinBankError.innerHTML = "계좌번호를 입력해 주세요."
 		joinBankError.style="color:red";	
 		userBankAccount.focus();
 		return false;
@@ -233,14 +257,14 @@ function senditJoin(){
 		console.log('전체동의에 체크가 안되있');
 		console.log('필수항목에 체크가 안되있');
 		console.log('이벤트알림에 체크가 안되있');
-		joinAgreeError.innerHTML = "개인정보 수집 및 이용동의에 체크해주세요."
+		joinAgreeError.innerHTML = "개인정보 수집 및 이용동의에 체크해 주세요."
 		joinAgreeError.style="color:red";
 		return false;
 	}
 		joinAgreeError.innerHTML = "";
 	if(cp == false) {
 		console.log('필수항목에 체크해주세요.');
-		joinAgreeError.innerHTML = "필수항목에 체크해주세요."
+		joinAgreeError.innerHTML = "필수항목에 체크해 주세요."
 		joinAgreeError.style="color:red";
 		return false;
 	}
@@ -248,6 +272,11 @@ function senditJoin(){
 	
 }
 
+// 로그인 실패시 알럿창 띄우고 index로 이동
+if(window.location == "http://localhost:9090/project-2022-01-korea-Books/index.jsp?l=f"){
+    alert("로그인 실패 !");
+    window.location.href="http://localhost:9090/project-2022-01-korea-Books/index.jsp";
+}
 
 
 

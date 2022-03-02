@@ -5,7 +5,7 @@
     border: 0;
     box-sizing: border-box;
 }
-.id_show_wrap{
+.id_show_wrap {
     font-size: 14px;
     line-height: 1.4;
     color: #333333;
@@ -25,7 +25,7 @@
     outline: none !important;
     box-shadow: none!important;
 }
-button{
+.id_show_wrap button{
     overflow: visible;
 }
 .id_show_container{
@@ -48,7 +48,7 @@ button{
     position:fixed; left:50%; top:50%; 
     transform:translate(-50%, -50%); 
      background:#fff; border-radius:6px; }
-.id_show_header{
+.id_show_wrap .id_show_header{
     border-bottom: 0;
     height: 54px;
     padding: 16px 20px;
@@ -59,10 +59,10 @@ button{
     font-weight: 600;
     word-wrap: break-word;
 }
-.id_show_header .icon{
+.id_show_wrap .id_show_header .icon{
     vertical-align: middle;
 }
-[class^="icon-"]{
+.id_show_wrap [class^="icon-"]{
     font-family: 'icomoon' !important;
     font-style: normal;
     font-weight: normal;
@@ -71,22 +71,7 @@ button{
     line-height: 1;
 }
 
-/* .pw_header .pw_X a{
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    padding: 15px;
-    line-height: 0;
-    cursor: pointer;
-    background: url(../images/7122430_x_icon.png) no-repeat center;
-    background-size: cover;
-    text-indent: -9999px;
-    text-decoration: none;
-    overflow: hidden;
-} */
-.icon button{
+.id_show_wrap .icon button{
     display: inline-block;
     width: 45px;
     position: absolute;
@@ -100,7 +85,7 @@ button{
     cursor: pointer;
     color: rgb(220, 220, 220);
 }
-.icon button+button{
+.id_show_wrap .icon button+button{
     display: inline-block;
     width: 45px;
     position: absolute;
@@ -114,10 +99,10 @@ button{
     cursor: pointer;
     color: rgb(220, 220, 220);
 }
-svg:not(:root){
+.id_show_wrap svg:not(:root){
     overflow: hidden;
 }
-.icon button>svg{
+.id_show_wrap .icon button>svg{
     position: absolute;
     top: 10%;
     right: 10px;
@@ -132,22 +117,22 @@ svg:not(:root){
     left: 10px;
     width: 30px;
 } */
-.id_show_body_wrap{
+.id_show_wrap .id_show_body_wrap{
     padding: 10px;
 }
-.id_show_body_inner{
+.id_show_wrap .id_show_body_inner{
     position: relative;
     padding-bottom: 32px;
     color: #767676;
 }
-.id_show_body_text {
+.id_show_wrap .id_show_body_text {
     margin: 20px auto;
 }
-.id_show_body_text h3{
+.id_show_wrap .id_show_body_text h3{
     margin: 0 auto;
     text-align: center;
 }
-.id_show_body_text h2{
+.id_show_wrap .id_show_body_text h2{
     margin: 0 auto;
     text-align: center;
     color: black;
@@ -155,12 +140,12 @@ svg:not(:root){
 }
 
 
-.id_show_space{
+.id_show_wrap .id_show_space{
     bottom: 0;
     margin-top: 70px;
     font-size: 12px;
 }
-.buttons{
+.id_show_wrap .buttons{
     position: absolute;
     top: 180px;
     display: flex;
@@ -176,14 +161,14 @@ svg:not(:root){
     color: #fff;
     cursor: pointer;
 }
-.buttons:hover{
+.id_show_wrap .buttons:hover{
     background-color : #4346f3;
 }
-.buttons a {
+.id_show_wrap .buttons a {
     text-decoration: none;
     color: #fff;
 }
-.buttons a:focus{
+.id_show_wrap .buttons a:focus{
     text-decoration: none;
 }
 
