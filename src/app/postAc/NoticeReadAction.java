@@ -20,8 +20,8 @@ public class NoticeReadAction implements Action{
 		int noticePk = Integer.parseInt(req.getParameter("noticePk"));
 		
 		NoticeDTO notice = ndao.getNoticeRead(noticePk);
-		int postPk = notice.getPostPk();
-
+		int postPk = notice.getPostPk();		
+		
 		//작성자 이름
 		String ownerName = pdao.getPostOwnerName(postPk);
 		req.setAttribute("ownerName", ownerName);

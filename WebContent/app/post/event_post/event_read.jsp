@@ -1,3 +1,4 @@
+<%@page import="app.user.dao.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -27,7 +28,6 @@
                             <p>${event.postTitle} </p>
                             <span>이벤트 기간 : ${event.eventStarted} - ${event.eventEnded}</span>&nbsp;
                             <span>조회수 : ${event.postViewed}</span>&nbsp;
-                            <a href="javascript:like(${event.eventPk})">♡</a><span id="likeResult">${event.eventLike}</span>
                         </div>
                         <div class="event_detail_img">
 		                    <c:choose>
@@ -35,7 +35,7 @@
 									<img src="/media/${file.postFileSystem}" alt="${file.postFileOrigin}">
 								</c:when>
 								<c:otherwise>
-									<img src="/assets/img/event_banner1.png" alt="배너">
+									<img src="/assets/img/event_banner2.png" alt="배너">
 								</c:otherwise>
 							</c:choose>
 	                    </div>
@@ -43,6 +43,26 @@
                             <p class="detail_txt">
                             	${event.postText}
                             </p>
+                        </div>
+                        <div class="likeBtnArea">
+                        	<c:choose>
+                        		<c:when test="${aleadyLiked == 'Y'}">
+		                        	<a href="javascript:like(${event.eventPk})" class="likeBtn likeClicked">
+										<img src="/assets/img/event_heart_red.png" alt="좋아요" class="likeHeart">
+	                        			<span class="likeText" id="likeResult">${event.eventLike}</span>
+										<span class="likeText">&nbsp;좋아요&nbsp;</span>
+										<input type="hidden" id="aleadyLiked" value="${aleadyLiked}">
+									</a>
+                        		</c:when>
+                        		<c:otherwise>
+                        			<a href="javascript:like(${event.eventPk})" class="likeBtn">
+										<img src="/assets/img/event_heart_black.png" alt="좋아요" class="likeHeart">
+	                        			<span class="likeText" id="likeResult">${event.eventLike}</span>
+										<span class="likeText">&nbsp;좋아요&nbsp;</span>
+										<input type="hidden" id="aleadyLiked" value="${aleadyLiked}">
+									</a>
+                        		</c:otherwise>
+                        	</c:choose>
                         </div>
                         <div class="eventReadBtn">
                             <button class="readBtn" id="eventUpdate" formaction="${cp}/app/post/EventEdit.po?eventPk=${event.eventPk}" 
@@ -61,37 +81,52 @@
 	<%@ include file="/app/components/footer.jsp" %>
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script>
 <script src="${cp}/assets/js/event_read.js"></script>
 <script>
-	//좋아요 //아이디 당 한 번씩 수정 필요 //누르면 +1, 또 누르면 -1되게 likeaction수정
-	let flag = false;
+	//좋아요
 	function like(eventPk){		
-		const result = document.getElementById("likeResult");
-		const xhr = new XMLHttpRequest();
-		if(!flag){
-			xhr.onreadystatechange = function(){
-				if(xhr.readyState == XMLHttpRequest.DONE){
-					if(xhr.status == 200){
-						result.innerHTML = Number(result.innerHTML)+1;
+		/* 로그인 체크 */
+		if(${loginUser == null}){
+			alert("로그인 후 이용하세요!");
+			location.replace("${pageContext.request.contextPath}/index.jsp");
+		}
+		else{ 
+			const result = document.getElementById("likeResult");
+			const likeBtn = document.querySelector(".likeBtn");
+			const likeHeart = document.querySelector(".likeHeart");
+			const aleadyLiked = document.getElementById("aleadyLiked");
+			const xhr = new XMLHttpRequest();
+			
+			if(aleadyLiked.value == "N"){
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == XMLHttpRequest.DONE){
+						if(xhr.status == 200){
+							result.innerHTML = Number(result.innerHTML)+1;
+							likeBtn.className += " likeClicked";
+							likeHeart.src = "/assets/img/event_heart_red.png";
+							aleadyLiked.value ="Y";
+						}
 					}
 				}
-			}	
-			xhr.open("GET","${pageContext.request.contextPath}/app/post/EventLike.po?eventPk="+eventPk,true);
-			xhr.send();
-			flag = true;
-		}
-		else{
-			xhr.onreadystatechange = function(){
-				if(xhr.readyState == XMLHttpRequest.DONE){
-					if(xhr.status == 200){
-						result.innerHTML = Number(result.innerHTML)-1;
+				xhr.open("GET","${pageContext.request.contextPath}/app/post/EventLike.po?eventPk="+eventPk,true);
+				xhr.send();
+			}
+			else{
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == XMLHttpRequest.DONE){
+						if(xhr.status == 200){
+							result.innerHTML = Number(result.innerHTML)-1;
+							likeBtn.classList.remove("likeClicked");
+							likeHeart.src = "/assets/img/event_heart_black.png";
+							aleadyLiked.value = "N";
+						}
 					}
 				}
-			}	
-			xhr.open("GET","${pageContext.request.contextPath}/app/post/EventLike.po?eventPk="+eventPk,true);
-			xhr.send();
-			flag = false;
-		}
+				xhr.open("GET","${pageContext.request.contextPath}/app/post/EventLike.po?eventPk="+eventPk,true);
+				xhr.send();
+			}
+		}  
 	}
 </script>
 </html>

@@ -16,6 +16,7 @@
     <typeAlias type="app.post.dao.EventDTO" alias="eventdto"/>
     <typeAlias type="app.post.dao.NoticeDTO" alias="noticedto"/>
     <typeAlias type="app.post.dao.FileDTO" alias="filedto"/>
+    <typeAlias type="app.post.dao.LikeDTO" alias="likedto"/>
     
     <typeAlias type="app.shop.dao.CartDTO" alias="cartdto"/>
     <typeAlias type="app.shop.dao.BillDTO" alias="billdto"/>

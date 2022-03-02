@@ -58,6 +58,11 @@ CREATE TABLE post_event (
    FOREIGN KEY (post_pk)
 		REFERENCES post (post_pk)
 );
+CREATE table post_event_like(
+	event_like_pk INT primary key auto_increment,
+    event_like_post int,
+    event_like_user INT
+);
 CREATE TABLE new_book (
    new_book_pk INT AUTO_INCREMENT PRIMARY KEY,
    new_book_title VARCHAR(300) NOT NULL,

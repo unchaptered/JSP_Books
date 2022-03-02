@@ -106,7 +106,7 @@ public class EventEditOkAction implements Action{
 			}
 			fcheckNew = true;
 		}
-		
+		fcheckStage = true;
 		
 		//상세페이지 이미지
 		if(!fcheckDetailNew) {//input 있을 경우
@@ -117,19 +117,22 @@ public class EventEditOkAction implements Action{
 				newDetailFile.setPostFileOrigin(newDetailOrigin);
 				
 				fcheckDetailStage = fdao.updateFile(newDetailFile);
-				
+				System.out.println("!fcheckDetailStage");
 			}
 			else { //input있고 원래 파일 없었을 경우(파일x>파일추가)
 				FileDTO newDetailFile = new FileDTO();
 				newDetailFile.setPostFileSystem(newDetailSystem);
 				newDetailFile.setPostFileOrigin(newDetailOrigin);
+				System.out.println("fcheckDetailStage=true");
 				if(fdao.insertFile(newDetailFile)) {
+					System.out.println("insertFilenew");
 					int newEventDetailFile = fdao.getLastPostFilePk(newDetailSystem);
 					event.setEventFileDetail(newEventDetailFile);
 				}
 			}
 			fcheckDetailNew = true;
 		}
+		fcheckDetailStage = true;
 		
 		if(pdao.updatePost(post)) {
 			if(edao.updateEvent(event)) {

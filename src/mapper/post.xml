@@ -3,6 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Post">	
+	
+	<select id="getLikeStatus" parameterType="hashmap" resultType="likedto">
+		select event_like_pk as eventLikePk, event_like_post as eventLikePost, event_like_user as eventLikeUser
+		from post_event_like
+		where event_like_user = #{userPk} and event_like_post = #{eventPk}
+	</select>
+	<insert id="insertLikeStatus" parameterType="likedto">
+		insert into post_event_like (event_like_post, event_like_user)
+		values(#{eventLikePost}, #{eventLikeUser})
+	</insert>
+	<update id="upEventLike" parameterType="_int">
+		update post_event set event_like = event_like+1 
+		where event_pk = #{eventPk}
+	</update>
+	<update id="downEventLike" parameterType="_int">
+		update post_event set event_like = event_like-1
+		where event_pk = #{eventPk}
+	</update>
+	<delete id="removeLikeStatus" parameterType="_int">
+		delete from post_event_like where event_like_pk = #{eventLikePk}
+	</delete>
+	
 	<!-- post 공통 -->
 	<insert id="insertPost" parameterType="postdto"> 
 		insert into post (post_title, post_text, post_owner)
@@ -41,10 +63,6 @@
 	<update id="updateEvent" parameterType="eventdto">
 		update post_event set event_started = #{eventStarted}, event_ended = #{eventEnded}, event_file = #{eventFile}, event_file_detail = #{eventFileDetail}
 		where post_pk = #{postPk}
-	</update>
-	<update id="updateEventLike" parameterType="_int">
-		update post_event set event_like = event_like+1 
-		where event_pk = #{eventPk}
 	</update>
 	<update id="removeEventFile" parameterType="_int">
 		update post_event set event_file = 0
