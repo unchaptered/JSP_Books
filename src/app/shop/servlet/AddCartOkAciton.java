@@ -29,14 +29,14 @@ public class AddCartOkAciton implements Action{
 			return null;
 		}
 		
-		int userpk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
+		int userPk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
 		int quantity = Integer.parseInt(req.getParameter("quantity"));
 		cdto.setQuantity(quantity);
-		cdto.setUserpk(userpk);
-		cdto.setBookpk(Integer.parseInt(req.getParameter("bookpk")));
+		cdto.setUserPk(userPk);
+		cdto.setBookPk(Integer.parseInt(req.getParameter("bookPk")));
 		
 		
-		Integer haveCart = cdao.checkCart(cdto); // selectOne by userpk&bookpk
+		Integer haveCart = cdao.checkCart(cdto); // selectOne by userPk&bookPk
 		if(haveCart!=null) {
 			// 동일품목의 카트가 있으면..
 			cdao.updateCartQuantity(haveCart, quantity); // 동일품목카트에 추가수량만큼 증가

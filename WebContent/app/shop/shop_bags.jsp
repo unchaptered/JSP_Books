@@ -55,7 +55,7 @@
 								<c:when test="${cartList.size()>0 and cartList != null}">
 									<c:forEach var="product" items="${cartList}" varStatus="status">	<!-- varStatus="status" 인덱싱${status.count} 1,2,3... --> 
 										<tr>
-			                               <td><input type="checkbox" name="cartnum" id="cart${status.count}" value="${product.cartnum}" onclick="toggle_box()" checked></td>
+			                               <td><input type="checkbox" name="cartPk" id="cart${status.count}" value="${product.cartPk}" onclick="toggle_box()" checked></td>
 			                               <td><a href="#"><img src="${cp}/assets/img/book_sample1.jpg" alt="book"></a></td>
 			                               <td><a href="#">${product.title}</a></td>
 			                               <td><fmt:formatNumber value="${product.price}" pattern="#,###" /></td>

@@ -21,8 +21,8 @@ public class CartListOkAction {
 		ActionTo transfer = new ActionTo();
 		
 		if(session.getAttribute("loginUser") != null) {// 세션이 null값일때 들어오면 nullPointException
-			int userpk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
-			List<CartDTO> cartList = cdao.getCartList(userpk);
+			int userPk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
+			List<CartDTO> cartList = cdao.getCartList(userPk);
 			req.setAttribute("cartList", cartList);
 			
 		}

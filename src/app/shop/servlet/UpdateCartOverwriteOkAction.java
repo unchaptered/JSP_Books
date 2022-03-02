@@ -12,9 +12,9 @@ public class UpdateCartOverwriteOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		CartDAO cdao = new CartDAO();
-		int cartnum = Integer.parseInt(req.getParameter("cartnum"));
+		int cartPk = Integer.parseInt(req.getParameter("cartPk"));
 		int quantity = Integer.parseInt(req.getParameter("quantity"));
-		cdao.updateCartQuantityOverwrite(cartnum,quantity);
+		cdao.updateCartQuantityOverwrite(cartPk,quantity);
 		return null;
 	}
 

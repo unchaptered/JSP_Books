@@ -91,8 +91,8 @@ public class ShopPaymentOkAction implements Action{
 			pdto.setProductTotalPrice(prodTotalPrice);
 			// 주문상품에 추가되면 해당 카트 삭제, 재고수량 차감
 			if(pdao.insertProduct(pdto)) {
-				int cartnum = Integer.parseInt(products[index]);	//  : 카트번호
-				cdao.delCart(cartnum);
+				int cartPk = Integer.parseInt(products[index]);	//  : 카트번호
+				cdao.delCart(cartPk);
 				// 재고수량 업데이트
 				pdao.updateBookMount(bookPk,prodQty);
 			}
