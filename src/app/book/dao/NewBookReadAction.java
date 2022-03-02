@@ -17,16 +17,11 @@ public class NewBookReadAction implements Action{
 		int bookPk = Integer.parseInt(req.getParameter("bookPk"));
 		System.out.println(bookPk);
 
-//		
 		BookDTO book = bookdao.getDetail(bookPk);
 		System.out.println(book);
-//
-//
+
 		req.setAttribute("book", book);
-//		req.setAttribute("notice", notice);
-//		int noticePk = Integer.parseInt(req.getParameter("noticePk"));
-//		
-//		NoticeDTO notice = ndao.getNoticeRead(noticePk);
+
 
 		
 		ActionTo transfer = new ActionTo();

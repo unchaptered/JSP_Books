@@ -57,7 +57,7 @@ ul,li{
     align-items: center;
     /* text-align: center; */
     /* width: 800px; */
-    grid-column: span 6;
+    grid-column: span 8;
 }
 .writer{
     border-bottom: 1px solid gray;
@@ -75,15 +75,20 @@ ul,li{
     color: rgb(153, 153, 153);
 }
 .price{
-    padding:10px;
+	font-size : 18px;
+	width: 300px;
+	display: flex;
+    /* padding:10px; */
+    margin-bottom: 15px;
 }
 .price_part{
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 /* 카드할인, 무이자할부 알림창 */
 .discount{
-    font-size: 13px;
+    font-size: 18px;
+	margin-bottom: 15px;
 }
 .discount button{
     font-size: 13px;
@@ -199,7 +204,9 @@ ul,li{
 /* 주문 수량  */
 .buy_num{
     display: flex;
-    width: 200px;
+    flex-basis: auto;
+    width: 100%;
+    margin-bottom: 15px;
 }
 .buy_num .buy_num_out{
     box-sizing: border-box;
@@ -210,7 +217,7 @@ ul,li{
 }
 .buy_num p{
     font-weight: 500;
-    font-size: 13px;
+    font-size: 18px;
     margin-right: 21px;
 }
 .buy_num .buy_num_out input[type=button]{
@@ -218,6 +225,22 @@ ul,li{
     height: 20px;
     padding: 0;
     /* margin: 0 10px 0 10px; */
+}
+.buy_num .buy_num_out .buy_num_plus{
+    border-radius: 6px;
+    border: none;
+    display: inline-block;
+    background: #afafaf;
+    width: 30px;
+    margin: 0 10px 0 10px;
+}
+.buy_num .buy_num_out .buy_num_minus{
+    border-radius: 6px;
+    border: none;
+    display: inline-block;
+    background: #afafaf;
+    margin: 0 10px 0 10px;
+    width: 30px;
 }
 /* 주문 수량  */
 
@@ -232,6 +255,9 @@ ul,li{
     font-weight: bold;
     background: rgb(87, 87, 87);
     color: white;
+}
+.read_basket a{
+	color: white;
 }
 .read_buy{
     position: relative;
@@ -256,3 +282,15 @@ ul,li{
 }
 /* 장바구니, 바로구매 버튼 */
 
+/* 책내용 소개 파트 */
+.readinfo{
+    margin-top: 30px;
+    grid-column: span 12;
+}
+.readinfo .readinfo_part{
+    font-size: 18px;
+    color: #6e6e6e;
+
+}
+
+/* 책내용 소개 파트 */

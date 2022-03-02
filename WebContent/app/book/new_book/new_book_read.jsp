@@ -63,7 +63,7 @@
 	<div class="main_content book_explain">
 		<section class="book">
 			<div class="book_name">
-				<h2>${book.bookTitle}(15만부 기념 윈터 에디션) : 김호연 장편소설${book.bookPk }</h2>
+				<h2>${book.bookTitle}-${book.bookSubtitle} : ${bookWriter} 장편소설</h2>
 			</div>
 		</section>
 		<div class="book_explain_content">
@@ -72,17 +72,15 @@
 			</div>
 		</div>
 		<div class="book_explain_writer">
-			<ul>
-				<li class=writer>
+				<div class=writer>
 					<p>
-						저 : <a href="#">김호연</a> <span class="spacebar">|</span>출판사 : <a
-							href="#">나무옆의자</a><span class="spacebar">|</span>발행 :2021년 04월
-						20일<span class="spacebar">|</span>쪽수 : 268
+						저자 :<a href="#">${book.bookWriter }</a> <span class="spacebar">|</span>출판사 :<a
+							href="#">${book.bookPublisher}</a><span class="spacebar">|</span>발행 :${book.bookCreated }<span class="spacebar">|</span>쪽수 : ${book.bookPages }
 					</p>
-				</li>
-				<li class="price">정가 <span class="price_part">14000</span>
-				</li>
-			</ul>
+				</div>
+				<div class="price">
+				정가가격 <span class="price_part">${book.bookPrice }</span>
+				</div>
 			<div class="discount">
 				할인혜택
 				<button onclick="discount_view()">카드/간편결제
@@ -99,7 +97,7 @@
 						value='+' />
 					<div id='result'>0</div>
 					<input type='button' class="buy_num_minus" onclick='count("minus")'
-						value='-' />남은수량 
+						value='-' />남은수량 ${book.bookMount}
 				</div>
 			</div>
 			<!-- 주문수량 끝 -->
@@ -190,45 +188,71 @@
 
 
 			<!-- 장바구니,바로구매,좋아요 버튼 시작 -->
-			<button class="read_basket">장바구니</button>
+			<button class="read_basket"><a href="${cp }/book/NewBookList.nb">장바구니</a></button>
 			<button class="read_buy">바로구매</button>
 			<button class="read_like" id="like_back" onclick="like()">
 				♡<span id="like">0</span>
 			</button>
 			<!-- 장바구니,바로구매,좋아요 버튼 끝 -->
 		</div>
-
-
-		<!-- <h2>이책의 분류</h2>
-        여기는 장르 파트임
-        <hr>
-        <h2>책소개</h2>
-        책소개 내용임
-        <hr>
-        <h2>출판사 서평</h2>
-        <hr>
-        <h2>추천사</h2>
-        <hr>
-        <h2>목차</h2>
-        <hr>
-        <h2>본문중에서</h2>
-        <hr>
-        <h2>관련이미지</h2>
-        <hr>
-        <h2>저자소개</h2>
-        <hr>
-        <h2>상품정보제공고시</h2>
-        <hr>
-        <h2>이벤트 기획전</h2>
-        <hr>
-        <h2>리뷰</h2>
-        <hr> -->
 	</div>
-
+	
+	<!-- 책내용 소개할 파트 -->
+    <div class="main_content">
+        <div class="readinfo">
+            <h3 style="border-bottom: 1.5px solid black;">이상품의 분류</h3>
+            <p class="readinfo_part">
+                홈 > ${book.bookCountry} > ${book.bookGenre}
+            </p>
+        </div>
+        <div class="readinfo">
+            <h3 style="border-bottom: 1.5px solid black;">책소개</h3>
+            <p class="readinfo_part">
+                ${book.bookInfo }
+            </p>
+        </div>
+        <div class="readinfo">
+            <h3 style="border-bottom: 1.5px solid black;">출판사 서평</h3>
+            <p class="readinfo_part">
+                줄거리를 소개하는부분인뭐라고 적는게 좋을까라는 생각이 드는 느낌적인 느낌이란 말이죠
+                늘자리에 눈 감는날 까지 날 영원히이~ 기다릴게~~~~~~~~~~~~해애애애애에이이이잉기다릴게에에우어우어우어어~~
+            </p>
+        </div>
+        <div class="readinfo">
+            <h3 style="border-bottom: 1.5px solid black;">추천사</h3>
+            <p class="readinfo_part">
+                줄거리를 소개하는부분인뭐라고 적는게 좋을까라는 생각이 드는 느낌적인 느낌이란 말이죠
+                늘자리에 눈 감는날 까지 날 영원히이~ 기다릴게~~~~~~~~~~~~해애애애애에이이이잉기다릴게에에우어우어우어어~~
+            </p>
+        </div>
+    </div>
+    <!-- 책내용 소개할 파트 끝-->
+	
+	
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="../../../app/components/footer.jsp"%>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
 <script src="${cp }/assets/js/new_book/discount_view.js"></script>
 <script type="text/javascript" src="${cp }/assets/js/nav_menu.js"></script>
+<script>
+function count(type)  {
+    const resultElement = document.getElementById('result');
+    let number = resultElement.innerText;
+    if(type === 'plus') {
+    	if(number >= ${book.bookMount}){
+    		alert("최대 주문 수량입니다")
+    	}
+    	else{
+    		number = parseInt(number) + 1;    		
+    	}
+    }else if(type === 'minus')  {
+        if(number == '0'){
+            return false;
+        }
+    number = parseInt(number) - 1;
+    }
+    resultElement.innerText = number;
+}
+</script>
 </html>
