@@ -10,7 +10,7 @@ import action.ActionTo;
 import app.post.dao.NoticeDAO;
 import app.post.dao.NoticeDTO;
 
-//중요 공지사항 고정 구현 필요함. NoticeListAction, post.xml 수정 필요. 차순위
+//차순위 > 공지사항
 public class NoticeListAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -18,7 +18,7 @@ public class NoticeListAction implements Action{
 		
 		String temp = req.getParameter("noticePage");
 		String keyword = req.getParameter("keyword");
-		
+//		int pinCnt = ndao.getPinCnt();
 		//현재 페이지(초기 화면이라면 1, 아니면 page값)
 		int noticePage = temp == null ? 1 : Integer.parseInt(temp);
 		//한 페이지에 보여줄 게시글의 개수
@@ -38,13 +38,13 @@ public class NoticeListAction implements Action{
 		//한 화면에서 보여질 마지막 페이지
 		int endPage = startPage+pageCnt-1;
 				
-		//총 이벤트 페이지 수
+		//총 공지사항 페이지 수
 		int noticeTotalPage = (noticeTotalCnt-1)/pageSize+1;
 				
 		endPage = endPage>noticeTotalPage ? noticeTotalPage : endPage;
 				
 		List<NoticeDTO> noticeList = ndao.getNoticeList(startRow,pageSize,keyword);
-				
+	
 		req.setAttribute("noticeList", noticeList);
 		req.setAttribute("noticeTotalPage", noticeTotalPage);
 		req.setAttribute("noticeTotalCnt", noticeTotalCnt);
@@ -56,7 +56,7 @@ public class NoticeListAction implements Action{
 		// 작성자 이름 리스트로 가져오기
 		List<String> ownerName = ndao.getOwnerName(startRow,pageSize,keyword);
 		req.setAttribute("ownerName", ownerName);
-				
+		
 		//보내기
 		ActionTo transfer = new ActionTo();
 		transfer.setPath("/app/post/notice_post/notice_list.jsp");

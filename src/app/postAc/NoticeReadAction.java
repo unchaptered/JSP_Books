@@ -14,23 +14,25 @@ import app.post.dao.PostDAO;
 public class NoticeReadAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		FileDAO fdao = new FileDAO();
 		PostDAO pdao = new PostDAO();
 		NoticeDAO ndao = new NoticeDAO();
 		int noticePk = Integer.parseInt(req.getParameter("noticePk"));
 		
 		NoticeDTO notice = ndao.getNoticeRead(noticePk);
-		int postPk = notice.getPostPk();
-
+		int postPk = notice.getPostPk();		
+		
 		//작성자 이름
 		String ownerName = pdao.getPostOwnerName(postPk);
 		req.setAttribute("ownerName", ownerName);
+		
 		//조회수
 		pdao.updateViewed(postPk);
 		notice.setPostViewed(notice.getPostViewed()+1);
 
 		//첨부파일 세팅
-		FileDAO fdao = new FileDAO();
-		FileDTO file = fdao.getFile(postPk);
+		int noticeFile = notice.getNoticeFile();
+		FileDTO file = fdao.getFile(noticeFile);
 		
 		req.setAttribute("file", file);		
 		req.setAttribute("notice", notice);

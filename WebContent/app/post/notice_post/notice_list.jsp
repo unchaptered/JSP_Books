@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
@@ -18,27 +18,27 @@
 			<div class="notice">
 				<a href="${cp}/app/post/NoticeList.po"><strong class="title">공지사항</strong></a>
 				<!-- 폼 시작 -->
-				<form action="" name="noticeForm" method="get" onsubmit="sendit()">
+				<form name="noticeForm" method="get">
 					<div class="board_count">
 						total : <span>${noticeTotalCnt}</span> / pages : <span>${noticeTotalPage}</span>
 					</div>
 					<table class="notice_table">
 						<colgroup>
+							<col class="colcheck">
 							<col class="col">
 							<col>
-							<col class="col">
 							<col class="col">
 							<col class="col">
 							<col class="col">
 						</colgroup>
 						<thead>
 							<tr>
+								<th><input type="checkbox" id="thCheck" name="thCheck" onclick="checkAll()"></th>
 								<th>번호</th>
 								<th>제목</th>
 								<th>작성자</th>
 								<th>작성일</th>
 								<th>조회</th>
-								<th>첨부</th>
 							</tr>
 						</thead>
 						<!-- 공지 테이블 내용 : 한 페이지에 중요공지 포함 15개 -->
@@ -49,22 +49,19 @@
 										<c:choose>
 											<c:when test="${notice.noticePin == 'Y'}">
 												<tr class="alert">
+													<td class="board_check"><input type="checkbox" name="nCheck" id="nCheck" class="boardCheck" value="${notice.noticePk}"></td>
 													<td class="board_num">${notice.noticePk}</td>
 													<td class="board_tlt">
-														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
+														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}"><strong>${notice.postTitle}</strong></a>
 													</td>
 													<td class="board_writer">${ownerName[status.index]}</td>
 													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
 													<td class="board_hit">${notice.postViewed}</td>
-													<%-- <c:if test="">
-														<td class="board_file"><a href="${cp}/app/FileDownload.po?systemname="
-															download><img src="${cp}/assets/img/icon_download.png" alt="파일"
-																id="fileDownLoad"></a></td>
-													</c:if> --%>
 												</tr>
 											</c:when>
 											<c:otherwise>
 												<tr>
+													<td class="board_check"><input type="checkbox" name="nCheck" id="nCheck" class="boardCheck" value="${notice.noticePk}"></td>
 													<td class="board_num">${notice.noticePk}</td>
 													<td class="board_tlt">
 														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
@@ -72,11 +69,6 @@
 													<td class="board_writer">${ownerName[status.index]}</td>
 													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
 													<td class="board_hit">${notice.postViewed}</td>
-													<%-- <c:if test="">
-														<td class="board_file"><a href="${cp}/app/FileDownload.po?systemname="
-																			download><img src="${cp}/assets/img/icon_download.png" alt="파일"
-																				id="fileDownLoad"></a></td>
-													</c:if> --%>
 												</tr>
 											</c:otherwise>
 										</c:choose>
@@ -92,7 +84,8 @@
 							</c:choose>
 						</tbody>
 					</table>
-					<a href="${cp}/app/post/NoticeAdd.po?noticePage=${noticePage}" class="createNotice">새 공지 등록</a>
+					<a href="${cp}/app/post/NoticeAdd.po?noticePage=${noticePage}" class="noticeBtn createNotice">새 공지 등록</a>
+					<a href="javascript:deleteCheck();" class="noticeBtn deleteCheckBtn">선택삭제</a>
 					<!-- 페이지 버튼 : 한 페이지 1~10-->
 					<div class="pagination">
 						<ul>

@@ -137,14 +137,25 @@ input[type="file"]{
     left: 50px;
     font-size: 15px;
     border: 1px solid #cfcfcf;
-    margin: 5px 0;
+    margin: 10px 0;
     padding: 20px;
 }
-
+.note-editor{
+	top:70px;
+}
+.note-editor .note-toolbar>.note-btn-group{
+	bottom: 54px;
+	left:10px;
+}
+.note-toolbar{
+	height:65px;
+}
 /* 이벤트 등록 버튼*/
 .boardBtn{
     text-align: center;
     margin-top: 50px;
+    position: relative;
+    top: 35px;
 }
 input[type="submit"]{
     font-weight: bold;

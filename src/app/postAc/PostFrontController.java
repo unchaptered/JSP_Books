@@ -1,3 +1,4 @@
+//저자 : carpriceksy
 package app.postAc;
 
 import java.io.IOException;
@@ -44,6 +45,8 @@ public class PostFrontController extends HttpServlet{
 		case "/app/post/EventAddOk.po":
 			try {
 				transfer = new EventAddOkAction().execute(req,resp);
+				
+//				this.getServletContext().getRealPath("/");
 			} catch (Exception e) {
 				System.out.println("EventAddOk : "+e);
 			}
@@ -136,6 +139,34 @@ public class PostFrontController extends HttpServlet{
 				new FileDownloadAction().execute(req,resp);
 			} catch (Exception e) {
 				System.out.println("FileDownload : "+e);
+			}
+			break;
+		case "/app/post/RemoveNoticeFile.po":
+			try {
+				new RemoveNoticeFileAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("RemoveNoticeFile : "+e);
+			}
+			break;
+		case "/app/post/RemoveEventFile.po":
+			try {
+				new RemoveEventFileAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("RemoveEventFile : "+e);
+			}
+			break;
+		case "/app/post/RemoveEventFileDetail.po":
+			try {
+				new RemoveEventFileDetailAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("RemoveEventFileDetail : "+e);
+			}
+			break;
+		case "/app/post/RemoveCheckNotice.po":
+			try {
+				new RemoveCheckNoticeAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("RemoveCheckNotice : "+e);
 			}
 			break;
 		}

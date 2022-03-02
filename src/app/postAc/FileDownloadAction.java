@@ -15,11 +15,13 @@ import action.ActionTo;
 public class FileDownloadAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String systemname = req.getParameter("systemname");
-		String orgname = req.getParameter("orgname");
-		String saveFolder = "C:\\0900_GB_KSY";
+		String postFileSystem = req.getParameter("postFileSystem");
+		String postFileOrigin = req.getParameter("postFileOrigin");
 		
-		String filename = saveFolder+"\\"+systemname;
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		String saveFolder = rootPath+"media";
+		
+		String filename = saveFolder+"\\"+postFileSystem;
 		
 		InputStream is = null;
 		OutputStream os = null;
@@ -39,7 +41,7 @@ public class FileDownloadAction implements Action{
 		try {
 			//이름 인코딩
 			try {
-				dwName = URLEncoder.encode(orgname,"UTF-8").replaceAll("\\+", "%20");
+				dwName = URLEncoder.encode(postFileOrigin,"UTF-8").replaceAll("\\+", "%20");
 			} catch (Exception e) {
 				dwName = URLEncoder.encode(file.getName(),"UTF-8").replaceAll("\\+", "%20");
 			}

@@ -1,3 +1,4 @@
+<!-- 저자 : carpriceksy -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,19 +10,10 @@
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/event/event_add.css">
+<link rel="stylesheet" href="${cp}/assets/css/summernote/summernote-lite.css">
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
-	<!-- 로그인 체크 -->
-	
-	<%-- <script>let cp = "${pageContext.request.contextPath}";</script>
-	<c:if test="${loginUser == null }">
-		<script>
-			alert("로그인 후 이용하세요!");
-			/* location.replace(cp+"/app/user/login.jsp"); */
-			return false;
-		</script>
-	</c:if> --%>
 	
 	<main id="main">
         <section class="main_content">
@@ -53,10 +45,10 @@
                         <strong class="detail_title">이벤트 배너 이미지</strong>
                         <div class="fileBtn">
                             <label for="input-file1">첨부 파일</label>
-                            <input type="file" name="inputFileToList"  id="input-file1" class="input-file"
-                                accept="image/*" onchange="setThumbnail_list(this);"/>
+                            <input type="file" name="eventFile"  id="input-file1" class="input-file"
+                                accept="image/*" onchange="javascript:setThumbnail(this,1);showName(1);"/>
                             <div class="showFileName" id="showFileName1">
-                                이벤트 리스트에 나타낼 이미지를 등록하세요
+                                	목록에 나타낼 이미지를 등록하세요
                             </div>
                             <div class="imgPreview_div">
                                 <img class="imgPreview" id="imgPreview1"/>
@@ -64,10 +56,10 @@
                         </div>
                         <div class="fileBtn">
                             <label for="input-file2">첨부 파일</label> 
-                            <input type="file" name="inputFileToRead" id="input-file2" class="input-file"
-                                accept="image/*" onchange="setThumbnail_read(this);"/>
+                            <input type="file" name="eventFileDetail" id="input-file2" class="input-file"
+                                accept="image/*" onchange="javascript:setThumbnail(this,2);showName(2);"/>
                             <div class="showFileName" id="showFileName2">
-                                상세페이지에 나타낼 이미지를 등록하세요
+                                	상세페이지에 나타낼 이미지를 등록하세요
                             </div>
                             <div class="imgPreview_div">
                                 <img class="imgPreview" id="imgPreview2"/>
@@ -76,7 +68,7 @@
                     </div>
                     <div class="write_content">
                         <strong class="detail_title">이벤트 상세 <span class="redStar">*</span></strong>
-                        <textarea class="summernote" name="postText" id="eTextarea" placeholder="이벤트 내용을 입력하세요."></textarea>
+                        <textarea name="postText" id="eTextarea" placeholder="이벤트 내용을 입력하세요."></textarea>
                     </div>
 
                     <!-- 등록 버튼 -->
@@ -92,4 +84,6 @@
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="${cp}/assets/js/event_add.js"></script>
+<script src="${cp}/assets/js/summernote/summernote-lite.js"></script>
+<script src="${cp}/assets/js/summernote/lang/summernote-ko-KR.js"></script>
 </html>

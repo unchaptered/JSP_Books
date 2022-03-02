@@ -52,6 +52,7 @@ function checkall(checkall) {
      checkbox.checked = checkall.checked;
     })
 }
+
 function checkLogin(){
 	const xhr = new XMLHttpRequest();
 	let loginEmailError = document.getElementById("loginEmailError");
@@ -64,11 +65,13 @@ function checkLogin(){
 				txt = txt.trim();
 				console.log(txt);
 				if(txt == 'O'){
-					loginEmailError.innerHTML = "사용할 수 있는 이메일입니다.";
+					loginEmailError.innerHTML = "일치하는 이메일이 존재하지 않습니다.";
+					loginEmailError.style = "color:red";
 					email.focus();
 				}
 				else{
-					loginEmailError.innerHTML = "중복된 이메일이 있습니다.";
+					loginEmailError.innerHTML = "사용할 수 있는 이메일입니다.";
+					loginEmailError.style="color:rgb(93,176,226)";
 					email.focus();
 				}
 			}
@@ -77,6 +80,8 @@ function checkLogin(){
 	xhr.open("GET",cp+"/user/LoginCheckEmailOk.us?email="+email.value);
 	xhr.send();
 }
+
+
 
 function checkJoin() {
 	const xhr = new XMLHttpRequest();
@@ -114,7 +119,6 @@ function senditJoin(){
 	if(userEmail.value == "") {
 		console.log('다시 해봐 이메일 공백')
 		userEmail.focus();
-		$('#userEmail').css('border-color','red');
 		return false;	
 	}
 	$('#userEmail').css('border-color','#e1e2e3');

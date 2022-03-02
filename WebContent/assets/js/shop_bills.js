@@ -1,3 +1,5 @@
+// 저자 : jungbc1
+
 // 기간 버튼 선택변경
 const select_period = function(tag){
     let periods = document.getElementsByClassName("on")

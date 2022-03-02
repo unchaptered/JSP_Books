@@ -38,6 +38,7 @@ private static final long serialVersionUID = 1L;
 		ActionTo transfer = null;
 		
 		switch(command) {
+		
 		case "/user/UserJoinOk.us":
 			try {
 				transfer = new UserJoinOkAction().execute(req,resp);
@@ -58,6 +59,27 @@ private static final long serialVersionUID = 1L;
 			} catch (Exception e) {
 				System.out.println("JoinCheckEmailOk :"+e);
 			}
+			break;
+		case "/user/UserLoginOk.us":
+			try {
+				transfer = new UserLoginOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("UserLoginOk : "+e);
+			}
+			break;
+		case "/user/UserLogoutOk.us":
+			transfer = new ActionTo();
+			transfer.setRedirect(true);
+			transfer.setPath(req.getContextPath()+"/index.jsp");
+			req.getSession().removeAttribute("loginUser");
+			break;
+		case "/user/UserIdFindOk.us":
+			try {
+				transfer = new UserIdFindOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("UserIdFindOk :"+e);
+			}
+			break;
 			
 		}
 	

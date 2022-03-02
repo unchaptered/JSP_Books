@@ -1,7 +1,5 @@
+//저자 : carpriceksy
 package app.postAc;
-
-import java.io.File;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,12 +19,18 @@ import app.post.dao.PostDTO;
 public class EventEditOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String saveFolder = "C:\\jsp_file";
+
+		//파일이 저장될 경로
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		
+		String saveFolder = rootPath+"media";	
+		
 		int size = 5*1024*1024;
 		
 		PostDAO pdao = new PostDAO();
 		EventDAO edao = new EventDAO();
 		FileDAO fdao = new FileDAO();
+		
 		MultipartRequest multi = new MultipartRequest(req, saveFolder,
 				size,"UTF-8",new DefaultFileRenamePolicy());
 		
@@ -34,69 +38,113 @@ public class EventEditOkAction implements Action{
 		String postText = multi.getParameter("postText");
 		String eventStarted = multi.getParameter("eventStarted");
 		String eventEnded = multi.getParameter("eventEnded");
+		
 		int eventPk = Integer.parseInt(multi.getParameter("eventPk"));
 		
-		System.out.println(eventPk);
+		EventDTO event = edao.getEventRead(eventPk);
+		int postPk = event.getPostPk();
 		
-		PostDTO post = new PostDTO();
-		EventDTO event = new EventDTO();
-		EventDTO edto = edao.getEventRead(eventPk);
-		int postPk = edto.getPostPk();
-		
-		System.out.println(postPk);
-		
+		PostDTO post = pdao.getPostRead(postPk);
+
 		post.setPostTitle(postTitle);
 		post.setPostText(postText);
+		
 		event.setEventStarted(eventStarted);
 		event.setEventEnded(eventEnded);
 		
-		System.out.println("액션 전");
+		int eventFile = event.getEventFile();
+		int eventFileDetail = event.getEventFileDetail();
 		
+		//페이지 보내기
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(true);
+		
+
+		String newOrigin = multi.getOriginalFileName("eventFile");
+		String newSystem = multi.getFilesystemName("eventFile");		
+
+		String newDetailOrigin = multi.getOriginalFileName("eventFileDetail");
+		String newDetailSystem = multi.getFilesystemName("eventFileDetail");
+		
+		boolean fcheckStage = false;
+		boolean fcheckNew = false;
+		boolean fcheckDetailStage = false;
+		boolean fcheckDetailNew = false;
+		
+		if(newSystem == null) {
+			fcheckNew = true;
+		}
+		if(eventFile == 0) {
+			fcheckStage = true;
+		}
+		if(newDetailSystem == null) {
+			fcheckDetailNew = true;
+		}
+		if(eventFileDetail == 0) {
+			fcheckDetailStage = true;
+		}
+		
+		//리스트 배너 이미지
+		if(!fcheckNew) {//input 있을 경우
+			if(!fcheckStage) { //input있고 원래 파일이 있었을 경우(수정)
+				FileDTO newFile = new FileDTO();
+				newFile.setPostFilePk(eventFile);
+				newFile.setPostFileSystem(newSystem);
+				newFile.setPostFileOrigin(newOrigin);
+				
+				fcheckStage = fdao.updateFile(newFile);
+				
+			}
+			else { //input있고 원래 파일 없었을 경우(파일x>파일추가)
+				FileDTO newFile = new FileDTO();
+				newFile.setPostFileSystem(newSystem);
+				newFile.setPostFileOrigin(newOrigin);
+				if(fdao.insertFile(newFile)) {
+					int newEventFile = fdao.getLastPostFilePk(newSystem);
+					event.setEventFile(newEventFile);
+				}
+			}
+			fcheckNew = true;
+		}
+		fcheckStage = true;
+		
+		//상세페이지 이미지
+		if(!fcheckDetailNew) {//input 있을 경우
+			if(!fcheckDetailStage) { //input있고 원래 파일이 있었을 경우(수정)
+				FileDTO newDetailFile = new FileDTO();
+				newDetailFile.setPostFilePk(eventFileDetail);
+				newDetailFile.setPostFileSystem(newDetailSystem);
+				newDetailFile.setPostFileOrigin(newDetailOrigin);
+				
+				fcheckDetailStage = fdao.updateFile(newDetailFile);
+				System.out.println("!fcheckDetailStage");
+			}
+			else { //input있고 원래 파일 없었을 경우(파일x>파일추가)
+				FileDTO newDetailFile = new FileDTO();
+				newDetailFile.setPostFileSystem(newDetailSystem);
+				newDetailFile.setPostFileOrigin(newDetailOrigin);
+				System.out.println("fcheckDetailStage=true");
+				if(fdao.insertFile(newDetailFile)) {
+					System.out.println("insertFilenew");
+					int newEventDetailFile = fdao.getLastPostFilePk(newDetailSystem);
+					event.setEventFileDetail(newEventDetailFile);
+				}
+			}
+			fcheckDetailNew = true;
+		}
+		fcheckDetailStage = true;
+		
 		if(pdao.updatePost(post)) {
 			if(edao.updateEvent(event)) {
-				String[] systemname = {
-					multi.getFilesystemName("inputFileToList"),
-					multi.getFilesystemName("inputFileToRead")
-				};
-				String[] orgname = {
-					multi.getOriginalFileName("inputFileToList"),
-					multi.getOriginalFileName("inputFileToRead")
-				};
-				
-				List<FileDTO> files = fdao.getFile(postPk);
-				
-				String[] newFilenames = multi.getParameterValues("filename");
-				
-				int cnt = 0;
-				for (int i = 0; i < newFilenames.length; i++) {
-					if(newFilenames[i] != null && !newFilenames[i].equals("")) {
-						cnt++;
-					}
+				System.out.println("eventok");
+				System.out.println(fcheckNew);
+				System.out.println(fcheckStage);
+				System.out.println(fcheckDetailNew);
+				System.out.println(fcheckDetailStage);
+				if(fcheckNew && fcheckStage && fcheckDetailNew && fcheckDetailStage) {
+					System.out.println("allok");
+					transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
 				}
-				
-				for (int i = 0; i < cnt; i++) {
-					if(systemname[i] == null) {
-						
-					}
-					else {
-						if(files.size()>i) {
-							File file = new File(saveFolder,files.get(i).getPostFileSystem());
-							
-							if(file.exists()) {
-								file.delete();
-							}
-							fdao.deleteByName(files.get(i).getPostFileSystem());
-						}
-						FileDTO fdto = new FileDTO();
-						fdto.setPostPk(postPk);
-						fdto.setPostFileSystem(systemname[i]);
-						fdto.setPostFileOrigin(orgname[i]);
-						fdao.insertFile(fdto);
-					}
-				}
-				transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
 			}
 		}
 		else {
