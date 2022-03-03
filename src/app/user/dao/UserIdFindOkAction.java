@@ -22,7 +22,7 @@ public class UserIdFindOkAction implements Action{
 		if(findUser != null) {
 			session.setAttribute("findUser", findUser);
 			transfer.setRedirect(true);
-			transfer.setPath(req.getContextPath()+"/index.jsp?email=t");
+			transfer.setPath(req.getContextPath()+"/app/user/idShow.jsp");
 		}
 		else {
 			transfer.setRedirect(true);
