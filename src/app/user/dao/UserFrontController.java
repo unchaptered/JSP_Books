@@ -48,14 +48,14 @@ private static final long serialVersionUID = 1L;
 			break;
 		case "/user/LoginCheckEmailOk.us":
 			try {
-				new LoginCheckEmailOkAction().execute(req,resp);
+				new UserLoginCheckEmailOkAction().execute(req,resp);
 			} catch (Exception e) {
 				System.out.println("LoginCheckEmailOk: "+e);
 			}
 			break;
 		case "/user/JoinCheckEmailOk.us":
 			try {
-				new JoinCheckEmailOkAction().execute(req,resp);
+				new UserJoinCheckEmailOkAction().execute(req,resp);
 			} catch (Exception e) {
 				System.out.println("JoinCheckEmailOk :"+e);
 			}
@@ -89,6 +89,13 @@ private static final long serialVersionUID = 1L;
 			transfer = new ActionTo();
 			transfer.setRedirect(true);
 			transfer.setPath(req.getContextPath()+"/app/user/user_info.jsp");
+			break;
+		case "/user/UserPwFindOk.us":
+			try {
+				transfer = new UserPwFindOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("UserIdFindOk :"+e);
+			}
 			break;
 		}
 	

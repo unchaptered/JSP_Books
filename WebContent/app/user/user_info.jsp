@@ -14,7 +14,7 @@
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
 <div class="user_info_container_wrap">
-	<form name="userInfoForm" action="" method="post">
+	<form name="userInfoForm" action="" method="post" onsubmit="return senditInfo();">
     <section class="main_content">
         <div class="notice_detail">
             <span><a href="#"><strong class="title">내정보</strong></a></span>
@@ -29,8 +29,8 @@
                                 <th scope="row">이메일</th>
                                 <td>
                                 <div class="info_user_email">
-                                    <strong class="user_email_text">${loginUser.userEmail}</strong>
-                                    <button type="button" class="user_email_btn">&nbsp;이메일 변경&nbsp;</button>
+                                    <span class="user_email_text" id="user_email_text">${loginUser.userEmail}</span>
+                                    
                                 </div>
                             </td>
                             </tr>
@@ -38,8 +38,8 @@
                                 <th scope="row">이름</th>
                                 <td>
                                     <div class="info_user_name">
-                                        <span class="user_name_text">${loginUser.userName}</span>
-                                        <button type="button" class="user_name_btn">&nbsp;이름 변경&nbsp;</button>
+                                        <input type="text" class="user_name_text" value="${loginUser.userName}" readonly id="user_name_text">
+                                        <button type="button" class="user_name_btn" onclick="changeName()" id="user_name_btn">&nbsp;이름 변경&nbsp;</button>
                                     </div>
                                 </td>
                             </tr>
@@ -47,48 +47,14 @@
                                 <th scope="row">휴대폰 번호</th>
                                 <td>
                                     <div class="info_user_phone">
-                                        <span class="user_phone_text">${loginUser.userPhone}</span>
-                                        <button type="button" class="user_phone_btn">&nbsp;휴대폰 번호 변경&nbsp;</button>
+                                        <input type="text" class="user_phone_text" value="${loginUser.userPhone}" readonly id="user_phone_text">
+                                        <button type="button" class="user_phone_btn" onclick="changePhone()" id="user_phone_btn">&nbsp;휴대폰 번호 변경&nbsp;</button>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">비밀번호</th>
-                                <td>
-                                    <div class="info_user_pw">
-                                        <table class="user_info_pw_table">
-                                            <tbody>
-                                                <tr>
-                                                    <th>현재 비밀번호</th>
-                                                    <td><input type="password" class="info_userpw"></td>
-                                                    <div class="info_userpw_space input_space"></div>
-                                                </tr>
-                                                <tr>
-                                                    <th>새 비밀번호</th>
-                                                    <td><input type="password" class="info_userpwre">
-                                                    <div class="userpw_text">
-                                                    <div class="info_userpwre_space1">
-                                                        <span><i class="icon_cross"></i></span><span>기존에 사용하고 있는 비밀번호는 사용할 수 없습니다.</span>
-                                                    </div>
-                                                    <div class="info_userpwre_space1">
-                                                        <span><i class="icon_cross"></i></span><span>영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</span>
-                                                    </div>
-                                                </div>
-                                                </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>비밀번호 확인</th>
-                                                    <td><input type="password" class="info_userpwre_re">
-                                                    <div class="info_userpwre_re_space input_space"></div>
-                                                    <div class="info_userpwre_space1 userpwre_text">
-                                                        <span><i class="icon_cross"></i></span><span>확인을 위해 새 비밀번호를 다시 입력해주세요.</span>
-                                                    </div>
-                                                </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
+                                
                             </tr>
                             <tr>
                                 <th scope="row">주소</th>
@@ -98,24 +64,24 @@
                                             <tbody>
                                                 <tr>
                                                     <th>우편번호</th>
-                                                    <td><input type="text" class="info_useraddr info_useraddr_num" readonly id="sample6_postcode">
-                                                    <button type="button" class="user_addr_btn" onclick="sample6_execDaumPostcode();">&nbsp;우편번호 찾기&nbsp;</button>
+                                                    <td><input type="text" class="info_useraddr info_useraddr_num" readonly id="postcode" value="${loginUser.userZipcode}">
+                                                    <button type="button" class="user_addr_btn" onclick="execDaumPostcode()">&nbsp;우편번호 찾기&nbsp;</button>
                                                 </td>
                                                 </tr>
                                                 <tr>
                                                     <th>주소</th>
-                                                    <td><input type="text" class="info_useraddr info_user_address" readonly id="sample6_address">
+                                                    <td><input type="text" class="info_useraddr info_user_address" readonly id="address" value="${loginUser.userAddress}">
                                                 </td>
                                                 </tr>
                                                 <tr>
                                                     <th>상세주소</th>
-                                                    <td><input type="text" class="info_useraddr info_useraddr_detail" id="sample6_detailAddress">
+                                                    <td><input type="text" class="info_useraddr info_useraddr_detail" id="detailAddress" value="${loginUser.userAddressDetail}">
                                                 </td>
                                                 </tr>
                                                 <tr>
                                                     <th>참고항목</th>
                                                     <td><input readonly type="text" class="info_useraddr_detail
-                                                        info_useraddr" id="sample6_extraAddress">
+                                                        info_useraddr" id="extraAddress" value="${loginUser.userAddressEtc}">
                                                 </td>
                                                 </tr>
                                             </tbody>
@@ -130,55 +96,95 @@
                                         <table class="user_info_bank_table">
                                 <div class="shinhan bank">
                                 <li>
-                                    <input type="checkbox" name="shinhan_bank" id="shinhan_bank" style="vertical-align: middle;">
+                                <c:if test="${loginUser.userBank == '신한은행'}">
+                                    <input type="checkbox" name="shinhan_bank" id="shinhan_bank" style="vertical-align: middle;" value="신한은행" checked>
+                                    </c:if>
+                                    <c:if test="${loginUser.userBank != '신한은행'}">
+                                    <input type="checkbox" name="shinhan_bank" id="shinhan_bank" style="vertical-align: middle;" value="신한은행">
+                                    </c:if>
                                     <label for="shinhan_bank" class="shin">신한은행</label>
                                 </li>
                             </div>
                             <div class="kookmin bank">
                                 <li>
-                                    <input type="checkbox" name="kookmin_bank" id="kookmin_bank" style="vertical-align: middle;">
+                                <c:if test="${loginUser.userBank == '국민은행'}">
+                                    <input type="checkbox" name="kookmin_bank" id="kookmin_bank" style="vertical-align: middle;" value="국민은행" checked>
+                                    </c:if>
+                                    <c:if test="${loginUser.userBank != '국민은행'}">
+                                    <input type="checkbox" name="kookmin_bank" id="kookmin_bank" style="vertical-align: middle;" value="국민은행">
+                                    </c:if>
                                     <label for="kookmin_bank">국민은행</label>
                                 </li>
                             </div><div class="mgmg bank">
                                 <li>
-                                    <input type="checkbox" name="product_fizzo" id="mg" style="vertical-align: middle;">
+                                <c:if test="${loginUser.userBank == '새마을금고'}">
+                                    <input type="checkbox" name="product_fizzo" id="mg" style="vertical-align: middle;" value="새마을금고" checked>
+                                    </c:if>
+                                    <c:if test="${loginUser.userBank != '새마을금고'}">
+                                    <input type="checkbox" name="product_fizzo" id="mg" style="vertical-align: middle;" value="새마을금고">
+                                    </c:if>
                                     <label for="mg">새마을금고</label>
                                 </li>
                             </div>
                             <div class="kakao">
                             <li>
-                                <input type="checkbox" name="product_tea" id="kakao_bank" style="vertical-align: middle;">
+                            <c:if test="${loginUser.userBank == '카카오뱅크'}">
+                                <input type="checkbox" name="product_tea" id="kakao_bank" style="vertical-align: middle;" value="카카오뱅크" checked>
+                                </c:if>
+                                <c:if test="${loginUser.userBank != '카카오뱅크'}">
+                                <input type="checkbox" name="product_tea" id="kakao_bank" style="vertical-align: middle;" value="카카오뱅크">
+                                </c:if>
                                 <label for="kakao_bank">카카오뱅크</label>
                             </li>
                         </div> 
                             <div class="woori bank">
                                 <li>
-                                    <input type="checkbox" name="woori_bank" id="woori_bank" style="vertical-align: middle;">
+                                <c:if test="${loginUser.userBank == '우리은행'}">
+                                    <input type="checkbox" name="woori_bank" id="woori_bank" style="vertical-align: middle;" value="우리은행" checked>
+                                    </c:if>
+                                    <c:if test="${loginUser.userBank != '우리은행'}">
+                                    <input type="checkbox" name="woori_bank" id="woori_bank" style="vertical-align: middle;" value="우리은행">
+                                    </c:if>
                                     <label for="woori_bank">우리은행</label>
                                 </li>
                             </div>
                             <div class="hana bank">
                                 <li>
-                                    <input type="checkbox" name="hana_bank" id="hana_bank" style="vertical-align: middle;">
+                                <c:if test="${loginUser.userBank == '하나은행'}">
+                                    <input type="checkbox" name="hana_bank" id="hana_bank" style="vertical-align: middle;" value="하나은행" checked>
+                                    </c:if>
+                                    <c:if test="${loginUser.userBank != '하나은행'}">
+                                    <input type="checkbox" name="hana_bank" id="hana_bank" style="vertical-align: middle;" value="하나은행">
+                                    </c:if>
                                     <label for="hana_bank">하나은행</label>
                                 </li>
                             </div>
                             <div class="nhbank bank">
                                 <li>
-                                    <input type="checkbox" name="nh_bank" id="nh" style="vertical-align: middle;">
+                                <c:if test="${loginUser.userBank == '농협'}">
+                                    <input type="checkbox" name="nh_bank" id="nh" style="vertical-align: middle;" value="농협" checked>
+                                    </c:if>
+                                    <c:if test="${loginUser.userBank != '농협'}">
+                                    <input type="checkbox" name="nh_bank" id="nh" style="vertical-align: middle;" value="농협">
+                                    </c:if>
                                     <label for="nh">농협&nbsp;</label>
                                 </li>
                             </div>
                             <div class="ibk">
                                 <li>
-                                    <input type="checkbox" name="ibk_bank" id="ibk_bank" style="vertical-align: middle;">
-                                    <label for="ibk_bank">IBK기업은행</label>
+                                <c:if test="${loginUser.userBank == '기업은행'}">
+                                    <input type="checkbox" name="ibk_bank" id="ibk_bank" style="vertical-align: middle;" value="기업은행" checked>
+                                    </c:if>
+                                    <c:if test="${loginUser.userBank != '기업은행'}">
+                                    <input type="checkbox" name="ibk_bank" id="ibk_bank" style="vertical-align: middle;" value="기업은행">
+                                    </c:if>
+                                    <label for="ibk_bank">기업은행</label>
                                 </li>
                             </div>
                             <div class="info_user_bank_num">
                             <th><label for="banknum">계좌번호</label></th>
                             <td>
-                                <input type="text" class="info_userbank info_user_bank" id="banknum">
+                                <input type="text" class="info_userbank info_user_bank" id="banknum" value="${loginUser.userBankAccount}">
                         </td>
                         </div>
                         </table>
@@ -189,7 +195,7 @@
                     </table>
                 </div>
                 <div class="notice_detail_nav">
-                    <input type="button" value="수정" class="submit_btn">
+                    <input type="submit" value="수정" class="submit_btn">
                 </div>
             </div>
         </div>
@@ -198,7 +204,8 @@
 </div>	
 	<%@ include file="/app/components/footer.jsp" %>
 </body>
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
+<script>let cp = "${pageContext.request.contextPath}";</script>
+<script src="${cp}/assets/js/user_info.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="./js/addr.js"></script>
 </html>

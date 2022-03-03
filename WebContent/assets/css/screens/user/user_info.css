@@ -164,6 +164,7 @@ table{
     font-weight: 400;
     margin-left: 15px;
     font-size: 14px;
+    background-color: #fafbf6;
 }
 .user_info_container_wrap .user_email_btn{
     border-color: #bcbfc6;
@@ -181,10 +182,11 @@ table{
     color: #666;
 }
 .user_info_container_wrap .user_name_text{
-    margin-right: 1em;
+     margin-right: 1em;
     font-weight: 400;
     margin-left: 15px;
-    font-size: 15px;
+    font-size: 12px;
+    background-color: #fafbf6;
 }
 .user_info_container_wrap .user_name_btn{
     border-color: #bcbfc6;
@@ -202,10 +204,11 @@ table{
     color: #666;
 }
 .user_info_container_wrap .user_phone_text{
-    margin-right: 1em;
+     margin-right: 1em;
     font-weight: 400;
     margin-left: 15px;
-    font-size: 14px;
+    font-size: 12px;
+    background-color: #fafbf6;
 }
 .user_info_container_wrap .user_phone_btn{
     border-color: #bcbfc6;
@@ -265,6 +268,9 @@ table{
     border: 1px solid #e1e2e3;
     border-radius: 2px;
     height: 25px;
+}
+.user_info_container_wrap .userInfoError {
+	font-size:13px;
 }
 
 .user_info_container_wrap .user_info_pw_table input[type=password]:focus{

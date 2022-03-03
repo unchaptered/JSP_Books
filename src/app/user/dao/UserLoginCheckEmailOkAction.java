@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.ActionTo;
 
-public class LoginCheckEmailOkAction implements Action{
+public class UserLoginCheckEmailOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String email = req.getParameter("email");
