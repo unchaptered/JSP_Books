@@ -65,10 +65,20 @@
 		where b.user_pk=#{userPk}
 		ORDER BY b.bill_pk DESC;
 	</select>
-	<insert id="addCart" parameterType="cartdto">
+	<select id="Shop.getCart" resultType="cartdto" parameterType="_int">
+		select cart_pk AS cartPk, new_book_image AS image, c.new_book_pk As bookPk, new_book_title AS title, cart_quantity AS quantity, 
+			new_book_price AS price, new_book_mount AS mount
+		from cart c
+			join new_book b on c.new_book_pk = b.new_book_pk
+		from cart
+		where c.cart_pk=#{cartPk}
+	</select>
+	<!-- 오토인크리트된 cartPk를 cartdto객체 cartPk에 돌려받음 -->
+	<insert id="addCart" parameterType="cartdto" useGeneratedKeys="true" keyProperty="cartPk">
 		insert into cart (cart_quantity, user_pk, new_book_pk)
 		values(#{quantity}, #{userPk}, #{bookPk})
 	</insert>
+	<!-- 오토인크리트된 billpPk를 billdto객체 billPk에 돌려받음 -->
 	<insert id="insertBill" parameterType="billdto" useGeneratedKeys="true" keyProperty="billPk">
 		insert into bill (bill_payment, bill_total_price, bill_zipcode, bill_addr, user_pk)
 		values(#{billPayment}, #{billTotalPrice}, #{billZipCode}, #{billAddr}, #{userPk})

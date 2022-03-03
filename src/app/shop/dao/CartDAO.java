@@ -55,4 +55,8 @@ public class CartDAO {
 	public List<BookDTO> getBookList(String[] products) {
 		return sqlsession.selectList("Shop.getBookList",products);
 	}
+
+	public List<CartDTO> getCart(int cart) {
+		return sqlsession.selectList("Shop.getCart", cart);
+	}
 }
