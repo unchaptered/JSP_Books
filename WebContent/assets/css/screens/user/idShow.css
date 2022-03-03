@@ -100,6 +100,10 @@ table{
     text-align: center;
     color: black;
 }
+.id_show_body_text h3{
+    margin: 0 auto;
+    text-align: center;
+}
 .idShowWrap .idSubmit_btn{
     position: absolute;
     right: 20%;
@@ -111,11 +115,9 @@ table{
     background-color: #122236;
     font-size: 16px;
     font-weight: 400;
-    color: #fff;
     cursor: pointer;
 }
 .idShowWrap .idSubmit_btn a {
     color: #fff;
 }
-
 
