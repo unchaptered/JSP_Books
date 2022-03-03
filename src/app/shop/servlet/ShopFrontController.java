@@ -94,7 +94,7 @@ public class ShopFrontController extends HttpServlet{
 			if(transfer.isRedirect()) {
 				resp.sendRedirect(req.getContextPath()+transfer.getPath());	// path 오류로 req.getContextPath() 추가함.
 			}
-			else {
+			else {		// requset의 attribute는  forword로 이동한 경우에만 공유가 된다.
 				RequestDispatcher disp = req.getRequestDispatcher(transfer.getPath());
 				disp.forward(req, resp);
 			}
