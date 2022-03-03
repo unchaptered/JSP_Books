@@ -1,18 +1,18 @@
 /* 저자 : 고결 */
-div{
+.idShowWrap div{
     margin: 0;
     padding: 0;
     display: block;
 }
-table{
+.idShowWrap table{
     border-collapse: collapse;
     border-spacing: 0;
 }
-.notice_detail{
+.idShowWrap .notice_detail{
     width: 1070px;
     margin: 0 auto;
 }
-.title{
+.idShowWrap .title{
     font-size: 30px;
     display: block;
     text-align: center;
@@ -24,7 +24,7 @@ table{
     align-items: center;
 }
 /*  */
-.detail_title{
+.idShowWrap .detail_title{
     position: relative;
     display: inline;
     font-size: 24px;
@@ -35,7 +35,7 @@ table{
     top: -40px;
     border-bottom: 2px solid #e5e5e5;
 }
-.detail_content{
+.idShowWrap .detail_content{
     clear: both;
     float: left;
     width: 100%;
@@ -47,60 +47,45 @@ table{
     word-break: break-all;
     margin : 0 auto;
 }
-.notice_detail_nav{
+.idShowWrap .notice_detail_nav{
     display: inline-block;
     padding : 13px 0;
     width: 100%;
     margin-top: 20px;
 }
-.id_show_wrap {
-    font-size: 14px;
-    line-height: 1.4;
-    color: #333333;
-    display: block;
-    width:100%;
-    height:100%; 
-    background:rgba(0,0,0,0.5);
-    position:fixed;
-    top:0; 
-    left:0; 
-    z-index:9000;
-    visibility:hidden;
-     opacity:0;
-     transition:all 0.3s ease;
-}
-.idShowWrap  .idshow_table{
+
+.idShowWrap .idshow_table{
     position: relative;
     top: -50px;
     width: 100%;
     border-collapse: collapse;
 }
-.idShowWrap  tbody{
+.idShowWrap tbody{
     display: table-row-group;
     vertical-align: middle;
 }
 
-.id_show_body_wrap{
+.idShowWrap .id_show_body_wrap{
     padding: 10px;
 }
-.id_show_body_inner{
+.idShowWrap .id_show_body_inner{
     position: relative;
     padding-bottom: 32px;
     color: #767676;
 }
-.id_show_body_text {
+.idShowWrap .id_show_body_text {
     margin: 20px auto;
 }
-.id_show_body_text h3{
+.idShowWrap .id_show_body_text h3{
     margin: 0 auto;
     text-align: center;
 }
-.id_show_body_text h2{
+.idShowWrap .id_show_body_text h2{
     margin: 0 auto;
     text-align: center;
     color: black;
 }
-.id_show_body_text h3{
+.idShowWrap .id_show_body_text h3{
     margin: 0 auto;
     text-align: center;
 }
