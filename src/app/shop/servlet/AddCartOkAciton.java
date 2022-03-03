@@ -21,7 +21,9 @@ public class AddCartOkAciton implements Action{
 		CartDTO cdto = new CartDTO();
 		HttpSession session = req.getSession();
 		
-//		jsp에서 쓰던 out.print()의 JAVA식	응답하기 위한 resp객체에서 getWriter()로 받아 out객체 생성. 
+//		jsp에서 쓰던 out.print()의 JAVA식	응답하기 위한 resp객체에서 getWriter()로 받아 out객체 생성.
+		resp.setCharacterEncoding("UTF-8"); 				// 응답에서 한글깨짐으로 out객체 사용전 셋팅
+		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 		if(session.getAttribute("loginUser") == null) {// 세션이 null값일때 들어오면 nullPointException
 			out.write("X");	//Ajax용 이름없는 페이지 XHR.responseText로 날라감.
@@ -29,22 +31,25 @@ public class AddCartOkAciton implements Action{
 			return null;
 		}
 		
-		int userpk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
+		int userPk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
 		int quantity = Integer.parseInt(req.getParameter("quantity"));
 		cdto.setQuantity(quantity);
-		cdto.setUserpk(userpk);
-		cdto.setBookpk(Integer.parseInt(req.getParameter("bookpk")));
+		cdto.setUserPk(userPk);
+		cdto.setBookPk(Integer.parseInt(req.getParameter("bookPk")));
 		
 		
-		Integer haveCart = cdao.checkCart(cdto); // selectOne by userpk&bookpk
+		Integer haveCart = cdao.checkCart(cdto); // selectOne by userPk&bookPk
 		if(haveCart!=null) {
 			// 동일품목의 카트가 있으면..
 			cdao.updateCartQuantity(haveCart, quantity); // 동일품목카트에 추가수량만큼 증가
+			out.write(haveCart+"");	// ajax 카트번호 응답
 		}
 		else {
 			// 없으면.. 신규품목카트 추가
 			cdao.addCart(cdto);
+			out.write(cdto.getCartPk()+"");	// ajax 카트번호 응답
 		}
+		out.close();	// out객체 해제
 		return null;
 	}
 

@@ -159,7 +159,9 @@
     float: right;
     cursor: pointer;
 }
-
+#payment_info .on{
+	border: 1px solid transparent;
+}
 #payment_info .active{
 	border: 1px solid slategray;
 }

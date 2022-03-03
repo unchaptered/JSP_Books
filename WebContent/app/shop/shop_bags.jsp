@@ -55,7 +55,7 @@
 								<c:when test="${cartList.size()>0 and cartList != null}">
 									<c:forEach var="product" items="${cartList}" varStatus="status">	<!-- varStatus="status" 인덱싱${status.count} 1,2,3... --> 
 										<tr>
-			                               <td><input type="checkbox" name="cartnum" id="cart${status.count}" value="${product.cartnum}" onclick="toggle_box()" checked></td>
+			                               <td><input type="checkbox" name="cartPk" id="cart${status.count}" value="${product.cartPk}" onclick="toggle_box()" checked></td>
 			                               <td><a href="#"><img src="${cp}/assets/img/book_sample1.jpg" alt="book"></a></td>
 			                               <td><a href="#">${product.title}</a></td>
 			                               <td><fmt:formatNumber value="${product.price}" pattern="#,###" /></td>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </section>
-            <a href="javascript:addCart(2,2)">추가</a>	<!-- 장바구니추가 테스트용 -->
+            <a href="javascript:directBuy(1,1)">바로구매버튼</a>	<!-- 바로구매 테스트용 bookPk 1번, 1개-->
         </section>
     </main>
 	
@@ -108,5 +108,5 @@
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/shop_bags.js"></script>
-<script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script> <!-- 장바구니추가 테스트용 -->
+<script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script> <!-- 장바구니,바로가기 버튼구현 JS 테스트용 -->
 </html>

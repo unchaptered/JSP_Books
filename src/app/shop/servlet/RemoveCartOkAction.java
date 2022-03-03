@@ -12,8 +12,8 @@ public class RemoveCartOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		CartDAO cdao = new CartDAO();
-		int cartnum = Integer.parseInt(req.getParameter("cartnum"));
-		cdao.delCart(cartnum);
+		int cartPk = Integer.parseInt(req.getParameter("cartPk"));
+		cdao.delCart(cartPk);
 		return null;
 	}
 

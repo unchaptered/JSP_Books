@@ -46,7 +46,7 @@
 							<c:when test="${cartList.size()>0 and cartList != null}">
 								<c:forEach var="product" items="${cartList}" varStatus="status">	<!-- varStatus="status" 인덱싱처리위해서-->
 					                <div id="cart${status.count}">
-										<input type="hidden" name="products" value="${product.cartnum}">	<!-- 구매상품배열 req로 넘김 --> 
+										<input type="hidden" name="products" value="${product.cartPk}">	<!-- 구매상품배열 req로 넘김 --> 
 										<input type="hidden" name="quantity" value="${product.quantity}">	<!-- 구매수량배열 req로 넘김 --> 
 			                            <a href="#"><img src="${cp}/assets/img/book_sample1.jpg" alt="book"></a>
 			                            <svg onclick="delCart(`cart${status.count}`)" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
