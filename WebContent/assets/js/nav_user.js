@@ -152,6 +152,26 @@
             $('body').css("overflow-y", "scroll");
             }
             });
+            
+    // idShow.js
+            
+            $("#id_find_login").on("click", function(){
+                $('body').css("overflow", "hidden");
+                $(".id_find_wrap").css({ visibility:"hidden",opacity:0});
+                $(".id_show_wrap").css({ visibility:"visible",opacity:1});
+                });
+                // 모달창 닫기 이벤트 
+                $("#closeIdShow").on("click", function(){
+                $('body').css("overflow-y", "scroll");
+                $(".id_show_wrap").css({ visibility:"hidden",opacity:0 });
+                });
+
+                $(document).on("click",function(e){
+                if( $(".id_show_wrap").is(e.target)) {
+                $(".id_show_wrap").css({ visibility:"hidden",opacity:0 });
+                $('body').css("overflow-y", "scroll");
+                }
+                });
         
         
         

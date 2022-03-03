@@ -1,22 +1,20 @@
 <!-- 작성자 : 고결 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="cp" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>user_info</title>
-<!-- 공용 css -->
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/screens/user/user_info.css">
-<!-- 페이지 별로 css 파일은 여기에 추가해주세요 -->
+<link rel="stylesheet" href="${cp}/assets/css/styles.css">
+<link rel="stylesheet" href="${cp}/assets/css/screens/user/user_info.css">
 </head>
 <body>
-	<!-- 경로 수정하셔야 합니다. -->
-	<%@ include file="../components/nav.jsp" %>
-<!-- container -->
+	<%@ include file="/app/components/nav.jsp" %>
 <div class="user_info_container_wrap">
-<main id="main">
+	<form name="userInfoForm" action="" method="post">
     <section class="main_content">
         <div class="notice_detail">
             <span><a href="#"><strong class="title">내정보</strong></a></span>
@@ -31,7 +29,7 @@
                                 <th scope="row">이메일</th>
                                 <td>
                                 <div class="info_user_email">
-                                    <strong class="user_email_text">hong@gmail.com</strong>
+                                    <strong class="user_email_text">${loginUser.userEmail}</strong>
                                     <button type="button" class="user_email_btn">&nbsp;이메일 변경&nbsp;</button>
                                 </div>
                             </td>
@@ -40,7 +38,7 @@
                                 <th scope="row">이름</th>
                                 <td>
                                     <div class="info_user_name">
-                                        <span class="user_name_text">고결</span>
+                                        <span class="user_name_text">${loginUser.userName}</span>
                                         <button type="button" class="user_name_btn">&nbsp;이름 변경&nbsp;</button>
                                     </div>
                                 </td>
@@ -49,7 +47,7 @@
                                 <th scope="row">휴대폰 번호</th>
                                 <td>
                                     <div class="info_user_phone">
-                                        <span class="user_phone_text">01071468059</span>
+                                        <span class="user_phone_text">${loginUser.userPhone}</span>
                                         <button type="button" class="user_phone_btn">&nbsp;휴대폰 번호 변경&nbsp;</button>
                                     </div>
                                 </td>
@@ -196,16 +194,10 @@
             </div>
         </div>
     </section>
-</main>
-</div>
-<!-- container// -->
-<!-- footer -->
-
-	
-	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="../components/footer.jsp" %>
+    </form>
+</div>	
+	<%@ include file="/app/components/footer.jsp" %>
 </body>
-<!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="assets/js/nav_menu.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="./js/addr.js"></script>
