@@ -54,43 +54,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">비밀번호</th>
-                                <td>
-                                    <div class="info_user_pw">
-                                        <table class="user_info_pw_table">
-                                            <tbody>
-                                                <tr>
-                                                    <th>현재 비밀번호</th>
-                                                    <td><input type="password" class="info_userpw" value="${loginUser.userPassword}" readonly></td>
-                                                    <div class="info_userpw_space input_space"></div>
-                                                </tr>
-                                                <tr>
-                                                    <th><label for="info_userpwre">새 비밀번호</label></th>
-                                                    <td><input type="password" class="info_userpwre" id="info_userpwre">
-                                                    <span id="info_userpwre_error" class="userInfoError"></span>
-                                                    <div class="userpw_text">
-                                                    <div class="info_userpwre_space1">
-                                                        <span><i class="icon_cross"></i></span><span>기존에 사용하고 있는 비밀번호는 사용할 수 없습니다.</span>
-                                                    </div>
-                                                    <div class="info_userpwre_space1">
-                                                        <span><i class="icon_cross"></i></span><span>영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</span>
-                                                    </div>
-                                                </div>
-                                                </td>
-                                                </tr>
-                                                <tr>
-                                                    <th><label for="info_userpwre_re">비밀번호 확인</label></th>
-                                                    <td><input type="password" class="info_userpwre_re" id="info_userpwre_re">
-                                                    <span id="info_userpwre_re_error" class="userInfoError">야야야야야야이런거쓰면</span>
-                                                    <div class="info_userpwre_re_space input_space"></div>
-                                                    <div class="info_userpwre_space1 userpwre_text">
-                                                        <span><i class="icon_cross"></i></span><span>확인을 위해 새 비밀번호를 다시 입력해주세요.</span>
-                                                    </div>
-                                                </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
+                                
                             </tr>
                             <tr>
                                 <th scope="row">주소</th>
@@ -241,7 +205,7 @@
 	<%@ include file="/app/components/footer.jsp" %>
 </body>
 <script>let cp = "${pageContext.request.contextPath}";</script>
-<script src="${cp}/assets/js/addr_userinfo.js"></script>
+<script src="${cp}/assets/js/user_info.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </html>

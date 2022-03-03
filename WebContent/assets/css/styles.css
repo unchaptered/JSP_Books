@@ -13,12 +13,11 @@
 
 @import "./components/footer.css";
 
-@import "./screens/user/login.css";
-@import "./screens/user/join.css";
+@import "./screens/user/modal_login.css";
+@import "./screens/user/modal_join.css";
 @import "./screens/user/pw.css";
-@import "./screens/user/pwFind.css";
-@import "./screens/user/idFind.css";
-@import "./screens/user/idShow.css";
+@import "./screens/user/modal_pw_find.css";
+@import "./screens/user/modal_id_find.css";
 
 
 /* Screens : 개인 페이지에 작성한 파일은 전부 Screen 폴더로 */

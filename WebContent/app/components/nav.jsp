@@ -417,6 +417,6 @@
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>const cp = "${pageContext.request.contextPath}"</script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="${cp}/assets/js/addr.js"></script>
+<script src="${cp}/assets/js/user_addr.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/nav_user.js"></script>
 </html>
