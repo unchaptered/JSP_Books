@@ -1,185 +1,142 @@
 /* 저자 : 고결 */
-.pw_wrap{
-    font-size: 14px;
-    line-height: 1.4;
-    color: #333333;
+.pwShowWrap div{
+    margin: 0;
+    padding: 0;
     display: block;
-    width:100%;
-    height:100%; 
-    background:rgba(0,0,0,0.5);
-    position:fixed;
-    top:0; 
-    left:0; 
-    z-index:9000;
-    visibility:hidden;
-    opacity:0;
-    transition:all 0.3s ease;
 }
-.pw_wrap input, input:focus{
-    outline: none !important;
-    box-shadow: none!important;
+.pwShowWrap table{
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-.pw_wrap button{
-    overflow: visible;
+.pwShowWrap .notice_detail{
+    width: 1070px;
+    margin: 0 auto;
 }
-.pw_wrap .pw_container{
-    border: 1px solid #f5f4f0;
-    position: absolute;
-    width: 400px;
-    height: 330px;
-    /* overflow-y: auto; */
-    top: 50%;
-    left: 50%;
-    max-width: 500px;
-    max-height: calc(100vh - 150px);
-    transform: translate(-50%,-50%);
-    z-index: 5;
-    border-radius: 5px;
-    background: #fff;
-    overflow: hidden;
+.pwShowWrap .title{
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    font-weight: normal;
+    margin: 50px 0px 40px 0px;
+    border-bottom:2px solid #e5e5e5;
+    padding: 20px 0;
+    line-height: 10px;
+    align-items: center;
 }
-.pw_wrap .pw_container{ z-index:10001;   
-    position:fixed; left:50%; top:50%; 
-    transform:translate(-50%, -50%); 
-     background:#fff; border-radius:6px; }
-.pw_wrap .pw_header{
-    border-bottom: 0 !important;
-    height: 54px !important;
-    padding: 16px 20px !important;
-    position: relative !important;
-    color: #333 !important;
-    text-align: center !important;
-    font-size: 16px !important;
-    font-weight: 600 !important; 
-    word-wrap: break-word !important;
+.pwShowWrap .detail_title{
+    position: relative;
+    display: inline;
+    font-size: 24px;
+    padding: 20px;
+    color: #545861;
+    float: left;
+    width: 100%;
+    top: -40px;
+    border-bottom: 2px solid #e5e5e5;
+}
+.pwShowWrap .detail_content{
+    clear: both;
+    float: left;
+    width: 100%;
+    min-height: 250px;
+    padding: 30px 20px;
+    border-bottom: 1px solid#e5e5e5;
+    font-size: 17px;
+    color: #333333;
+    word-break: break-all;
+    margin : 0 auto;
+}
+.pwShowWrap .notice_detail_nav{
+    display: inline-block;
+    padding : 13px 0;
+    width: 100%;
+    margin-top: 20px;
+}
 
+.pwShowWrap .pwshow_table{
+    position: relative;
+    top: -50px;
+    width: 100%;
+    border-collapse: collapse;
 }
-.pw_wrap .pw_header .pw_icon{
+.pwShowWrap tbody{
+    display: table-row-group;
     vertical-align: middle;
 }
 
-.pw_wrap .icon button{
-    display: inline-block;
-    width: 45px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    padding: 15px;
-    line-height: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    color: rgb(220, 220, 220);
+.pwShowWrap .pw_show_body_wrap{
+    padding: 10px;
 }
-.pw_wrap .icon button+button{
-    display: inline-block;
-    width: 45px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    padding: 15px;
-    line-height: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    color: rgb(220, 220, 220);
-}
-.pw_wrap svg:not(:root){
-    overflow: hidden;
-}
-.pw_wrap .icon button>svg{
-    position: absolute;
-    top: 10%;
-    right: 10px;
-    cursor: pointer;
-    width: 24px;
-    color: rgb(220, 220, 220);
-    /* color: #f5f4f0; */
-}
-/* .icon button>svg+svg{
-    position: absolute;
-    top: 20%;
-    left: 10px;
-    width: 30px;
-} */
-.pw_wrap .pw_body_wrap{
-    padding: 20px;
-}
-.pw_wrap .pw_body_inner{
+.pwShowWrap .pw_show_body_inner{
     position: relative;
-    padding-bottom: 22px;
+    padding-bottom: 32px;
     color: #767676;
 }
-.pw_wrap .user_info{
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    font-family: none !important;
+.pwShowWrap .id_show_body_text {
+    position: absolute;
+    margin: 40px auto;
 }
-.pw_wrap .input_pw{
-    margin-top: 11px;
+.pwShowWrap .id_show_body_text h3{
+    margin: 0 auto;
+    text-align: center;
 }
-.pw_wrap input[type=password]{
-    width: 100%;
-    height: 50px;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 5px;
-    border: 1px solid #e1e2e3;
-    background-color: #fff;
+.pwShowWrap .id_show_body_text h2{
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+}
+.pwShowWrap .id_show_body_text h3{
+    margin: 0 auto;
+    text-align: center;
+}
+.pwShowWrap .info_userpw {
     font-size: 15px;
-    color: #333;
-    appearance: none;
-    resize: none;
+    color: #969696;
+    margin-bottom: 55px;
 }
-.pw_wrap input[type=password]::placeholder{
-    color: #cacaca;
+.pwShowWrap .info_newPw{
+    margin-top: 55px;
+    height: 25px;
+    border:1px solid #e1e2e3;
 }
-.pw_wrap input[type=password]:focus{
-    border: 1px solid #36f;
+.pwShowWrap .newPw {
+    font-size: 14px;
+    color: #969696;
 }
-.pw_wrap .pw_space{
-    bottom: 0;
-    margin-top: 40px;
-    font-size: 12px;
+.pwShowWrap .info_newPwRe{
+    margin-top: 30px;
+    height: 25px;
+    border:1px solid #e1e2e3;
 }
-.pw_wrap #pw_login{
-    margin-top: 10px;
-}
-.pw_wrap .buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.pwShowWrap .pwSubmit_btn{
+    position: absolute;
+    right: 20%;
+    width: 100px;
     height: 54px;
+    line-height:54px;
     border: 0;
     border-radius: 27px;
-    background-color: #36f;
+    background-color: #122236;
     font-size: 16px;
-    font-weight: 600;
-    color: #fff;
+    font-weight: 400;
     cursor: pointer;
 }
-.pw_wrap .pw_btn:hover {
-    background-color: #4346f3;
+.pwShowWrap .pwSubmit_btn a {
+    color: #fff;
 }
-.pw_wrap .pw_btn2{
-    background-color: transparent;
-    font-size: 14px;
-    color: #36f;
-    margin-top: 10px;
+.pwShowWrap .idSubmit_btn{
+    position: absolute;
+    right: 27%;
+    width: 100px;
+    height: 54px;
+    line-height:54px;
+    border: 0;
+    border-radius: 27px;
+    background-color: #122236;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
 }
-.pw_wrap .pw_btn2 a{
-    background-color: transparent;
-    font-size: 14px;
-    color: #36f;
-    margin-top: 10px;
-    font-family: none !important;
+.pwShowWrap .idSubmit_btn a {
+    color: #fff;
 }
-.pw_wrap .pw_btn2:hover{
-    text-decoration: underline;
-}
-
-
-

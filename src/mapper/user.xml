@@ -21,4 +21,7 @@
 	<select id="UserFindEmail" parameterType="hashmap" resultType="userdto">
 		select user_email from user where user_name=#{emailFindName} AND user_phone=#{emailFindPhone}
 	</select>
+	<select id="UserFindPw" parameterType="hashmap" resultType="userdto">
+		select user_password from user where user_email=#{pwFindEmail} AND user_phone=#{pwFindPhone}
+	</select>
 </mapper>
