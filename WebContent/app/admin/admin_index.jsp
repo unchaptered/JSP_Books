@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./assets/css/admin/admin_index.css">
-
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/admin/admin_index.css" >
+<script>const cp = "${pageContext.request.contextPath}"</script>
+<script type="text/javascript" src="${cp}/assets/js/admin_chart/echarts.js"></script>
 </head>
 <body>
 	 <div class="container">
@@ -43,7 +44,7 @@
                 <h4>매출관리</h4> 
             </div>
             <div>
-                <h4>결제부가서비스</h4> 
+               <a href="./음반 등록.html" style="color:white" >음반관리</a>
             </div>
             
          
@@ -235,5 +236,32 @@
     </div>
 
 </body>
-<script type="text/javascript" src="./assets/js/admin_chart/echarts.js"></script>
+<script type="text/javascript">
+    // DOM을 준비하고 echart 객체를 만듭니다.
+    var myChart = echarts.init(document.getElementById('main2'));
+
+    // 차트 속성과 데이터를 지정합니다.
+    var option = {
+        title: {
+            text: 'ECharts entry example'
+        },
+        tooltip: {},
+        legend: {
+            data:['Sales']
+        },
+        xAxis: {
+            data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
+        },
+        yAxis: {},
+        series: [{
+            name: 'Sales',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    // 위에서 설정한 속성을 차트에 반영합니다.
+    myChart.setOption(option);
+</script>
+
 </html>

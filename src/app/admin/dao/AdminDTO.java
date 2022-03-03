@@ -1,50 +1,68 @@
 package app.admin.dao;
 
+
+
 public class AdminDTO {
 	
-	// Field Variables
+	private int adminidx;
+	private String adminname;
+	private String adminid;
+	private String adminpw;
+	private String adminpw_re;
 	
-	private String adminPk; // 기본키
-	private String adminName; // 관리자 명
-	private String adminPassword; // 관리자 비밀번호
-	private String adminAuthorized; // 관리자 인증여부
-	private String adminExpired; // 관리자 인증 만료기한
+	private String adminkey;
 	
-	// Getter
-	
-	public String getAdminPk() {
-		return adminPk;
+	public int getAdminidx() {
+		return adminidx;
 	}
-	public String getAdminName() {
-		return adminName;
+	public void setAdminidx(int adminidx) {
+		this.adminidx = adminidx;
 	}
-	public String getAdminPassword() {
-		return adminPassword;
+	public String getAdminid() {
+		return adminid;
 	}
-	public String getAdminAuthorized() {
-		return adminAuthorized;
+	public void setAdminid(String adminid) {
+		this.adminid = adminid;
 	}
-	public String getAdminExpired() {
-		return adminExpired;
+	public String getAdminpw() {
+		return adminpw;
 	}
-	
-	// Setter
-	
-	public void setAdminPk(String adminPk) {
-		this.adminPk = adminPk;
+	public void setAdminpw(String adminpw) {
+		this.adminpw = adminpw;
 	}
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
+	public String getAdminpw_re() {
+		return adminpw_re;
 	}
-	public void setAdminPassword(String adminPassword) {
-		this.adminPassword = adminPassword;
+	public void setAdminpw_re(String adminpw_re) {
+		this.adminpw_re = adminpw_re;
 	}
-	public void setAdminAuthorized(String adminAuthorized) {
-		this.adminAuthorized = adminAuthorized;
+	public String getAdminname() {
+		return adminname;
 	}
-	public void setAdminExpired(String adminExpired) {
-		this.adminExpired = adminExpired;
+	public void setAdminname(String adminname) {
+		this.adminname = adminname;
+	}
+	public String getAdminkey() {
+		return adminkey;
+	}
+	public void setAdminkey(String adminkey) {
+		this.adminkey = adminkey;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof AdminDTO) {
+			AdminDTO target = (AdminDTO)obj;
+			
+			if(target.adminid.equals(this.adminid)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		return adminidx;
 	
+	}
 }
