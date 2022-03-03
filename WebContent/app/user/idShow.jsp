@@ -31,7 +31,6 @@
                                             <h2><strong>" ${findUser.userEmail} "</strong></h2><br>
                                             <h3>입니다.</h3>
                                         </div>
-                                        <div class="id_show_space"></div>
                                     </div>
                             </div>
                         </tbody>
