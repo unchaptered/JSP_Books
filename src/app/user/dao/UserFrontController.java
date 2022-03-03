@@ -90,6 +90,13 @@ private static final long serialVersionUID = 1L;
 			transfer.setRedirect(true);
 			transfer.setPath(req.getContextPath()+"/app/user/user_info.jsp");
 			break;
+//		case "/user/UserInfo.us":
+//			try {
+//				transfer = new UserInfoOkAction().execute(req,resp);
+//			} catch (Exception e) {
+//				System.out.println("UserInfoOk : "+e);
+//				break;
+//			}
 		}
 	
 	

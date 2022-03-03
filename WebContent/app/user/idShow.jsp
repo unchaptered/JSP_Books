@@ -1,72 +1,51 @@
 <!-- 작성자 : 고결 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="cp" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>idShow</title>
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/screens/user/idShow.css">
+<title>user_info</title>
+<link rel="stylesheet" href="${cp}/assets/css/styles.css">
+<link rel="stylesheet" href="${cp}/assets/css/screens/user/idShow.css">
 </head>
 <body>
-	<%@ include file="../components/nav.jsp" %>
-	
-	<input type="button" id="myBtn" value="팝업창 오픈"/>
-    <div class="id_show_wrap">
-        <div class="id_show_container">
-            <div class="id_show_header">
-                이메일 찾기
-                <div class="icon">
-                    <button type="button" id="close">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                    <button type="button">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
-                      </svg>
-                    </button>
+	<%@ include file="/app/components/nav.jsp" %>
+	<div class="idShowWrap">
+    <section class="main_content">
+        <div class="notice_detail">
+            <span><a href="#"><strong class="title">내정보</strong></a></span>
+            <div class="detail_area">
+                <div class="detail_top">
+                    <strong class="detail_title">이메일 찾기</strong>
+                </div>
+                <div class="detail_content">
+                    <table class="idshow_table">
+                        <tbody>
+                            <div class="id_show_body_wrap">
+                                    <div class="id_show_body_inner">
+                                        <div class="id_show_body_text">
+                                            <h3>회원님의 이메일은</h3><br>
+                                            <h2><strong>" ${findUser.userEmail} "</strong></h2><br>
+                                            <h3>입니다.</h3>
+                                        </div>
+                                        <div class="id_show_space"></div>
+                                    </div>
+                            </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="id_show_body_wrap">
-                <div class="id_show_body_wrap_inner">
-                    <div class="id_show_body_inner">
-                        <div class="id_show_body_text">
-                            <h3>회원님의 이메일은</h3><br>
-                            <h2><strong>" hong@gmail.com "</strong></h2><br>
-                            <h3>입니다.</h3>
-                        </div>
-                        <div class="id_show_space"></div>
-                        <button type="button" class="id_show_btn buttons" id="id_show_login"><a href="./join.html">로그인 하기</a></button>
-                    </div>
-                </div>
+            <div class="notice_detail_nav">
+                 <button type="button" class="idSubmit_btn"><a href="${cp}/index.jsp">홈으로</a></button>
             </div>
-            
+            </div>
+        </section>
         </div>
-    </div>
-	
-	<!-- 경로 수정하셔야 합니다. -->	
-	<%@ include file="../components/footer.jsp" %>
+	<%@ include file="/app/components/footer.jsp" %>
 </body>
-<!-- 경로 수정하셔야 합니다. -->
-<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="assets/js/nav_menu.js"></script>
-<script type="text/javascript">
-	$("#myBtn").on("click", function(){
-	 $(".id_show_wrap").css({ visibility:"visible",opacity:1});
-	 });
-	 // 모달창 닫기 이벤트 
-	 $("#close").on("click", function(){
-			 $(".id_show_wrap").css({ visibility:"hidden",opacity:0 });
-	 });
- 
-	 $(document).on("click", function(e){  
-	 if( $(".id_show_wrap").is(e.target)) {
-	 $(".id_show_wrap").css({ visibility:"hidden",opacity:0 });
-	 }
-	 });
- </script>
+<script>let cp = "${pageContext.request.contextPath}";</script>
+<script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 </html>

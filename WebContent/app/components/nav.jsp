@@ -4,6 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <% session.getAttribute("findUser");%>
+<% session.getAttribute("loginUser");%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
