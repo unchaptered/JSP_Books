@@ -7,8 +7,9 @@
     <setting name="mapUnderscoreToCamelCase" value="true"/>
   </settings>
   <typeAliases>
-    <!-- <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/> -->
-    <!-- <typeAlias type="app.album.dao.AlbumDTO" alias="ablumdto"/> -->
+    <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/>
+    <typeAlias type="app.album.dao.AlbumDTO" alias="ablumdto"/> 
+    <typeAlias type="app.admin.dao.ChartDTO" alias="chartdto"/> 
     
     <typeAlias type="app.user.dao.UserDTO" alias="userdto"/>
     <!-- <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/> -->
@@ -42,5 +43,7 @@
     <mapper resource="mapper/post.xml"/>
     <mapper resource="mapper/file.xml"/>
     <mapper resource="mapper/shop.xml"/>
+    <mapper resource="mapper/admin.xml"/>
+    <mapper resource="mapper/chart.xml"/>
   </mappers>
 </configuration>
