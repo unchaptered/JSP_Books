@@ -97,6 +97,19 @@ private static final long serialVersionUID = 1L;
 				System.out.println("UserIdFindOk :"+e);
 			}
 			break;
+		case "/user/UserPwChange.us":
+			transfer = new ActionTo();
+			transfer.setRedirect(true);
+			transfer.setPath(req.getContextPath()+"/app/user/user_pw_show.jsp");
+			break;
+		case "/user/UserInfoChange.us":
+			try {
+				transfer = new UserInfoChangeOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("UserInfoChangeOk :"+e);
+			}
+			break;
+			
 		}
 	
 	

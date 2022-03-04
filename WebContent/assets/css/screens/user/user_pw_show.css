@@ -1,187 +1,143 @@
 /* 저자 : 고결 */
-*{
+.pwShowWrap div{
     margin: 0;
     padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-.pw_show_wrap {
-    font-size: 14px;
-    line-height: 1.4;
-    color: #333333;
     display: block;
-    width:100%;
-    height:100%; 
-    background:rgba(0,0,0,0.5);
-    position:fixed;
-    top:0; 
-    left:0; 
-    z-index:9000;
-    visibility:hidden;
-     opacity:0;
-     transition:all 0.3s ease;
 }
-.pw_show_wrap input, input:focus{
-    outline: none !important;
-    box-shadow: none!important;
+.pwShowWrap table{
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-.pw_show_wrap button{
-    overflow: visible;
+.pwShowWrap .notice_detail{
+    width: 1070px;
+    margin: 0 auto;
 }
-.pw_show_wrap .pw_show_container{
-    border: 1px solid #f5f4f0;
-    position: absolute;
-    width: 400px;
-    height: 330px;
-    /* overflow-y: auto; */
-    top: 50%;
-    left: 50%;
-    max-width: 500px;
-    max-height: calc(100vh - 150px);
-    transform: translate(-50%,-50%);
-    z-index: 5;
-    border-radius: 5px;
-    background: #fff;
-    overflow: hidden;
-}
-.pw_show_wrap .pw_show_container{ z-index:10000;   
-    position:fixed; left:50%; top:50%; 
-    transform:translate(-50%, -50%); 
-     background:#fff; border-radius:6px; }
-     .pw_show_wrap .pw_show_header{
-    border-bottom: 0;
-    height: 54px;
-    padding: 16px 20px;
-    position: relative;
-    color: #333;
+.pwShowWrap .title{
+    font-size: 30px;
+    display: block;
     text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    word-wrap: break-word;
+    font-weight: normal;
+    margin: 50px 0px 40px 0px;
+    border-bottom:2px solid #e5e5e5;
+    padding: 20px 0;
+    line-height: 10px;
+    align-items: center;
 }
-.pw_show_wrap .pw_show_header .icon{
+.pwShowWrap .detail_title{
+    position: relative;
+    display: inline;
+    font-size: 24px;
+    padding: 20px;
+    color: #545861;
+    float: left;
+    width: 100%;
+    top: -40px;
+    border-bottom: 2px solid #e5e5e5;
+}
+.pwShowWrap .detail_content{
+    clear: both;
+    float: left;
+    width: 100%;
+    min-height: 250px;
+    padding: 30px 20px;
+    border-bottom: 1px solid#e5e5e5;
+    font-size: 17px;
+    color: #333333;
+    word-break: break-all;
+    margin : 0 auto;
+}
+.pwShowWrap .notice_detail_nav{
+    position: relative;
+    display: inline-block;
+    padding : 13px 0;
+    left: 78%;
+    margin-top: 20px;
+}
+
+.pwShowWrap .pwshow_table{
+    position: relative;
+    top: -50px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.pwShowWrap tbody{
+    display: table-row-group;
     vertical-align: middle;
 }
 
-.pw_show_wrap .icon button{
-    display: inline-block;
-    width: 45px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    padding: 15px;
-    line-height: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    color: rgb(220, 220, 220);
-}
-.pw_show_wrap .icon button+button{
-    display: inline-block;
-    width: 45px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    padding: 15px;
-    line-height: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    color: rgb(220, 220, 220);
-}
-.pw_show_wrap svg:not(:root){
-    overflow: hidden;
-}
-.pw_show_wrap .icon button>svg{
-    position: absolute;
-    top: 10%;
-    right: 10px;
-    cursor: pointer;
-    width: 24px;
-    color: rgb(220, 220, 220);
-   
-}
-
-.pw_show_wrap .pw_show_body_wrap{
+.pwShowWrap .pw_show_body_wrap{
     padding: 10px;
 }
-.pw_show_wrap .pw_show_body_inner{
+.pwShowWrap .pw_show_body_inner{
     position: relative;
     padding-bottom: 32px;
     color: #767676;
 }
-
-.pw_show_wrap .user_info{
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    
-}
-.pw_show_wrap .input_pw_show{
-    margin-top: 5px;
-}
-.pw_show_wrap .input_pw_show p{
-    color: #cacaca !important;
-    font-size: 11px !important;
-}
-.pw_show_wrap .pwre_show_pw_inner{
-    margin-top: 11px;
-}
-.pw_show_wrap .input_pwre_show{
-    margin-top: 5px;
-}
-
-.pw_show_wrap input[type=text]{
-    width: 100%;
-    height: 50px;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 5px;
-    border: 1px solid #e1e2e3;
-    background-color: #fff;
-    font-size: 15px;
-    color: #333;
-    appearance: none;
-    resize: none;
-}
-.pw_show_wrap input[type=text]::placeholder{
-    color: #cacaca;
-}
-.pw_show_wrap input[type=text]:focus{
-    border: 1px solid #36f;
-}
-.pw_show_wrap .pw_show_space{
-    bottom: 0;
-    margin-top: 70px;
-    font-size: 12px;
-}
-.pw_show_wrap .buttons{
+.pwShowWrap .id_show_body_text {
     position: absolute;
-    top: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    margin: 40px auto;
+}
+.pwShowWrap .id_show_body_text h3{
+    margin: 0 auto;
+    text-align: center;
+}
+.pwShowWrap .id_show_body_text h2{
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+}
+.pwShowWrap .id_show_body_text h3{
+    margin: 0 auto;
+    text-align: center;
+}
+.pwShowWrap .info_userpw {
+	margin-top: 55px;
+    font-size: 15px;
+    background-color:#FCFCFC;
+    color : #767676;
+    border: 1px solid #FCFCFC !important;
+    height:25px;
+}
+.pwShowWrap .info_newPw{
+    margin-top: 55px;
+    height: 25px;
+    border:1px solid #e1e2e3;
+}
+.pwShowWrap .newPw {
+    font-size: 14px;
+    color: #969696;
+}
+.pwShowWrap .info_newPwRe{
+    margin-top: 30px;
+    height: 25px;
+    border:1px solid #e1e2e3;
+}
+.pwShowWrap .pwSubmit_btn{
+    width: 100px;
     height: 54px;
+    line-height:54px;
     border: 0;
     border-radius: 27px;
-    background-color: #36f;
+    background-color: #122236;
     font-size: 16px;
-    font-weight: 600;
-    color: #fff;
+    font-weight: 400;
     cursor: pointer;
 }
-.pw_show_btn:hover{
-    color: #4346f3;
-}
-.pw_show_wrap .buttons a {
-    text-decoration: none;
+.pwShowWrap .pwSubmit_btn a {
     color: #fff;
-    z-index: 10;
 }
-.pw_show_wrap,.buttons a:focus{
-    text-decoration: none;
+.pwShowWrap .idSubmit_btn{
+    margin-right: 15px;
+    width: 100px;
+    height: 54px;
+    line-height:54px;
+    border: 0;
+    border-radius: 27px;
+    background-color: #122236;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
 }
-
-
+.pwShowWrap .idSubmit_btn a {
+    color: #fff;
+}
