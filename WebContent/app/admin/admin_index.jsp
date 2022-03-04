@@ -1,18 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/admin/admin_index.css" >
+=======
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" type="text/css" href="${cp}/assets/css/admin/admin_index.css" >
+>>>>>>> e47e7c3a03ed45955b38697fa420d3ed353edcbd
 <script>const cp = "${pageContext.request.contextPath}"</script>
 <script type="text/javascript" src="${cp}/assets/js/admin_chart/echarts.js"></script>
 </head>
 <body>
-	 <div class="container">
-        <header class="index_header">
 
+    <div class="container">
+        <header class="index_header">
+            <div class="header_box1"></div>
+            <div class="header_box2">관리자 페이지</div>
+            <div class="header_box3">나가기</div>
         </header>
    
         <nav class="side_bar_a">
@@ -44,33 +53,30 @@
                 <h4>매출관리</h4> 
             </div>
             <div>
+<<<<<<< HEAD
                <a href="./음반 등록.html" style="color:white" >음반관리</a>
+=======
+                <div id="menu1">
+                    <ul class="main">
+                        <li><a href="#" class="board_adm"> 게시물 관리</a>
+                            <ul class="sub">
+                                <li><a href="${cp}/app/post/event_post/event_list.jsp" class="board_adm1"> 공지사항 관리</a></li>
+                                <li><a href="${cp}/app/post/notice_post/notice_list.jsp" class="board_adm2"> 이벤트 관리</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div> 
+>>>>>>> e47e7c3a03ed45955b38697fa420d3ed353edcbd
             </div>
             
-         
             <div>
-                <h4>쇼핑</h4> 
+
             </div>
-            <div>
-                <h4>환경설정</h4> 
-            </div>
+          
+          
 
 
-            <div class="bar_a_container2">
-                <div>
-                    <h5>리소스</h5> 
-                </div>
-                <div>
-                    <h4>고객지원</h4> 
-                </div>
-                <div>
-                    <h4>아임웹교육</h4> 
-                </div>
-                <div>
-                    <h4>디자이너찾기</h4> 
-                </div>
-            </div>
-
+       
 
 
         </nav>
@@ -205,7 +211,7 @@
                         </div>
                             
                       
-                    </div>
+                    </div> 
                     
                 </div>
 
@@ -234,8 +240,8 @@
        
         
     </div>
+    <!-- 높이와 너비가 지정된 Dom 을 생성합니다 -->
 
-</body>
 <script type="text/javascript">
     // DOM을 준비하고 echart 객체를 만듭니다.
     var myChart = echarts.init(document.getElementById('main2'));
@@ -263,5 +269,38 @@
     // 위에서 설정한 속성을 차트에 반영합니다.
     myChart.setOption(option);
 </script>
+
+    
+</body>
+<<<<<<< HEAD
+<script type="text/javascript">
+    // DOM을 준비하고 echart 객체를 만듭니다.
+    var myChart = echarts.init(document.getElementById('main2'));
+
+    // 차트 속성과 데이터를 지정합니다.
+    var option = {
+        title: {
+            text: 'ECharts entry example'
+        },
+        tooltip: {},
+        legend: {
+            data:['Sales']
+        },
+        xAxis: {
+            data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
+        },
+        yAxis: {},
+        series: [{
+            name: 'Sales',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    // 위에서 설정한 속성을 차트에 반영합니다.
+    myChart.setOption(option);
+</script>
+=======
+>>>>>>> e47e7c3a03ed45955b38697fa420d3ed353edcbd
 
 </html>

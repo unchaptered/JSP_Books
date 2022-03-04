@@ -49,4 +49,12 @@
     <servlet-name>ShopFrontController</servlet-name>
     <url-pattern>*.sh</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>AdminFrontController</servlet-name>
+    <servlet-class>app.admin.dao.AdminFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminFrontController</servlet-name>
+    <url-pattern>*.adm</url-pattern>
+  </servlet-mapping>
 </web-app>
