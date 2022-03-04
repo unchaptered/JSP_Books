@@ -28,6 +28,7 @@ public class PostFrontController extends HttpServlet{
 		String contextPath = req.getContextPath();		
 		String command = requestURI.substring(contextPath.length());
 		ActionTo transfer = null;
+		
 		System.out.println("requestURI : "+requestURI);
 		System.out.println("contextPath : "+contextPath);
 		System.out.println("command : "+command);
