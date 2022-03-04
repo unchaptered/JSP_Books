@@ -32,12 +32,12 @@ CREATE TABLE post (
    post_created datetime default now(),
    post_viewed int default 0,
    FOREIGN KEY (post_owner) 
-		REFERENCES user (user_pk)
+		REFERENCES admin (admin_pk)
 );
 CREATE TABLE post_files (
    post_file_pk BIGINT PRIMARY KEY,
    post_file_system VARCHAR(1000),
-   post_file_origin VARCHAR(300)
+   post_file_origin VARCHAR(1000)
 );
 CREATE TABLE post_notice (
    notice_pk INT AUTO_INCREMENT PRIMARY KEY,
@@ -46,6 +46,8 @@ CREATE TABLE post_notice (
    post_pk INT,
    FOREIGN KEY (post_pk)
 		REFERENCES post (post_pk)
+	ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 CREATE TABLE post_event (
    event_pk INT AUTO_INCREMENT PRIMARY KEY,
@@ -57,6 +59,8 @@ CREATE TABLE post_event (
    post_pk INT,
    FOREIGN KEY (post_pk)
 		REFERENCES post (post_pk)
+	ON DELETE CASCADE
+      ON UPDATE CASCADE
 );
 CREATE table post_event_like(
 	event_like_pk INT primary key auto_increment,
