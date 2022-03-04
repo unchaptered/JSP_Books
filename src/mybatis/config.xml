@@ -7,11 +7,11 @@
     <setting name="mapUnderscoreToCamelCase" value="true"/>
   </settings>
   <typeAliases>
-    <!-- <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/> -->
-    <!-- <typeAlias type="app.album.dao.AlbumDTO" alias="ablumdto"/> -->
+    <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/>
+    <typeAlias type="app.album.dao.AlbumDTO" alias="ablumdto"/> 
+    <typeAlias type="app.admin.dao.ChartDTO" alias="chartdto"/> 
     
     <typeAlias type="app.user.dao.UserDTO" alias="userdto"/>
-    
     <typeAlias type="app.post.dao.PostDTO" alias="postdto"/>
     <typeAlias type="app.post.dao.EventDTO" alias="eventdto"/>
     <typeAlias type="app.post.dao.NoticeDTO" alias="noticedto"/>
@@ -24,6 +24,9 @@
     
     <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/>
     <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>
+    <typeAlias type="app.admin.dao.ChartDTO" alias="chartdto"/>
+    <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/>
+    
   </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -45,5 +48,7 @@
     <mapper resource="mapper/post.xml"/>
     <mapper resource="mapper/file.xml"/>
     <mapper resource="mapper/shop.xml"/>
+    <mapper resource="mapper/admin.xml"/>
+    <mapper resource="mapper/chart.xml"/>
   </mappers>
 </configuration>

@@ -19,6 +19,7 @@ public class UserLoginOkAction implements Action{
 		ActionTo transfer = new ActionTo();
 		if(loginUser != null) {
 			session.setAttribute("loginUser", loginUser);
+			req.getSession().removeAttribute("findUserPw");
 			transfer.setRedirect(true);
 			transfer.setPath(req.getContextPath()+"/index.jsp?l=t");
 		}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Admin">
+	<insert id="join" parameterType="admindto">
+		INSERT INTO admin (adminid, adminpw, adminpw_re,
+		adminname, adminkey) VALUES (#{adminid},
+		#{adminpw}, #{adminpw_re}, #{adminname}, #{adminkey})
+	</insert>
+	<!-- newadmin.getadminid() -->
+	<select id="login" parameterType="hashmap" resultType="admindto">
+		select * from admin where adminid=#{adminid} and adminpw=#{adminpw}
+	</select>
+	<select id="getList" resultType="admindto">
+		select * from admin
+	</select>
+	<select id="checkId" parameterType="string" resultType="_int">
+		select count(*) from admin where adminid=#{adminid}
+	</select>
+</mapper>

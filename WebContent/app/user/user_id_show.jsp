@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>user_info</title>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
-<link rel="stylesheet" href="${cp}/assets/css/screens/user/idShow.css">
+<link rel="stylesheet" href="${cp}/assets/css/screens/user/user_id_show.css">
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;500;700;900&display=swap');
 *{
     box-sizing: border-box;
     padding:0;
@@ -251,3 +252,59 @@ h4{
     background-image: url(./book.png);
 }
 
+.index_header{
+    display: flex;
+}
+
+.header_box1{
+    width: 200px;
+    height: 70px;
+    background-color:  rgb(53,53,53);
+}
+.header_box3{
+    position:absolute;
+    margin-left:1400px;
+    margin-top:12px;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height:40px;
+    background-color:  rgb(172,184,201);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#menu1 .main>li{
+    position:relative;
+}
+
+#menu1 .main>li:hover .sub{
+    display:block;
+}
+
+#menu1 .main .sub{
+    position:absolute;
+    display:none;
+}
+
+.board_adm{
+    margin-left:57px;
+  
+    color:white;
+    text-decoration-line: none;
+}
+.board_adm1{
+    margin-left:52px;
+ 
+    color:white;
+    text-decoration-line: none;
+
+}
+.board_adm2{
+    margin-left:57px;
+    text-decoration-line: none;
+    color:white;
+}

@@ -1,10 +1,10 @@
 package app.shop.dao;
 
 public class CartDTO {
-	private int cartNum;	// 품목지울때필요
+	private int cartPk;	// 품목지울때필요
 	private String image;
-	private int bookpk;		// book코드
-	private int userpk;
+	private int bookPk;		// book코드
+	private int userPk;
 	private String title;
 	private int quantity;	// 구매수량
 	private int price;
@@ -12,20 +12,20 @@ public class CartDTO {
 	
 	
 	
-	public int getUserpk() {
-		return userpk;
+	public int getUserPk() {
+		return userPk;
 	}
 
-	public void setUserpk(int userpk) {
-		this.userpk = userpk;
+	public void setUserPk(int userpk) {
+		this.userPk = userpk;
 	}
 
-	public int getCartnum() {
-		return cartNum;
+	public int getCartPk() {
+		return cartPk;
 	}
 
-	public void setCartnum(int cartnum) {
-		this.cartNum = cartnum;
+	public void setCartPk(int cartPk) {
+		this.cartPk = cartPk;
 	}
 
 	public String getImage() {
@@ -36,12 +36,12 @@ public class CartDTO {
 		this.image = image;
 	}
 
-	public int getBookpk() {
-		return bookpk;
+	public int getBookPk() {
+		return bookPk;
 	}
 
-	public void setBookpk(int bookpk) {
-		this.bookpk = bookpk;
+	public void setBookPk(int bookpk) {
+		this.bookPk = bookpk;
 	}
 
 	public String getTitle() {
@@ -88,6 +88,6 @@ public class CartDTO {
 	
 	@Override
 	public int hashCode() {
-		return cartNum;
+		return cartPk;
 	}
 }

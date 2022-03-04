@@ -6,7 +6,7 @@
 
 <!-- 설정용 쿼리문 -->
 	<!-- 중고 도서 최초 등록 시, 필수 실행 [중고 도서 재고량 테이블]-->
-	<insert id="addOldBookStock"
+	<insert id="addOldBookRow"
 		parameterType="_int">
 		INSERT INTO old_book
 			(new_book_pk)
@@ -15,7 +15,7 @@
 	</insert>
 	
 	<!-- 중고 도서 최초 등록 시, 필수 실행 [중고 도서 판매량 기록 테이블] -->
-	<insert id="addOldBookSalesVolume"
+	<insert id="addOldBookSelledRow"
 		parameterType="_int">
 		INSERT INTO old_book_selled
 			(old_book_pk)
@@ -140,23 +140,43 @@
 		LIMIT 6;
 	</select>
 	
-	<!-- 중고 도서 재고 증가 (old_book_discount_10,20,30,40,50)-->
-	<update id="updateOldBookDiscountIncrease"
+	<!-- 중고 도서 재고량 증가 (old_book_discount_10,20,30,40,50)-->
+	<update id="updateOldBookDiscountup"
 		parameterType="hashmap">
 		UPDATE
 			old_book
 		SET
 			#{columnName} = #{columnName} + 1
-			WHERE #{oldBookPk} = 1;
+			WHERE new_book_pk = #{bookPk};
 	</update>
 	
-	<!-- 중고 도서 재고 감소 (old_book_discount_10,20,30,40,50)-->
-	<update id="updateOldBookDiscountDecreases"
+	<!-- 중고 도서 판매량 증가 -->
+	<update id="updateOldBookSelledUp"
+		parameterType="hashmap">
+		UPDATE
+			old_book_selled
+		SET
+			#{columnName} = #{columnName} + 1
+			WHERE new_book_pk = #{bookPk};
+	</update>
+	
+	<!-- 중고 도서 재고fid 감소 (old_book_discount_10,20,30,40,50) -->
+	<update id="updateOldBookDiscountDown"
 		parameterType="hashmap">
 		UPDATE
 			old_book
 		SET #{columnName} = #{columnName} - 1
-			WHERE #{oldBookPk} = 1 AND #{columnName} > 0;
+			WHERE new_book_pk = #{bookPk} AND #{columnName} > 0;
+	</update>
+	
+	<!-- 중고 도서 판매량 감소 (old_book_selled_10,20,30,40,50) -->
+	<update id="updateOldBookSelledDown"
+		parameterType="hashmap">
+		UPDATE
+			old_book_selled
+		SET
+			#{columnName} = #{columnName} - 1
+			WHERE new_book_pk = #{bookPk} AND #{columnName} > 0;
 	</update>
 
 

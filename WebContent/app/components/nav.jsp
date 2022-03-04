@@ -3,9 +3,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
-<% session.getAttribute("findUser");%>
-<% session.getAttribute("loginUser");%>
-
 
 <!DOCTYPE html>
 <html>
@@ -34,16 +31,22 @@
                 <a href="${cp}/index.jsp" class="nav_logo">Books</a> 
             </div>
             <div class="nav_column">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 nav_svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            	<a href="#">
+                	<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 nav_svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </a>
                 <!-- kogyul -->
                 <c:if test="${loginUser == null}">
-                <input type="button" value="login" id="myBtnLogin">
-                <input type="button" value="join" id="myBtnJoin">
+	                <input type="button" value="login" id="myBtnLogin">
+	                <input type="button" value="join" id="myBtnJoin">
 				</c:if>
 				<c:if test="${loginUser != null}">
-				<a href="${cp}/user/UserInfo.us">${loginUser.userName}</a>
-                <a href="${cp}/user/UserLogoutOk.us">Logout</a>
+					<a href="${cp}/user/UserInfo.us">${loginUser.userName}</a>
+	                <a href="${cp}/user/UserLogoutOk.us">Logout</a>
                 </c:if>
+                
+				<a href="${cp}/admin/AdminList.adm">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				</a>
             </div>
         </section>
     </nav>
@@ -53,10 +56,9 @@
             <section class="nav_menu_linkers">
             	<!-- kmhyeon -->
                 <a href="${cp}/book/NewBookList.nb">책 리스트</a>
-                <a href="new_book_read.jsp">책 디테일</a>
                 <!-- sunsetkk -->
-                <a href="new_book_add.jsp">책 등록하기</a>
-                <a href="new_book_edit.jsp">책 수정하기</a>
+                <a href="${cp}/book/NewBookAdd.nb">책 등록하기</a>
+                <a href="${cp}/book/NewBookEdit.nb">책 수정하기</a>
             </section>
         </details>
         <details class="nav_menu_details">
@@ -69,28 +71,17 @@
             </section>
         </details>
         <details class="nav_menu_details">
-            <summary class="nav_menu_summary">이벤트</summary>
+            <summary class="nav_menu_summary">이벤트/공지사항</summary>
             <section class="nav_menu_linkers">
             	<!-- capriceksy -->
-                <a href="event_list.jsp">이벤트 리스트</a>
-                <a href="event_read.jsp">이벤트 글 보기</a>
-                <a href="event_add.jsp">이벤트 글 쓰기</a>
-                <a href="event_edit.jsp">이벤트 글 수정</a>
-            </section>
-        </details>
-        <details class="nav_menu_details">
-            <summary class="nav_menu_summary">공지사항</summary>
-            <section class="nav_menu_linkers">
-            	<!-- capriceksy -->
-                <a href="notice_list.jsp">공지사항 리스트</a>
-                <a href="notice_read.jsp">공지사항 글 보기</a>
-                <a href="notice_add.jsp">공지사항 글 쓰기</a>
-                <a href="notice_edit.jsp">공지사항 글 수정</a>
+                <a href="${cp}/post/EventList.po">이벤트</a>
+                <a href="${cp}/post/NoticeList.po">공지사항</a>
             </section>
         </details>
     </nav>
+    
     <div class="login_wrap">
-    	<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post" onsubmit="return senditLogin()">
+   		<form name="loginForm" action="${cp}/user/UserLoginOk.us" method="post" onsubmit="return senditLogin()">
         <div class="login_container">
             <div class="login_header">
                 <span>Books</span>
@@ -153,7 +144,6 @@
         </div>
     </form>
     </div>
-    
     <div class="join_wrap">
     <form name="joinForm" action="${cp}/user/UserJoinOk.us" method="post" onsubmit="return senditJoin()">
         <div class="join_container" style="overflow: auto;">
@@ -328,7 +318,7 @@
         </form>
     </div>
     
-     <div class="id_find_wrap">
+    <div class="id_find_wrap">
      <form name="idFindForm" action="${cp}/user/UserIdFindOk.us" method="post">
         <div class="id_find_container">
             <div class="id_find_header">
@@ -371,7 +361,7 @@
         </form>
     </div> 
     <div class="pw_find_wrap">
-    <form>
+    <form name="pwFindForm" action="${cp}/user/UserPwFindOk.us" method="post">
         <div class="pw_find_container">
             <div class="pw_find_header">
                 비밀번호 찾기
@@ -392,19 +382,19 @@
                 <div class="pw_find_body_wrap_inner">
                     <div class="pw_find_body_inner">
                         <div class="pw_find_name_inner">
-                        <label for="pw_find_name_input" class="user_info">이메일</label>
+                        <label for="pw_email_input_find" class="user_info">이메일</label>
                         <div class="input_name_find">
                             <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해 주세요." name="pw_email_input_find">
                         </div>
                     </div>
                     <div class="pw_find_phone_inner">
-                        <label for="pw_find_phone_input" class="user_info">휴대폰 번호</label>
+                        <label for="pw_phone_input_find" class="user_info">휴대폰 번호</label>
                         <div class="input_phone_find">
                             <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678" name="pw_phone_input_find">
                         </div>
                     </div>
                         <div class="pw_find_space"></div>
-                        <button type="button" class="pw_find_btn buttons" id="pw_find_login"><a href="./pwShow.html">비밀번호 찾기</a></button>
+                        <input type="submit" class="pw_find_btn buttons" id="pw_find_login" value="비밀번호 찾기">
                     </div>
                 </div>
             </div>
@@ -412,11 +402,13 @@
         </form>
     </div>
 </body>
+<!-- 메뉴바 접기 함수 -->
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
+<!-- JQuery 라이브러리 -->
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>const cp = "${pageContext.request.contextPath}"</script>
+<!-- 우편번호 입력 라이브러리 -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="${cp}/assets/js/addr.js"></script>
+<script src="${cp}/assets/js/user_addr.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/nav_user.js"></script>
 </html>

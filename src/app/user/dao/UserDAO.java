@@ -49,5 +49,20 @@ public class UserDAO {
 		return findUser;
 	}
 
+	public UserDTO findPw(String pwFindEmail, String pwFindPhone) {
+		HashMap<String, Object> pwDatas = new HashMap<String, Object>();
+		pwDatas.put("pwFindEmail",pwFindEmail);
+		pwDatas.put("pwFindPhone",pwFindPhone);
+		System.out.println(pwDatas);
+		UserDTO findUserPw = null;
+		findUserPw = (UserDTO)sqlsession.selectOne("User.UserFindPw",pwDatas);
+		System.out.println(findUserPw);
+		return findUserPw;
+	}
+
+	public boolean infoChange(UserDTO udto) {
+		return 1 == sqlsession.update("User.infoChange",udto);
+	}
+
 	}
 

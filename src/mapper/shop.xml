@@ -5,47 +5,46 @@
 <mapper namespace="Shop">
 	<!-- userpk받아서 List<cartdto> 받음 -->
 	<select id="getCartList" resultType="cartdto" parameterType="_int">
-		select cartnum, new_book_image AS image, bookpk, new_book_title AS title, quantity, 
+		select cart_pk AS cartPk, new_book_image AS image, c.new_book_pk As bookPk, new_book_title AS title, cart_quantity AS quantity, 
 			new_book_price AS price, new_book_mount AS mount
 		from cart c
-			join new_book b on c.bookpk = b.new_book_pk
-		where c.userpk = #{userpk};
+			join new_book b on c.new_book_pk = b.new_book_pk
+		where c.user_pk = #{userPk}
+		ORDER BY c.cart_Pk DESC;
 	</select>
-	<!-- 장바구니view에서 체크된 카트(arr[String cartnum])들만 List<cartdto> 받음. 마이바티스 동적sql처리-->
+	<!-- 장바구니view에서 체크된 카트(arr[String cartPk])들만 List<cartdto> 받음. 마이바티스 동적sql처리-->
 	<select id="getCartListByChecked"  resultType="cartdto">
-		select cartnum, new_book_image AS image, bookpk, new_book_title AS title, quantity, 
+		select cart_pk AS cartPk, new_book_image AS image, c.new_book_pk As bookPk, new_book_title AS title, cart_quantity AS quantity, 
 			new_book_price AS price, new_book_mount AS mount
 		from cart c
-			join new_book b on c.bookpk = b.new_book_pk
-		WHERE c.cartnum IN
-		<foreach collection="array" item="cartnum" open="(" close=")" separator=",">
-		 #{cartnum}
+			join new_book b on c.new_book_pk = b.new_book_pk
+		WHERE c.cart_pk IN
+		<foreach collection="array" item="cartPk" open="(" close=")" separator=",">
+		 #{cartPk}
 		</foreach>
-		ORDER BY c.cartnum DESC;	<!-- 생성순(ASC기본값), 최근순(DESC) -->
+		ORDER BY c.cart_Pk DESC;	<!-- 생성순(ASC기본값), 최근순(DESC) -->
 	</select>
-	<!-- 반환하는 cartnum이 없을경우 _int는 null을 담지 못해 처리를 못하니 객체타입 Integer로 result -->
+	<!-- 반환하는 cartPk이 없을경우 _int는 null을 담지 못해 처리를 못하니 객체타입 Integer로 result -->
 	<select id="checkCart" resultType="Integer" parameterType="cartdto">
-		select cartnum from cart where userpk=#{userpk} and bookpk=#{bookpk}
+		select cart_pk AS cartPk from cart where user_pk=#{userPk} and new_book_pk=#{bookPk}
 	</select>
 	<select id="getProdMount" resultType="string" parameterType="_int">
 		select n.new_book_mount
 			<!-- n.new_book_title 책이름까지 2개 결과 받으려면 resultType hashmap 이용 -->
 		from new_book n
-			join cart c on c.bookpk = n.new_book_pk
-		where c.cartnum=#{cartnum};
+			join cart c on c.new_book_pk = n.new_book_pk
+		where c.cart_pk=#{cartPk};
 	</select>
 	<!-- 주문결제view에서 체크된 카트(arr[String products])들만 List<bookdto> 받음. 마이바티스 동적sql처리-->
 	<select id="getBookList"  resultType="bookdto">
-<!-- 		select cartnum, new_book_image AS image, bookpk, new_book_title AS title, quantity, 
-			new_book_price AS price, new_book_mount AS mount -->
 		select b.new_book_pk as bookPk, b.new_book_title as bookTitle , b.new_book_subtitle as bookSubtitle,
         b.new_book_info as bookInfo, b.new_book_info_short as bookInfoShort, b.new_book_image as bookImage,
         b.new_book_org_image as bookOrgImage, b.new_book_price as bookPrice, b.new_book_writer as bookWriter,
         b.new_book_translater as bookTranslater, b.new_book_publisher as bookPublisher ,b.new_book_created as bookCreated,
         b.new_book_pages as bookPages, b.new_book_mount as bookMount, b.new_book_genre as bookGenre, b.new_book_country as bookCountry
 		from cart c
-			join new_book b on c.bookpk = b.new_book_pk
-		WHERE c.cartnum IN
+			join new_book b on c.new_book_pk = b.new_book_pk
+		WHERE c.cart_pk IN
 		<foreach collection="array" item="products" open="(" close=")" separator=",">
 		 #{products}
 		</foreach>
@@ -54,7 +53,7 @@
 		select *
 		from new_book n
 			join cart c on c.bookpk = n.new_book_pk
-		where c.cartnum=#{cartnum};
+		where c.cart_pk=#{cartPk};
 	</select> -->
 	
 	<!-- userpk받아서 List<productdto> 받음 -->
@@ -63,13 +62,23 @@
 		from products p
 			join bill b on b.bill_pk = p.bill_pk
 			join new_book n on n.new_book_pk = p.new_book_pk
-		where b.user_pk=#{userpk}
+		where b.user_pk=#{userPk}
 		ORDER BY b.bill_pk DESC;
 	</select>
-	<insert id="addCart" parameterType="cartdto">
-		insert into cart (quantity, userpk, bookpk)
-		values(#{quantity}, #{userpk}, #{bookpk})
+	<select id="Shop.getCart" resultType="cartdto" parameterType="_int">
+		select cart_pk AS cartPk, new_book_image AS image, c.new_book_pk As bookPk, new_book_title AS title, cart_quantity AS quantity, 
+			new_book_price AS price, new_book_mount AS mount
+		from cart c
+			join new_book b on c.new_book_pk = b.new_book_pk
+		from cart
+		where c.cart_pk=#{cartPk}
+	</select>
+	<!-- 오토인크리트된 cartPk를 cartdto객체 cartPk에 돌려받음 -->
+	<insert id="addCart" parameterType="cartdto" useGeneratedKeys="true" keyProperty="cartPk">
+		insert into cart (cart_quantity, user_pk, new_book_pk)
+		values(#{quantity}, #{userPk}, #{bookPk})
 	</insert>
+	<!-- 오토인크리트된 billpPk를 billdto객체 billPk에 돌려받음 -->
 	<insert id="insertBill" parameterType="billdto" useGeneratedKeys="true" keyProperty="billPk">
 		insert into bill (bill_payment, bill_total_price, bill_zipcode, bill_addr, user_pk)
 		values(#{billPayment}, #{billTotalPrice}, #{billZipCode}, #{billAddr}, #{userPk})
@@ -79,18 +88,18 @@
 		values(#{productQuantity}, #{productTotalPrice}, #{newBookPk}, #{billPk})
 	</insert>
 	<update id="updateCartQuantity" parameterType="hashmap">
-		update cart set quantity = quantity + #{quantity} where cartnum = #{cartnum}
+		update cart set cart_quantity = cart_quantity + #{quantity} where cart_pk = #{cartPk}
 	</update>
 	<update id="updateCartQuantityOverwrite" parameterType="hashmap">
-		update cart set quantity = #{quantity} where cartnum = #{cartnum}
+		update cart set cart_quantity = #{quantity} where cart_pk = #{cartPk}
 	</update>
 	<update id="updateBookMount" parameterType="hashmap">
 		update new_book set new_book_mount = new_book_mount - #{prodQty} where new_book_pk = #{bookPk}
 	</update>
 	<delete id="delCartOne" parameterType="_int">
-		delete from cart where cartnum = #{cartnum}
+		delete from cart where cart_pk = #{cartPk}
 	</delete>
 	<delete id="delCartAll" parameterType="_int">
-		delete from cart where userpk = #{userpk}
+		delete from cart where user_pk = #{userPk}
 	</delete>
 </mapper>
