@@ -109,3 +109,39 @@ function counter() {
     }
 
 }
+
+function validate(){
+	let img = document.getElementById("fileName");
+	let country = document.getElementById("country");
+	let genre = document.getElementById("genre");
+
+	if(country.value == "opt"){
+		alert("장르를 선택해주세요 !");
+		country.focus();
+		return false;
+	}
+	if(img.value == "&nbsp;"){
+		alert("이미지를 추가해주세요 !");
+		return false;
+	}
+//	return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

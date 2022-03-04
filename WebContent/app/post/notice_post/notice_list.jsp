@@ -44,35 +44,35 @@
 						<!-- 공지 테이블 내용 : 한 페이지에 중요공지 포함 15개 -->
 						<tbody>
 							<c:choose>
-								<c:when test="${noticePinList.size()>0 or noticeList.size()>0 }">
-									<c:if test="${noticePinList.size()>0 or noticePinList != null}">
-										<c:forEach var="noticePin" items="${noticePinList}" varStatus="status">
-											<tr class="alert">
-												<td class="board_check"><input type="checkbox" name="nCheck" value="${noticePin.noticePk}"></td>
-												<td class="board_num">${noticePin.noticePk}</td>
-												<td class="board_tlt">
-													<a href="${cp}/post/NoticeRead.po?noticePk=${noticePin.noticePk}&noticePage=${noticePage}"><strong>${noticePin.postTitle}</strong></a>
-												</td>
-												<td class="board_writer">${ownerNamePin[status.index]}</td>
-												<td class="board_date">${fn:substring(noticePin.postCreated,0,10)}</td>
-												<td class="board_hit">${noticePin.postViewed}</td>
-											</tr>
-										</c:forEach>
-									</c:if>
-									<c:if test="${noticeList.size()>0 or noticeList != null}">
-										<c:forEach var="notice" items="${noticeList}" varStatus="status">
-											<tr>
-												<td class="board_check"><input type="checkbox" name="nCheck" value="${notice.noticePk}"></td>
-												<td class="board_num">${notice.noticePk}</td>
-												<td class="board_tlt">
-													<a href="${cp}/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
-												</td>
-												<td class="board_writer">${ownerName[status.index]}</td>
-												<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
-												<td class="board_hit">${notice.postViewed}</td>
-											</tr>
-										</c:forEach>
-									</c:if>
+								<c:when test="${noticeList.size()>0 and noticeList != null}">
+									<c:forEach var="notice" items="${noticeList}" varStatus="status">
+										<c:choose>
+											<c:when test="${notice.noticePin == 'Y'}">
+												<tr class="alert">
+													<td class="board_check"><input type="checkbox" name="nCheck" value="${notice.noticePk}"></td>
+													<td class="board_num">${notice.noticePk}</td>
+													<td class="board_tlt">
+														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}"><strong>${notice.postTitle}</strong></a>
+													</td>
+													<td class="board_writer">${ownerName[status.index]}</td>
+													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
+													<td class="board_hit">${notice.postViewed}</td>
+												</tr>
+											</c:when>
+											<c:otherwise>
+												<tr>
+													<td class="board_check"><input type="checkbox" name="nCheck" value="${notice.noticePk}"></td>
+													<td class="board_num">${notice.noticePk}</td>
+													<td class="board_tlt">
+														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
+													</td>
+													<td class="board_writer">${ownerName[status.index]}</td>
+													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
+													<td class="board_hit">${notice.postViewed}</td>
+												</tr>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
 								</c:when>
 								<c:otherwise>
 									<tr>
