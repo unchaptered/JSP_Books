@@ -23,7 +23,7 @@ public class EventEditOkAction implements Action{
 		//파일이 저장될 경로
 		String rootPath = req.getSession().getServletContext().getRealPath("/");
 		
-		String saveFolder = rootPath+"media";	
+		String saveFolder = rootPath+"media/post";	
 		
 		int size = 5*1024*1024;
 		
@@ -143,12 +143,12 @@ public class EventEditOkAction implements Action{
 				System.out.println(fcheckDetailStage);
 				if(fcheckNew && fcheckStage && fcheckDetailNew && fcheckDetailStage) {
 					System.out.println("allok");
-					transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
+					transfer.setPath(req.getContextPath()+"/post/EventRead.po?eventPk="+eventPk);
 				}
 			}
 		}
 		else {
-			transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?u=f&eventPk="+eventPk);
+			transfer.setPath(req.getContextPath()+"/post/EventRead.po?u=f&eventPk="+eventPk);
 		}
 		return transfer;
 	}

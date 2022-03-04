@@ -27,9 +27,7 @@ public class EventAddOkAction implements Action{
 		
 		//파일이 저장될 경로
 		String rootPath = req.getSession().getServletContext().getRealPath("/");
-		System.out.println(rootPath);
-		String saveFolder = rootPath+"media";	
-		System.out.println(saveFolder);
+		String saveFolder = rootPath+"media/post";	
 		
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
@@ -104,12 +102,12 @@ public class EventAddOkAction implements Action{
 					int eventPk = edao.getLastEventPk(postPk);
 					
 					transfer.setRedirect(true);
-					transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
+					transfer.setPath(req.getContextPath()+"/post/EventRead.po?eventPk="+eventPk);
 					return transfer;
 				}
 			}
 		}	
-		transfer.setPath(req.getContextPath()+"/app/post/EventList.po?w=f");	
+		transfer.setPath(req.getContextPath()+"/post/EventList.po?w=f");	
 		return transfer;
 	}
 }

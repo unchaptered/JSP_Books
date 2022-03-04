@@ -20,9 +20,9 @@
             <div class="notice_write">
                 <strong class="title">공지사항 작성</strong>
                 <!-- 폼 시작 -->
-                <form action="${cp}/app/post/NoticeAddOk.po" name="noticeAddForm" method="post" enctype="multipart/form-data">
+                <form action="${cp}/post/NoticeAddOk.po" name="noticeAddForm" method="post" enctype="multipart/form-data">
                     <div class="goList_div">
-                    	<a href="${cp}/app/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
+                    	<a href="${cp}/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
                     </div>
                     <div>
                         <div class="write_content">

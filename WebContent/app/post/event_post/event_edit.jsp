@@ -30,10 +30,10 @@
                 <!-- 타이틀 -->
                 <strong class="title">이벤트 수정</strong>
                 <!-- 폼 시작 -->
-                <form action="${cp}/app/post/EventEditOk.po" name="eventEditForm" method="post" enctype="multipart/form-data">
+                <form action="${cp}/post/EventEditOk.po" name="eventEditForm" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="eventPk" value="${event.eventPk}">
                     <div class="goList_div">
-                        <a href="${cp}/app/post/EventList.po?eventPage=${param.eventPage==null ? 1 : param.eventPage}" class="goList">목록보기</a>
+                        <a href="${cp}/post/EventList.po?eventPage=${param.eventPage==null ? 1 : param.eventPage}" class="goList">목록보기</a>
                     </div>
                     <p class="must">필수 입력 항목 <span class="redStar">*</span></p>
                     <div class="write_content">
@@ -75,7 +75,7 @@
                             <div class="imgPreview_div">
                             	<c:choose>
                             		<c:when test="${eventFile.postFileSystem != null or not empty eventFile.postFileSystem}">
-                            			<img src="/media/${eventFile.postFileSystem}" class="imgPreview" id="imgPreview1"/>
+                            			<img src="${cp}/media/post/${eventFile.postFileSystem}" class="imgPreview" id="imgPreview1"/>
                             		</c:when>
                             		<c:otherwise>
 		                                <img class="imgPreview" id="imgPreview1"/>
@@ -104,7 +104,7 @@
                             <div class="imgPreview_div">
                                 <c:choose>
                             		<c:when test="${eventFileDetail.postFileSystem != null or not empty eventFileDetail.postFileSystem}">
-                            			<img src="/media/${eventFileDetail.postFileSystem}" class="imgPreview" id="imgPreview2"/>
+                            			<img src="${cp}/media/post/${eventFileDetail.postFileSystem}" class="imgPreview" id="imgPreview2"/>
                             		</c:when>
                             		<c:otherwise>
 		                                <img class="imgPreview" id="imgPreview2"/>
@@ -155,7 +155,7 @@
 				}
 			}
 		}	
-		xhr.open("GET","${pageContext.request.contextPath}/app/post/RemoveEventFile.po?postFilePk="+postFilePk,true);
+		xhr.open("GET","${pageContext.request.contextPath}/post/RemoveEventFile.po?postFilePk="+postFilePk,true);
 		xhr.send();
 		flag = true;
 	}
@@ -178,7 +178,7 @@
 				}
 			}
 		}	
-		xhr.open("GET","${pageContext.request.contextPath}/app/post/RemoveEventFileDetail.po?postFilePk="+postFilePk,true);
+		xhr.open("GET","${pageContext.request.contextPath}/post/RemoveEventFileDetail.po?postFilePk="+postFilePk,true);
 		xhr.send();
 		flag = true;
 	}

@@ -33,8 +33,7 @@ public class EventReadAction implements Action{
 
 		if(user != null) {
 			int userPk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
-//		int userPk = 2;
-			System.out.println(userPk);
+
 			String aleadyLiked="";
 			if(edao.getLikeStatus(userPk, eventPk).isEmpty()) {
 				aleadyLiked = "N";

@@ -18,11 +18,12 @@ public class NoticeListAction implements Action{
 		
 		String temp = req.getParameter("noticePage");
 		String keyword = req.getParameter("keyword");
-//		int pinCnt = ndao.getPinCnt();
+		int pinCnt = ndao.getPinCnt();
+		int pinSize = pinCnt-1;
 		//현재 페이지(초기 화면이라면 1, 아니면 page값)
 		int noticePage = temp == null ? 1 : Integer.parseInt(temp);
 		//한 페이지에 보여줄 게시글의 개수
-		int pageSize = 15;
+		int pageSize = 15-pinCnt;
 		//페이징 처리시 보여줄 페이지의 개수
 		int pageCnt = 10;
 			
@@ -31,6 +32,7 @@ public class NoticeListAction implements Action{
 		int noticeTotalCnt = ndao.getNoticeCnt(keyword);
 
 		//시작 게시물 번호
+		int startRowPin = (noticePage-1)*pinCnt;
 		int startRow = (noticePage-1)*pageSize;
 
 		//한 화면에서 보여질 첫 페이지
@@ -43,8 +45,10 @@ public class NoticeListAction implements Action{
 				
 		endPage = endPage>noticeTotalPage ? noticeTotalPage : endPage;
 				
+		List<NoticeDTO> noticePinList = ndao.getNoticePinList(startRowPin,pinSize);
 		List<NoticeDTO> noticeList = ndao.getNoticeList(startRow,pageSize,keyword);
 	
+		req.setAttribute("noticePinList", noticePinList);
 		req.setAttribute("noticeList", noticeList);
 		req.setAttribute("noticeTotalPage", noticeTotalPage);
 		req.setAttribute("noticeTotalCnt", noticeTotalCnt);
@@ -54,6 +58,9 @@ public class NoticeListAction implements Action{
 		req.setAttribute("keyword", keyword);
 		
 		// 작성자 이름 리스트로 가져오기
+		List<String> ownerNamePin = ndao.getOwnerNamePin(startRow,pinCnt);
+		req.setAttribute("ownerNamePin", ownerNamePin);
+		
 		List<String> ownerName = ndao.getOwnerName(startRow,pageSize,keyword);
 		req.setAttribute("ownerName", ownerName);
 		

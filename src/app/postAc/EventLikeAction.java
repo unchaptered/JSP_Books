@@ -20,7 +20,6 @@ public class EventLikeAction implements Action{
 		
 		int eventPk = Integer.parseInt(req.getParameter("eventPk"));
 		int userPk = ((UserDTO)session.getAttribute("loginUser")).getUserPk();
-//		int userPk = 2;
 
 		if(edao.getLikeStatus(userPk,eventPk).isEmpty()) {
 			edao.upEventLike(eventPk);

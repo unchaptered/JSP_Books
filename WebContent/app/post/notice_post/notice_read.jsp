@@ -18,7 +18,7 @@
 	<main id="main">
         <section class="main_content">
             <div class="notice_detail">
-                <a href="${cp}/app/post/NoticeList.po?noticePage=${param.noticePage == null ? 1 : param.noticePage}"><strong class="title">공지사항</strong></a>
+                <a href="${cp}/post/NoticeList.po?noticePage=${param.noticePage == null ? 1 : param.noticePage}"><strong class="title">공지사항</strong></a>
                 <form>
                     <div class="detail_area">
                         <div class="detail_top">
@@ -35,7 +35,7 @@
                                 </div>
                                 <c:if test="${file != null or file.postFileSystem != null or not empty file.postFileSystem}">
 	                                <div class="sub">
-	                                    <p>첨부파일</p> <span>${file.postFileOrigin}</span><a href="${cp}/app/post/FileDownload.po?postFileSystem=${file.postFileSystem}&postFileOrigin=${file.postFileOrigin}"><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
+	                                    <p>첨부파일</p> <span>${file.postFileOrigin}</span><a href="${cp}/post/FileDownload.po?postFileSystem=${file.postFileSystem}&postFileOrigin=${file.postFileOrigin}"><span><img src="${cp}/assets/img/icon_download.png" alt="파일" id="fileDownLoad"></span></a>
 	                                </div>
                                 </c:if>
                             </div>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="noticeReadBtn">
-                            <button class="readBtn" id="noticeUpdate" formaction="${cp}/app/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
+                            <button class="readBtn" id="noticeUpdate" formaction="${cp}/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
                             	formmethod="post" onclick="return updateCheck()">수정</button>
                             <button class="readBtn" id="noticeDelete" formaction="javascript:document.noticeRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
                         </div>
@@ -57,7 +57,7 @@
 		                        <div class="notice_detail_nav">
 		                        	<c:if test="${prevNoticePk != null}">
 			                            <div class="notice_prev">
-			                                <a href="${cp}/app/post/NoticeRead.po?noticePk=${prevNoticePk}">
+			                                <a href="${cp}/post/NoticeRead.po?noticePk=${prevNoticePk}">
 			                                    <span class="notice_arrow">&lt;</span>
 			                                    <span>이전글</span>
 			                                    <p>${prevNoticeTitle}</p>
@@ -66,7 +66,7 @@
 		                        	</c:if>
 		                        	<c:if test="${nextNoticePk != null}">
 			                            <div class="notice_next">
-			                                <a href="${cp}/app/post/NoticeRead.po?noticePk=${nextNoticePk}">
+			                                <a href="${cp}/post/NoticeRead.po?noticePk=${nextNoticePk}">
 			                                    <p>${nextNoticeTitle}</p>
 			                                    <span>다음글</span>
 			                                    <span class="notice_arrow">&gt;</span>
@@ -78,7 +78,7 @@
                         </c:choose>
                     </div>
                 </form>
-                <form name="noticeRemoveForm" action="${cp}/app/post/NoticeRemove.po" method="get">
+                <form name="noticeRemoveForm" action="${cp}/post/NoticeRemove.po" method="get">
                 	<input type="hidden" name="noticePk" value="${notice.noticePk}">
                 </form>
             </div>

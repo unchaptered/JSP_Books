@@ -20,10 +20,10 @@
             <div class="notice_write">
                 <strong class="title">공지사항 수정</strong>
                 <!-- 폼 시작 -->
-                <form action="${cp}/app/post/NoticeEditOk.po" name="noticeEditForm" method="post" enctype="multipart/form-data">
+                <form action="${cp}/post/NoticeEditOk.po" name="noticeEditForm" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="noticePk" value="${notice.noticePk}">
                     <div class="goList_div">
-                    	<a href="${cp}/app/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
+                    	<a href="${cp}/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
                     </div>
                     <div>
                         <div class="write_content">
@@ -95,7 +95,7 @@
 				}
 			}
 		}	
-		xhr.open("GET","${pageContext.request.contextPath}/app/post/RemoveNoticeFile.po?postFilePk="+postFilePk,true);
+		xhr.open("GET","${pageContext.request.contextPath}/post/RemoveNoticeFile.po?postFilePk="+postFilePk,true);
 		xhr.send();
 		flag = true;
 	}

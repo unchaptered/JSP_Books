@@ -19,9 +19,9 @@ import app.post.dao.PostDTO;
 public class NoticeEditOkAction implements Action {
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String rootPath = req.getSession().getServletContext().getRealPath("/");
 		
-		String saveFolder = rootPath+"media";
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		String saveFolder = rootPath+"media/post";
 		
 		int size = 5*1024*1024;
 		
@@ -96,12 +96,12 @@ public class NoticeEditOkAction implements Action {
 		if(pdao.updatePost(post)) {
 			if(ndao.updateNotice(notice)) {
 				if(fcheckNew && fcheckStage) {
-					transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
+					transfer.setPath(req.getContextPath()+"/post/NoticeRead.po?noticePk="+noticePk);
 				}
 			}
 		}
 		else {
-			transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?u=f&noticePk="+noticePk);
+			transfer.setPath(req.getContextPath()+"/post/NoticeRead.po?u=f&noticePk="+noticePk);
 		}
 		return transfer;
 	}		
