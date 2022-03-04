@@ -14,7 +14,10 @@ public class NewBookAddOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		BookDAO bdao = new BookDAO();
-		String saveFolder = "C:\\jsp";
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+
+        String saveFolder = rootPath+"media";
+		
 //		10MB
 		int size = 1024*1024*10;
 		
