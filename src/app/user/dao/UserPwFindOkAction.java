@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import action.Action;
 import action.ActionTo;
 
-public class UserIdFindOkAction implements Action{
+public class UserPwFindOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		UserDAO udao = new UserDAO();
@@ -15,18 +15,18 @@ public class UserIdFindOkAction implements Action{
 		HttpSession session = req.getSession();
 		
 		
-		String emailFindName = req.getParameter("email_name_input_find");
-		String emailFindPhone = req.getParameter("email_phone_input_find");
-		UserDTO findUser = udao.findEmail(emailFindName,emailFindPhone);
+		String pwFindEmail = req.getParameter("pw_email_input_find");
+		String pwFindPhone = req.getParameter("pw_phone_input_find");
+		UserDTO findUserPw = udao.findPw(pwFindEmail,pwFindPhone);
 		ActionTo transfer = new ActionTo();
-		if(findUser != null) {
-			session.setAttribute("findUser", findUser);
+		if(findUserPw != null) {
+			session.setAttribute("findUserPw", findUserPw);
 			transfer.setRedirect(true);
-			transfer.setPath(req.getContextPath()+"/app/user/user_id_show.jsp");
+			transfer.setPath(req.getContextPath()+"/app/user/user_pw_show.jsp");
 		}
 		else {
 			transfer.setRedirect(true);
-			transfer.setPath(req.getContextPath()+"/index.jsp?email=f");
+			transfer.setPath(req.getContextPath()+"/index.jsp?pw=f");
 		}
 		return transfer;
 		

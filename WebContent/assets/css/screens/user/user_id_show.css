@@ -1,0 +1,108 @@
+/* 저자 : 고결 */
+.idShowWrap div{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.idShowWrap table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.idShowWrap .notice_detail{
+    width: 1070px;
+    margin: 0 auto;
+}
+.idShowWrap .title{
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    font-weight: normal;
+    margin: 50px 0px 40px 0px;
+    border-bottom:2px solid #e5e5e5;
+    padding: 20px 0;
+    line-height: 10px;
+    align-items: center;
+}
+/*  */
+.idShowWrap .detail_title{
+    position: relative;
+    display: inline;
+    font-size: 24px;
+    padding: 20px;
+    color: #545861;
+    float: left;
+    width: 100%;
+    top: -40px;
+    border-bottom: 2px solid #e5e5e5;
+}
+.idShowWrap .detail_content{
+    clear: both;
+    float: left;
+    width: 100%;
+    min-height: 200px;
+    padding: 30px 20px;
+    border-bottom: 1px solid#e5e5e5;
+    font-size: 16px;
+    color: #333333;
+    word-break: break-all;
+    margin : 0 auto;
+}
+.idShowWrap .notice_detail_nav{
+    display: inline-block;
+    padding : 13px 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.idShowWrap .idshow_table{
+    position: relative;
+    top: -50px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.idShowWrap tbody{
+    display: table-row-group;
+    vertical-align: middle;
+}
+
+.idShowWrap .id_show_body_wrap{
+    padding: 10px;
+}
+.idShowWrap .id_show_body_inner{
+    position: relative;
+    padding-bottom: 32px;
+    color: #767676;
+}
+.idShowWrap .id_show_body_text {
+    margin: 20px auto;
+}
+.idShowWrap .id_show_body_text h3{
+    margin: 0 auto;
+    text-align: center;
+}
+.idShowWrap .id_show_body_text h2{
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+}
+.idShowWrap .id_show_body_text h3{
+    margin: 0 auto;
+    text-align: center;
+}
+.idShowWrap .idSubmit_btn{
+    position: absolute;
+    right: 20%;
+    width: 100px;
+    height: 54px;
+    line-height:54px;
+    border: 0;
+    border-radius: 27px;
+    background-color: #122236;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.idShowWrap .idSubmit_btn a {
+    color: #fff;
+}
+

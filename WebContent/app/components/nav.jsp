@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
-<% session.getAttribute("findUser");%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -368,7 +368,7 @@
         </form>
     </div> 
     <div class="pw_find_wrap">
-    <form>
+    <form name="pwFindForm" action="${cp}/user/UserPwFindOk.us" method="post">
         <div class="pw_find_container">
             <div class="pw_find_header">
                 비밀번호 찾기
@@ -389,53 +389,24 @@
                 <div class="pw_find_body_wrap_inner">
                     <div class="pw_find_body_inner">
                         <div class="pw_find_name_inner">
-                        <label for="pw_find_name_input" class="user_info">이메일</label>
+                        <label for="pw_email_input_find" class="user_info">이메일</label>
                         <div class="input_name_find">
                             <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해 주세요." name="pw_email_input_find">
                         </div>
                     </div>
                     <div class="pw_find_phone_inner">
-                        <label for="pw_find_phone_input" class="user_info">휴대폰 번호</label>
+                        <label for="pw_phone_input_find" class="user_info">휴대폰 번호</label>
                         <div class="input_phone_find">
                             <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678" name="pw_phone_input_find">
                         </div>
                     </div>
                         <div class="pw_find_space"></div>
-                        <button type="button" class="pw_find_btn buttons" id="pw_find_login"><a href="./pwShow.html">비밀번호 찾기</a></button>
+                        <input type="submit" class="pw_find_btn buttons" id="pw_find_login" value="비밀번호 찾기">
                     </div>
                 </div>
             </div>
-            
         </div>
         </form>
-    </div>
-    <div class="id_show_wrap">
-        <div class="id_show_container">
-            <div class="id_show_header">
-                이메일 찾기
-                <div class="icon">
-                    <button type="button" id="closeIdShow">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                </div>
-            </div>
-            <div class="id_show_body_wrap">
-                <div class="id_show_body_wrap_inner">
-                    <div class="id_show_body_inner">
-                        <div class="id_show_body_text">
-                            <h3>회원님의 이메일은</h3><br>
-                            <h2><strong id="showEmail">${findUser.userEmail}</strong></h2><br>
-                            <h3>입니다.</h3>
-                        </div>
-                        <div class="id_show_space"></div>
-                        <button type="button" class="id_show_btn buttons" id="id_show_login"><a href="./join.html">로그인 하기</a></button>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
     </div>
 </body>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
@@ -443,6 +414,6 @@
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>const cp = "${pageContext.request.contextPath}"</script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="${cp}/assets/js/addr.js"></script>
+<script src="${cp}/assets/js/user_addr.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/nav_user.js"></script>
 </html>
