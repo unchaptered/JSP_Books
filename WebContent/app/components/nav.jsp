@@ -74,8 +74,8 @@
             <summary class="nav_menu_summary">이벤트/공지사항</summary>
             <section class="nav_menu_linkers">
             	<!-- capriceksy -->
-                <a href="${cp}/app/post/EventList.po">이벤트</a>
-                <a href="${cp}/app/post/NoticeList.po">공지사항</a>
+                <a href="${cp}/post/EventList.po">이벤트</a>
+                <a href="${cp}/post/NoticeList.po">공지사항</a>
             </section>
         </details>
     </nav>
