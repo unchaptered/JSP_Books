@@ -19,7 +19,7 @@
             <span><strong class="title">내정보</strong></span>
             <div class="detail_area">
                 <div class="detail_top">
-                    <strong class="detail_title">비밀번호 찾기</strong>
+                    <strong class="detail_title">비밀번호 찾기 / 수정</strong>
                 </div>
                 <div class="detail_content">
                     <table class="pwshow_table">
@@ -30,10 +30,10 @@
                                             <tr>
                                                 <th>현재 비밀번호</th>
                                                 <c:if test="${findUserPw != null}">
-                                                <td><input type="password" class="info_userpw" value="${findUserPw.userPassword}" readonly></td>
+                                                <td><span class="info_userpw"> ${findUserPw.userPassword}</span></td>
                                                 </c:if>
                                                 <c:if test="${loginUser != null}">
-                                                <td><input type="password" class="info_userpw" value="${loginUser.userPassword}" readonly></td>
+                                                <td><span class="info_userpw"> ${loginUser.userPassword}</span></td>
                                                 </c:if>
                                             </tr>
                                             <tr>
