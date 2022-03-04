@@ -371,7 +371,7 @@
         </form>
     </div> 
     <div class="pw_find_wrap">
-    <form>
+    <form name="pwFindForm" action="${cp}/user/UserPwFindOk.us" method="post">
         <div class="pw_find_container">
             <div class="pw_find_header">
                 비밀번호 찾기
@@ -392,19 +392,19 @@
                 <div class="pw_find_body_wrap_inner">
                     <div class="pw_find_body_inner">
                         <div class="pw_find_name_inner">
-                        <label for="pw_find_name_input" class="user_info">이메일</label>
+                        <label for="pw_email_input_find" class="user_info">이메일</label>
                         <div class="input_name_find">
                             <input type="text" id="pw_email_input_find" placeholder="이메일을 입력해 주세요." name="pw_email_input_find">
                         </div>
                     </div>
                     <div class="pw_find_phone_inner">
-                        <label for="pw_find_phone_input" class="user_info">휴대폰 번호</label>
+                        <label for="pw_phone_input_find" class="user_info">휴대폰 번호</label>
                         <div class="input_phone_find">
                             <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678" name="pw_phone_input_find">
                         </div>
                     </div>
                         <div class="pw_find_space"></div>
-                        <button type="button" class="pw_find_btn buttons" id="pw_find_login"><a href="./pwShow.html">비밀번호 찾기</a></button>
+                        <input type="submit" class="pw_find_btn buttons" id="pw_find_login" value="비밀번호 찾기">
                     </div>
                 </div>
             </div>
@@ -417,6 +417,6 @@
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>const cp = "${pageContext.request.contextPath}"</script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="${cp}/assets/js/addr.js"></script>
+<script src="${cp}/assets/js/user_addr.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/nav_user.js"></script>
 </html>
