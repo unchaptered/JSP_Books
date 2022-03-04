@@ -66,23 +66,48 @@ function changePhone() {
     phonetxt.style=" background-color: #fff;"
 }
 
-// user_info 유효성
-
-let userInfoForm = document.userInfoForm
-let info_userpwre = userInfoForm.info_userpwre
-let info_userpwre_re = userInfoForm.info_userpwre_re
-let info_userpwre_error = document.getElementById("info_userpwre_re_error")
-let info_userpwre_re_error = document.getElementById("info_userpwre_re_error")
-function senditInfo() {
-let gizon = "integrity2@"
-if(info_userpwre.value == gizon) {
-	info_userpwre.focus();
-	console.log("오류")
-	return false;
-}
-if(info_userpwre_re.value != info_userpwre.value){
-	info_userpwre_re.focus();
+// user_info 유효성(빈공간)
+function sendItInfo() {
+	let userInfoForm = document.userInfoForm;
+	let userInfoName = userInfoForm.user_name_text;
+	let userInfoPhone = userInfoForm.user_phone_text;
+	let postcode = userInfoForm.postcode;
+	let detailAddress = userInfoForm.detailAddress;
 	
-}
-}
+	let banknum = userInfoForm.banknum;
+	
+	if(userInfoName.value == ""){
+		userInfoName.focus();
+		return false;
+	}
+	if(userInfoPhone.value == "") {
+		userInfoPhone.focus();
+		return false;
+	}
+	if(postcode.value == "") {
+		execDaumPostcode();
+		return false;
+	}
+	if(detailAddress.value == ""){
+		detailAddress.focus();
+		return false;
+	}
+	if(banknum.value == ""){
+		banknum.focus();
+		return false;
+	}
 
+
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

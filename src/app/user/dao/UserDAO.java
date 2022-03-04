@@ -60,5 +60,9 @@ public class UserDAO {
 		return findUserPw;
 	}
 
+	public boolean infoChange(UserDTO udto) {
+		return 1 == sqlsession.update("User.infoChange",udto);
+	}
+
 	}
 

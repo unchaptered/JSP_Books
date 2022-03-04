@@ -38,6 +38,7 @@ public class NewBookFrontController extends HttpServlet{
 				System.out.println("NewBookAddOk"+ e);
 			}
 			break;
+			
 		//새 책 수정
 		case "/book/NewBookEditOk.nb":
 			try {
@@ -46,14 +47,7 @@ public class NewBookFrontController extends HttpServlet{
 				System.out.println("NewBookEditOk"+e);
 			}
 			break;
-		//수정하기 눌렀을때 데이터 받아오기
-		case "/book/NewBookEdit.nb":
-			try {
-				transfer = new NewBookEditAction().execute(req, resp);
-			} catch (Exception e) {
-				System.out.println("NewBookEdit"+e);
-			}
-			break;
+			
 		case "/book/NewBookList.nb":
 			try {
 				transfer = new NewBookListAction().execute(req,resp);
@@ -61,6 +55,7 @@ public class NewBookFrontController extends HttpServlet{
 				System.out.println("NewBookList : " + e);
 			}
 			break;
+			
 		case "/book/NewBookRead.nb":
 			try {
 				transfer = new NewBookReadAction().execute(req,resp);
@@ -68,7 +63,30 @@ public class NewBookFrontController extends HttpServlet{
 				System.out.println("NewBookRead : " +e);
 			}
 			break; 
+		
+		case "/book/NewBookEdit.nb":
+			System.out.println("New Book Edit");
+			
+			transfer = new ActionTo();
+			transfer.setRedirect(false);
+			transfer.setPath("/app/book/new_book/new_book_edit.jsp");
+			break;
+		
+		case "/book/NewBookAdd.nb":
+			System.out.println("New Book Add");
+			
+			transfer = new ActionTo();
+			transfer.setRedirect(false);
+			transfer.setPath("/app/book/new_book/new_book_add.jsp");
+			break;
+
+
+   
+			
+			
+			
 		}
+		
 		
 		
 		if(transfer != null) {

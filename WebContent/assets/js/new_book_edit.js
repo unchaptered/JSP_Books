@@ -1,12 +1,12 @@
 //저자 : sunsetkk
 
 function categoryChange(genre) {
-	var bookGenre_kor = ["소설", "시⦁에세이", "경제⦁경영", "자기계발", "사회⦁과학", "역사⦁문화", "인문", "자연과학", "기타"];
-	var bookGenre_forg= ["어린이", "문학", "경제인문", "컴퓨터", "기타"];
-	var target = document.getElementById("bookGenre");
+	var genre_kor = ["소설", "시⦁에세이", "경제⦁경영", "자기계발", "사회⦁과학", "역사⦁문화", "인문", "자연과학", "기타"];
+	var genre_forg= ["어린이", "문학", "경제인문", "컴퓨터", "기타"];
+	var target = document.getElementById("genre");
 
-	if(genre.value == "kor") var d = bookGenre_kor;
-	else if(genre.value == "forg") var d = bookGenre_forg;
+	if(genre.value == "kor") var d = genre_kor;
+	else if(genre.value == "forg") var d = genre_forg;
 
 	target.options.length = 0;
 
@@ -76,8 +76,36 @@ function setComma(inNum){
     return outNum;
 }
 
-const title = document.getElementById("title");
+
 
 function focus_re(){
+	const title = document.getElementById("title");
+//	location.reload();
     title.focus();
+    const imgDiv = document.getElementById("imgShow");
+    if(imgDiv != ""){
+    	imgDiv = "";
+    }
+}
+
+function counter() {
+	let textCnt = document.getElementById("textCnt");
+	let textCnt2 = document.getElementById("textCnt2");
+	let cnt = document.getElementById("counting");
+	let cnt2 = document.getElementById("counting2");
+	
+    cnt.innerHTML = document.getElementById("info").value.length;
+    cnt2.innerHTML = document.getElementById("infoShort").value.length;
+    
+    if(parseInt(cnt.innerText) == 700){
+    	textCnt.style="color : red"
+    }else{
+    	textCnt.style="color : black"
+    }
+    if(parseInt(cnt2.innerText) == 1000){
+    	textCnt2.style="color : red"
+    }else{
+    	textCnt2.style="color : black"
+    }
+
 }

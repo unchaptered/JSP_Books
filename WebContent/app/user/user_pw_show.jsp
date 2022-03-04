@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
-<% session.getAttribute("findUserPw");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +29,12 @@
                                         <div class="pw_show_body_text">
                                             <tr>
                                                 <th>현재 비밀번호</th>
-                                                <td><span class="info_userpw">${findUserPw.userPassword}</span></td>
+                                                <c:if test="${findUserPw != null}">
+                                                <td><input type="password" class="info_userpw" value="${findUserPw.userPassword}" readonly></td>
+                                                </c:if>
+                                                <c:if test="${loginUser != null}">
+                                                <td><input type="password" class="info_userpw" value="${loginUser.userPassword}" readonly></td>
+                                                </c:if>
                                             </tr>
                                             <tr>
                                                 <th><label for="info_newPw">새 비밀번호</label></th>

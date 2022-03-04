@@ -34,7 +34,7 @@
     "img subtitle subtitle translater"
     "img publisher publisher pages"
     "img genre genre price"
-    "img created created ."
+    "img created created mount"
 
     "img . . ."
 
@@ -61,6 +61,7 @@
 .info{grid-area: info;}
 .infoShort{grid-area: infoShort;}
 .btn{grid-area: btn;}
+.mount{grid-area: mount;}
 
 /* design */
 
@@ -206,7 +207,7 @@
         "publisher publisher publisher publisher"
 
         "genre genre genre genre"
-        "pages pages pages ."
+        "pages pages mount mount"
         "writer writer created created"
         "translater translater price price"
 
@@ -247,7 +248,7 @@
         margin-right: 0px;
     }
     .pages > input{
-        margin-right: 70px;
+        margin-right: 0px;
     }
     #regReset, #regSubmit{
     width: 150px;

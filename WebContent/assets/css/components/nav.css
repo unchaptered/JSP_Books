@@ -71,6 +71,9 @@
 .nav_column:nth-child(3) {
     justify-content: flex-end;
 }
+.nav_column:nth-child(3) > a {
+	transform: translateY(2px);
+}
 .nav_logo {
     font-size: 20px;
     text-transform: uppercase;

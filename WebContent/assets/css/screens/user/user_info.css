@@ -156,28 +156,19 @@ table{
     font-size: 14px;
     top: 5px;
 }
-.user_info_container_wrap  .info_user_email{
-    color: #666;
+.user_info_container_wrap .info_user_email{
+    color: #e1e2e3;
 }
-.user_info_container_wrap  .user_email_text{
+.user_info_container_wrap .user_email_text{
     margin-right: 1em;
-    font-weight: 400;
+    font-weight: 600;
     margin-left: 15px;
-    font-size: 14px;
-    background-color: #fafbf6;
+    font-size: 16px;
+    border: 1px solid #FCFCFC !important;
+    background-color:#FCFCFC;
+    color : #767676;
 }
-.user_info_container_wrap .user_email_btn{
-    border-color: #bcbfc6;
-    color: #777;
-    background-color: #fafbf6;
-    border: 1px solid #bcbfc6;
-    border-radius: 2px;
-    font-size: 12px;
-    height: 22px;
-}
-.user_info_container_wrap .user_email_btn:hover{
-    border: 1px solid #36f;
-}
+
 .user_info_container_wrap .info_user_name{
     color: #666;
 }
@@ -220,6 +211,20 @@ table{
     height: 22px;
 }
 .user_info_container_wrap .user_phone_btn:hover{
+    border: 1px solid #36f;
+}
+
+.user_info_container_wrap .user_pw_btn{
+	border-color: #bcbfc6;
+    color: #777;
+    background-color: #fafbf6;
+    border: 1px solid #bcbfc6;
+    border-radius: 2px;
+    font-size: 12px;
+    height: 22px;
+    margin-left:15px;
+}
+.user_info_container_wrap .user_pw_btn:hover{
     border: 1px solid #36f;
 }
 
@@ -271,36 +276,6 @@ table{
 }
 .user_info_container_wrap .userInfoError {
 	font-size:13px;
-}
-
-.user_info_container_wrap .user_info_pw_table input[type=password]:focus{
-    outline: 1px solid #36f;
-}
-.user_info_container_wrap .info_userpwre_space1{
-    margin-top: 6px;
-    color: #969696;
-    display: table;
-}
-.user_info_container_wrap .info_userpwre_space1 span{
-    display: table-cell;
-}
-
-.user_info_container_wrap .icon_cross{
-    display: inline-block;
-    background:url(../images/icon-cross-gray.png) no-repeat;
-    width: 11px;
-    height: 11px;
-    margin-top: -3px;
-    margin-right: 5px;
-    background-size: 11px 11px;
-    vertical-align: middle;
-}
-.user_info_container_wrap .userpwre_text{
-    margin-top: 6px;
-    padding: 0;
-    font-size: 13px;
-    line-height: 18px;
-    cursor: default;
 }
 .user_info_container_wrap .submit_btn{
     position: absolute;
@@ -360,6 +335,9 @@ table{
 }
 .user_info_container_wrap .info_useraddr_num{
     width: 191px;
+}
+.user_info_container_wrap .info_user_bank {
+	margin-left:11px;
 }
 .user_info_container_wrap .userinfo_table .info_user_bank li{
     font-weight: normal;

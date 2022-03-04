@@ -188,8 +188,12 @@
 
 
 			<!-- 장바구니,바로구매,좋아요 버튼 시작 -->
-			<button class="read_basket"><a href="${cp }/book/NewBookList.nb">장바구니</a></button>
-			<button class="read_buy">바로구매</button>
+			<button class="read_basket">
+			<a href="javascript:addCart(2,2)">장바구니 추가</a>  
+			</button>
+			<button class="read_buy">
+			<a href="javascript:directBuy(1,1)">바로구매버튼</a>
+			</button>
 			<button class="read_like" id="like_back" onclick="like()">
 				♡<span id="like">0</span>
 			</button>
@@ -214,15 +218,7 @@
         <div class="readinfo">
             <h3 style="border-bottom: 1.5px solid black;">출판사 서평</h3>
             <p class="readinfo_part">
-                줄거리를 소개하는부분인뭐라고 적는게 좋을까라는 생각이 드는 느낌적인 느낌이란 말이죠
-                늘자리에 눈 감는날 까지 날 영원히이~ 기다릴게~~~~~~~~~~~~해애애애애에이이이잉기다릴게에에우어우어우어어~~
-            </p>
-        </div>
-        <div class="readinfo">
-            <h3 style="border-bottom: 1.5px solid black;">추천사</h3>
-            <p class="readinfo_part">
-                줄거리를 소개하는부분인뭐라고 적는게 좋을까라는 생각이 드는 느낌적인 느낌이란 말이죠
-                늘자리에 눈 감는날 까지 날 영원히이~ 기다릴게~~~~~~~~~~~~해애애애애에이이이잉기다릴게에에우어우어우어어~~
+                흐르는 강물을 거슬러 오르는 연어들의 도무지 알 수 없는 그들만의 신비한 이유처럼 그 언제서 부터인가 걸어걸어오는 앞으로 얼마나 더 많이 가야만 하는지~
             </p>
         </div>
     </div>
@@ -235,6 +231,7 @@
 <!-- 경로 수정하셔야 합니다. -->
 <script src="${cp }/assets/js/new_book/discount_view.js"></script>
 <script type="text/javascript" src="${cp }/assets/js/nav_menu.js"></script>
+
 <script>
 function count(type)  {
     const resultElement = document.getElementById('result');
@@ -255,4 +252,5 @@ function count(type)  {
     resultElement.innerText = number;
 }
 </script>
+<script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script>
 </html>
