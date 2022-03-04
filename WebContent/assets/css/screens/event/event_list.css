@@ -65,6 +65,7 @@ ul, li{
 /* 게시물 수 */
 .board_count{
     float: left;
+    margin-right: 10px;
     margin-bottom: 10px;
     font-size: 16px;
     color: #3c3c3c;
@@ -76,19 +77,82 @@ ul, li{
     font-weight: bold;
 }
 
+/* 정렬 */
+.sortUl, .sortLi{
+	float:left;
+}
+.sortLi{
+	margin-right:8px;
+}
+.sortLi:first-child{
+	margin-left:15px;
+}
+.sortLi::after{
+	content:'|';
+	opacity: 50%;
+}
+.sortLi:last-child::after{
+	content:'';
+}
+.sortA{
+	font-size: 15px;
+	font-weight: normal;
+	color:#555555;
+}
+.sortA:hover, .sortClicked{
+	font-weight:bold;
+	color:#000;
+}
+
 /* 이벤트 작성 버튼 */
-.createEvent_div{
+.allCheckArea{
+	float:right;
+	position:relative;
+	right:125px;
+	top:23px;
+}
+#thCheck{
+	width:25px;
+	height:25px;
+	position:relative;
+	top:6px;
+	left:5px;
+}
+.eventBtn{
     float: right;
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #fff;
 }
 .createEvent{
-    margin-right: 5px;
-    padding: 10px 20px;
+	background-color: #df434d;
+    margin: 0px 5px 10px 5px;
+}
+.deleteCheckBtn{
+	position:relative;
+	left:83px;
+	margin: 20px 5px 15px 5px;
     background-color: #3b3b3b;
-    color: #fff;
-    font-size: 15px;
+}
+
+/* 정렬 */
+#sortvalue{
+	font-size:14px;
+	padding: 5px 10px;
+	font-weight: bold;
+	border: 1px solid #666666;
+	margin-left: 10px;
+	/* -webkit-appearance:none; */
+}
+#sortvalue:focus{
+	outline :none;
 }
 
 /* 이벤트 박스 */
+.eCheck{
+	width:30px;
+	height:30px;
+}
 .eventBox_area{
     clear: both;
     margin-top: 15px;
@@ -143,7 +207,7 @@ ul, li{
 
 /* 페이지 번호 */
 .pagination{
-    margin-top: 5%;
+    margin-top: 8%;
     margin-bottom: 5%;
     text-align: center;
 }
@@ -200,8 +264,19 @@ ul, li{
     .content__container-4{
         grid-column: span 4;
     }
-    .board_count, .createEvent_div{
+    .board_count, .eventBtnArea{
     	margin: 10px;
+    }
+    .sortUl{
+		position:relative;
+		top:10px;
+	}
+    
+    .pagination{
+    	clear:both;
+        margin: 0 auto;
+        margin-top: 8%;
+        margin-bottom: 5%;
     }
 }
 
@@ -231,11 +306,20 @@ ul, li{
 		font-size:18px;
 	}
 	
+	.allCheckArea{
+		top:-7px;
+		right:100px;
+	}
+	
     /* 이벤트 작성 버튼 */
-    .createEvent_div{
-        text-align: center;
-        margin: 50px -30px 0;
+    .eventBtn{
+    	font-size: 14px;
+    	padding: 10px 15px;
     }
+
+    .deleteCheckBtn{
+		margin: -10px 5px 15px 5px;
+	}
 
     /* 이벤트 박스 */
  	.eventBox_img{
@@ -245,9 +329,7 @@ ul, li{
 	}
     
     /* 페이지 */
-    .pagination{
-        margin: 0 auto;
-    }
+    
     .pagination li{
         padding: 1px;
     }

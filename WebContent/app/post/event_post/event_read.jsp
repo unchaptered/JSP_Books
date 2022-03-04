@@ -20,7 +20,7 @@
         <section class="main_content">
             <div class="event_detail">
                 <!-- 타이틀 -->
-                <a href="${cp}/app/post/EventList.po?eventPage=${param.eventPage == null ? 1 : param.eventPage}"><strong class="title">이벤트</strong></a>
+                <a href="${cp}/post/EventList.po?eventPage=${param.eventPage == null ? 1 : param.eventPage}"><strong class="title">이벤트</strong></a>
                 <!-- 폼 시작 -->
                 <form>
                     <div>
@@ -32,10 +32,10 @@
                         <div class="event_detail_img">
 		                    <c:choose>
 								<c:when test="${file != null}">
-									<img src="/media/${file.postFileSystem}" alt="${file.postFileOrigin}">
+									<img src="${cp}/media/post/${file.postFileSystem}" alt="${file.postFileOrigin}">
 								</c:when>
 								<c:otherwise>
-									<img src="/assets/img/event_banner2.png" alt="배너">
+									<img src="${cp}/assets/img/event_banner2.png" alt="배너">
 								</c:otherwise>
 							</c:choose>
 	                    </div>
@@ -48,7 +48,7 @@
                         	<c:choose>
                         		<c:when test="${aleadyLiked == 'Y'}">
 		                        	<a href="javascript:like(${event.eventPk})" class="likeBtn likeClicked">
-										<img src="/assets/img/event_heart_red.png" alt="좋아요" class="likeHeart">
+										<img src="${cp}/assets/img/event_heart_red.png" alt="좋아요" class="likeHeart">
 	                        			<span class="likeText" id="likeResult">${event.eventLike}</span>
 										<span class="likeText">&nbsp;좋아요&nbsp;</span>
 										<input type="hidden" id="aleadyLiked" value="${aleadyLiked}">
@@ -56,7 +56,7 @@
                         		</c:when>
                         		<c:otherwise>
                         			<a href="javascript:like(${event.eventPk})" class="likeBtn">
-										<img src="/assets/img/event_heart_black.png" alt="좋아요" class="likeHeart">
+										<img src="${cp}/assets/img/event_heart_black.png" alt="좋아요" class="likeHeart">
 	                        			<span class="likeText" id="likeResult">${event.eventLike}</span>
 										<span class="likeText">&nbsp;좋아요&nbsp;</span>
 										<input type="hidden" id="aleadyLiked" value="${aleadyLiked}">
@@ -65,13 +65,13 @@
                         	</c:choose>
                         </div>
                         <div class="eventReadBtn">
-                            <button class="readBtn" id="eventUpdate" formaction="${cp}/app/post/EventEdit.po?eventPk=${event.eventPk}" 
+                            <button class="readBtn" id="eventUpdate" formaction="${cp}/post/EventEdit.po?eventPk=${event.eventPk}" 
                             	formmethod="post" onclick="return updateCheck()">수정</button>
                             <button class="readBtn" id="eventDelete" formaction="javascript:document.eventRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
                         </div>
                     </div>
                 </form>
-                <form name="eventRemoveForm" action="${cp}/app/post/EventRemove.po" method="get">
+                <form name="eventRemoveForm" action="${cp}/post/EventRemove.po" method="get">
                 	<input type="hidden" name="eventPk" value="${event.eventPk}">
                 </form>
             </div>
@@ -104,12 +104,12 @@
 						if(xhr.status == 200){
 							result.innerHTML = Number(result.innerHTML)+1;
 							likeBtn.className += " likeClicked";
-							likeHeart.src = "/assets/img/event_heart_red.png";
+							likeHeart.src = "${pageContext.request.contextPath}/assets/img/event_heart_red.png";
 							aleadyLiked.value ="Y";
 						}
 					}
 				}
-				xhr.open("GET","${pageContext.request.contextPath}/app/post/EventLike.po?eventPk="+eventPk,true);
+				xhr.open("GET","${pageContext.request.contextPath}/post/EventLike.po?eventPk="+eventPk,true);
 				xhr.send();
 			}
 			else{
@@ -118,12 +118,12 @@
 						if(xhr.status == 200){
 							result.innerHTML = Number(result.innerHTML)-1;
 							likeBtn.classList.remove("likeClicked");
-							likeHeart.src = "/assets/img/event_heart_black.png";
+							likeHeart.src = "${pageContext.request.contextPath}/assets/img/event_heart_black.png";
 							aleadyLiked.value = "N";
 						}
-					}
+					}   
 				}
-				xhr.open("GET","${pageContext.request.contextPath}/app/post/EventLike.po?eventPk="+eventPk,true);
+				xhr.open("GET","${pageContext.request.contextPath}/post/EventLike.po?eventPk="+eventPk,true);
 				xhr.send();
 			}
 		}  

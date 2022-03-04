@@ -28,7 +28,7 @@ public class NoticeAddOkAction implements Action{
 		
 		//파일이 저장될 경로
 		String rootPath = req.getSession().getServletContext().getRealPath("/");
-		String saveFolder = rootPath+"media";	
+		String saveFolder = rootPath+"media/post";	
 
 		//저장될 파일의 크기(5MB)
 		int size = 1024*1024*5;
@@ -81,7 +81,7 @@ public class NoticeAddOkAction implements Action{
 						int noticePk = ndao.getLastNoticePk(postPk);
 						
 						transfer.setRedirect(true);
-						transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
+						transfer.setPath(req.getContextPath()+"/post/NoticeRead.po?noticePk="+noticePk);
 						return transfer;
 					}
 				}
@@ -91,13 +91,13 @@ public class NoticeAddOkAction implements Action{
 					int noticePk = ndao.getLastNoticePk(postPk);
 					
 					transfer.setRedirect(true);
-					transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
+					transfer.setPath(req.getContextPath()+"/post/NoticeRead.po?noticePk="+noticePk);
 					return transfer;
 				}
 			}
 		}					
 		
-		transfer.setPath(req.getContextPath()+"/app/post/NoticeList.po?w=f");	
+		transfer.setPath(req.getContextPath()+"/post/NoticeList.po?w=f");	
 		return transfer;
 	}
 }
