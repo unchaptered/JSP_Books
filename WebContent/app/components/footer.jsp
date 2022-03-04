@@ -81,7 +81,7 @@
                 <div class="footer_box">
                     <h3>Develop Period</h3>
                     <div class="footer_datas_rows">
-                        <p>2022-01-17 ~ 2022-02-23</p>
+                        <p>2022-01-17 ~ 2022-03 ~ 04</p>
                     </div>
                 </div>
                 <div class="footer_box">
@@ -94,6 +94,13 @@
                     <h3>References</h3>
                     <div class="footer_datas_rows footer_banches">
                         <p>인터파크</p><p>영풍문고</p><p>알라딘</p><p>교보문고</p>
+                    </div>
+                </div>
+                <div class="footer_box">
+                    <h3>프로젝트 후기 및 PPT</h3>
+                    <div class="footer_datas_rows footer_banches">
+                        <a href="https://www.figma.com/file/nCSm3IzMbOjFMhhhiDbgrZ/BOOKS---%EC%84%A4%EA%B3%84-%EB%8B%A8%EA%B3%84?node-id=0%3A1">설계 초안</a>
+                        <a href="https://www.figma.com/file/aoHFUi7N2MKuot7p6j5FlR/BOOKS---%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=0%3A1">기획서 PPT</a>
                     </div>
                 </div>
             </div>
