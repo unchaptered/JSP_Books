@@ -109,7 +109,13 @@ private static final long serialVersionUID = 1L;
 				System.out.println("UserInfoChangeOk :"+e);
 			}
 			break;
-			
+		case "/user/UserInfoPwChange.us":
+			try {
+				transfer = new UserInfoPwChangeOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("UserInfoPwChangeOk :"+e);
+			}
+			break;
 		}
 	
 	
