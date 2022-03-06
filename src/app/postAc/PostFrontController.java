@@ -29,10 +29,6 @@ public class PostFrontController extends HttpServlet{
 		String command = requestURI.substring(contextPath.length());
 		ActionTo transfer = null;
 		
-		System.out.println("requestURI : "+requestURI);
-		System.out.println("contextPath : "+contextPath);
-		System.out.println("command : "+command);
-		
 		switch(command) {
 		case "/post/EventList.po":
 			try {
@@ -179,7 +175,7 @@ public class PostFrontController extends HttpServlet{
 			}
 			break;
 			
-			default : System.out.println("default으로");
+			default : System.out.println("default로");
 				System.out.println("requestURI : "+requestURI);
 				System.out.println("contextPath : "+contextPath);
 				System.out.println("command : "+command);

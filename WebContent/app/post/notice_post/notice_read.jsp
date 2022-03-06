@@ -45,11 +45,13 @@
                                 <p>${notice.postText}</p>
                             </div>
                         </div>
-                        <div class="noticeReadBtn">
-                            <button class="readBtn" id="noticeUpdate" formaction="${cp}/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
-                            	formmethod="post" onclick="return updateCheck()">수정</button>
-                            <button class="readBtn" id="noticeDelete" formaction="javascript:document.noticeRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
-                        </div>
+                        <c:if test="${loginAdmin != null}">
+	                        <div class="noticeReadBtn">
+	                            <button class="readBtn" id="noticeUpdate" formaction="${cp}/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
+	                            	formmethod="post" onclick="return updateCheck()">수정</button>
+	                            <button class="readBtn" id="noticeDelete" formaction="javascript:document.noticeRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
+	                        </div>
+                        </c:if>
                         <c:choose>
                         	<c:when test="${notice.noticePin == 'Y' || (prevNoticePk == null && nextNoticePk == null) }">
 	                        </c:when>

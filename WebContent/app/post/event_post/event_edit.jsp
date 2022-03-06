@@ -15,14 +15,12 @@
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
 	<!-- 로그인 체크 -->
-	<%--
-	<script>let cp = "${pageContext.request.contextPath}";</script>
-	<c:if test="${loginUser == null }">
+	<c:if test="${loginAdmin == null }">
 		<script>
-			alert("로그인 후 이용하세요!");
-			location.replace(cp+"/user/");
+			alert("관리자 계정만 접근할 수 있습니다.");
+			location.href="${cp}/index.jsp";
 		</script>
-	</c:if> --%>
+	</c:if>
 	
 	<main id="main">
         <section class="main_content">

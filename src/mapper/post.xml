@@ -138,13 +138,13 @@
 			where post.post_pk = post_notice.post_pk and post_title like(concat('%',#{keyword},'%'))
 		</if>
 	</select>
-	<select id="getNoticePinList" parameterType="hashmap" resultType="noticedto">
+	<select id="getNoticePinList" parameterType="_int" resultType="noticedto">
 		select post_notice.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, notice_pk as noticePk, notice_pin as noticePin, notice_file as noticeFile
 		from post_notice 
 		join post on post.post_pk = post_notice.post_pk
 		where post.post_pk = post_notice.post_pk AND post_notice.notice_pin = 'Y'
-		order by notice_pin asc 
-		limit #{startRow},#{pinCnt}
+		order by post.post_pk desc
+		limit 0,#{pinCnt}
 	</select>
 	<select id="getNoticeList" parameterType="hashmap" resultType="noticedto">
 		select post_notice.post_pk as postPk, post_title as postTitle, post_text as postText, post_owner as postOwner, post_created as postCreated, post_viewed as postViewed, notice_pk as noticePk, notice_pin as noticePin, notice_file as noticeFile
@@ -165,23 +165,20 @@
 	</select>
 	<select id="getPrevNotice" parameterType="_int" resultType="_int">
 		select min(notice_pk) from post_notice
-		where notice_pk <![CDATA[ > ]]> #{noticePk} and NOT notice_pin ='Y'
+		where notice_pk <![CDATA[ > ]]> #{noticePk} and notice_pin ='N'
 	</select>
 	<select id="getNextNotice" parameterType="_int" resultType="_int">
 		select max(notice_pk) from post_notice
-		where notice_pk <![CDATA[ < ]]> #{noticePk} and NOT notice_pin ='Y'
+		where notice_pk <![CDATA[ < ]]> #{noticePk} and notice_pin ='N'
 	</select>
-	<select id="getOwnerNamePin" parameterType="hashmap" resultType="String">
+	<select id="getOwnerNamePin" parameterType="_int" resultType="String">
 		select admin_name as adminName
 		from admin 
 		join post on admin.admin_pk = post.post_owner
 		join post_notice on post.post_pk = post_notice.post_pk
 		where post.post_pk = post_notice.post_pk AND notice_pin ='Y'
-		<if test="keyword != null">
-			AND post_title like(concat('%',#{keyword},'%'))
-		</if>
-		order by notice_pin asc, post.post_pk desc 
-		limit #{startRow},#{pinCnt}
+		order by post.post_pk desc 
+		limit 0,#{pinCnt}
 	</select>
 	<select id="getOwnerName" parameterType="hashmap" resultType="String">
 		select admin_name as adminName
@@ -192,7 +189,7 @@
 		<if test="keyword != null">
 			AND post_title like(concat('%',#{keyword},'%'))
 		</if>
-		order by notice_pin asc, post.post_pk desc 
+		order by post.post_pk desc 
 		limit #{startRow},#{pageSize}
 	</select>
 	

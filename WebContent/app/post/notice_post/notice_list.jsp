@@ -24,7 +24,9 @@
 					</div>
 					<table class="notice_table">
 						<colgroup>
-							<col class="colcheck">
+							<%-- <c:if test="${loginAdmin != null }"> --%>
+								<col class="colcheck">
+							<%-- </c:if> --%>
 							<col class="col">
 							<col>
 							<col class="col">
@@ -33,7 +35,9 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<th><input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)"></th>
+								<%-- <c:if test="${loginAdmin != null }"> --%>
+									<th><input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)"></th>
+								<%-- </c:if> --%>
 								<th>번호</th>
 								<th>제목</th>
 								<th>작성자</th>
@@ -43,49 +47,73 @@
 						</thead>
 						<!-- 공지 테이블 내용 : 한 페이지에 중요공지 포함 15개 -->
 						<tbody>
+							
 							<c:choose>
-								<c:when test="${noticeList.size()>0 and noticeList != null}">
-									<c:forEach var="notice" items="${noticeList}" varStatus="status">
-										<c:choose>
-											<c:when test="${notice.noticePin == 'Y'}">
-												<tr class="alert">
+								
+								<c:when test="${noticePinList.size() > 0 and noticePinList != null or noticeList.size() > 0 and noticeList != null}">
+									
+									<c:if test="${noticePinList.size() > 0 and noticePinList != null}">
+										
+										<c:forEach var="noticePin" items="${noticePinList}" varStatus="status">
+											<tr class="alert">
+												<%-- <c:if test="${loginAdmin != null }"> --%>
+													<td class="board_check"><input type="checkbox" name="nCheck" value="${noticePin.noticePk}"></td>
+												<%-- </c:if> --%>
+												<td class="board_num">${noticePin.noticePk}</td>
+												<td class="board_tlt">
+													<a href="${cp}/app/post/NoticeRead.po?noticePk=${noticePin.noticePk}&noticePage=${noticePage}"><strong>${noticePin.postTitle}</strong></a>
+												</td>
+												<td class="board_writer">${ownerNamePin[status.index]}</td>
+												<td class="board_date">${fn:substring(noticePin.postCreated,0,10)}</td>
+												<td class="board_hit">${noticePin.postViewed}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+									
+									<c:if test="${noticeList.size() > 0 and noticeList != null}">
+										
+										<c:forEach var="notice" items="${noticeList}" varStatus="status">
+											<tr>	
+												<%-- <c:if test="${loginAdmin != null }"> --%>
 													<td class="board_check"><input type="checkbox" name="nCheck" value="${notice.noticePk}"></td>
-													<td class="board_num">${notice.noticePk}</td>
-													<td class="board_tlt">
-														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}"><strong>${notice.postTitle}</strong></a>
-													</td>
-													<td class="board_writer">${ownerName[status.index]}</td>
-													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
-													<td class="board_hit">${notice.postViewed}</td>
-												</tr>
-											</c:when>
-											<c:otherwise>
-												<tr>
-													<td class="board_check"><input type="checkbox" name="nCheck" value="${notice.noticePk}"></td>
-													<td class="board_num">${notice.noticePk}</td>
-													<td class="board_tlt">
-														<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
-													</td>
-													<td class="board_writer">${ownerName[status.index]}</td>
-													<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
-													<td class="board_hit">${notice.postViewed}</td>
-												</tr>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
+												<%-- </c:if> --%>
+												<td class="board_num">${notice.noticePk}</td>
+												<td class="board_tlt">
+													<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
+												</td>
+												<td class="board_writer">${ownerName[status.index]}</td>
+												<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
+												<td class="board_hit">${notice.postViewed}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
 								</c:when>
+								
 								<c:otherwise>
 									<tr>
-										<td class="notice_none" colspan="6">
-											등록된 공지사항이 없습니다.
-										</td>
+										<%-- <c:choose>
+											<c:when test="${loginAdmin != null }"> --%>
+												<td class="notice_none" colspan="6">
+													등록된 공지사항이 없습니다.
+												</td>
+											<%-- </c:when>
+											<c:otherwise>
+												<td class="notice_none" colspan="5">
+													등록된 공지사항이 없습니다.
+												</td>
+											</c:otherwise>
+										</c:choose> --%>
 									</tr>
 								</c:otherwise>
-							</c:choose>
+							</c:choose>				
 						</tbody>
 					</table>
-					<a href="${cp}/post/NoticeAdd.po?noticePage=${noticePage}" class="noticeBtn createNotice">새 공지 등록</a>
-					<a href="javascript:deleteCheck();" class="noticeBtn deleteCheckBtn">선택삭제</a>
+					
+					<%-- <c:if test="${loginAdmin != null }"> --%>
+						<a href="${cp}/post/NoticeAdd.po?noticePage=${noticePage}" class="noticeBtn createNotice">새 공지 등록</a>
+						<a href="javascript:deleteCheck();" class="noticeBtn deleteCheckBtn">선택삭제</a>
+					<%-- </c:if> --%>
+					
 					<!-- 페이지 버튼 : 한 페이지 1~10-->
 					<div class="pagination">
 						<ul>
@@ -97,9 +125,6 @@
 									<c:when test="${i == noticePage }">
 										<li><span class="pageBtn pageNum current">${i}</span></li>
 									</c:when>
-									<c:when test="${i == 0}">
-										<li><span class="pageBtn pageNum current">1</span></li>
-									</c:when>
 									<c:otherwise>
 										<li><a href="${cp}/post/NoticeList.po?noticePage=${i}&keyword=${keyword}" class="pageBtn pageNum">${i}</a></li>
 									</c:otherwise>
@@ -107,11 +132,11 @@
 								
 							</c:forEach>
 							<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 noticePage+10, 없으면 마지막페이지로)-->
-							<c:if test="${noticePage > 10 && noticePage < noticeTotalPage && noticePage+10 < noticeTotalPage}">
-								<li><a href="${cp}/post/NoticeList.po?noticePage=${noticePage+10}" class="pageBtn next">다음</a></li>
+							<c:if test="${noticePage != noticeTotalPage && endPage < noticeTotalPage && noticePage+10 < noticeTotalPage}">
+								<li><a href="${cp}/post/NoticeList.po?noticePage=${noticePage+10}&keyword=${keyword}" class="pageBtn next">다음</a></li>
 							</c:if>
-							<c:if test="${noticePage > 10 && noticePage < noticeTotalPage && noticePage+10 >= noticeTotalPage}">
-								<li><a href="${cp}/post/NoticeList.po?noticePage=${noticeTotalPage}" class="pageBtn next">다음</a></li>
+							<c:if test="${noticePage != noticeTotalPage && endPage < noticeTotalPage && noticePage+10 >= noticeTotalPage}">
+								<li><a href="${cp}/post/NoticeList.po?noticePage=${noticeTotalPage}&keyword=${keyword}" class="pageBtn next">다음</a></li>
 							</c:if>
 						</ul>
 					</div>
@@ -131,6 +156,7 @@
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script src="${cp}/assets/js/notice_list.js"></script>
 <script>
+
 //공지사항 선택삭제
 	function deleteCheck(){
 		let nCheck = document.getElementsByName("nCheck");
@@ -157,7 +183,7 @@
 				xhr.onreadystatechange = function(){
 				if(xhr.readyState == XMLHttpRequest.DONE){
 					if(xhr.status == 200){
-						location.replace("${pageContext.request.contextPath}/post/NoticeList.po");		
+						location.replace("${pageContext.request.contextPath}/post/NoticeList.po?noticePage=${noticePage}");		
 					}
 				}
 			}
