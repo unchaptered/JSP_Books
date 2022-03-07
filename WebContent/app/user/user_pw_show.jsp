@@ -14,7 +14,7 @@
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
 	<div class="pwShowWrap">
-                <form name="userPwForm" action="${cp}/user/UserInfoPwChange.us" method="post">
+    <form name="userPwForm" action="${cp}/user/UserInfoPwChange.us" method="post" onsubmit="return sendItInfoPw();">
     <section class="main_content">
         <div class="notice_detail">
             <span><strong class="title">내정보</strong></span>
@@ -31,10 +31,10 @@
                                             <tr>
                                                 <th>현재 비밀번호</th>
                                                 <c:if test="${findUserPw != null}">
-                                                <td><span class="info_userpw"> ${findUserPw.userPassword}</span><span class="InfocheckEmail" name="InfocheckEmail">${findUserPw.userEmail}</span></td>
+                                                <td><span class="info_userpw" id="info_findUserPw"> ${findUserPw.userPassword}</span><input type="text" class="infocheckEmail" name="infocheckEmail" value="${findUserPw.userEmail}" readonly></td>
                                                 </c:if>
                                                 <c:if test="${loginUser != null}">
-                                                <td><span class="info_userpw"> ${loginUser.userPassword}</span><span class="InfocheckEmail" name="InfocheckEmail">${loginUser.userEmail}</span></td>
+                                                <td><span class="info_userpw" id="info_loginUserPw"> ${loginUser.userPassword}</span><input type="text" class="infocheckEmail" name="infocheckEmail" value="${loginUser.userEmail}" readonly></td>
                                                 </c:if>
                                             </tr>
                                             <tr>
@@ -65,9 +65,10 @@
             </div>
             </div>
         </section>
-                    </form>
-        </div>
+    </form>
+    </div>
 	<%@ include file="/app/components/footer.jsp" %>
 </body>
+<script src="${cp}/assets/js/user_pw_show.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 </html>

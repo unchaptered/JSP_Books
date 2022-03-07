@@ -13,7 +13,7 @@ public class UserInfoPwChangeOkAction implements Action{
 		UserDAO udao = new UserDAO();
 		UserDTO udto = new UserDTO();
 		
-		udto.setUserEmail(req.getParameter("InfocheckEmail"));
+		udto.setUserEmail(req.getParameter("infocheckEmail"));
 		udto.setUserPassword(req.getParameter("info_newPw"));
 		
 		ActionTo transfer = new ActionTo();

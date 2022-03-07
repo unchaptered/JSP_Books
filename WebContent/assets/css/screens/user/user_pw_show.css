@@ -98,6 +98,12 @@
     height:25px;
     width:171px;
 }
+.pwShowWrap .infocheckEmail {
+	 position: absolute;
+     right: -99999px;
+     color: rgb(252, 252, 252);
+     border: 1px solid rgb(252, 252, 252);
+}
 .pwShowWrap .info_newPw{
     margin-top: 55px;
     height: 25px;
