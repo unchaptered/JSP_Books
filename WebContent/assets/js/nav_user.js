@@ -137,8 +137,7 @@
             $('body').css("overflow-y", "scroll");
             }
             });
-            
-let regNum = /^[0-9]+$/;        
+                   
         
         
         
