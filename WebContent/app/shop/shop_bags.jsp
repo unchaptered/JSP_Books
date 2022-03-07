@@ -110,5 +110,4 @@
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/shop_bags.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script> <!-- 장바구니,바로가기 버튼구현 JS 테스트용 -->
-<script type="text/javascript">let cp = "${pageContext.request.contextPath}"</script>
 </html>

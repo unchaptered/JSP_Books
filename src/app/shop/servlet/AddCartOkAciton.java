@@ -41,7 +41,7 @@ public class AddCartOkAciton implements Action{
 		Integer haveCart = cdao.checkCart(cdto); // selectOne by userPk&bookPk
 		// 동일품목의 카트가 있으면..
 		if(haveCart!=null) {
-			if(req.getParameter("directBuy").equals("t")) {	// 바로구매버튼으로 넘어왔으면..
+			if(req.getParameter("directBuy")!=null) {	// 바로구매버튼으로 넘어왔으면..
 				cdao.updateCartQuantityOverwrite(haveCart, quantity); // 동일품목카트에 추가수량만큼 증가, 덮어쓰기
 			}else {										// 장바구니버튼으로 넘어왔으면..
 				cdao.updateCartQuantity(haveCart, quantity); // 동일품목카트에 추가수량만큼 증가, 기존수량에 더하기
