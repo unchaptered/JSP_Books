@@ -98,8 +98,8 @@
                     </div>
                 </div>
             </section>
-            <a href="javascript:addCart(1,1)">장바구니버튼</a>	<!-- 장바구니 테스트용 bookPk 1번, 1개-->
-            <a href="javascript:directBuy(17,1)">바로구매버튼</a>	<!-- 바로구매 테스트용 bookPk 17번, 1개-->
+            <!-- <a href="javascript:addCart(1,1)">장바구니버튼</a> -->	<!-- 장바구니 테스트용 bookPk 1번, 1개-->
+            <!-- <a href="javascript:directBuy(17,1)">바로구매버튼</a> -->	<!-- 바로구매 테스트용 bookPk 17번, 1개-->
         </section>
     </main>
 	
