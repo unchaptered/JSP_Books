@@ -64,6 +64,12 @@ function getNumber(obj){
     num02 = num01.replace(rgx1,"");
     num01 = setComma(num02);
     obj.value =  num01;
+    
+    let price = document.getElementById("price").value;
+    let pr = parseInt(price.replace(/,/g,''));
+    price = pr;
+    console.log(price);
+    
 }
 
 function setComma(inNum){
@@ -80,12 +86,9 @@ function setComma(inNum){
 
 function focus_re(){
 	const title = document.getElementById("title");
-//	location.reload();
-    title.focus();
-    const imgDiv = document.getElementById("imgShow");
-    if(imgDiv != ""){
-    	imgDiv = "";
-    }
+	location.reload();
+//    title.focus();
+
 }
 
 function counter() {
@@ -120,28 +123,12 @@ function validate(){
 		country.focus();
 		return false;
 	}
-//	if(img.value == "&nbsp;"){
-//		alert("이미지를 추가해주세요 !");
-//		return false;
-//	}
+	
+	let price = document.getElementById("price").value;
+    let pr = parseInt(price.replace(/,/g,''));
+    price = pr;
+    console.log(price);
+    document.getElementById("price").value = price;
+    
 	return true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,12 +17,12 @@
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="../../components/nav.jsp" %>
 	
-	<c:if test="${loginAdmin == null }">
+	<%-- <c:if test="${loginAdmin == null }">
 		<script>
 			alert("관리자 계정만 접근할 수 있습니다.");
-			location.href="${cp}/index.jsp";
+			location.href="${cp}/app/admin/admin_login.jsp";
 		</script>
-	</c:if>
+	</c:if> --%>
 	
 	<main id="main">
 		<div class="main_content">
@@ -62,7 +62,7 @@
                         <label for="writer" class="writer">저자<sup class="star">*</sup><input type="text" name="writer" id="writer" placeholder="저자를 입력해주세요." required></label>
                         <label for="translater" class="translater">역자<input type="text" name="translater" id="translater"></label>
                         <label for="pages" class="pages">페이지 수<sup class="star">*</sup> <input type="number" name="pages" id="pages" placeholder="페이지 수를 입력해주세요." min="0" required></label>
-                        <label for="price" class="price">가격<sup class="star">*</sup><input type="text" id="price" name="price"  placeholder="금액을 입력해주세요." onchange="getNumber(this);" onkeyup="getNumber(this);" required></label>
+                        <label for="price" class="price">가격<sup class="star">*</sup><input type="text" id="price" name="price"  placeholder="금액을 입력해주세요."  onkeyup="getNumber(this);" required></label>
                         <label for="mount" class="mount">재고량<sup class="star">*</sup><input type="number" name="mount" id="mount" min="0" value="0" required></label>
                         <label for="info" class="info">책 소개<sup class="star">*</sup>
                             <p class="textCnt" id="textCnt"><span id="counting">0</span> /700</p>
@@ -86,6 +86,8 @@
 	<%@ include file="../../components/footer.jsp" %>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
+
+
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/new_book_add.js"></script>
 </html>
