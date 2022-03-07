@@ -17,6 +17,13 @@
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="../../components/nav.jsp" %>
 	
+	<c:if test="${loginAdmin == null }">
+		<script>
+			alert("관리자 계정만 접근할 수 있습니다.");
+			location.href="${cp}/index.jsp";
+		</script>
+	</c:if>
+	
 	<main id="main">
 		<div class="main_content">
             <div class="content">

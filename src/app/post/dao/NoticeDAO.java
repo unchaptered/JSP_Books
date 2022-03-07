@@ -17,24 +17,26 @@ public class NoticeDAO {
 	public int getNoticeCnt(String keyword) {
 		return sqlsession.selectOne("Post.getNoticeCnt",keyword);
 	}
-	//고정 공지사항 리스트 가져오기
-	public List<NoticeDTO> getNoticePinList(int startRow, int pinCnt) {
-		HashMap<String, Object> datas = new HashMap<String, Object>();
+	//고정 공지사항 dto 리스트 가져오기
+	public List<NoticeDTO> getNoticePinList(int pinCnt) {
+//		HashMap<String, Object> datas = new HashMap<String, Object>();
 		List<NoticeDTO> result;
-		datas.put("startRow",startRow);
-		datas.put("pinCnt",pinCnt);
+//		datas.put("startRow",startRow);
+//		datas.put("pinCnt",pinCnt);
 		
-		result = sqlsession.selectList("Post.getNoticePinList", datas);
+		result = sqlsession.selectList("Post.getNoticePinList", pinCnt);
 		
 		return result;
 	}
-	//공지사항 리스트 가져오기
+	//공지사항 dto 리스트로 가져오기
 	public List<NoticeDTO> getNoticeList(int startRow, int pageSize, String keyword) {
 		HashMap<String, Object> datas = new HashMap<String, Object>();
 		List<NoticeDTO> result;
 		datas.put("startRow",startRow);
 		datas.put("pageSize",pageSize);
 		datas.put("keyword",keyword);
+//		datas.put("pinSize",pinSize);
+//		datas.put("pageSizeNotPin",pageSizeNotPin);
 
 		result = sqlsession.selectList("Post.getNoticeList", datas);
 		
@@ -44,7 +46,7 @@ public class NoticeDAO {
 	public boolean insertNotice(NoticeDTO notice) {
 		return 1 == sqlsession.insert("Post.insertNotice", notice);
 	}
-	//공지사항 상세페이지 가져오기
+	//공지사항 dto 가져오기
 	public NoticeDTO getNoticeRead(int noticePk) {
 		return sqlsession.selectOne("Post.getNoticeRead",noticePk);
 	}
@@ -65,13 +67,12 @@ public class NoticeDAO {
 		return sqlsession.selectOne("Post.getNextNotice",noticePk);
 	}
 	//고정 공지사항 작성자 리스트로 받아오기
-	public List<String> getOwnerNamePin(int startRow, int pinCnt) {
-		HashMap<String, Object> datas = new HashMap<String, Object>();
+	public List<String> getOwnerNamePin(int pinCnt) {
+//		HashMap<String, Object> datas = new HashMap<String, Object>();
 		List<String> result;
-		datas.put("startRow",startRow);
-		datas.put("pinCnt",pinCnt);
+//		datas.put("pinCnt",pinCnt);
 		
-		result = sqlsession.selectList("Post.getOwnerNamePin", datas);
+		result = sqlsession.selectList("Post.getOwnerNamePin", pinCnt);
 		
 		return result;
 	}

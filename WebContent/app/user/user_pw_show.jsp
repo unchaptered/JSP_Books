@@ -14,12 +14,13 @@
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
 	<div class="pwShowWrap">
+                <form name="userPwForm" action="${cp}/user/UserInfoPwChange.us" method="post">
     <section class="main_content">
         <div class="notice_detail">
             <span><strong class="title">내정보</strong></span>
             <div class="detail_area">
                 <div class="detail_top">
-                    <strong class="detail_title">비밀번호 찾기</strong>
+                    <strong class="detail_title">비밀번호 찾기 / 수정</strong>
                 </div>
                 <div class="detail_content">
                     <table class="pwshow_table">
@@ -30,15 +31,15 @@
                                             <tr>
                                                 <th>현재 비밀번호</th>
                                                 <c:if test="${findUserPw != null}">
-                                                <td><input type="password" class="info_userpw" value="${findUserPw.userPassword}" readonly></td>
+                                                <td><span class="info_userpw"> ${findUserPw.userPassword}</span></td>
                                                 </c:if>
                                                 <c:if test="${loginUser != null}">
-                                                <td><input type="password" class="info_userpw" value="${loginUser.userPassword}" readonly></td>
+                                                <td><span class="info_userpw"> ${loginUser.userPassword}</span></td>
                                                 </c:if>
                                             </tr>
                                             <tr>
                                                 <th><label for="info_newPw">새 비밀번호</label></th>
-                                                <td><input type="password" class="info_newPw" id="info_newPw"><span id="info_newPwError"></span><br>
+                                                <td><input type="password" class="info_newPw" id="info_newPw" name="info_newPw"><span id="info_newPwError"></span><br>
                                                     <span class="newPw">※ 기존에 사용하고 있는 비밀번호는 사용할 수 없습니다.</span><br>
                                                     <span class="newPw">※ 영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</span>
                                                 </td>
@@ -60,10 +61,11 @@
             </div>
             <div class="notice_detail_nav">
                 <button type="button" class="idSubmit_btn"><a href="${cp}/index.jsp">홈으로</a></button>
-                <button type="button" class="pwSubmit_btn"><a href="${cp}/index.jsp">수정</a></button>
+                <input type="submit" class="pwSubmit_btn" value="수정">
             </div>
             </div>
         </section>
+                    </form>
         </div>
 	<%@ include file="/app/components/footer.jsp" %>
 </body>

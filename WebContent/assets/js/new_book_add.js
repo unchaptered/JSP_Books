@@ -120,11 +120,11 @@ function validate(){
 		country.focus();
 		return false;
 	}
-	if(img.value == "&nbsp;"){
-		alert("이미지를 추가해주세요 !");
-		return false;
-	}
-//	return true;
+//	if(img.value == "&nbsp;"){
+//		alert("이미지를 추가해주세요 !");
+//		return false;
+//	}
+	return true;
 }
 
 

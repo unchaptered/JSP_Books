@@ -91,12 +91,12 @@
     text-align: center;
 }
 .pwShowWrap .info_userpw {
-	margin-top: 55px;
     font-size: 15px;
     background-color:#FCFCFC;
     color : #767676;
     border: 1px solid #FCFCFC !important;
     height:25px;
+    width:171px;
 }
 .pwShowWrap .info_newPw{
     margin-top: 55px;
