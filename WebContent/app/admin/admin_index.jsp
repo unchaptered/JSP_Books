@@ -6,17 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/admin/admin_index.css" >
-=======
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" type="text/css" href="${cp}/assets/css/admin/admin_index.css" >
->>>>>>> e47e7c3a03ed45955b38697fa420d3ed353edcbd
 <script>const cp = "${pageContext.request.contextPath}"</script>
 <script type="text/javascript" src="${cp}/assets/js/admin_chart/echarts.js"></script>
 </head>
 <body>
-
+	<c:if test="${loginAdmin==null}">
+		<script>
+			let cp = "${pageContext.request.contextPath}";
+		 	alert("로그인 후 이용하세요");
+		 	location.replace(cp+"/admin/AdminJoin.adm")
+		</script>
+	</c:if>
     <div class="container">
         <header class="index_header">
             <div class="header_box1"></div>
@@ -53,9 +56,7 @@
                 <h4>매출관리</h4> 
             </div>
             <div>
-<<<<<<< HEAD
                <a href="./음반 등록.html" style="color:white" >음반관리</a>
-=======
                 <div id="menu1">
                     <ul class="main">
                         <li><a href="#" class="board_adm"> 게시물 관리</a>
@@ -66,7 +67,6 @@
                         </li>
                     </ul>
                 </div> 
->>>>>>> e47e7c3a03ed45955b38697fa420d3ed353edcbd
             </div>
             
             <div>
@@ -272,35 +272,6 @@
 
     
 </body>
-<<<<<<< HEAD
-<script type="text/javascript">
-    // DOM을 준비하고 echart 객체를 만듭니다.
-    var myChart = echarts.init(document.getElementById('main2'));
 
-    // 차트 속성과 데이터를 지정합니다.
-    var option = {
-        title: {
-            text: 'ECharts entry example'
-        },
-        tooltip: {},
-        legend: {
-            data:['Sales']
-        },
-        xAxis: {
-            data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
-        },
-        yAxis: {},
-        series: [{
-            name: 'Sales',
-            type: 'bar',
-            data: [5, 20, 36, 10, 10, 20]
-        }]
-    };
-
-    // 위에서 설정한 속성을 차트에 반영합니다.
-    myChart.setOption(option);
-</script>
-=======
->>>>>>> e47e7c3a03ed45955b38697fa420d3ed353edcbd
 
 </html>

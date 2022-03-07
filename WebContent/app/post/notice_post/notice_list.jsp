@@ -12,7 +12,13 @@
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
-
+	<c:if test="${loginAdmin==null}">
+	<script>
+			let cp = "${pageContext.request.contextPath}";
+		 	alert("로그인 후 이용하세요");
+		 	location.replace(cp+"/admin/AdminJoin.adm")
+		</script>
+	</c:if>
 	<main id="main">
 		<section class="main_content">
 			<div class="notice">

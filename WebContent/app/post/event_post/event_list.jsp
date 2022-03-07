@@ -14,6 +14,13 @@
 <link rel="stylesheet" href="${cp}/assets/css/screens/event/event_list.css">
 </head>
 <body>
+	<c:if test="${loginAdmin==null}">
+		<script>
+			let cp = "${pageContext.request.contextPath}";
+		 	alert("로그인 후 이용하세요");
+		 	location.replace(cp+"/admin/AdminJoin.adm")
+		</script>
+	</c:if>
 	<%@ include file="/app/components/nav.jsp" %>
 	
 	<main id="main">
