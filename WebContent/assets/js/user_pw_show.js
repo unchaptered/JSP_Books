@@ -22,7 +22,7 @@ function sendItInfoPw() {
 		newPwreError.innerHTML = "&nbsp;&nbsp;비밀번호가 일치하지 않습니다."
 		return false;
 	}
-	
+	return true;
 }
 
 // 변경 실패시 알럿창 띄우고 index로 이동

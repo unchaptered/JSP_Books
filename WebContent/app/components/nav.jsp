@@ -346,7 +346,7 @@
                         </div>
                     </div>
                     <div class="id_find_phone_inner">
-                        <label for="email_phone_input_find" class="user_info">휴대폰 번호&nbsp;&nbsp;&nbsp;&nbsp;</label><span class="findError"></span>
+                        <label for="email_phone_input_find" class="user_info">휴대폰 번호&nbsp;&nbsp;&nbsp;&nbsp;</label><span class="findError" id="efPhoneEr""></span>
                         <div class="input_phone_id_find">
                             <input type="text" id="email_phone_input_find" placeholder="(예시) 01012345678" name="email_phone_input_find">
                         </div>
@@ -388,7 +388,7 @@
                         </div>
                     </div>
                     <div class="pw_find_phone_inner">
-                        <label for="pw_phone_input_find" class="user_info">휴대폰 번호&nbsp;&nbsp;&nbsp;&nbsp;</label><span class="findError"></span>
+                        <label for="pw_phone_input_find" class="user_info">휴대폰 번호&nbsp;&nbsp;&nbsp;&nbsp;</label><span class="findError" id="pfPhoneEr""></span>
                         <div class="input_phone_find">
                             <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678" name="pw_phone_input_find">
                         </div>

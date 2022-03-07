@@ -102,7 +102,7 @@ function senditLogin() {
 		loginPwError.style="color:red";
 		return false;
 	}
-	
+	return true;
 }
 
 
@@ -279,7 +279,7 @@ function senditJoin(){
 		return false;
 	}
 		joinAgreeError.innerHTML = "";
-	
+		return true;
 }
 
 // 로그인 실패시 알럿창 띄우고 index로 이동
@@ -295,6 +295,43 @@ if(window.location == "http://localhost:9090/project-2022-01-korea-Books/index.j
 if(window.location == "http://localhost:9090/project-2022-01-korea-Books/index.jsp?pw=f"){
 	alert("일치하는 정보가 없습니다.");
 	window.location.href="http://localhost:9090/project-2022-01-korea-Books/index.jsp";
+}
+
+let regNum = /^[0-9]+$/;
+
+// idFind 유효성검사
+function sendItEmailFind() {
+	let efPhone = document.getElementById("email_phone_input_find");
+	let efPhoneEr = document.getElementById("efPhoneEr");
+	if(efPhone.value == ""){
+		efPhone.focus();
+		efPhoneEr.innerHTML = "휴대폰 번호를 입력해 주세요."
+		return false;
+	}
+	if(!regNum.test(efPhone.value)){
+		efPhone.focus();
+		efPhoneEr.innerHTML = "휴대폰 번호는 숫자만 입력 가능합니다."
+		return false;
+	}
+	return true;
+}
+
+// pwFind 유효성검사
+function sendItPwFind() {
+	let pfPhone = document.getElementById("pw_phone_input_find");
+	let pfPhoneEr = document.getElementById("pfPhoneEr");
+	if(pfPhone.value == ""){
+		pfPhone.focus();
+		pfPhoneEr.innerHTML = "휴대폰 번호를 입력해 주세요."
+		return false;
+	}
+	if(!regNum.test(pfPhone.value)){
+		pfPhone.focus();
+		pfPhoneEr.innerHTML = "휴대폰 번호는 숫자만 입력 가능합니다."
+		return false;
+	}
+	return true;
+	
 }
 
 
