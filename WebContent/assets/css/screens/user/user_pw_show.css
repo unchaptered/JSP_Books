@@ -122,10 +122,9 @@
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
-}
-.pwShowWrap .pwSubmit_btn a {
     color: #fff;
 }
+
 .pwShowWrap .idSubmit_btn{
     margin-right: 15px;
     width: 100px;

@@ -30,6 +30,6 @@
 		user_bank_account=#{userBankAccount} WHERE user_email=#{userEmail}
 	</update>
 	<update id="infoPwChange" parameterType="userdto">
-		update user set user_password=#{userPassword} WHERE user_email=#{userEmail}
+		update user set user_password=#{userPassword} WHERE user_email='dmswo0845@gmail.com'
 	</update>
 </mapper>

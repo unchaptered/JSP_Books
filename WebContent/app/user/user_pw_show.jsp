@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="cp" value="${pageContext.request.contextPath }"/>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,10 +31,10 @@
                                             <tr>
                                                 <th>현재 비밀번호</th>
                                                 <c:if test="${findUserPw != null}">
-                                                <td><span class="info_userpw"> ${findUserPw.userPassword}</span></td>
+                                                <td><span class="info_userpw"> ${findUserPw.userPassword}</span><span class="InfocheckEmail" name="InfocheckEmail">${findUserPw.userEmail}</span></td>
                                                 </c:if>
                                                 <c:if test="${loginUser != null}">
-                                                <td><span class="info_userpw"> ${loginUser.userPassword}</span></td>
+                                                <td><span class="info_userpw"> ${loginUser.userPassword}</span><span class="InfocheckEmail" name="InfocheckEmail">${loginUser.userEmail}</span></td>
                                                 </c:if>
                                             </tr>
                                             <tr>
@@ -69,6 +69,5 @@
         </div>
 	<%@ include file="/app/components/footer.jsp" %>
 </body>
-<script>let cp = "${pageContext.request.contextPath}";</script>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 </html>
