@@ -14,8 +14,8 @@
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
 	<div class="pwShowWrap">
-    <form name="userPwForm" action="${cp}/user/UserInfoPwChange.us" method="post" onsubmit="return sendItInfoPw();">
     <section class="main_content">
+    <form name="userPwForm" action="${cp}/user/UserInfoPwChange.us" method="post" onsubmit="return sendItInfoPw();">
         <div class="notice_detail">
             <span><strong class="title">내정보</strong></span>
             <div class="detail_area">
@@ -39,7 +39,7 @@
                                             </tr>
                                             <tr>
                                                 <th><label for="info_newPw">새 비밀번호</label></th>
-                                                <td><input type="password" class="info_newPw" id="info_newPw" name="info_newPw"><span id="info_newPwError"></span><br>
+                                                <td><input type="password" class="info_newPw" id="info_newPw" name="info_newPw"><span id="info_newPwError" class="PwError"></span><br>
                                                     <span class="newPw">※ 기존에 사용하고 있는 비밀번호는 사용할 수 없습니다.</span><br>
                                                     <span class="newPw">※ 영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</span>
                                                 </td>
@@ -48,7 +48,7 @@
                                             </td>
                                             <tr>
                                                 <th><label for="info_newPwRe">비밀번호 확인</label></th>
-                                                <td><input type="password" class="info_newPwRe" id="info_newPwRe"><span id="info_newPwReError"></span><br>
+                                                <td><input type="password" class="info_newPwRe" id="info_newPwRe"><span id="info_newPwReError" class="PwError"></span><br>
                                                 <span class="newPw">확인을 위해 새 비밀번호를 다시 입력해주세요.</span>
                                             </td>
                                             </tr>
@@ -64,8 +64,8 @@
                 <input type="submit" class="pwSubmit_btn" value="수정">
             </div>
             </div>
-        </section>
     </form>
+        </section>
     </div>
 	<%@ include file="/app/components/footer.jsp" %>
 </body>

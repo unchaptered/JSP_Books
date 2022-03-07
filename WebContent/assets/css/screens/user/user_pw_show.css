@@ -104,6 +104,10 @@
      color: rgb(252, 252, 252);
      border: 1px solid rgb(252, 252, 252);
 }
+.pwShowWrap .PwError{
+	font-size:12px !important;
+	color:red;
+}
 .pwShowWrap .info_newPw{
     margin-top: 55px;
     height: 25px;
