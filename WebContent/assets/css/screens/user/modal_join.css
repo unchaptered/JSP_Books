@@ -249,8 +249,11 @@ label {
   color: #333 !important;
   opacity: 1 !important;
 }
-#selectbox:focus{
+.join_wrap #selectboxPhone:focus{
   outline: 1px solid #36f !important;
+}
+.join_wrap #userBank:focus{
+	outline: 1px solid #36f !important;
 }
 select {
   text-transform: none !important;
@@ -462,7 +465,9 @@ select:not(:-internul-list-box) {
   line-height: 19px !important;
   color: #767676 !important;
   text-decoration: none !important;
-  
+}
+.agree_link:hover{
+	text-decoration:underline !important;
 }
 .join_wrap a {
   cursor: pointer !important;

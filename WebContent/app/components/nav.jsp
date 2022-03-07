@@ -307,7 +307,7 @@
                         <div class="agree_wrap_inner3 agree_inner">
                             <div class="agree_checkbox_eventmail agrees">
                                 <input type="checkbox" name="checkbox_agree" id="checkbox_eventmail" value="checkbox_eventmail">
-                                <label for="checkbox_eventmail">이벤트 소식 등 알림 정보 받기<a href="#" target="_blank" class="agree_link">자세히</a></label>
+                                <label for="checkbox_eventmail">이벤트 소식 등 알림 정보 받기</label>
                             </div>
                         </div>
                     </div>
