@@ -62,6 +62,24 @@ const selectPayment = function(tag){
     document.getElementById("payment").value=tag.innerText;	// name="payment" value값 선택된 결제방법으로 바꿈
 }
 
+// 주문자와 동일 input value 처리
+const check_correct = function(tag, ...loginUser){	// tag:체크박스태그	, loginUser[]:loginUser[이름,폰번호,우편번호,주소,상세주소]
+    let arInput = document.querySelectorAll("#delivery_info input[type=\"text\"], #delivery_info input[type=\"tel\"]");
+    // 주문자와 동일이 체크되었으면
+    if (tag.checked){
+    	let idx=0;
+    	for (const input of arInput) {
+			input.value=loginUser[idx];
+			idx++;
+		}
+	}else{
+		for (const input of arInput) {
+			input.value="";
+		}
+		arInput[0].focus();
+	}
+}
+
 function sample6_execDaumPostcode() {
 	new daum.Postcode(
 		{

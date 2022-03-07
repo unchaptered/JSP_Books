@@ -56,7 +56,7 @@
 									<c:forEach var="product" items="${cartList}" varStatus="status">	<!-- varStatus="status" 인덱싱${status.count} 1,2,3... --> 
 										<tr>
 			                               <td><input type="checkbox" name="cartPk" id="cart${status.count}" value="${product.cartPk}" onclick="toggle_box()" checked></td>
-			                               <td><a href="#"><img src="${cp}/assets/img/book_sample1.jpg" alt="book"></a></td>
+			                               <td><a href="#"><img src="${cp}/media/${product.image}" alt="book"></a></td>
 			                               <td><a href="#">${product.title}</a></td>
 			                               <td><fmt:formatNumber value="${product.price}" pattern="#,###" /></td>
 			                               <td>
@@ -98,7 +98,8 @@
                     </div>
                 </div>
             </section>
-            <a href="javascript:directBuy(1,1)">바로구매버튼</a>	<!-- 바로구매 테스트용 bookPk 1번, 1개-->
+            <a href="javascript:addCart(1,1)">장바구니버튼</a>	<!-- 장바구니 테스트용 bookPk 1번, 1개-->
+            <a href="javascript:directBuy(17,1)">바로구매버튼</a>	<!-- 바로구매 테스트용 bookPk 17번, 1개-->
         </section>
     </main>
 	
@@ -109,4 +110,5 @@
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/shop_bags.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script> <!-- 장바구니,바로가기 버튼구현 JS 테스트용 -->
+<script type="text/javascript">let cp = "${pageContext.request.contextPath}"</script>
 </html>

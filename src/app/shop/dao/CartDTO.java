@@ -64,8 +64,8 @@ public class CartDTO {
 		return price;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setPrice(String price) {
+		this.price = Integer.parseInt(price.replaceAll(",", ""));	// DB책가격이 varchar로 되어있어서 콤마구분자제거하고 정수형으로
 	}
 
 	public int getMount() {

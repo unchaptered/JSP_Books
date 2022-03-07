@@ -38,7 +38,7 @@
                     <button type="button" class="on active" onclick="select_period(this)">1개월</button>
                     <button type="button" class="on" onclick="select_period(this)">3개월</button>
                     <button type="button" class="on" onclick="select_period(this)">6개월</button>
-                    <button type="button">조회</button>
+                    <button type="button" onclick="location.href='${cp}/shop/ShopBills.sh'">조회</button>
                 </div>
                 <div id="notice">
                     <ul>
@@ -63,7 +63,7 @@
 			                                <a href="#">${prod.billPk}</a><br><span>${prod.billDate}</span>
 			                            </td>
 			                            <td>
-			                                <a href="#"><img src="${prod.newBookImage}" alt="책"></a>
+			                                <a href="#"><img src="${cp}/media/${prod.newBookImage}" alt="책"></a>
 			                            <td>
 			                                <a href="#">${prod.newBookTitle}</a>
 			                                <button type="button">리뷰등록</button>

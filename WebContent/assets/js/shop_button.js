@@ -58,6 +58,6 @@ const directBuy = function(bookPk, quantity) {
 			}
 		}
 	}
-	xhr.open("GET",cp+"/shop/ShopAddCartOk.sh?bookPk="+bookPk+"&quantity="+quantity,false); //false. 동기처리. 응답기다림
+	xhr.open("GET",cp+"/shop/ShopAddCartOk.sh?bookPk="+bookPk+"&quantity="+quantity+"&directBuy=t",false); //false. 동기처리. 응답기다림
 	xhr.send();
 }
