@@ -119,6 +119,16 @@
     display: inline-block;
     margin: 0 10px;
 }
+.goList_div{
+    margin-top: 15px;
+	text-align:center;
+}
+.goList{
+    padding: 9px 20px;
+    border: 1px solid #cfcfcf;
+    color: #3b3b3b;
+    font-size: 15px;
+}
 
 /* 태블릿 */
 @media screen and (max-width: 1200px) {

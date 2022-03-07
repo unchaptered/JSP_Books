@@ -63,10 +63,12 @@
                         		</c:otherwise>
                         	</c:choose>
                         </div>
-                        <c:if test="${loginAdmin != null }">
+                        <c:if test="${loginAdmin != null}">
 	                        <div class="eventReadBtn">
-	                            <button class="readBtn" id="eventUpdate" formaction="${cp}/post/EventEdit.po?eventPk=${event.eventPk}" 
-	                            	formmethod="post" onclick="return updateCheck()">수정</button>
+	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner }">
+	                            	<button class="readBtn" id="eventUpdate" formaction="${cp}/post/EventEdit.po?eventPk=${event.eventPk}" 
+	                            		formmethod="post" onclick="return updateCheck()">수정</button>
+	                            </c:if>
 	                            <button class="readBtn" id="eventDelete" formaction="javascript:document.eventRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
 	                        </div>
                         </c:if>

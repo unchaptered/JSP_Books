@@ -61,13 +61,14 @@
 												<%-- </c:if> --%>
 												<td class="board_num">${noticePin.noticePk}</td>
 												<td class="board_tlt">
-													<a href="${cp}/app/post/NoticeRead.po?noticePk=${noticePin.noticePk}&noticePage=${noticePage}"><strong>${noticePin.postTitle}</strong></a>
+													<a href="${cp}/post/NoticeRead.po?noticePk=${noticePin.noticePk}&noticePage=${noticePage}"><strong>${noticePin.postTitle}</strong></a>
 												</td>
 												<td class="board_writer">${ownerNamePin[status.index]}</td>
 												<td class="board_date">${fn:substring(noticePin.postCreated,0,10)}</td>
 												<td class="board_hit">${noticePin.postViewed}</td>
 											</tr>
 										</c:forEach>
+										
 									</c:if>
 									
 									<c:if test="${noticeList.size() > 0 and noticeList != null}">
@@ -79,17 +80,20 @@
 												<%-- </c:if> --%>
 												<td class="board_num">${notice.noticePk}</td>
 												<td class="board_tlt">
-													<a href="${cp}/app/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
+													<a href="${cp}/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
 												</td>
 												<td class="board_writer">${ownerName[status.index]}</td>
 												<td class="board_date">${fn:substring(notice.postCreated,0,10)}</td>
 												<td class="board_hit">${notice.postViewed}</td>
 											</tr>
 										</c:forEach>
+										
 									</c:if>
+									
 								</c:when>
 								
 								<c:otherwise>
+								
 									<tr>
 										<%-- <c:choose>
 											<c:when test="${loginAdmin != null }"> --%>
@@ -104,7 +108,9 @@
 											</c:otherwise>
 										</c:choose> --%>
 									</tr>
+									
 								</c:otherwise>
+								
 							</c:choose>				
 						</tbody>
 					</table>
@@ -141,9 +147,14 @@
 						</ul>
 					</div>
 					<!-- 공지사항 검색창 -->
+					<select name="searchSort">
+						<option value="" selected>전체</option>
+						<option value="tlt">제목</option>
+						<option value="cont">내용</option>
+					</select>
 					<div class="notice_search">
 						<input type="text" name="keyword" id="n_search" placeholder="공지사항 제목을 입력하세요." value="${param.keyword}">
-						<input type="submit" id="searchBtn" onclick="searchNotice()">
+						<input type="submit" id="searchBtn">
 					</div>
 				</form>
 				<!-- 폼 끝 -->
@@ -183,7 +194,7 @@
 				xhr.onreadystatechange = function(){
 				if(xhr.readyState == XMLHttpRequest.DONE){
 					if(xhr.status == 200){
-						location.replace("${pageContext.request.contextPath}/post/NoticeList.po?noticePage=${noticePage}");		
+						location.replace("${pageContext.request.contextPath}/post/NoticeList.po");		
 					}
 				}
 			}

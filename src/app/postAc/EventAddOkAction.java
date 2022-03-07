@@ -2,12 +2,14 @@ package app.postAc;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
 import action.ActionTo;
+import app.admin.dao.AdminDTO;
 import app.post.dao.EventDAO;
 import app.post.dao.EventDTO;
 import app.post.dao.FileDAO;
@@ -58,9 +60,10 @@ public class EventAddOkAction implements Action{
 		String eventEnded = multi.getParameter("eventEnded");		
 		
 		//로그인 세션(이메일)받아오기
+		HttpSession session = req.getSession();
+		
 		int postOwner = 2;
-//		int postOwner = pdao.getPostOwner(ownerEmail);
-//		String ownerName = pdao.getOwnerName(ownerEmail);
+//		int postOwner = ((AdminDTO)session.getAttribute("loginAdmin")).getAdminidx();
 		
 		post.setPostTitle(postTitle);
 		post.setPostText(postText);	

@@ -22,10 +22,11 @@ ul, li{
 }
 
 /* 공지사항 테이블 */
-.board_check, #thCheck{
-	text-aligns:center;
-	width:16px;
-	height:16px;
+.board_check input[type="checkbox"], #thCheck{
+	width:18px;
+	height:18px;
+	position:relative;
+	top:3px;
 }
 .board_count{
     margin-bottom: 10px;
@@ -203,7 +204,6 @@ input[type=submit]{
     cursor: pointer;
 }
 
-
 /* 태블릿 */
 @media screen and (max-width: 1200px) {
     .main_content {
@@ -248,19 +248,38 @@ input[type=submit]{
     .board_num, .board_file{
         display: none;
     }
-    .board_check, .board_tlt, .board_writer, .board_date, .board_hit{
+    .board_writer, .board_date, .board_hit{
         display: block;
+        float: left;
+    	width: auto;
+    	text-align: right;
+    	font-size: 13px;
+        color: #545861;
+        margin-top: 7px;
+    }
+    .board_check{
+    	width: 30px;
+    	padding-right: 12px;
+    }
+    .alert .board_check{
+    	padding-right: 3px;
+    }
+    .board_check input[type="checkbox"]{
+    	width: 25px;
+    	height: 25px;
     }
     .board_tlt{
     	margin-bottom: 5px;
+    	
     }
     .board_tlt a{
         width: 100%;
+        text-align: left;
         text-overflow: ellipsis;
         overflow:hidden;
         display: block;
-        text-align: left;
     	font-size: 18px;
+    	line-height: normal;
     }
     .board_tlt a::after{
         content: "";
@@ -279,14 +298,6 @@ input[type=submit]{
         background: url(../../../img/icon_notice.png) no-repeat center center;
         background-size: 20px;
     }
-    .board_writer, .board_date, .board_hit{
-        display: block;
-        float: left;
-    	width: auto;
-    	text-align: right;
-    	font-size: 13px;
-        color: #545861;
-    }
     .board_writer{
         padding-right: 10px;
     }
@@ -300,7 +311,7 @@ input[type=submit]{
     }
     /* 검색창 */
     .notice_search{
-        width: 40%;
+        width: 360px;
         margin-top: 10%;
         margin-bottom: 0;
     }
@@ -353,7 +364,7 @@ input[type=submit]{
     
     /* 검색창 */
     .notice_search{
-        width: 60%;
+        width: 265px;
         margin-top: 10%;
         margin-bottom: 0;
     }
