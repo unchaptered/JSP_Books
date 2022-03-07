@@ -1,5 +1,4 @@
 /* 저자 : 고결 */
-let cp = "${pageContext.request.contextPath}";
 function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -78,7 +77,7 @@ function checkLoginEmail(){
 			}
 		}
 	}
-	xhr.open("GET",cp+"/user/LoginCheckEmailOk.us?email="+email.value);
+	xhr.open("GET",cp+"/user/UserLoginCheckEmailOk.us?email="+email.value);
 	xhr.send();
 }
 function senditLogin() {
@@ -132,7 +131,7 @@ function checkJoin() {
 			}
 		}
 	}
-	xhr.open("GET",cp+"/user/JoinCheckEmailOk.us?userEmail="+userEmail.value);//XMLHttpRequest.OPENED
+	xhr.open("GET",cp+"/user/UserJoinCheckEmailOk.us?userEmail="+userEmail.value);//XMLHttpRequest.OPENED
 	xhr.send();
 }
 

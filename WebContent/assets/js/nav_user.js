@@ -18,8 +18,7 @@
     }
     });
     
-    // join.js
-    
+    // join.js 
     $("#myBtnJoin").on("click", function(){
         $('body').css("overflow", "hidden");
         $(".join_wrap").css({ visibility:"visible",opacity:1});
@@ -36,21 +35,10 @@
         $('body').css("overflow-y", "scroll");
         }
         });    
-//        function  senditPw() {
-//        	let pwInput = document.getElementById("password_input")
-//        	let pwError = document.getElementById("pwError");
-//        	if(pwInput.value==""){
-//        		console.log('다시 해봐 비밀번호 찐공백')
-//        		pwError.innerHTML = "비밀번호를 입력해주세요."
-//        		pwError.style="color:red";
-//        		pwInput.focus();
-//        		return false;
-//        }
-//        }
+
         
         
    // loginPwFind.js
-        
         // 모달창 열기 이벤트
         $("#myBtnLoginPwFind").on("click", function(){
         $('body').css("overflow", "hidden");
@@ -71,7 +59,6 @@
         }); 
         
    // pwPwFind.js
-        
         // 모달창 열기 이벤트
         $("#myBtnPwFind").on("click", function(){
         $('body').css("overflow", "hidden");
@@ -92,7 +79,6 @@
         });
         
     // pwFindBack.js
-        
         $("#backLoginPw").on("click", function(){
             $('body').css("overflow", "hidden");
             $(".pw_find_wrap").css({ visibility:"hidden",opacity:0});
@@ -114,7 +100,6 @@
         
         
     // idFind.js
-        
         // 모달창 열기 이벤트
         $("#myBtnIdFind").on("click", function(){
         $('body').css("overflow", "hidden");
@@ -133,8 +118,8 @@
         $('body').css("overflow-y", "scroll");
         }
         });
-    // idFindBack.js
         
+    // idFindBack.js
         $("#backLoginId").on("click", function(){
             $('body').css("overflow", "hidden");
             $(".id_find_wrap").css({ visibility:"hidden",opacity:0});
@@ -152,8 +137,7 @@
             $('body').css("overflow-y", "scroll");
             }
             });
-        
-        
+let regNum = /^[0-9]+$/;        
         
         
         
