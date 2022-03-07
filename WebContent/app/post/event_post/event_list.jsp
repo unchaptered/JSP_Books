@@ -82,10 +82,11 @@
 								</li>
 							</ul>
 						</div>
-							<div class="eventBtnArea">
-								<a href="${cp}/post/EventAdd.po?eventPage=${eventPage}" class="eventBtn createEvent">새 이벤트 등록</a>
-							</div>
-						
+							<c:if test="${loginAdmin != null }">
+								<div class="eventBtnArea">
+									<a href="${cp}/post/EventAdd.po?eventPage=${eventPage}" class="eventBtn createEvent">새 이벤트 등록</a>
+								</div>
+							</c:if>
 						<!-- 이벤트 박스 (한 페이지 9개)-->
 						<div class="eventBox_area">
 							<c:choose>
@@ -95,7 +96,9 @@
 											<c:choose>
 												<c:when test="${event.eventEnded < today}">
 													<a href="${cp}/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
-														<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
+														<c:if test="${loginAdmin != null }">
+															<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
+														</c:if>
 														<div class="eventBox_img">
 															<img src="${cp}/assets/img/event_deadline.png" alt="배너">
 														</div>
@@ -105,14 +108,16 @@
 															</strong>
 															<p class="box_date">
 																기간 : ${event.eventStarted} - ${event.eventEnded}
-																&nbsp;&nbsp;♥ ${event.eventLike}
+																&nbsp;&nbsp;<img src="${cp}/assets/img/event_like_on.png"> ${event.eventLike}
 															</p>
 														</div>
 													</a>
 												</c:when>
 												<c:otherwise>
 													<a href="${cp}/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
-														<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
+														<c:if test="${loginAdmin != null }">
+															<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
+														</c:if>
 														<div class="eventBox_img">
 															<c:choose>
 																<c:when test="${fileList[status.index] != null}">
@@ -129,7 +134,7 @@
 															</strong>
 															<p class="box_date">
 																기간 : ${event.eventStarted} - ${event.eventEnded}
-																&nbsp;&nbsp;♥ ${event.eventLike}
+																&nbsp;&nbsp;<img src="${cp}/assets/img/event_like_on.png"> ${event.eventLike}
 															</p>
 														</div>
 													</a>
@@ -145,12 +150,14 @@
 								</c:otherwise>
 							</c:choose>
 						</div>
-						<div class="eventBtnArea">
-							<div class="allCheckArea">
-								전체선택<input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)">
+						<c:if test="${loginAdmin != null }">
+							<div class="eventBtnArea">
+								<div class="allCheckArea">
+									전체선택<input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)">
+								</div>
+								<a href="javascript:deleteCheck();" class="eventBtn deleteCheckBtn">선택삭제</a>
 							</div>
-							<a href="javascript:deleteCheck();" class="eventBtn deleteCheckBtn">선택삭제</a>
-						</div>
+						</c:if>
 						<!-- 페이지 버튼 한 페이지 1~10 > 11~20-->
 						<div class="pagination">
 							<ul>
@@ -163,20 +170,16 @@
 										<c:when test="${i == eventPage }">
 											<li><span class="pageBtn pageNum current">${i}</span></li>
 										</c:when>
-										<c:when test="${i == 0}">
-											<li><span class="pageBtn pageNum current">1</span></li>
-										</c:when>
 										<c:otherwise>
 											<li><a href="${cp}/post/EventList.po?eventPage=${i}&keyword=${keyword}&sort=${sort}" class="pageBtn pageNum">${i}</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
-								
-							<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 eventPage+10, 없으면 마지막페이지로)-->
-								<c:if test="${eventPage>10 && eventPage<eventTotalPage && eventPage+10 < eventTotalPage}">
+								<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 eventPage+10, 없으면 마지막페이지로)-->
+								<c:if test="${eventPage != eventTotalPage && endPage < eventTotalPage && eventPage+10 < eventTotalPage}">
 									<li><a href="${cp}/post/EventList.po?eventPage=${eventPage+10}&keyword=${keyword}&sort=${sort}" class="pageBtn next">다음</a></li>
 								</c:if>
-								<c:if test="${eventPage>10 && eventPage<eventTotalPage && eventPage+10 >= eventTotalPage}">
+								<c:if test="${eventPage != eventTotalPage && endPage < eventTotalPage && eventPage+10 >= eventTotalPage}">
 									<li><a href="${cp}/post/EventList.po?eventPage=${eventTotalPage}&keyword=${keyword}&sort=${sort}" class="pageBtn next">다음</a></li>
 								</c:if>
 							</ul>

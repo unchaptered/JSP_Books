@@ -4,27 +4,26 @@ public class BookDTO {
 	
 	// Field Varabiles
 	
-	private String bookPk;
+	private int bookPk;
 	private String bookTitle;
 	private String bookSubtitle;
 	private String bookInfo;
 	private String bookInfoShort;
 	private String bookImage;
 	private String bookOrgImage;
-	private String bookPrice;
+	private int bookPrice;
 	private String bookWriter;
 	private String bookTranslater;
 	private String bookPublisher;
 	private String bookCreated;
 	private String bookPages;
-	private String bookMount;
+	private int bookMount;
 	private String bookGenre;
 	private String bookCountry;
-	
-	public String getBookPk() {
+	public int getBookPk() {
 		return bookPk;
 	}
-	public void setBookPk(String bookPk) {
+	public void setBookPk(int bookPk) {
 		this.bookPk = bookPk;
 	}
 	public String getBookTitle() {
@@ -63,10 +62,10 @@ public class BookDTO {
 	public void setBookOrgImage(String bookOrgImage) {
 		this.bookOrgImage = bookOrgImage;
 	}
-	public String getBookPrice() {
+	public int getBookPrice() {
 		return bookPrice;
 	}
-	public void setBookPrice(String bookPrice) {
+	public void setBookPrice(int bookPrice) {
 		this.bookPrice = bookPrice;
 	}
 	public String getBookWriter() {
@@ -99,10 +98,10 @@ public class BookDTO {
 	public void setBookPages(String bookPages) {
 		this.bookPages = bookPages;
 	}
-	public String getBookMount() {
+	public int getBookMount() {
 		return bookMount;
 	}
-	public void setBookMount(String bookMount) {
+	public void setBookMount(int bookMount) {
 		this.bookMount = bookMount;
 	}
 	public String getBookGenre() {
@@ -117,6 +116,5 @@ public class BookDTO {
 	public void setBookCountry(String bookCountry) {
 		this.bookCountry = bookCountry;
 	}
-	
-	
+
 }

@@ -2,6 +2,7 @@
 
 // 장바구니버튼 bookpk:책상품번호, quantity:구매수량
 const addCart = function(bookPk, quantity) {
+	let cp = getContextPath();
 	if (quantity<=0){
 		alert("장바구니에 0개를 추가할 수 없습니다!");
 		return false;
@@ -34,6 +35,7 @@ const addCart = function(bookPk, quantity) {
 
 //바로구매버튼 bookpk:책상품번호, quantity:구매수량
 const directBuy = function(bookPk, quantity) {
+	let cp = getContextPath();
 	if (quantity<=0){
 		alert("최소 1개 이상부터 구매 할 수 있습니다!");
 		return false;
@@ -58,6 +60,14 @@ const directBuy = function(bookPk, quantity) {
 			}
 		}
 	}
-	xhr.open("GET",cp+"/shop/ShopAddCartOk.sh?bookPk="+bookPk+"&quantity="+quantity,false); //false. 동기처리. 응답기다림
+	xhr.open("GET",cp+"/shop/ShopAddCartOk.sh?bookPk="+bookPk+"&quantity="+quantity+"&directBuy=t",false); //false. 동기처리. 응답기다림
 	xhr.send();
+}
+
+// 자바스크립트에서 콘텍스트페스 구하는 함수
+// 출처 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mk1126sj&logNo=221019411361
+function getContextPath(){
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    var contextPath = location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+    return contextPath;
 }

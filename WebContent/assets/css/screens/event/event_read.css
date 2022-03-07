@@ -70,15 +70,25 @@ ul, li{
     text-align: center;
     color: rgba(51, 51, 51, 0.904);
 }
+.likeBtn:hover{
+	border: 1px solid #f93131;
+	padding: 25px 45px;
+	font-size:18px;
+	transition: ease .1s;
+}
+.likeBtn:active{
+	border: 1px solid #000;
+	padding: 20px 40px;
+	font-size:16px;
+	transition: ease .1s;
+}
 .likeHeart{
 	position: relative;
 	top: 6px;
 	width: 25px;	
 }
-
 .likeClicked{
-    color:#fff;
-    background-color: #3b3b3b;
+    border: 1px solid #f93131;
 }
 
 /* 수정, 삭제 버튼 */
@@ -92,6 +102,18 @@ ul, li{
     font-size: 16px;
     font-weight: bold;
     margin: 20px 5px;
+}
+/* 목록보기 버튼 */
+.goList_div{
+    text-align: right;
+    margin-top: -15px;
+}
+.goList{
+    margin-right: 20px;
+    padding: 10px 20px;
+    border: 1px solid #cfcfcf;
+    color: #3b3b3b;
+    font-size: 15px;
 }
 
 /* 태블릿 */

@@ -64,5 +64,9 @@ public class UserDAO {
 		return 1 == sqlsession.update("User.infoChange",udto);
 	}
 
+	public boolean infoPwChange(UserDTO udto) {
+		return 1 == sqlsession.update("User.infoPwChange",udto);
+	}
+
 	}
 

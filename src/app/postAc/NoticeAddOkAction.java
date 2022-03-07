@@ -55,8 +55,8 @@ public class NoticeAddOkAction implements Action{
 			noticePin = "N";
 		}
 
-//		int postOwner = ((UserDTO)req.getSession().getAttribute("loginUser")).getUserPk();
 		int postOwner = 2;
+//		int postOwner = ((AdminDTO)session.getAttribute("loginAdmin")).getAdminidx();
 		
 		post.setPostTitle(postTitle);
 		post.setPostText(postText);

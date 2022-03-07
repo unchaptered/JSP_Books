@@ -32,13 +32,24 @@
             <section class="shop_content">
                 <h2>구매내역</h2>
                 <p><span>${loginUser.userName}</span><span id="rank">(VVIP)</span><span>님의 구매내역</span></p>
+				<form action="${cp}/shop/ShopBills.sh" method="post" id="bill">
+					<input type="hidden" name="periodValue" id="periodValue" value="">
+				</form>
                 <div id="select_period">
                     <span>기간조회</span>
                     <button type="button" class="on" onclick="select_period(this)">1주</button>
-                    <button type="button" class="on active" onclick="select_period(this)">1개월</button>
+                    <button type="button" class="on" onclick="select_period(this)">1개월</button>
                     <button type="button" class="on" onclick="select_period(this)">3개월</button>
                     <button type="button" class="on" onclick="select_period(this)">6개월</button>
-                    <button type="button">조회</button>
+                    <button type="submit" form="bill">조회</button>
+                    <script>	/* ${period} 기본값 "1개월" */
+	                    let periods = document.getElementsByClassName("on")
+	                    for (const period of periods) {
+	                    	if(period.textContent=='${periodValue}'){
+	                    		period.classList.add("active");
+	                    	}
+	                    }
+                    </script>
                 </div>
                 <div id="notice">
                     <ul>
@@ -63,7 +74,7 @@
 			                                <a href="#">${prod.billPk}</a><br><span>${prod.billDate}</span>
 			                            </td>
 			                            <td>
-			                                <a href="#"><img src="${prod.newBookImage}" alt="책"></a>
+			                                <a href="#"><img src="${cp}/media/${prod.newBookImage}" alt="책"></a>
 			                            <td>
 			                                <a href="#">${prod.newBookTitle}</a>
 			                                <button type="button">리뷰등록</button>

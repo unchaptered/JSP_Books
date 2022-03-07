@@ -91,12 +91,22 @@
     text-align: center;
 }
 .pwShowWrap .info_userpw {
-	margin-top: 55px;
     font-size: 15px;
     background-color:#FCFCFC;
     color : #767676;
     border: 1px solid #FCFCFC !important;
     height:25px;
+    width:171px;
+}
+.pwShowWrap .infocheckEmail {
+	 position: absolute;
+     right: -99999px;
+     color: rgb(252, 252, 252);
+     border: 1px solid rgb(252, 252, 252);
+}
+.pwShowWrap .PwError{
+	font-size:12px !important;
+	color:red;
 }
 .pwShowWrap .info_newPw{
     margin-top: 55px;
@@ -122,10 +132,9 @@
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
-}
-.pwShowWrap .pwSubmit_btn a {
     color: #fff;
 }
+
 .pwShowWrap .idSubmit_btn{
     margin-right: 15px;
     width: 100px;

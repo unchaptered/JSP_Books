@@ -1,4 +1,5 @@
 /* 저자 : 고결 */
+let cp = "${pageContext.request.contextPath}";
 function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {

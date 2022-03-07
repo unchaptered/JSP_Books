@@ -45,11 +45,15 @@
                                 <p>${notice.postText}</p>
                             </div>
                         </div>
-                        <div class="noticeReadBtn">
-                            <button class="readBtn" id="noticeUpdate" formaction="${cp}/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
-                            	formmethod="post" onclick="return updateCheck()">수정</button>
-                            <button class="readBtn" id="noticeDelete" formaction="javascript:document.noticeRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
-                        </div>
+                        <c:if test="${loginAdmin != null}">
+	                        <div class="noticeReadBtn">
+	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner }">
+	                            	<button class="readBtn" id="noticeUpdate" formaction="${cp}/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
+	                            		formmethod="post" onclick="return updateCheck()">수정</button>
+	                            </c:if>
+	                            <button class="readBtn" id="noticeDelete" formaction="javascript:document.noticeRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
+	                        </div>
+                        </c:if>
                         <c:choose>
                         	<c:when test="${notice.noticePin == 'Y' || (prevNoticePk == null && nextNoticePk == null) }">
 	                        </c:when>
@@ -76,6 +80,9 @@
 		                        </div>
 		                    </c:otherwise>    
                         </c:choose>
+                        <div class="goList_div">
+                    		<a href="${cp}/post/NoticeList.po?noticePage=${param.noticePage==null ? 1 : param.noticePage}" class="goList">목록보기</a>
+                    	</div>
                     </div>
                 </form>
                 <form name="noticeRemoveForm" action="${cp}/post/NoticeRemove.po" method="get">

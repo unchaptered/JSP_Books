@@ -34,18 +34,25 @@ const total_change = function(){
 function purchase_submit()  {
 	// basic required
 	// 결제방법 미선택
-	if(document.getElementById("payment").value==""){
+	const payment = document.getElementById("payment").value;
+	if(payment==""){
 		alert("결제방법을 선택하세요!");
 		return false;
 	}
-	if(document.getElementById("cartExist").innerText=='주문할 상품이 없습니다.') {
+	if(document.getElementById("order_sum").innerText=="0") {
 		alert("주문할 상품이 없습니다!");
 		return false;
 	}
-//	인증번호 발송
-//	let pass = window.prompt("1회용 인증번호를 입력해주세요."); //string 타입. 입력 그대로 노출문제. 자바스크립트에서는 비밀번호 보안 개취약
-	if(!confirm("결제인증 하시겠습니까?")){
+	if(!confirm(payment+"로 결제인증 하시겠습니까?")){
 		return false;
+	}
+//	인증번호 발송
+	let pass = window.prompt("1회용 인증번호를 입력해주세요."); //string 타입. 입력 그대로 노출문제. 자바스크립트에서는 비밀번호 보안 개취약
+	if(pass!=1234){
+		alert("잘못 입력했습니다!\n확인 후 다시 이용해 주세요.")
+		return false;
+	}else{
+		alert("결제완료 됐습니다!\n구매내역 화면으로 이동합니다.")
 	}
 	document.getElementById("btn_submit").disabled = "disabled";
 	return true;
@@ -60,6 +67,24 @@ const selectPayment = function(tag){
     }
     tag.classList.add("active");
     document.getElementById("payment").value=tag.innerText;	// name="payment" value값 선택된 결제방법으로 바꿈
+}
+
+// 주문자와 동일 input value 처리
+const check_correct = function(tag, ...loginUser){	// tag:체크박스태그	, loginUser[]:loginUser[이름,폰번호,우편번호,주소,상세주소]
+    let arInput = document.querySelectorAll("#delivery_info input[type=\"text\"], #delivery_info input[type=\"tel\"]");
+    // 주문자와 동일이 체크되었으면
+    if (tag.checked){
+    	let idx=0;
+    	for (const input of arInput) {
+			input.value=loginUser[idx];
+			idx++;
+		}
+	}else{
+		for (const input of arInput) {
+			input.value="";
+		}
+		arInput[0].focus();
+	}
 }
 
 function sample6_execDaumPostcode() {
