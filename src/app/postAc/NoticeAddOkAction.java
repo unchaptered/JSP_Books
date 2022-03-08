@@ -2,12 +2,14 @@ package app.postAc;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
 import action.ActionTo;
+import app.admin.dao.AdminDTO;
 import app.post.dao.FileDAO;
 import app.post.dao.FileDTO;
 import app.post.dao.NoticeDAO;
@@ -54,9 +56,12 @@ public class NoticeAddOkAction implements Action{
 		}else {
 			noticePin = "N";
 		}
-
-		int postOwner = 2;
-//		int postOwner = ((AdminDTO)session.getAttribute("loginAdmin")).getAdminidx();
+		
+		//로그인 세션 받아오기
+		HttpSession session = req.getSession();
+		
+		int postOwner = ((AdminDTO)session.getAttribute("loginAdmin")).getAdminidx();
+//		int postOwner = 2;
 		
 		post.setPostTitle(postTitle);
 		post.setPostText(postText);

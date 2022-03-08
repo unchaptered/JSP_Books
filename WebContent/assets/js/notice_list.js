@@ -21,4 +21,12 @@ function allCheck(obj){
 	}
 }
 
-
+//공지사항 검색창
+function searchNotice(){
+	let search = document.getElementById("n_search");
+	if(search.value == "" || search.value == null){
+		alert("검색어를 입력하세요");
+		return false;
+	}
+	return true;
+}

@@ -6,19 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title> 공지사항 리스트</title>
+<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="cp" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/notice/notice_list.css">
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
-	<c:if test="${loginAdmin==null}">
-	<script>
-			let cp = "${pageContext.request.contextPath}";
-		 	alert("로그인 후 이용하세요");
-		 	location.replace(cp+"/admin/AdminJoin.adm")
-		</script>
-	</c:if>
+	
 	<main id="main">
 		<section class="main_content">
 			<div class="notice">
@@ -30,9 +25,9 @@
 					</div>
 					<table class="notice_table">
 						<colgroup>
-							<%-- <c:if test="${loginAdmin != null }"> --%>
+							<c:if test="${loginAdmin != null }">
 								<col class="colcheck">
-							<%-- </c:if> --%>
+							</c:if>
 							<col class="col">
 							<col>
 							<col class="col">
@@ -41,9 +36,9 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<%-- <c:if test="${loginAdmin != null }"> --%>
+								<c:if test="${loginAdmin != null }">
 									<th><input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)"></th>
-								<%-- </c:if> --%>
+								</c:if>
 								<th>번호</th>
 								<th>제목</th>
 								<th>작성자</th>
@@ -62,9 +57,9 @@
 										
 										<c:forEach var="noticePin" items="${noticePinList}" varStatus="status">
 											<tr class="alert">
-												<%-- <c:if test="${loginAdmin != null }"> --%>
+												<c:if test="${loginAdmin != null }">
 													<td class="board_check"><input type="checkbox" name="nCheck" value="${noticePin.noticePk}"></td>
-												<%-- </c:if> --%>
+												</c:if>
 												<td class="board_num">${noticePin.noticePk}</td>
 												<td class="board_tlt">
 													<a href="${cp}/post/NoticeRead.po?noticePk=${noticePin.noticePk}&noticePage=${noticePage}"><strong>${noticePin.postTitle}</strong></a>
@@ -81,9 +76,9 @@
 										
 										<c:forEach var="notice" items="${noticeList}" varStatus="status">
 											<tr>	
-												<%-- <c:if test="${loginAdmin != null }"> --%>
+												<c:if test="${loginAdmin != null }">
 													<td class="board_check"><input type="checkbox" name="nCheck" value="${notice.noticePk}"></td>
-												<%-- </c:if> --%>
+												</c:if>
 												<td class="board_num">${notice.noticePk}</td>
 												<td class="board_tlt">
 													<a href="${cp}/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
@@ -101,18 +96,18 @@
 								<c:otherwise>
 								
 									<tr>
-										<%-- <c:choose>
-											<c:when test="${loginAdmin != null }"> --%>
+										<c:choose>
+											<c:when test="${loginAdmin != null }">
 												<td class="notice_none" colspan="6">
 													등록된 공지사항이 없습니다.
 												</td>
-											<%-- </c:when>
+											</c:when>
 											<c:otherwise>
 												<td class="notice_none" colspan="5">
 													등록된 공지사항이 없습니다.
 												</td>
 											</c:otherwise>
-										</c:choose> --%>
+										</c:choose>
 									</tr>
 									
 								</c:otherwise>
@@ -121,10 +116,10 @@
 						</tbody>
 					</table>
 					
-					<%-- <c:if test="${loginAdmin != null }"> --%>
+					<c:if test="${loginAdmin != null }">
 						<a href="${cp}/post/NoticeAdd.po?noticePage=${noticePage}" class="noticeBtn createNotice">새 공지 등록</a>
 						<a href="javascript:deleteCheck();" class="noticeBtn deleteCheckBtn">선택삭제</a>
-					<%-- </c:if> --%>
+					</c:if>
 					
 					<!-- 페이지 버튼 : 한 페이지 1~10-->
 					<div class="pagination">
@@ -152,15 +147,10 @@
 							</c:if>
 						</ul>
 					</div>
-					<!-- 공지사항 검색창 -->
-					<select name="searchSort">
-						<option value="" selected>전체</option>
-						<option value="tlt">제목</option>
-						<option value="cont">내용</option>
-					</select>
+					
 					<div class="notice_search">
 						<input type="text" name="keyword" id="n_search" placeholder="공지사항 제목을 입력하세요." value="${param.keyword}">
-						<input type="submit" id="searchBtn">
+						<input type="submit" id="searchBtn" onclick="return searchNotice()">
 					</div>
 				</form>
 				<!-- 폼 끝 -->

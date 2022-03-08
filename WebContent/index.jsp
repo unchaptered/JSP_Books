@@ -13,7 +13,7 @@
 	<%@ include file="app/components/nav.jsp" %>
 	
 	<main id="main">
-		<!-- 컨텐츠 영역 -->
+		<!-- 컨텐츠 영역  -->
         <header class="header_container">
             <div class="header">
                 <div class="haeder_title_container">

@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 상세페이지 </title>
+<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/event/event_read.css">
@@ -65,7 +66,7 @@
                         </div>
                         <c:if test="${loginAdmin != null}">
 	                        <div class="eventReadBtn">
-	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner }">
+	                        	<c:if test="${loginAdmin.adminidx == event.postOwner }">
 	                            	<button class="readBtn" id="eventUpdate" formaction="${cp}/post/EventEdit.po?eventPk=${event.eventPk}" 
 	                            		formmethod="post" onclick="return updateCheck()">수정</button>
 	                            </c:if>
@@ -93,7 +94,7 @@
 	//좋아요
 	function like(eventPk){		
 		/* 로그인 체크 */
-		if(${loginUser == null}){
+		if(${empty loginUser}){
 			if(confirm("로그인 페이지로 이동합니다.")){
 				location.replace("${pageContext.request.contextPath}/index.jsp");
 			}

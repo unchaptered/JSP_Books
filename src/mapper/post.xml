@@ -23,8 +23,8 @@
 		select max(post_pk) from post where post_owner = #{postOwner}
 	</select>
 	<select id="getPostOwnerName" parameterType="_int" resultType="String">
-		select admin_name from admin
-		join post on admin.admin_pk = post.post_owner
+		select adminname from admin
+		join post on admin.adminidx = post.post_owner
 		where post.post_pk = #{postPk}
 	</select>
 	<select id="getPostRead" parameterType="_int" resultType="postdto">
@@ -172,18 +172,18 @@
 		where notice_pk <![CDATA[ < ]]> #{noticePk} and notice_pin ='N'
 	</select>
 	<select id="getOwnerNamePin" parameterType="_int" resultType="String">
-		select admin_name as adminName
+		select adminname as adminName
 		from admin 
-		join post on admin.admin_pk = post.post_owner
+		join post on admin.adminidx = post.post_owner
 		join post_notice on post.post_pk = post_notice.post_pk
 		where post.post_pk = post_notice.post_pk AND notice_pin ='Y'
 		order by post.post_pk desc 
 		limit 0,#{pinCnt}
 	</select>
 	<select id="getOwnerName" parameterType="hashmap" resultType="String">
-		select admin_name as adminName
+		select adminname as adminName
 		from admin 
-		join post on admin.admin_pk = post.post_owner
+		join post on admin.adminidx = post.post_owner
 		join post_notice on post.post_pk = post_notice.post_pk
 		where post.post_pk = post_notice.post_pk AND notice_pin = 'N'
 		<if test="keyword != null">

@@ -20,7 +20,7 @@
 	
      <div id = "background">
      	
-        <h2>인터파크</h2>
+        <h2>Book</h2>
         
         <div class="container">
         	<form name="joinForm" method="post" action="${cp}/admin/AdminLoginOk.adm" onsubmit="return sendit()">
