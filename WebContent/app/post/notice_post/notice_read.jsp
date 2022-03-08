@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title> 공지사항 상세페이지 </title>
+<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/notice/notice_read.css">
@@ -47,7 +48,7 @@
                         </div>
                         <c:if test="${loginAdmin != null}">
 	                        <div class="noticeReadBtn">
-	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner }">
+	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner}">
 	                            	<button class="readBtn" id="noticeUpdate" formaction="${cp}/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
 	                            		formmethod="post" onclick="return updateCheck()">수정</button>
 	                            </c:if>

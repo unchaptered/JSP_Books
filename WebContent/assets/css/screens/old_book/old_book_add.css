@@ -4,7 +4,9 @@
 @import "../feed.css";
 @import "../login/login_style.css";
 
-
+#old_book {
+	min-height: calc(100vh - 105px) !important;
+}
 @media screen and (min-width: 801px) {
     .old_book-sizer {
         padding: 0 5% !important;

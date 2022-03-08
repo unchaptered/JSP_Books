@@ -80,42 +80,51 @@ CREATE TABLE new_book (
    new_book_info_short TEXT,
    new_book_org_image VARCHAR(300) NOT NULL,
    new_book_image VARCHAR(300) NOT NULL,
-   new_book_price VARCHAR(300) NOT NULL,
+   new_book_price INT NOT NULL,
    new_book_writer VARCHAR(300) NOT NULL,
    new_book_translater VARCHAR(300),
    new_book_publisher VARCHAR(300) NOT NULL,
    new_book_created DATE DEFAULT (current_date) NOT NULL,
-   new_book_pages VARCHAR(300) NOT NULL,
-   new_book_mount INT NOT NULL,
+   new_book_pages INT NOT NULL,
+   new_book_mount INT DEFAULT 0 NOT NULL,
    new_book_genre VARCHAR(300) NOT NULL,
    new_book_country VARCHAR(300) NOT NULL
 );
+
+CREATE TABLE old_book_discount (
+	discount_value INT PRIMARY KEY UNIQUE NOT NULL CHECK ( discount_value >= 0 AND discount_value <=50 )
+);
+INSERT INTO old_book_discount VALUES (10), (20), (30), (40), (50);
+
 CREATE TABLE old_book (
    old_book_pk INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
-   old_book_discount_10 INT DEFAULT 0 NOT NULL CHECK ( old_book_discount_10 >= 0 ),
-   old_book_discount_20 INT DEFAULT 0 NOT NULL CHECK ( old_book_discount_20 >= 0 ),
-   old_book_discount_30 INT DEFAULT 0 NOT NULL CHECK ( old_book_discount_30 >= 0 ),
-   old_book_discount_40 INT DEFAULT 0 NOT NULL CHECK ( old_book_discount_40 >= 0 ),
-   old_book_discount_50 INT DEFAULT 0 NOT NULL CHECK ( old_book_discount_50 >= 0 ),
-   new_book_pk INT UNIQUE NOT NULL,
+   new_book_pk INT NOT NULL,
+   user_pk INT DEFAULT 0 NOT NULL,
+   admin_pk INT DEFAULT 0 NOT NULL,
+   old_book_discount INT DEFAULT 10 NOT NULL,
    FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk)
       ON DELETE CASCADE
-      ON UPDATE CASCADE
+      ON UPDATE CASCADE,
+   FOREIGN KEY (old_book_discount)
+      REFERENCES old_book_discount (discount_value)
 );
 CREATE TABLE old_book_selled (
    old_book_selled_pk INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
-   old_book_selled_10 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_10 >= 0 ),
-   old_book_selled_20 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_20 >= 0 ),
-   old_book_selled_30 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_30 >= 0 ),
-   old_book_selled_40 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_40 >= 0 ),
-   old_book_selled_50 INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_50 >= 0 ),
+   old_book_selled_count INT DEFAULT 0 NOT NULL CHECK ( old_book_selled_count >= 0),
    new_book_pk INT UNIQUE NOT NULL,
    FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk)
       ON DELETE CASCADE
       ON UPDATE CASCADE
 );
+CREATE TABLE old_book_log (
+	old_book_selled_pk INT UNIQUE NOT NULL,
+    old_book_seller INT NOT NULL,
+    old_book_buyer INT NOT NULL,
+    new_book_pk INT UNIQUE NOT NULL
+);
+
 CREATE TABLE album (
    album_pk INT AUTO_INCREMENT PRIMARY KEY,
    album_title VARCHAR(300),

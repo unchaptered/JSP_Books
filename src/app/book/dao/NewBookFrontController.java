@@ -65,16 +65,12 @@ public class NewBookFrontController extends HttpServlet{
 			break; 
 		
 		case "/book/NewBookEdit.nb":
-			System.out.println("New Book Edit");
-			
 			transfer = new ActionTo();
 			transfer.setRedirect(false);
 			transfer.setPath("/app/book/new_book/new_book_edit.jsp");
 			break;
 		
 		case "/book/NewBookAdd.nb":
-			System.out.println("New Book Add");
-			
 			transfer = new ActionTo();
 			transfer.setRedirect(false);
 			transfer.setPath("/app/book/new_book/new_book_add.jsp");
