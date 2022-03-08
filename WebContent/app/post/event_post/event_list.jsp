@@ -32,7 +32,7 @@
 						</div>
 						<!-- 이벤트 박스 (한 페이지 9개)-->
 						<div class="eventBox_area">
-							<c:choose>
+							<c:choose>"WebContent/app/book/old_book/old_book_list.jsp"
 								<c:when test="${eventList.size()>0 and eventList != null }">
 									<div class="content__grid">
 										<c:forEach var="event" items="${eventList}" varStatus="status">
