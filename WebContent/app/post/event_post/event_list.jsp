@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 리스트</title>
+<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today"/>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>

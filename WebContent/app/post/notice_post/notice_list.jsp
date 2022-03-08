@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title> 공지사항 리스트</title>
+<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="cp" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/notice/notice_list.css">

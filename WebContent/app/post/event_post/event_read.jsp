@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 상세페이지 </title>
+<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/event/event_read.css">
