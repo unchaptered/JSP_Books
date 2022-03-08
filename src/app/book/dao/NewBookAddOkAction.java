@@ -14,8 +14,8 @@ public class NewBookAddOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		BookDAO bdao = new BookDAO();
-		String rootPath = req.getSession().getServletContext().getRealPath("/");
-        String saveFolder = rootPath+"media";
+//		String rootPath = req.getSession().getServletContext().getRealPath("/");
+        String saveFolder = "D:\\Code - GitHub Dessktop(Repository)\\project-2021-korea-it-acamedy\\Java\\workspace\\project-2022-01-korea-Books\\WebContent\\media";
 		
 //		10MB
 		int size = 1024*1024*10;

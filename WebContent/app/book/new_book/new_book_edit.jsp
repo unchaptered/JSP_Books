@@ -68,9 +68,9 @@
                             <p class="textCnt" id="textCnt"><span id="counting">0</span> /700</p>
                             <textarea name="info" id="info" placeholder="책 소개를 작성해주세요." onkeyup="counter()" maxlength="700" required></textarea>
                         </label>
-                        <label for="infoShort" class="infoShort">목차<sup class="star">*</sup>
+                        <label for="infoShort" class="infoShort">짧은 소개글<sup class="star">*</sup>
                             <p class="textCnt" id="textCnt2" ><span id="counting2">0</span> /1000</p>
-                            <textarea name="infoShort" id="infoShort" placeholder="목차를 작성해주세요." onkeyup="counter()" maxlength="1000" required></textarea>
+                            <textarea name="infoShort" id="infoShort" placeholder="짧은 소개글을 작성해주세요." onkeyup="counter()" maxlength="1000" required></textarea>
                         </label>
                         <div class="btn">
                             <input type="reset" id="regReset" value="다시 작성하기" onclick="focus_re()">

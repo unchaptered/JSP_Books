@@ -16,14 +16,24 @@ CREATE TABLE user (
    user_bank VARCHAR(1000),
    user_bank_account VARCHAR(1000)
 );
-CREATE TABLE admin (
-   admin_pk INT AUTO_INCREMENT PRIMARY KEY,
-   admin_email VARCHAR(1000) NOT NULL,
-   admin_name VARCHAR(500) NOT NULL,
-   admin_password VARCHAR(500) NOT NULL,
-   admin_authorized VARCHAR(300),
-   admin_expired VARCHAR(300)
+-- CREATE TABLE admin (
+--    admin_pk INT AUTO_INCREMENT PRIMARY KEY,
+--    admin_email VARCHAR(1000) NOT NULL,
+--    admin_name VARCHAR(500) NOT NULL,
+--    admin_password VARCHAR(500) NOT NULL,
+--    admin_authorized VARCHAR(300),
+--    admin_expired VARCHAR(300)
+-- );
+
+CREATE TABLE admin(
+    admin_pk int primary key auto_increment,
+    adminid varchar(300) unique not null,
+    adminpw varchar(300) not null,
+    adminpw_re varchar(300) not null,
+    adminname varchar(300) not null,
+    adminkey varchar(300) not null
 );
+
 CREATE TABLE post (
    post_pk INT AUTO_INCREMENT PRIMARY KEY,
    post_title VARCHAR(300) not null,
