@@ -23,7 +23,10 @@
     <typeAlias type="app.shop.dao.ProductDTO" alias="productdto"/>
     
     <typeAlias type="app.book.dao.BookDTO" alias="bookdto"/>
+    
     <typeAlias type="app.book.old.dao.OldBookDTO" alias="oldbookdto"/>
+    <typeAlias type="app.book.old.dao.OldBookSelledDTO" alias="oldbookselleddto"/>
+    
     <typeAlias type="app.admin.dao.ChartDTO" alias="chartdto"/>
     <typeAlias type="app.admin.dao.AdminDTO" alias="admindto"/>
     
