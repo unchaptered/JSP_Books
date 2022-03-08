@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import action.ActionTo;
 
 public class OldBookFrontController extends HttpServlet {
@@ -24,6 +23,7 @@ public class OldBookFrontController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
 	}
+	
 	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String requestURI = req.getRequestURI();		// ??????/user/UserJoin.us
 		String contextPath = req.getContextPath();		// ??????
@@ -33,28 +33,45 @@ public class OldBookFrontController extends HttpServlet {
 		
 		switch(command) {
 			case "/book/OldBookList.ob":
-				System.out.println("Old Book List");
+				System.out.println("Old Book List page");
 				
-				transfer = new ActionTo();
-//				transfer = new OldBookList().execute(req, resp);
-				transfer.setRedirect(false);
-				transfer.setPath("/app/book/old_book/old_book_list.jsp");
+				try {
+					transfer = new OldBookListAction().execute(req, resp);
+				} catch (Exception e) {
+					System.out.println("OldBookList error : "+ e );
+				}
+				
 				break;
 			case "/book/OldBookAdd.ob":
-				System.out.println("Old Book add");
+				System.out.println("Old Book Add page");
 				
-				transfer = new ActionTo();
-//				transfer = new OldBookAdd().execute(req, resp);
-				transfer.setRedirect(false);
-				transfer.setPath("/app/book/old_book/old_book_add.jsp");
+				try {
+					transfer = new OldBookAddAction().execute(req, resp);
+				} catch (Exception e) {
+					System.out.println("OldBookAdd error : "+ e );
+				}
+
+				break;
+			case "/book/OldBookAddFinish.ob":
+
+				System.out.println("Old Book Add Finish page");
+				
+				try {
+					transfer = new OldBookAddFinishAction().execute(req, resp);
+				} catch (Exception e) {
+					System.out.println("OldBookAddFinish error : "+ e );
+				}
+				
 				break;
 			case "/book/OldBookRead.ob":
-				System.out.println("Old Book Read");
+				System.out.println("Old Book Read page");
 				
-				transfer = new ActionTo();
-//				transfer = new OldBookRead().execute(req, resp);
-				transfer.setRedirect(false);
-				transfer.setPath("/app/book/old_book/old_book_read.jsp");
+				try {
+					transfer = new OldBookReadAction().execute(req, resp);
+				} catch (Exception e) {
+					System.out.println("OldBookRead error : "+ e );
+				}
+
 				break;
 		}
 		
