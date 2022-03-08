@@ -1,6 +1,7 @@
 package app.user.dao;
 
 public class UserDTO {
+	
 	// Field Variables
 	
 	private int userPk; // 기본키

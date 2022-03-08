@@ -64,5 +64,18 @@ public class UserDAO {
 		return 1 == sqlsession.update("User.infoChange",udto);
 	}
 
+	/**로그인 시, 유저의 정보를 UserPk 기반으로 조회
+	 * 
+	 * @author unchaptered
+	 * 
+	 * @param userPk user.user_pk
+	 * @return UserDTO
+	 */
+	public UserDTO getUserByUserPk(int userPk) {
+		UserDTO userDTO = null;
+		
+		userDTO = sqlsession.selectOne("User.getUserByUserPk", userPk);
+		
+		return userDTO;
 	}
-
+}
