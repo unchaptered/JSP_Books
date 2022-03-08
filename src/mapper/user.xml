@@ -29,4 +29,19 @@
 		user_address=#{userAddress}, user_address_detail=#{userAddressDetail}, user_address_etc=#{userAddressEtc}, user_bank=#{userBank}, 
 		user_bank_account=#{userBankAccount} WHERE user_email=#{userEmail}
 	</update>
+	
+	<!-- author : unchaptered -->
+	<select id="getUserByUserPk"
+		parameterType="_int"
+		resultType="userdto">
+		SELECT
+			user_pk as userPk,
+			user_name as userName,
+			user_phone as userPhone,
+			user_bank as userBank,
+			user_bank_account as userBankAccount
+		FROM user
+		WHERE user_pk=#{userPk}
+		LIMIT 1;
+	</select>
 </mapper>
