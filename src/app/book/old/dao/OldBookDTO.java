@@ -2,55 +2,44 @@ package app.book.old.dao;
 
 import app.book.dao.BookDTO;
 
-/**OldBookDTO 는 old_book 테이블 전용 DTO 입니다.<br>
- * 이는 총 1 + 1 + 5 개의 칼럼을 가집니다.<br>
+/**OldBookDTO 는 old_book 테이블 전용 DTO 입니다. <br>
+ * 이는 총 1 (FK) + 1 (FK) + 3 개의 칼럼을 가집니다. <br><br>
  * 
- * 1. new_book_pk ((BookDTO) OldBookDTO.getBookPk)<br>
- * 2. old_book_pk (OldBookDTO.getOldBookPk)<br>
- * 3. old_book_discount_10 (OldBookDTO.getOldBookDiscount10)<br>
- * 4. old_book_discount_20 (OldBookDTO.getOldBookDiscount20)<br>
- * 5. old_book_discount_30 (OldBookDTO.getOldBookDiscount30)<br>
- * 6. old_book_discount_40 (OldBookDTO.getOldBookDiscount40)<br>
- * 7. old_book_discount_50 (OldBookDTO.getOldBookDiscount50)<br>
+ * 1. bookPk (FK)			= (BookDTO) this.getBookPk <br>
+ * 2. oldBookPk				= this.getOldBookPk() <br>
+ * 3. userPk				= this.getUserPk() <br>
+ * 4. adminPk				= this.getAdminPk() <br>
+ * 5. oldBookDiscount (FK)	= this.getOldBookDiscount() <br>
  * 
  * @author unchaptered
- * @version 2022-02-25
+ * @version 2022-03-07
  */
 public class OldBookDTO extends BookDTO {
 	
 	// Field Variables
 	
 	private int oldBookPk;
-	private int oldBookDiscount10;
-	private int oldBookDiscount20;
-	private int oldBookDiscount30;
-	private int oldBookDiscount40;
-	private int oldBookDiscount50;
+	private int userPk;
+	private int adminPk;
+	private int oldBookDiscount; // 할인율
+	private int oldBookMount; // 해당 할인율의 수량
 	
 	// Getter
 	
 	public int getOldBookPk() {
 		return oldBookPk;
 	}
-
-	public int getOldBookDiscount10() {
-		return oldBookDiscount10;
+	public int getUserPk() {
+		return userPk;
 	}
-
-	public int getOldBookDiscount20() {
-		return oldBookDiscount20;
+	public int getAdminPk() {
+		return adminPk;
 	}
-
-	public int getOldBookDiscount30() {
-		return oldBookDiscount30;
+	public int getOldBookDiscount() {
+		return oldBookDiscount;
 	}
-
-	public int getOldBookDiscount40() {
-		return oldBookDiscount40;
-	}
-
-	public int getOldBookDiscount50() {
-		return oldBookDiscount50;
+	public int getOldBookMount() {
+		return oldBookMount;
 	}
 	
 	// Setter
@@ -59,25 +48,20 @@ public class OldBookDTO extends BookDTO {
 		this.oldBookPk = oldBookPk;
 	}
 
-	public void setOldBookDiscount10(int oldBookDiscount10) {
-		this.oldBookDiscount10 = oldBookDiscount10;
+	public void setUserPk(int userPk) {
+		this.userPk = userPk;
 	}
 
-	public void setOldBookDiscount20(int oldBookDiscount20) {
-		this.oldBookDiscount20 = oldBookDiscount20;
+	public void setAdminPk(int adminPk) {
+		this.adminPk = adminPk;
+	}
+	public void setOldBookDiscount(int oldBookDiscount) {
+		this.oldBookDiscount = oldBookDiscount;
+	}
+	public void setOldBookMount(int oldBookMount) {
+		this.oldBookMount = oldBookMount;
 	}
 
-	public void setOldBookDiscount30(int oldBookDiscount30) {
-		this.oldBookDiscount30 = oldBookDiscount30;
-	}
-
-	public void setOldBookDiscount40(int oldBookDiscount40) {
-		this.oldBookDiscount40 = oldBookDiscount40;
-	}
-
-	public void setOldBookDiscount50(int oldBookDiscount50) {
-		this.oldBookDiscount50 = oldBookDiscount50;
-	}
 	
 	// Common Method Override
 	
@@ -86,18 +70,18 @@ public class OldBookDTO extends BookDTO {
 	@Override
 	public String toString() {
 		String result=null;
-		result+="oldBookPk : "+oldBookPk+"\n";
-		result+="oldBookDiscount10 : "+oldBookDiscount10+"\n";
-		result+="oldBookDiscount20 : "+oldBookDiscount20+"\n";
-		result+="oldBookDiscount30 : "+oldBookDiscount30+"\n";
-		result+="oldBookDiscount40 : "+oldBookDiscount40+"\n";
-		result+="oldBookDiscount50 : "+oldBookDiscount50+"\n";
+		
+		result += "oldBookPk : " + oldBookPk + "\n";
+		result += "userPk : " + userPk + "\n";
+		result += "adminPk : " + adminPk + "\n";
+		result += "oldBookDiscount : " + oldBookDiscount + "\n";
+		result += "oldBookMount : " + oldBookMount + "\n";
+		
 		return result;
 	}
 
 	/**자식 클래스의 필드 멤버변수 비교를 통해 equals() 를 재정의하였습니다.<br>
 	 * 부모 클래스인 BookDTO 의 equals() 가 재정의되면 이를 반영해야 합니다.
-	 * 
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -106,17 +90,14 @@ public class OldBookDTO extends BookDTO {
 			
 			if (oldBookDTO.getOldBookPk() != this.oldBookPk) {
 				return false;
-			} else if (oldBookDTO.getOldBookDiscount10() != this.oldBookDiscount10) {
+			} else if (oldBookDTO.getUserPk() != this.userPk) {
 				return false;
-			} else if (oldBookDTO.getOldBookDiscount20() != this.oldBookDiscount20) {
+			} else if (oldBookDTO.getAdminPk() != this.adminPk) {
 				return false;
-			} else if (oldBookDTO.getOldBookDiscount30() != this.oldBookDiscount30) {
+			} else if (oldBookDTO.getOldBookDiscount() != this.oldBookDiscount) {
 				return false;
-			} else if (oldBookDTO.getOldBookDiscount40() != this.oldBookDiscount40) {
-				return false;
-			} else if (oldBookDTO.getOldBookDiscount50() != this.oldBookDiscount50) {
-				return false;
-			}			
+			}
+			
 			// 모든 값이 동일할 때, ...
 			return true;
 		}
@@ -129,13 +110,12 @@ public class OldBookDTO extends BookDTO {
 	 */
 	@Override
 	public int hashCode() {
-		int hashCode=1;
+		int hashCode = 1;
+		
 		hashCode = 31 * hashCode + this.oldBookPk;
-		hashCode = 31 * hashCode + this.oldBookDiscount10;
-		hashCode = 31 * hashCode + this.oldBookDiscount20;
-		hashCode = 31 * hashCode + this.oldBookDiscount30;
-		hashCode = 31 * hashCode + this.oldBookDiscount40;
-		hashCode = 31 * hashCode + this.oldBookDiscount50;
+		hashCode = 31 * hashCode + this.userPk;
+		hashCode = 31 * hashCode + this.adminPk;
+		hashCode = 31 * hashCode + this.oldBookDiscount;
 		
 		return hashCode;
 	}
