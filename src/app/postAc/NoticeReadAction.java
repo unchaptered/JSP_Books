@@ -46,14 +46,12 @@ public class NoticeReadAction implements Action{
 			
 			req.setAttribute("prevNoticePk", prevNoticePk);
 			req.setAttribute("prevNoticeTitle", prevNoticeTitle);
-			
 		}
 		if(nextNoticePk != null) {
 			String nextNoticeTitle = ndao.getNoticeRead(nextNoticePk).getPostTitle();
 			
 			req.setAttribute("nextNoticePk", nextNoticePk);
 			req.setAttribute("nextNoticeTitle", nextNoticeTitle);
-			
 		}
 		
 		//파일 보내기

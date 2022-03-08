@@ -59,11 +59,11 @@ public class EventAddOkAction implements Action{
 		String eventStarted = multi.getParameter("eventStarted");
 		String eventEnded = multi.getParameter("eventEnded");		
 		
-		//로그인 세션(이메일)받아오기
+		//로그인 세션 받아오기
 		HttpSession session = req.getSession();
 		
-		int postOwner = 2;
-//		int postOwner = ((AdminDTO)session.getAttribute("loginAdmin")).getAdminidx();
+		int postOwner = ((AdminDTO)session.getAttribute("loginAdmin")).getAdminidx();
+//		int postOwner = 2;
 		
 		post.setPostTitle(postTitle);
 		post.setPostText(postText);	

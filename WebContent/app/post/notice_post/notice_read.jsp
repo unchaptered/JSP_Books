@@ -47,7 +47,7 @@
                         </div>
                         <c:if test="${loginAdmin != null}">
 	                        <div class="noticeReadBtn">
-	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner }">
+	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner}">
 	                            	<button class="readBtn" id="noticeUpdate" formaction="${cp}/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
 	                            		formmethod="post" onclick="return updateCheck()">수정</button>
 	                            </c:if>

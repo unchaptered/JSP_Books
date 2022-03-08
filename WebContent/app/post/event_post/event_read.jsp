@@ -65,7 +65,7 @@
                         </div>
                         <c:if test="${loginAdmin != null}">
 	                        <div class="eventReadBtn">
-	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner }">
+	                        	<c:if test="${loginAdmin.adminidx == event.postOwner }">
 	                            	<button class="readBtn" id="eventUpdate" formaction="${cp}/post/EventEdit.po?eventPk=${event.eventPk}" 
 	                            		formmethod="post" onclick="return updateCheck()">수정</button>
 	                            </c:if>
@@ -93,7 +93,7 @@
 	//좋아요
 	function like(eventPk){		
 		/* 로그인 체크 */
-		if(${loginUser == null}){
+		if(${empty loginUser}){
 			if(confirm("로그인 페이지로 이동합니다.")){
 				location.replace("${pageContext.request.contextPath}/index.jsp");
 			}
