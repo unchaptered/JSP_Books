@@ -32,7 +32,8 @@ public class ShopPaymentOkAction implements Action{
 			int prodMount=0;
 			index=0;
 			for (BookDTO bdto : bookList) {
-				prodMount = Integer.parseInt(bookList.get(index).getBookMount());
+//				prodMount = Integer.parseInt(bookList.get(index).getBookMount());
+				prodMount = bookList.get(index).getBookMount();
 				if(Integer.parseInt(qty[index])>prodMount) {
 					// 재고부족. 에러메시지는 이어지는 페이지에 담아 이동후 보여줌
 					String errorMsg=String.format("상품 '%s'의 재고가 부족합니다.", bdto.getBookTitle());
@@ -51,7 +52,8 @@ public class ShopPaymentOkAction implements Action{
 		index=0;
 		for (BookDTO bdto : bookList) {
 			prodQty=Integer.parseInt(qty[index]);	// 구매수량
-			sum+=(prodQty)*(Integer.parseInt(bdto.getBookPrice().replaceAll(",", "")));
+//			sum+=(prodQty)*(Integer.parseInt(bdto.getBookPrice().replaceAll(",", "")));
+			sum+=(prodQty)*(bdto.getBookPrice());
 		}
 //		sum=(int)(sum*0.9);	// 10% 할인. (100-10)/100
 //		int delivCost = (sum<10000) ? 2000 : 0;	// 10,000원이상 배송비 무료. 기본배송료 2000원
@@ -81,8 +83,10 @@ public class ShopPaymentOkAction implements Action{
 		int bookPk=0;
 		for (BookDTO bdto : bookList) {
 			prodQty=Integer.parseInt(qty[index]);	// 구매수량
-			bookPk=Integer.parseInt(bdto.getBookPk());
-			String prodTotalPrice=prodQty*(Integer.parseInt(bdto.getBookPrice().replaceAll(",", "")))+""; // (수량*한품목가격)
+//			bookPk=Integer.parseInt(bdto.getBookPk());
+			bookPk=bdto.getBookPk();
+//			String prodTotalPrice=prodQty*(Integer.parseInt(bdto.getBookPrice().replaceAll(",", "")))+""; // (수량*한품목가격)
+			String prodTotalPrice=prodQty*(bdto.getBookPrice())+""; // (수량*한품목가격)
 			ProductDTO pdto = new ProductDTO();
 			pdto.setBillPk(billPk);
 			pdto.setProductQuantity(prodQty);
