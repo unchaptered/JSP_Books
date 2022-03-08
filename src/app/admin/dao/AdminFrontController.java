@@ -93,6 +93,14 @@ public class AdminFrontController extends HttpServlet{
 				System.out.println("AdminJoinOk : " +e);
 			}
 			break;
+		
+		case "/admin/AdminLogoutOk.adm":
+			transfer = new ActionTo();
+			transfer.setRedirect(false);
+			transfer.setPath("/admin/AdminList.adm");
+			req.getSession().removeAttribute("loginAdmin");
+			break;
+			
 		case "/admin/chart1View.adm":
 			try {
 				transfer= new ChartShowOkAction().execute(req,resp);
@@ -101,14 +109,20 @@ public class AdminFrontController extends HttpServlet{
 				System.out.println("chart error : " +e);
 			}
 			break;
+		case "/admin/chart2View.adm":
+			try {
+				System.out.println("여긴?");
+				transfer= new ChartShowOkAction2().execute(req,resp);
+				
+			} catch (Exception e) {
+				System.out.println("chart error : " +e);
+			}
+			break;	
+			
+			
 			
 			
 		}
-		
-		
-		
-		
-		
 		
 		if(transfer!=null) {
 			if(transfer.isRedirect()) {

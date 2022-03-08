@@ -261,6 +261,18 @@ h4{
     height: 70px;
     background-color:  rgb(53,53,53);
 }
+.header_box2{
+    position:absolute;
+    margin-left:1270px;
+    margin-top:12px;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height:40px;
+    background-color:  rgb(172,184,201);
+    font-family: 'Noto Sans KR', sans-serif;
+}
 .header_box3{
     position:absolute;
     margin-left:1400px;
@@ -305,6 +317,12 @@ body{
 }
 .board_adm2{
     margin-left:57px;
+    text-decoration-line: none;
+    color:white;
+}
+
+.chart1{
+	 margin-left:57px;
     text-decoration-line: none;
     color:white;
 }

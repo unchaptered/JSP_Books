@@ -185,7 +185,6 @@ input[type=text] {
     margin-left: 400px;
     width:260px;
     height:260px;
-    background-image: url(../../img/visitors\ -\ 복사본.png);
 }
 .content2{
     position:absolute;
@@ -193,7 +192,6 @@ input[type=text] {
     margin-left: 800px;
     width:260px;
     height:260px;
-    background-image: url(../../img/goods\ -\ 복사본.png);
 }
 .content3{
     position:absolute;
@@ -201,7 +199,6 @@ input[type=text] {
     margin-left:400px;
     width:260px;
     height:260px;
-    background-image: url(../../img/order\ -\ 복사본.png);
     z-index:1;
 }
 .content4{
@@ -211,15 +208,36 @@ input[type=text] {
     width:260px;
     height:260px;
     z-index:1;
-    background-image: url(../../img/sales\ -\ 복사본.jpg);
 }
 .visitorFont{
-    margin-left:450px;
-
-    border:1px solid black;
+    position:absolute;
+    margin-left:470px;
+    margin-top:100px;
+  
     width:150px;
     height:50px;
 }
-.content_container1{
-    500px;
+.goodsFont{
+    position:absolute;
+    margin-left:870px;
+    margin-top:100px;
+  
+    width:150px;
+    height:50px;
+}
+.orderFont{
+    position:absolute;
+    margin-left:470px;
+    margin-top:650px;
+  
+    width:150px;
+    height:50px;
+}
+.salesFont{
+    position:absolute;
+    margin-left:870px;
+    margin-top:650px;
+  
+    width:150px;
+    height:50px;
 }

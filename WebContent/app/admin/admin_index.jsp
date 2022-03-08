@@ -23,8 +23,8 @@
     <div class="container">
         <header class="index_header">
             <div class="header_box1"></div>
-            <div class="header_box2">관리자 페이지</div>
-            <div class="header_box3">나가기</div>
+            <a href="${cp}/admin/AdminLogoutOk.adm" class="header_box2"><div >로그아웃</div></a>
+            <a href="${cp}/index.jsp" class="header_box3"><div >나가기</div></a>
         </header>
    
         <nav class="side_bar_a">
@@ -38,31 +38,21 @@
                     <h4>사이트바로가기</h4> 
                 </div>
             </div>
-            <div>
-                <a>사이트관리</a> 
-            </div>
-            <div>
-                <a>대시보드</a> 
-            </div>
-            <div>
-               <a href="./음반 등록.html" style="color:white" >음반관리</a>
-            </div>
-            <div>
-                <h4>고객지원</h4>
+           
+      
             <div>
                 <h4>회원관리</h4>
             </div>
             <div>
-                <h4>매출관리</h4> 
+                <a href="${cp}/app/admin/statistics_main.jsp" class="chart1" > 통계</a>
             </div>
             <div>
-               <a href="./음반 등록.html" style="color:white" >음반관리</a>
                 <div id="menu1">
                     <ul class="main">
                         <li><a href="#" class="board_adm"> 게시물 관리</a>
                             <ul class="sub">
-                                <li><a href="${cp}/app/post/event_post/event_list.jsp" class="board_adm1"> 공지사항 관리</a></li>
-                                <li><a href="${cp}/app/post/notice_post/notice_list.jsp" class="board_adm2"> 이벤트 관리</a></li>
+                                <li><a href="${cp}/post/EventList.po" class="board_adm1"> 공지사항 관리</a></li>
+                                <li><a href="${cp}/post/NoticeList.po" class="board_adm2"> 이벤트 관리</a></li>
                             </ul>
                         </li>
                     </ul>
