@@ -15,12 +15,12 @@
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
 	
-	<c:if test="${loginAdmin == null }">
+	<%-- <c:if test="${loginAdmin == null }">
 		<script>
 			alert("관리자 계정만 접근할 수 있습니다.");
 			location.href="${cp}/index.jsp";
 		</script>
-	</c:if>
+	</c:if> --%>
 	
 	<main id="main">
         <section class="main_content">

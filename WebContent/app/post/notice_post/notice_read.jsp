@@ -46,15 +46,15 @@
                                 <p>${notice.postText}</p>
                             </div>
                         </div>
-                        <c:if test="${loginAdmin != null}">
+                        <%-- <c:if test="${loginAdmin != null}"> --%>
 	                        <div class="noticeReadBtn">
-	                        	<c:if test="${loginAdmin.adminidx == notice.postOwner}">
+	                        	<%-- <c:if test="${loginAdmin.adminidx == notice.postOwner}"> --%>
 	                            	<button class="readBtn" id="noticeUpdate" formaction="${cp}/post/NoticeEdit.po?noticePk=${notice.noticePk}" 
 	                            		formmethod="post" onclick="return updateCheck()">수정</button>
-	                            </c:if>
+	                            <%-- </c:if> --%>
 	                            <button class="readBtn" id="noticeDelete" formaction="javascript:document.noticeRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
 	                        </div>
-                        </c:if>
+                        <%-- </c:if> --%>
                         <c:choose>
                         	<c:when test="${notice.noticePin == 'Y' || (prevNoticePk == null && nextNoticePk == null) }">
 	                        </c:when>

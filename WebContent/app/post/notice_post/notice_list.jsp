@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
@@ -6,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title> 공지사항 리스트</title>
-<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="cp" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/notice/notice_list.css">
@@ -25,9 +25,9 @@
 					</div>
 					<table class="notice_table">
 						<colgroup>
-							<c:if test="${loginAdmin != null }">
+							<%-- <c:if test="${loginAdmin != null }"> --%>
 								<col class="colcheck">
-							</c:if>
+							<%-- </c:if> --%>
 							<col class="col">
 							<col>
 							<col class="col">
@@ -36,9 +36,9 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<c:if test="${loginAdmin != null }">
+								<%-- <c:if test="${loginAdmin != null }"> --%>
 									<th><input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)"></th>
-								</c:if>
+								<%-- </c:if> --%>
 								<th>번호</th>
 								<th>제목</th>
 								<th>작성자</th>
@@ -57,9 +57,9 @@
 										
 										<c:forEach var="noticePin" items="${noticePinList}" varStatus="status">
 											<tr class="alert">
-												<c:if test="${loginAdmin != null }">
+												<%-- <c:if test="${loginAdmin != null }"> --%>
 													<td class="board_check"><input type="checkbox" name="nCheck" value="${noticePin.noticePk}"></td>
-												</c:if>
+												<%-- </c:if> --%>
 												<td class="board_num">${noticePin.noticePk}</td>
 												<td class="board_tlt">
 													<a href="${cp}/post/NoticeRead.po?noticePk=${noticePin.noticePk}&noticePage=${noticePage}"><strong>${noticePin.postTitle}</strong></a>
@@ -76,9 +76,9 @@
 										
 										<c:forEach var="notice" items="${noticeList}" varStatus="status">
 											<tr>	
-												<c:if test="${loginAdmin != null }">
+												<%-- <c:if test="${loginAdmin != null }"> --%>
 													<td class="board_check"><input type="checkbox" name="nCheck" value="${notice.noticePk}"></td>
-												</c:if>
+												<%-- </c:if> --%>
 												<td class="board_num">${notice.noticePk}</td>
 												<td class="board_tlt">
 													<a href="${cp}/post/NoticeRead.po?noticePk=${notice.noticePk}&noticePage=${noticePage}">${notice.postTitle}</a>
@@ -96,18 +96,18 @@
 								<c:otherwise>
 								
 									<tr>
-										<c:choose>
-											<c:when test="${loginAdmin != null }">
+										<%-- <c:choose>
+											<c:when test="${loginAdmin != null }"> --%>
 												<td class="notice_none" colspan="6">
 													등록된 공지사항이 없습니다.
 												</td>
-											</c:when>
+											<%-- </c:when>
 											<c:otherwise>
 												<td class="notice_none" colspan="5">
 													등록된 공지사항이 없습니다.
 												</td>
 											</c:otherwise>
-										</c:choose>
+										</c:choose> --%>
 									</tr>
 									
 								</c:otherwise>
@@ -116,10 +116,10 @@
 						</tbody>
 					</table>
 					
-					<c:if test="${loginAdmin != null }">
+					<%-- <c:if test="${loginAdmin != null }"> --%>
 						<a href="${cp}/post/NoticeAdd.po?noticePage=${noticePage}" class="noticeBtn createNotice">새 공지 등록</a>
 						<a href="javascript:deleteCheck();" class="noticeBtn deleteCheckBtn">선택삭제</a>
-					</c:if>
+					<%-- </c:if> --%>
 					
 					<!-- 페이지 버튼 : 한 페이지 1~10-->
 					<div class="pagination">

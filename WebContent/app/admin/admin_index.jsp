@@ -51,8 +51,8 @@
                     <ul class="main">
                         <li><a href="#" class="board_adm"> 게시물 관리</a>
                             <ul class="sub">
-                                <li><a href="${cp}/post/EventList.po" class="board_adm1"> 공지사항 관리</a></li>
-                                <li><a href="${cp}/post/NoticeList.po" class="board_adm2"> 이벤트 관리</a></li>
+                                <li><a href="${cp}/post/NoticeList.po" class="board_adm1"> 공지사항 관리</a></li>
+                                <li><a href="${cp}/post/EventList.po" class="board_adm2"> 이벤트 관리</a></li>
                             </ul>
                         </li>
                     </ul>

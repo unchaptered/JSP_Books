@@ -172,7 +172,7 @@
 		where notice_pk <![CDATA[ < ]]> #{noticePk} and notice_pin ='N'
 	</select>
 	<select id="getOwnerNamePin" parameterType="_int" resultType="String">
-		select adminname as adminName
+		select adminname
 		from admin 
 		join post on admin.adminidx = post.post_owner
 		join post_notice on post.post_pk = post_notice.post_pk
@@ -181,7 +181,7 @@
 		limit 0,#{pinCnt}
 	</select>
 	<select id="getOwnerName" parameterType="hashmap" resultType="String">
-		select adminname as adminName
+		select adminname
 		from admin 
 		join post on admin.adminidx = post.post_owner
 		join post_notice on post.post_pk = post_notice.post_pk

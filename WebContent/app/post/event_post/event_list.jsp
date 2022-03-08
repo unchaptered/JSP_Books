@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 리스트</title>
-<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today"/>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
@@ -15,13 +14,6 @@
 <link rel="stylesheet" href="${cp}/assets/css/screens/event/event_list.css">
 </head>
 <body>
-	<c:if test="${loginAdmin==null}">
-		<script>
-			let cp = "${pageContext.request.contextPath}";
-		 	alert("로그인 후 이용하세요");
-		 	location.replace(cp+"/admin/AdminJoin.adm")
-		</script>
-	</c:if>
 	<%@ include file="/app/components/nav.jsp" %>
 	
 	<main id="main">
@@ -83,23 +75,23 @@
 								</li>
 							</ul>
 						</div>
-							<c:if test="${loginAdmin != null }">
-								<div class="eventBtnArea">
-									<a href="${cp}/post/EventAdd.po?eventPage=${eventPage}" class="eventBtn createEvent">새 이벤트 등록</a>
-								</div>
-							</c:if>
-						<!-- 이벤트 박스 (한 페이지 9개)-->
+							
+						<div class="eventBtnArea">
+							<a href="${cp}/post/EventAdd.po?eventPage=${eventPage}" class="eventBtn createEvent">새 이벤트 등록</a>
+						</div>
+							
+					
 						<div class="eventBox_area">
-							<c:choose>"WebContent/app/book/old_book/old_book_list.jsp"
+							<c:choose>
 								<c:when test="${eventList.size()>0 and eventList != null }">
 									<div class="content__grid">
 										<c:forEach var="event" items="${eventList}" varStatus="status">
 											<c:choose>
 												<c:when test="${event.eventEnded < today}">
 													<a href="${cp}/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
-														<c:if test="${loginAdmin != null }">
-															<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
-														</c:if>
+														
+														<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
+														
 														<div class="eventBox_img">
 															<img src="${cp}/assets/img/event_deadline.png" alt="배너">
 														</div>
@@ -116,9 +108,9 @@
 												</c:when>
 												<c:otherwise>
 													<a href="${cp}/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
-														<c:if test="${loginAdmin != null }">
+														
 															<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
-														</c:if>
+														
 														<div class="eventBox_img">
 															<c:choose>
 																<c:when test="${fileList[status.index] != null}">
@@ -151,15 +143,15 @@
 								</c:otherwise>
 							</c:choose>
 						</div>
-						<c:if test="${loginAdmin != null }">
+						
 							<div class="eventBtnArea">
 								<div class="allCheckArea">
 									전체선택<input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)">
 								</div>
 								<a href="javascript:deleteCheck();" class="eventBtn deleteCheckBtn">선택삭제</a>
 							</div>
-						</c:if>
-						<!-- 페이지 버튼 한 페이지 1~10 > 11~20-->
+						
+						
 						<div class="pagination">
 							<ul>
 								<c:if test="${eventPage>10}">
@@ -176,7 +168,7 @@
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<!-- 다음 버튼 : +10페이지가 존재 하는지 확인(있으면 eventPage+10, 없으면 마지막페이지로)-->
+								
 								<c:if test="${eventPage != eventTotalPage && endPage < eventTotalPage && eventPage+10 < eventTotalPage}">
 									<li><a href="${cp}/post/EventList.po?eventPage=${eventPage+10}&keyword=${keyword}&sort=${sort}" class="pageBtn next">다음</a></li>
 								</c:if>
