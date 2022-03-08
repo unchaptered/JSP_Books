@@ -13,7 +13,7 @@ google.load("visualization","1",{"packages":["corechart"]});
 google.setOnLoadCallback(drawChart);
 function drawChart(){
 	var json_data=$.ajax({
-		url: "${pageContext.request.contextPath}/admin/chart1View.adm",
+		url: "${pageContext.request.contextPath}/admin/chart3View.adm",
 		async:false
 	}).responseText;
 	console.log('json데이터최종 확인'+ json_data);
