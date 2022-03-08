@@ -16,7 +16,7 @@ public class ChartShowOkAction implements Action{
 		JSONObject json=service.createChart();
 		req.setAttribute("data", json);
 		ActionTo transfer = new ActionTo();
-		transfer.setPath("app/admin/chart01_result.jsp");
+		transfer.setPath("/app/admin/chart01_result.jsp");
 		transfer.setRedirect(false);
 		return transfer;
 		

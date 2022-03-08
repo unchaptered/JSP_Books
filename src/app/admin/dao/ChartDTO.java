@@ -15,6 +15,10 @@ public class ChartDTO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	@Override
+	public String toString() {
+		return "ChartDTO [title=" + title + ", price=" + price + "]";
+	}
 	
 	
 	

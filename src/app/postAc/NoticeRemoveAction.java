@@ -27,16 +27,14 @@ public class NoticeRemoveAction implements Action{
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(true);
 		
-		if(ndao.removeNotice(noticePk)) {
-			if(pdao.removePost(postPk)) {
-				if(fdao.removeFile(noticeFile)) {
-
-				}
-				transfer.setPath(req.getContextPath()+"/app/post/NoticeList.po");
+		if(pdao.removePost(postPk)) {
+			if(fdao.removeFile(noticeFile)) {
+				System.out.println("포스트+파일까지 삭제");
 			}
+			transfer.setPath(req.getContextPath()+"/post/NoticeList.po");
 		}
 		else {
-			transfer.setPath(req.getContextPath()+"/app/post/NoticeRead.po?noticePk="+noticePk);
+			transfer.setPath(req.getContextPath()+"/post/NoticeRead.po?noticePk="+noticePk);
 		}
 		return transfer;
 	}

@@ -44,15 +44,13 @@ public class EventRemoveAction implements Action{
 			fcheck2 = fdao.removeFile(eventFileDetail);
 		}
 		
-		if(edao.removeEvent(eventPk)) {
-			if(pdao.removePost(postPk)) {
-				if(fcheck1 && fcheck2) {
-					transfer.setPath(req.getContextPath()+"/app/post/EventList.po");
-				}
+		if(pdao.removePost(postPk)) {
+			if(fcheck1 && fcheck2) {
+				transfer.setPath(req.getContextPath()+"/post/EventList.po");
 			}
 		}
 		else {
-			transfer.setPath(req.getContextPath()+"/app/post/EventRead.po?eventPk="+eventPk);
+			transfer.setPath(req.getContextPath()+"/post/EventRead.po?eventPk="+eventPk);
 		}
 		return transfer;
 	}

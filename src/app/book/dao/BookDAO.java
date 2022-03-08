@@ -23,7 +23,7 @@ public class BookDAO {
 		return 1 == sqlsession.update("NewBook.updateBook", bdto);
 	}
 
-	public List<BookDTO> getBook(String bookPk) {
+	public List<BookDTO> getBook(int bookPk) {
 		sqlsession.selectList("NewBook.getBookPk", bookPk);
 		return null;
 	}

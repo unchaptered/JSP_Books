@@ -40,6 +40,7 @@ const remove_cart = function(){
 }
 
 const remove_cart_ajax = function(cartPk) {
+	let cp = getContextPath();
 	if (cartPk==null){
 		return false;
 	}
@@ -57,17 +58,17 @@ const remove_cart_ajax = function(cartPk) {
 
 // 장바구니 주문하기 버튼 : 페이지 넘어가기전 카트들의 변경된 갯수들을 DB업데이트. 체크된 카트들만 주문결제 페이지로 이동하고 보여줌.
 function payment_submit()  {
-	  // 선택된 목록 가져오기
-	  const query1 = 'input[name="cartPk"]';	//체크유무 상관없이 카트모두 긁어옴. 변경된 수량 DBupdate
-	  const selectedEls = document.querySelectorAll(query1);
-	  const query2 = 'input[name="quantity"]';
-	  const qty = document.querySelectorAll(query2);
+	// 선택된 목록 가져오기
+	const query1 = 'input[name="cartPk"]';	//체크유무 상관없이 카트모두 긁어옴. 변경된 수량 DBupdate
+	const selectedEls = document.querySelectorAll(query1);
+	const query2 = 'input[name="quantity"]';
+	const qty = document.querySelectorAll(query2);
 	  
-	  // 선택된 목록에서 value 찾기
-	  selectedEls.forEach((el,index) => {
-	    //페이지 이동전 ajax루트로 변경수량 업데이트.
-	    update_cart_ajax(el.value,qty[index].value); // el.value : cartPk, qty[index].value : quantity
-	  });
+	// 선택된 목록에서 value 찾기
+	selectedEls.forEach((el,index) => {
+		//페이지 이동전 ajax루트로 변경수량 업데이트.
+		update_cart_ajax(el.value,qty[index].value); // el.value : cartPk, qty[index].value : quantity
+	});
 	//폼 객체를 찾아서 submit() 장바구니 폼정보 넘기면서 주문결제 페이지로 이동
 	document.cartForm.submit();
 }
@@ -75,6 +76,7 @@ function payment_submit()  {
 
 // 장바구니view에서 '주문하기' 버튼 눌렀을때 변경된 수량 DB에 적용
 const update_cart_ajax = function(cartPk,quantity) {
+	let cp = getContextPath();
 	if (cartPk==null && quantity>=0){
 		return false;
 	}
@@ -146,3 +148,10 @@ const total_change = function(){
     order_sum.innerHTML = total.toLocaleString('ko-KR');
 }
 
+//자바스크립트에서 콘텍스트페스 구하는 함수
+//출처 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mk1126sj&logNo=221019411361
+function getContextPath(){
+	var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+	var contextPath = location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+	return contextPath;
+}

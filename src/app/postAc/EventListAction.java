@@ -20,6 +20,7 @@ public class EventListAction implements Action{
 		
 		String temp = req.getParameter("eventPage");
 		String keyword = req.getParameter("keyword");
+		String sort = req.getParameter("sort");
 		
 		//현재 페이지(초기 화면이라면 1, 아니면 page값)
 		int eventPage = temp == null ? 1 : Integer.parseInt(temp);
@@ -44,7 +45,7 @@ public class EventListAction implements Action{
 		
 		endPage = endPage>eventTotalPage ? eventTotalPage : endPage;
 		
-		List<EventDTO> eventList = edao.getEventList(startRow,pageSize,keyword);
+		List<EventDTO> eventList = edao.getEventList(startRow,pageSize,keyword,sort);
 		
 		req.setAttribute("eventList", eventList);
 		req.setAttribute("eventTotalPage", eventTotalPage);
@@ -53,6 +54,7 @@ public class EventListAction implements Action{
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
 		req.setAttribute("keyword", keyword);
+		req.setAttribute("sort", sort);
 		
 		//첨부파일 세팅 //수정필요
 		String[] fileList = new String[eventList.size()];

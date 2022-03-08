@@ -15,15 +15,22 @@
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
 	
+	<c:if test="${loginAdmin == null }">
+		<script>
+			alert("관리자 계정만 접근할 수 있습니다.");
+			location.href="${cp}/index.jsp";
+		</script>
+	</c:if>
+	
 	<main id="main">
         <section class="main_content">
             <div class="event_write">
                 <!-- 타이틀 -->
                 <strong class="title">이벤트 작성</strong>
                 <!-- 폼 시작 -->
-                <form action="${cp}/app/post/EventAddOk.po" name="eventAddForm" method="post" enctype="multipart/form-data">
+                <form action="${cp}/post/EventAddOk.po" name="eventAddForm" method="post" enctype="multipart/form-data">
                     <div class="goList_div">
-                        <a href="${cp}/app/post/EventList.po?eventPage=${param.eventPage==null ? 1 : param.eventPage}" class="goList">목록보기</a>
+                        <a href="${cp}/post/EventList.po?eventPage=${param.eventPage==null ? 1 : param.eventPage}" class="goList">목록보기</a>
                     </div>
                     <p class="must">필수 입력 항목 <span class="redStar">*</span></p>
                     <div class="write_content">

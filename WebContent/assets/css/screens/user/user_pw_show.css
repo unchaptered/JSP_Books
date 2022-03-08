@@ -91,12 +91,22 @@
     text-align: center;
 }
 .pwShowWrap .info_userpw {
-	margin-top: 55px;
     font-size: 15px;
     background-color:#FCFCFC;
     color : #767676;
     border: 1px solid #FCFCFC !important;
     height:25px;
+    width:171px;
+}
+.pwShowWrap .infocheckEmail {
+	 position: absolute;
+     right: -99999px;
+     color: rgb(252, 252, 252);
+     border: 1px solid rgb(252, 252, 252);
+}
+.pwShowWrap .PwError{
+	font-size:13px !important;
+	color:red;
 }
 .pwShowWrap .info_newPw{
     margin-top: 55px;
@@ -116,28 +126,35 @@
     width: 100px;
     height: 54px;
     line-height:54px;
-    border: 0;
-    border-radius: 27px;
-    background-color: #122236;
-    font-size: 16px;
+    border: 1px solid #e1e2e3;
+    border-radius: 5px;
+    background-color: rgb(252,252,252);
+    font-size: 13.3333px;
     font-weight: 400;
     cursor: pointer;
+    color: black;
 }
-.pwShowWrap .pwSubmit_btn a {
-    color: #fff;
+.pwShowWrap .pwSubmit_btn:hover{
+	background-color:#F3F3F3;
 }
+
 .pwShowWrap .idSubmit_btn{
     margin-right: 15px;
     width: 100px;
     height: 54px;
     line-height:54px;
-    border: 0;
-    border-radius: 27px;
-    background-color: #122236;
-    font-size: 16px;
-    font-weight: 400;
+    border: 1px solid #e1e2e3;
+    border-radius: 5px;
+    font-size: 13.3333px;
+    font-weight: 700;
     cursor: pointer;
+    color: black;
 }
-.pwShowWrap .idSubmit_btn a {
-    color: #fff;
+.pwShowWrap .idSubmit_btn:hover{
+	background-color:#F3F3F3;
+}
+.pwShowWrap .idSubmit_btn a{
+	font-weight:500;
+	color: black;
+	font-size: 13.3333px;
 }

@@ -16,26 +16,27 @@ public class NewBookEditOkAction implements Action{
 
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String saveFolder = "C:\\jsp";
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		String saveFolder = rootPath+"media";
 //		10MB
 		int size = 1024*1024*10;
 		
 		BookDAO bdao = new BookDAO();
 		MultipartRequest multi = new MultipartRequest(req, saveFolder, size, "UTF-8", new DefaultFileRenamePolicy());
 		
-		String bookPk = multi.getParameter("bookPk");
+		int bookPk = (Integer.parseInt(multi.getParameter("bookPk")));
 		String title = multi.getParameter("title");
 		String subtitle = multi.getParameter("subtitle");
 		String info = multi.getParameter("info");
 		String infoShort = multi.getParameter("infoShort");
-		String price = multi.getParameter("price");
+		int price = (Integer.parseInt(multi.getParameter("price")));
 		String writer = multi.getParameter("writer");
 		String translater = multi.getParameter("translater");
 		String publisher = multi.getParameter("publisher");
 		String created = multi.getParameter("created");
 		String pages = multi.getParameter("pages");
 		
-		String mount = multi.getParameter("mount");
+		int mount = (Integer.parseInt(multi.getParameter("mount")));
 		String country = multi.getParameter("country");
 		String genre = multi.getParameter("genre");
 		
@@ -45,14 +46,14 @@ public class NewBookEditOkAction implements Action{
 		bdto.setBookSubtitle(subtitle);
 		bdto.setBookInfo(info);
 		bdto.setBookInfoShort(infoShort);
-		bdto.setBookPrice(price);
+		bdto.setBookPrice((Integer)price);
 		bdto.setBookWriter(writer);
 		bdto.setBookTranslater(translater);
 		bdto.setBookPublisher(publisher);
 		bdto.setBookCreated(created);
 		bdto.setBookPages(pages);
 		
-		bdto.setBookMount(mount);
+		bdto.setBookMount((Integer)mount);
 		bdto.setBookCountry(country);
 		bdto.setBookGenre(genre);
 		
@@ -88,7 +89,7 @@ public class NewBookEditOkAction implements Action{
 					bdao.insertNewBook(bdto);
 				}
 			}
-			transfer.setPath(req.getContextPath()+"/book/BookRead.nb");
+			transfer.setPath(req.getContextPath()+"/book/NewBookList.nb");
 		}
 		
 		

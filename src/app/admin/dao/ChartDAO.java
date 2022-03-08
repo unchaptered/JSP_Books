@@ -12,7 +12,7 @@ public class ChartDAO {
 		sqlsession = SqlMapConfig.getFactory().openSession(true);
 	}
 	public List<ChartDTO> buy_price() {
-		List<ChartDTO> items = sqlsession.selectList("chart.show1");
+		List<ChartDTO> items = sqlsession.selectList("Chart.show1");
 		return items;
 	}
 

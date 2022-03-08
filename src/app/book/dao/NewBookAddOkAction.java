@@ -14,7 +14,9 @@ public class NewBookAddOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		BookDAO bdao = new BookDAO();
-		String saveFolder = "C:\\jsp";
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+        String saveFolder = rootPath+"media";
+		
 //		10MB
 		int size = 1024*1024*10;
 		
@@ -33,14 +35,14 @@ public class NewBookAddOkAction implements Action{
 		String subtitle = multi.getParameter("subtitle");
 		String info = multi.getParameter("info");
 		String infoShort = multi.getParameter("infoShort");
-		String price = multi.getParameter("price");
+		int price = (Integer.parseInt(multi.getParameter("price")));
 		String writer = multi.getParameter("writer");
 		String translater = multi.getParameter("translater");
 		String publisher = multi.getParameter("publisher");
 		String created = multi.getParameter("created");
 		String pages = multi.getParameter("pages");
 		
-		String mount = multi.getParameter("mount");
+		int mount = (Integer.parseInt(multi.getParameter("mount")));
 //		String country = multi.getParameter("country");
 //		String genre = multi.getParameter("genre");
 		
@@ -67,12 +69,12 @@ public class NewBookAddOkAction implements Action{
 		if(bdao.insertNewBook(bdto)) {
 			if(!fcheck) {
 				transfer.setRedirect(true);
-				transfer.setPath(req.getContextPath()+"/book/BookRead.nb");
+				transfer.setPath(req.getContextPath()+"/book/NewBookList.nb");
 				return transfer;
 			}
 		}
 	
-		transfer.setPath(req.getContextPath()+"/book/BookRead.nb?w=f");
+		transfer.setPath(req.getContextPath()+"/book/NewBookList.nb?w=f");
 		return transfer;
 	}
 }

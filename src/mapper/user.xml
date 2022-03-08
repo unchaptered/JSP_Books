@@ -22,7 +22,7 @@
 		select user_email from user where user_name=#{emailFindName} AND user_phone=#{emailFindPhone}
 	</select>
 	<select id="UserFindPw" parameterType="hashmap" resultType="userdto">
-		select user_password from user where user_email=#{pwFindEmail} AND user_phone=#{pwFindPhone}
+		select * from user where user_email=#{pwFindEmail} AND user_phone=#{pwFindPhone}
 	</select>
 	<update id="infoChange" parameterType="userdto">
 	update user set user_name=#{userName}, user_phone=#{userPhone}, user_zipcode=#{userZipcode}, 
@@ -44,4 +44,7 @@
 		WHERE user_pk=#{userPk}
 		LIMIT 1;
 	</select>
+	<update id="infoPwChange" parameterType="userdto">
+		update user set user_password=#{userPassword} WHERE user_email=#{userEmail}
+	</update>
 </mapper>

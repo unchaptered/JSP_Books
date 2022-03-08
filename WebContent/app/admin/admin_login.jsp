@@ -27,10 +27,10 @@
             <div class="column"> 
                 <!-- 계정 , 비밀번호-->
                 <div class="text1">
-                    <input type="text" name="" id="">
+                    <input type="text" name="adminid" id="">
                 </div>
                 <div class="text2"> 
-                    <input type="text" name="" id="">
+                    <input type="text" name="adminpw" id="">
                 </div>
             </div>
 

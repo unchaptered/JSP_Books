@@ -48,7 +48,7 @@
 					                <div id="cart${status.count}">
 										<input type="hidden" name="products" value="${product.cartPk}">	<!-- 구매상품배열 req로 넘김 --> 
 										<input type="hidden" name="quantity" value="${product.quantity}">	<!-- 구매수량배열 req로 넘김 --> 
-			                            <a href="#"><img src="${cp}/assets/img/book_sample1.jpg" alt="book"></a>
+			                            <a href="#"><img src="${cp}/media/${product.image}" alt="book"></a>
 			                            <svg onclick="delCart(`cart${status.count}`)" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
 			                            </svg>
@@ -68,7 +68,7 @@
                         <div id="total">
                             <p><span>결제예정금액</span><span id="order_sum"><fmt:formatNumber value="${total}" pattern="#,###" /></span></p>
                             <input type="checkbox" name="agree1" id="agree1" required>
-                            <label for="agree1">비회원 개인정보 수집 및 이용동의(필수)</label><br>
+                            <label for="agree1">개인정보 수집 및 이용동의(필수)</label><br>
                             <input type="checkbox" name="agree2" id="agree2" required>
                             <label for="agree2">주문내역확인 동의(필수)</label><br>
                             <button id="btn_submit">결제하기</button>
@@ -89,11 +89,11 @@
                         <div id="delivery_info">
                             <h3>배송정보</h3>
                             <p><label for="correctUser">주문자와 동일</label>
-                            <input type="checkbox" id="correctUser" name="correctGuest" checked>
+                            <input type="checkbox" id="correctUser" name="correctGuest" checked onclick="check_correct(this,'${userName}','${userPhone}','${userZipcode}','${userAddr}','${userAddrDetail}')">
                             </p>
-                            <p><span>이름</span><input type="text" name="delivName" value="${userName}" required></p>
-                            <p><span>휴대폰</span><input type="tel" name="delivPhone" value="${userPhone}" required></p>
-                            <p><span>우편번호</span><input name="delivPostnum" type="text" id="postcode" placeholder="우편번호" value="${userZipcode}" readonly required><input type="button" onclick="sample6_execDaumPostcode()" value="검색"></p>
+                            <p><span>이름</span><input type="text" name="delivName" value="${userName}" required placeholder="이름"></p>
+                            <p><span>휴대폰</span><input type="tel" name="delivPhone" value="${userPhone}" required placeholder="휴대폰번호"></p>
+                            <p><span>우편번호</span><input type="text" name="delivPostnum" id="postcode" placeholder="우편번호" value="${userZipcode}" readonly required><input type="button" onclick="sample6_execDaumPostcode()" value="검색"></p>
                             <p><span>주소</span><input type="text" name="delivAddr" id="address" placeholder="주소" value="${userAddr}" readonly required></p>
                             <p><span>상세주소</span><input type="text" name="delivAddrDetail" id="detailAddress" placeholder="상세주소" value="${userAddrDetail}" required></p>
                         </div>
@@ -125,5 +125,4 @@
 <!-- 경로 수정하셔야 합니다. -->
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <script type="text/javascript" src="${cp}/assets/js/shop_payment.js"></script>
-</script>
 </html>

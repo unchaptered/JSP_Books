@@ -306,7 +306,7 @@
                         <div class="agree_wrap_inner3 agree_inner">
                             <div class="agree_checkbox_eventmail agrees">
                                 <input type="checkbox" name="checkbox_agree" id="checkbox_eventmail" value="checkbox_eventmail">
-                                <label for="checkbox_eventmail">이벤트 소식 등 알림 정보 받기<a href="#" target="_blank" class="agree_link">자세히</a></label>
+                                <label for="checkbox_eventmail">이벤트 소식 등 알림 정보 받기</label>
                             </div>
                         </div>
                     </div>
@@ -318,7 +318,7 @@
     </div>
     
     <div class="id_find_wrap">
-     <form name="idFindForm" action="${cp}/user/UserIdFindOk.us" method="post">
+     <form name="idFindForm" action="${cp}/user/UserIdFindOk.us" method="post" onsubmit="return sendItEmailFind()">
         <div class="id_find_container">
             <div class="id_find_header">
                 이메일 찾기
@@ -345,7 +345,7 @@
                         </div>
                     </div>
                     <div class="id_find_phone_inner">
-                        <label for="email_phone_input_find" class="user_info">휴대폰 번호</label>
+                        <label for="email_phone_input_find" class="user_info">휴대폰 번호&nbsp;&nbsp;&nbsp;&nbsp;</label><span class="findError" id="efPhoneEr""></span>
                         <div class="input_phone_id_find">
                             <input type="text" id="email_phone_input_find" placeholder="(예시) 01012345678" name="email_phone_input_find">
                         </div>
@@ -360,7 +360,7 @@
         </form>
     </div> 
     <div class="pw_find_wrap">
-    <form name="pwFindForm" action="${cp}/user/UserPwFindOk.us" method="post">
+    <form name="pwFindForm" action="${cp}/user/UserPwFindOk.us" method="post" onsubmit="return sendItPwFind()">
         <div class="pw_find_container">
             <div class="pw_find_header">
                 비밀번호 찾기
@@ -387,7 +387,7 @@
                         </div>
                     </div>
                     <div class="pw_find_phone_inner">
-                        <label for="pw_phone_input_find" class="user_info">휴대폰 번호</label>
+                        <label for="pw_phone_input_find" class="user_info">휴대폰 번호&nbsp;&nbsp;&nbsp;&nbsp;</label><span class="findError" id="pfPhoneEr""></span>
                         <div class="input_phone_find">
                             <input type="text" id="pw_phone_input_find" placeholder="(예시) 01012345678" name="pw_phone_input_find">
                         </div>
@@ -402,6 +402,7 @@
     </div>
 </body>
 <!-- 메뉴바 접기 함수 -->
+<script>let cp = "${pageContext.request.contextPath}";</script>
 <script type="text/javascript" src="${cp}/assets/js/nav_menu.js"></script>
 <!-- JQuery 라이브러리 -->
 <script src="http://code.jquery.com/jquery-1.12.4.js"></script>

@@ -22,10 +22,11 @@ ul, li{
 }
 
 /* 공지사항 테이블 */
-.board_check, #thCheck{
-	text-aligns:center;
-	width:16px;
-	height:16px;
+.board_check input[type="checkbox"], #thCheck{
+	width:18px;
+	height:18px;
+	position:relative;
+	top:3px;
 }
 .board_count{
     margin-bottom: 10px;
@@ -104,22 +105,21 @@ td{
 }
 /* 공지사항 작성 버튼 */
 .noticeBtn{
-    float: right;
     padding: 10px 20px;
     color: #fff;
     font-size: 15px;
 }
 .createNotice{
+    float: right;
     margin: 14px 5px;
     background-color: #df434d;
-    color: #fff;
 }
 .deleteCheckBtn{
+	float:left;
     position: relative;
     top: 15px;
-    right: 10px;
+    left: 5px;
     background-color: #3b3b3b;
-    color: #fff;
 }
 
 /* 페이지 번호 */
@@ -204,7 +204,6 @@ input[type=submit]{
     cursor: pointer;
 }
 
-
 /* 태블릿 */
 @media screen and (max-width: 1200px) {
     .main_content {
@@ -249,19 +248,38 @@ input[type=submit]{
     .board_num, .board_file{
         display: none;
     }
-    .board_check, .board_tlt, .board_writer, .board_date, .board_hit{
+    .board_writer, .board_date, .board_hit{
         display: block;
+        float: left;
+    	width: auto;
+    	text-align: right;
+    	font-size: 13px;
+        color: #545861;
+        margin-top: 7px;
+    }
+    .board_check{
+    	width: 30px;
+    	padding-right: 12px;
+    }
+    .alert .board_check{
+    	padding-right: 3px;
+    }
+    .board_check input[type="checkbox"]{
+    	width: 25px;
+    	height: 25px;
     }
     .board_tlt{
     	margin-bottom: 5px;
+    	
     }
     .board_tlt a{
         width: 100%;
+        text-align: left;
         text-overflow: ellipsis;
         overflow:hidden;
         display: block;
-        text-align: left;
     	font-size: 18px;
+    	line-height: normal;
     }
     .board_tlt a::after{
         content: "";
@@ -280,14 +298,6 @@ input[type=submit]{
         background: url(../../../img/icon_notice.png) no-repeat center center;
         background-size: 20px;
     }
-    .board_writer, .board_date, .board_hit{
-        display: block;
-        float: left;
-    	width: auto;
-    	text-align: right;
-    	font-size: 13px;
-        color: #545861;
-    }
     .board_writer{
         padding-right: 10px;
     }
@@ -301,7 +311,7 @@ input[type=submit]{
     }
     /* 검색창 */
     .notice_search{
-        width: 40%;
+        width: 360px;
         margin-top: 10%;
         margin-bottom: 0;
     }
@@ -313,6 +323,9 @@ input[type=submit]{
     .createNotice{
     	margin: 15px 15px 15px 0;
     }
+    .deleteCheckBtn{
+    	margin-left: 13px;
+    }
     
 }
 
@@ -323,10 +336,12 @@ input[type=submit]{
         height: auto;
     }
     /* 공지사항 작성 버튼 */
-	.createNotice{
-		font-size: 13px;
+	.noticeBtn{
+		font-size: 14px;
 		padding: 10px 15px;
-		margin: 15px 10px 15px 0;
+	}
+	.createNotice{
+		margin: 15px 20px 15px 0;
 	}
 
     /* 페이지 */
@@ -349,7 +364,7 @@ input[type=submit]{
     
     /* 검색창 */
     .notice_search{
-        width: 60%;
+        width: 265px;
         margin-top: 10%;
         margin-bottom: 0;
     }

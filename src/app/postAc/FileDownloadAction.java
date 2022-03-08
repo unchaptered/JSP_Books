@@ -19,7 +19,7 @@ public class FileDownloadAction implements Action{
 		String postFileOrigin = req.getParameter("postFileOrigin");
 		
 		String rootPath = req.getSession().getServletContext().getRealPath("/");
-		String saveFolder = rootPath+"media";
+		String saveFolder = rootPath+"media/post";
 		
 		String filename = saveFolder+"\\"+postFileSystem;
 		

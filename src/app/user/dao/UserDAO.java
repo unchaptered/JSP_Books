@@ -77,5 +77,9 @@ public class UserDAO {
 		userDTO = sqlsession.selectOne("User.getUserByUserPk", userPk);
 		
 		return userDTO;
+	public boolean infoPwChange(UserDTO udto) {
+		return 1 == sqlsession.update("User.infoPwChange",udto);
+	}
+
 	}
 }

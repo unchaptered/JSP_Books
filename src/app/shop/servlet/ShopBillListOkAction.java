@@ -25,6 +25,11 @@ public class ShopBillListOkAction implements Action{
 			List<ProductDTO> prodList = pdao.getProdList(userpk);
 			req.setAttribute("prodList", prodList);
 		}
+		if(req.getParameter("periodValue")==null) {
+			req.setAttribute("periodValue", "1개월");
+		}else {
+			req.setAttribute("periodValue", req.getParameter("periodValue"));
+		}
 		transfer.setPath("/app/shop/shop_bills.jsp");	// 구매내역으로 이동
 		transfer.setRedirect(false);
 		return transfer;

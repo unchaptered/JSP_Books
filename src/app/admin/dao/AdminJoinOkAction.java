@@ -27,7 +27,7 @@ public class AdminJoinOkAction implements Action {
 		}
 		else {
 			transfer.setRedirect(true);
-			transfer.setPath(req.getContextPath()+"/app/admin/admin_index.jsp");
+			transfer.setPath(req.getContextPath()+"/app/admin/admin_login.jsp");
 		}
 		return transfer;
 	}

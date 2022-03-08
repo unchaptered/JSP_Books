@@ -96,9 +96,19 @@ function sendItInfo() {
 		banknum.focus();
 		return false;
 	}
-
-
+	return true;
 }
+
+if(window.location == "http://localhost:9090/project-2022-01-korea-Books/app/user/user_info.jsp?ch=t"){
+    alert("정보가 수정되었습니다.");
+    window.location.href="http://localhost:9090/project-2022-01-korea-Books/index.jsp";
+}
+if(window.location == "http://localhost:9090/project-2022-01-korea-Books/app/user/user_info.jsp?ch=f"){
+    alert("정보 수정 실패!");
+}
+
+
+
 	
 	
 	

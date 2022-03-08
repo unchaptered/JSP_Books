@@ -77,7 +77,7 @@ function checkLoginEmail(){
 			}
 		}
 	}
-	xhr.open("GET",cp+"/user/LoginCheckEmailOk.us?email="+email.value);
+	xhr.open("GET",cp+"/user/UserLoginCheckEmailOk.us?email="+email.value);
 	xhr.send();
 }
 function senditLogin() {
@@ -102,7 +102,7 @@ function senditLogin() {
 		loginPwError.style="color:red";
 		return false;
 	}
-	
+	return true;
 }
 
 
@@ -131,7 +131,7 @@ function checkJoin() {
 			}
 		}
 	}
-	xhr.open("GET",cp+"/user/JoinCheckEmailOk.us?userEmail="+userEmail.value);//XMLHttpRequest.OPENED
+	xhr.open("GET",cp+"/user/UserJoinCheckEmailOk.us?userEmail="+userEmail.value);//XMLHttpRequest.OPENED
 	xhr.send();
 }
 
@@ -140,20 +140,15 @@ function senditJoin(){
 	const joinForm = document.joinForm;
 	let userEmail = joinForm.userEmail;
 	let joinEmailError = document.getElementById("joinEmailError");
+	let regNum = /^[0-9]+$/;
 	if(userEmail.value == "") {
 		console.log('다시 해봐 이메일 공백')
 		userEmail.focus();
 		return false;	
 	}
-	$('#userEmail').css('border-color','#e1e2e3');
 	let regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
 	if(!regEmail.test(userEmail.value)){
 		console.log('다시 해봐 이메일 정규식')
-		userEmail.focus();
-		return false;
-	}
-	if(joinEmailError.innerText == "중복된 이메일이 있습니다."){
-		console.log("중복된 이메일")
 		userEmail.focus();
 		return false;
 	}
@@ -212,6 +207,14 @@ function senditJoin(){
 		return false;
 	}
 		joinPhoneError.innerHTML = "";
+	if(!regNum.test(userPhone.value)){
+		console.log('휴대폰 숫자')
+		joinPhoneError.innerHTML = "휴대폰 번호는 숫자만 입력 가능합니다."
+		joinPhoneError.style="color:red";
+		userPhone.focus();
+		return false;
+	}
+		joinPhoneError.innerHTML = "";
 	let userZipcode = joinForm.userZipcode;
 	let joinAdressError = document.getElementById("joinAdressError");
 	if(userZipcode.value == ""){
@@ -246,14 +249,21 @@ function senditJoin(){
 		return false;
 	}
 		joinBankError.innerHTML = "";
+	if(!regNum.test(userBankAccount.value)){
+		console.log('계좌번호 숫자')
+		joinBankError.innerHTML = "계좌번호는 숫자만 입력 가능합니다."
+		joinBankError.style="color:red";
+		userBankAccount.focus();
+		return false;
+	}
 	let checkboxAll = document.getElementById("checkbox_all")
 	let checkboxPilsoo = document.getElementById("checkbox_pilsoo")
 	let checkboxEvent = document.getElementById("checkbox_eventmail")
 	let joinAgreeError = document.getElementById("joinAgreeError")
 	let ca = $(checkboxAll).prop("checked");
-	let cp = $(checkboxPilsoo).prop("checked");
+	let cs = $(checkboxPilsoo).prop("checked");
 	let ce = $(checkboxEvent).prop("checked");
-	if(ca == false && cp == false && ce == false){
+	if(ca == false && cs == false && ce == false){
 		console.log('전체동의에 체크가 안되있');
 		console.log('필수항목에 체크가 안되있');
 		console.log('이벤트알림에 체크가 안되있');
@@ -262,14 +272,14 @@ function senditJoin(){
 		return false;
 	}
 		joinAgreeError.innerHTML = "";
-	if(cp == false) {
+	if(cs == false) {
 		console.log('필수항목에 체크해주세요.');
 		joinAgreeError.innerHTML = "필수항목에 체크해 주세요."
 		joinAgreeError.style="color:red";
 		return false;
 	}
 		joinAgreeError.innerHTML = "";
-	
+		return true;
 }
 
 // 로그인 실패시 알럿창 띄우고 index로 이동
@@ -277,6 +287,54 @@ if(window.location == "http://localhost:9090/project-2022-01-korea-Books/index.j
     alert("로그인 실패 !");
     window.location.href="http://localhost:9090/project-2022-01-korea-Books/index.jsp";
 }
+
+if(window.location == "http://localhost:9090/project-2022-01-korea-Books/index.jsp?email=f"){
+	alert("일치하는 정보가 없습니다.");
+	window.location.href="http://localhost:9090/project-2022-01-korea-Books/index.jsp";
+}
+if(window.location == "http://localhost:9090/project-2022-01-korea-Books/index.jsp?pw=f"){
+	alert("일치하는 정보가 없습니다.");
+	window.location.href="http://localhost:9090/project-2022-01-korea-Books/index.jsp";
+}
+
+let regNum = /^[0-9]+$/;
+
+// idFind 유효성검사
+function sendItEmailFind() {
+	let efPhone = document.getElementById("email_phone_input_find");
+	let efPhoneEr = document.getElementById("efPhoneEr");
+	if(efPhone.value == ""){
+		efPhone.focus();
+		efPhoneEr.innerHTML = "휴대폰 번호를 입력해 주세요."
+		return false;
+	}
+	if(!regNum.test(efPhone.value)){
+		efPhone.focus();
+		efPhoneEr.innerHTML = "휴대폰 번호는 숫자만 입력 가능합니다."
+		return false;
+	}
+	return true;
+}
+
+// pwFind 유효성검사
+function sendItPwFind() {
+	let pfPhone = document.getElementById("pw_phone_input_find");
+	let pfPhoneEr = document.getElementById("pfPhoneEr");
+	if(pfPhone.value == ""){
+		pfPhone.focus();
+		pfPhoneEr.innerHTML = "휴대폰 번호를 입력해 주세요."
+		return false;
+	}
+	if(!regNum.test(pfPhone.value)){
+		pfPhone.focus();
+		pfPhoneEr.innerHTML = "휴대폰 번호는 숫자만 입력 가능합니다."
+		return false;
+	}
+	return true;
+	
+}
+
+
 
 
 
