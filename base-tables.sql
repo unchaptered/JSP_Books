@@ -16,19 +16,19 @@ CREATE TABLE user (
    user_bank VARCHAR(1000),
    user_bank_account VARCHAR(1000)
 );
-create table admin(
-
-	admin_pk INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE admin(
+	adminidx INT AUTO_INCREMENT PRIMARY KEY,
 	adminid varchar(300) unique not null,
-    adminpw varchar(300) not null,
+   adminpw varchar(300) not null,
 	adminpw_re varchar(300) not null,
-    adminname varchar(300) not null,
-    adminkey varchar(300) not null
+   adminname varchar(300) not null,
+   adminkey varchar(300) not null
 );
 create table chart(
 	title varchar(300) not null,
-    price int not null
+   price int not null
 );
+
 CREATE TABLE post (
    post_pk INT AUTO_INCREMENT PRIMARY KEY,
    post_title VARCHAR(300) not null,

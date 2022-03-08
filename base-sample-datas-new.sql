@@ -98,61 +98,78 @@ INSERT INTO user
 
 INSERT INTO admin
 (
-    admin_email,
-    admin_name,
-    admin_password,
-    admin_authorized,
-    admin_expired
+adminidx,
+adminid,
+adminpw,
+adminpw_re,
+adminname,
+adminkey,
 ) VALUES
 (
-    'A이메일',
-    'A이름',
-    'A비밀번호',
-    'A인증',
-    'A만료'
-),
-(
-    'B이메일',
-    'B이름',
-    'B비밀번호',
-    'B인증',
-    'B만료'
-),
-(
-    'C이메일',
-    'C이름',
-    'C비밀번호',
-    'C인증',
-    'C만료'
-),
-(
-    'D이메일',
-    'D이름',
-    'D비밀번호',
-    'D인증',
-    'D만료'
-),
-(
-    'E이메일',
-    'E이름',
-    'E비밀번호',
-    'E인증',
-    'E만료'
-),
-(
-    'F이메일',
-    'F이름',
-    'F비밀번호',
-    'F인증',
-    'F만료'
-),
-(
-    'G이메일',
-    'G이름',
-    'G비밀번호',
-    'G인증',
-    'G만료'
+'admin@gmail.com',
+'1234',
+'1234',
+'총합 관리자',
+'1234'
 );
+
+-- INSERT INTO admin
+-- (
+--     admin_email,
+--     admin_name,
+--     admin_password,
+--     admin_authorized,
+--     admin_expired
+-- ) VALUES
+-- (
+--     'A이메일',
+--     'A이름',
+--     'A비밀번호',
+--     'A인증',
+--     'A만료'
+-- ),
+-- (
+--     'B이메일',
+--     'B이름',
+--     'B비밀번호',
+--     'B인증',
+--     'B만료'
+-- ),
+-- (
+--     'C이메일',
+--     'C이름',
+--     'C비밀번호',
+--     'C인증',
+--     'C만료'
+-- ),
+-- (
+--     'D이메일',
+--     'D이름',
+--     'D비밀번호',
+--     'D인증',
+--     'D만료'
+-- ),
+-- (
+--     'E이메일',
+--     'E이름',
+--     'E비밀번호',
+--     'E인증',
+--     'E만료'
+-- ),
+-- (
+--     'F이메일',
+--     'F이름',
+--     'F비밀번호',
+--     'F인증',
+--     'F만료'
+-- ),
+-- (
+--     'G이메일',
+--     'G이름',
+--     'G비밀번호',
+--     'G인증',
+--     'G만료'
+-- );
 
 INSERT INTO new_book 
 (

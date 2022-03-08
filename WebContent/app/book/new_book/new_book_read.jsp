@@ -30,7 +30,7 @@
 					<a href="#">국내도서</a> 
 				</ul>
 				<ul class="ul_part1">
-					<li><a href="#" class="kor_1">소설</a></li>
+					<li><a href="${cp}/book/NewBookList.nb?keyword=${book.bookGenre}"  class="kor_1" id="cate" name="cate" value="소설">소설</li>
 					<li><a href="#" class="kor_2">시/에세이</a></li>
 					<li><a href="#" class="kor_3">경제경영</a></li>
 				</ul>
@@ -68,7 +68,7 @@
 		</section>
 		<div class="book_explain_content">
 			<div class="book_explain_photo">
-				<img src="${cp }/assets/img/new_book/images/gs25.png" alt="">
+				<img src="${cp }/media/${book.bookOrgImage}" alt=""style="width: 200px; height: 288px;">
 			</div>
 		</div>
 		<div class="book_explain_writer">
@@ -192,18 +192,21 @@
 			<a href="javascript:addCart(2,2)">장바구니 추가</a>  
 			</button>
 			<button class="read_buy">
-			<a href="javascript:directBuy(1,1)">바로구매버튼</a>
+			<a href="javascript:directBuy(1,1)">바로구매</a>    <!-- 바로구매 테스트용 bookPk 1번, 1개-->
 			</button>
 			<button class="read_like" id="like_back" onclick="like()">
 				♡<span id="like">0</span>
 			</button>
 			<!-- 장바구니,바로구매,좋아요 버튼 끝 -->
+			<form>
+			<button class="read_modify"><a href="${cp }/book/NewBookEdit.nb?bookPk=${book.bookPk}">수정하기</a></button>
+			</form>
 		</div>
 	</div>
 	
 	<!-- 책내용 소개할 파트 -->
     <div class="main_content">
-        <div class="readinfo">
+        <div class="readinfo first">
             <h3 style="border-bottom: 1.5px solid black;">이상품의 분류</h3>
             <p class="readinfo_part">
                 홈 > ${book.bookCountry} > ${book.bookGenre}
@@ -216,9 +219,9 @@
             </p>
         </div>
         <div class="readinfo">
-            <h3 style="border-bottom: 1.5px solid black;">출판사 서평</h3>
+            <h3 style="border-bottom: 1.5px solid black;">짧은 소개글</h3>
             <p class="readinfo_part">
-                흐르는 강물을 거슬러 오르는 연어들의 도무지 알 수 없는 그들만의 신비한 이유처럼 그 언제서 부터인가 걸어걸어오는 앞으로 얼마나 더 많이 가야만 하는지~
+                ${book.bookInfoShort }
             </p>
         </div>
     </div>
@@ -238,7 +241,7 @@ function count(type)  {
     let number = resultElement.innerText;
     if(type === 'plus') {
     	if(number >= ${book.bookMount}){
-    		alert("최대 주문 수량입니다")
+    		alert("최대 주문 수량입니다");
     	}
     	else{
     		number = parseInt(number) + 1;    		
@@ -252,5 +255,5 @@ function count(type)  {
     resultElement.innerText = number;
 }
 </script>
-<script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script>
+<script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script> 
 </html>

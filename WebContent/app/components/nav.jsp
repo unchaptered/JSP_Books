@@ -58,7 +58,6 @@
                 <a href="${cp}/book/NewBookList.nb">책 리스트</a>
                 <!-- sunsetkk -->
                 <a href="${cp}/book/NewBookAdd.nb">책 등록하기</a>
-                <a href="${cp}/book/NewBookEdit.nb">책 수정하기</a>
             </section>
         </details>
         <details class="nav_menu_details">
