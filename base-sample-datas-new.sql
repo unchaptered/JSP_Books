@@ -97,13 +97,21 @@ INSERT INTO user
 );
 
 INSERT INTO admin
-(adminid, adminpw, adminpw_re, adminname, adminkey) VALUES
-('tester@gmail.com','1234','1111','고결','01071468059'),
-('seungy98','1111','1111','권승연','01066849394'),
-('khyejin9796','1111','1111','권혜진','01099177371'),
-('igoodithief','1111','1111','김명현','01082174761'),
-('hollymolly','1111','1111','이민석','01097818756'),
-('tonke1234','1111','1111','정병찬','01030833187');
+(
+adminidx,
+adminid,
+adminpw,
+adminpw_re,
+adminname,
+adminkey,
+) VALUES
+(
+'admin@gmail.com',
+'1234',
+'1234',
+'총합 관리자',
+'1234'
+);
 
 -- INSERT INTO admin
 -- (

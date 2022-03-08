@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 리스트</title>
+<%-- <c:set var="loginAdmin" value="1" /> --%>
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today"/>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
@@ -34,7 +35,7 @@
 					<!-- 검색창 -->
 						<div class="event_search">
 							<input type="text" name="keyword" id="e_search" placeholder="이벤트 제목을 입력하세요" value="${param.keyword}">
-							<input type="submit" id="searchBtn">
+							<input type="submit" id="searchBtn" onclick="return searchEvent()">
 						</div>
 						<div class="eventTopArea">
 							<div class="board_count">total : <span>${eventTotalCnt}</span> / pages : <span>${eventTotalPage}</span></div>
