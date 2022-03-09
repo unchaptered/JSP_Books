@@ -38,7 +38,7 @@ CREATE TABLE post (
 		REFERENCES admin (admin_pk)
 );
 CREATE TABLE post_files (
-   post_file_pk BIGINT PRIMARY KEY,
+   post_file_pk BIGINT AUTO_INCREMENT PRIMARY KEY,
    post_file_system VARCHAR(1000),
    post_file_origin VARCHAR(1000)
 );
@@ -65,8 +65,8 @@ CREATE TABLE post_event (
 	ON DELETE CASCADE
       ON UPDATE CASCADE
 );
-CREATE table post_event_like(
-	event_like_pk INT primary key auto_increment,
+CREATE TABLE post_event_like (
+	event_like_pk INT AUTO_INCREMENT PRIMARY KEY,
     event_like_post int,
     event_like_user INT
 );
