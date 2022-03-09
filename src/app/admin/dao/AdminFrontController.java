@@ -82,17 +82,22 @@ public class AdminFrontController extends HttpServlet{
 			}
 			break;
 			
+		case "/admin/AdminLogin.adm":
+			transfer = new ActionTo();
+			transfer.setPath("/app/admin/admin_index.jsp");
+			transfer.setRedirect(false);
+			break;	
+			
 		case "/admin/AdminLoginOk.adm":
 			try {
 				transfer= new AdminLoginOkAction().execute(req,resp);
-				transfer = new ActionTo();
-				transfer.setPath("/app/admin/admin_index.jsp");
-				transfer.setRedirect(false);
+				
 				
 			} catch (Exception e) {
 				System.out.println("AdminJoinOk : " +e);
 			}
 			break;
+		
 		
 		case "/admin/AdminLogoutOk.adm":
 			transfer = new ActionTo();

@@ -17,13 +17,15 @@
 		<script>
 			let cp = "${pageContext.request.contextPath}";
 		 	alert("로그인 후 이용하세요");
-		 	location.replace(cp+"/admin/AdminJoin.adm")
+		 	location.replace(cp+"/app/admin/admin_login.jsp")
 		</script>
 	</c:if>
     <div class="container">
         <header class="index_header">
             <div class="header_box1"></div>
-            <a href="${cp}/app/admin/admin_login.jsp" class="header_box2"><div onclick="f_logout()">로그아웃</div></a>
+            <span>${loginAdmin.admin_pk}${loginAdmin.adminid}관리자님 접속하셨습니다</span>
+            <a href="${cp}/app/admin/admin_login.jsp" class="header_box1"><div >로그인</div></a>
+            <a href="${cp}/admin/AdminLogoutOk.adm" class="header_box2"><div onclick="f_logout()">로그아웃</div></a>
             <a href="${cp}/index.jsp" class="header_box3"><div >나가기</div></a>
         </header>
    
