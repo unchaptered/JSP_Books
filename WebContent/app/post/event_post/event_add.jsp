@@ -2,11 +2,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title> 이벤트 작성 </title>
+<c:set var="now" value="<%=new java.util.Date()%>" />
+<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today"/>
 <c:set var="cp" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="${cp}/assets/css/styles.css">
 <link rel="stylesheet" href="${cp}/assets/css/screens/event/event_add.css">
@@ -41,7 +44,7 @@
                         <strong class="detail_title">이벤트 기간 <span class="redStar">*</span></strong>
                         <div class="detail_date">
                             <div class="date_start">
-                                <p>이벤트 시작일</p><input type="date" name="eventStarted" id="input-dateStart">
+                                <p>이벤트 시작일</p><input type="date" name="eventStarted" id="input-dateStart" value="${today}">
                             </div>
                             <div class="date_end">
                                 <p>이벤트 종료일</p><input type="date" name="eventEnded" id="input-dateEnd">
