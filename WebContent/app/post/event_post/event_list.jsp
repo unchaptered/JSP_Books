@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%@ include file="/app/components/nav.jsp" %>
-	
+
 	<main id="main">
 		<section class="main_content">
 			<div class="event">
@@ -224,7 +224,6 @@
 	}
 	
 }
-
 	
 </script>
 </html>

@@ -7,16 +7,16 @@ import org.json.simple.JSONObject;
 
 import action.ActionTo;
 
-public class ChartShowOkAction2 {
+public class ChartShowOkAction3 {
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) {
-		System.out.println("확인");
+		System.out.println("확인3");
 		String url=req.getRequestURI();
 		ChartService service= new ChartService();
-		JSONObject json=service.createChart2();
-		System.out.println("json 담겼나: "+json);
+		JSONObject json=service.createChart3();
+		System.out.println("json3 담겼나: "+json);
 		req.setAttribute("data", json);
 		ActionTo transfer = new ActionTo();
-		transfer.setPath("/app/admin/saleschart_result.jsp");
+		transfer.setPath("/app/admin/orderchart_result.jsp");
 		transfer.setRedirect(false);
 		return transfer;
 		
