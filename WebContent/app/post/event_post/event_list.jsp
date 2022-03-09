@@ -75,11 +75,11 @@
 								</li>
 							</ul>
 						</div>
-							
-						<div class="eventBtnArea">
-							<a href="${cp}/post/EventAdd.po?eventPage=${eventPage}" class="eventBtn createEvent">새 이벤트 등록</a>
-						</div>
-							
+						<c:if test="${loginAdmin != null }">	
+							<div class="eventBtnArea">
+								<a href="${cp}/post/EventAdd.po?eventPage=${eventPage}" class="eventBtn createEvent">새 이벤트 등록</a>
+							</div>
+						</c:if>	
 					
 						<div class="eventBox_area">
 							<c:choose>
@@ -89,9 +89,9 @@
 											<c:choose>
 												<c:when test="${event.eventEnded < today}">
 													<a href="${cp}/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
-														
-														<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
-														
+														<c:if test="${loginAdmin != null }">
+															<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
+														</c:if>
 														<div class="eventBox_img">
 															<img src="${cp}/assets/img/event_deadline.png" alt="배너">
 														</div>
@@ -108,9 +108,9 @@
 												</c:when>
 												<c:otherwise>
 													<a href="${cp}/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
-														
+														<c:if test="${loginAdmin != null }">
 															<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
-														
+														</c:if>
 														<div class="eventBox_img">
 															<c:choose>
 																<c:when test="${fileList[status.index] != null}">
@@ -144,13 +144,14 @@
 							</c:choose>
 						</div>
 						
+						<c:if test="${loginAdmin != null }">
 							<div class="eventBtnArea">
 								<div class="allCheckArea">
 									전체선택<input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)">
 								</div>
 								<a href="javascript:deleteCheck();" class="eventBtn deleteCheckBtn">선택삭제</a>
 							</div>
-						
+						</c:if>
 						
 						<div class="pagination">
 							<ul>
