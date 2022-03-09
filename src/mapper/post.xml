@@ -24,7 +24,7 @@
 	</select>
 	<select id="getPostOwnerName" parameterType="_int" resultType="String">
 		select adminname from admin
-		join post on admin.admin_pk = post.post_owner
+		join post on admin.adminPk = post.post_owner
 		where post.post_pk = #{postPk}
 	</select>
 	<select id="getPostRead" parameterType="_int" resultType="postdto">
@@ -174,7 +174,7 @@
 	<select id="getOwnerNamePin" parameterType="_int" resultType="String">
 		select adminname
 		from admin 
-		join post on admin.admin_pk = post.post_owner
+		join post on admin.adminPk = post.post_owner
 		join post_notice on post.post_pk = post_notice.post_pk
 		where post.post_pk = post_notice.post_pk AND notice_pin ='Y'
 		order by post.post_pk desc 
@@ -183,7 +183,7 @@
 	<select id="getOwnerName" parameterType="hashmap" resultType="String">
 		select adminname
 		from admin 
-		join post on admin.admin_pk = post.post_owner
+		join post on admin.adminPk = post.post_owner
 		join post_notice on post.post_pk = post_notice.post_pk
 		where post.post_pk = post_notice.post_pk AND notice_pin = 'N'
 		<if test="keyword != null">
