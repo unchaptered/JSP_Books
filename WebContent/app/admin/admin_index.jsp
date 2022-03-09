@@ -23,7 +23,7 @@
     <div class="container">
         <header class="index_header">
             <div class="header_box1"></div>
-            <a href="${cp}/admin/AdminLogoutOk.adm" class="header_box2"><div onclick="f_logout()">로그아웃</div></a>
+            <a href="${cp}/app/admin/admin_login.jsp" class="header_box2"><div onclick="f_logout()">로그아웃</div></a>
             <a href="${cp}/index.jsp" class="header_box3"><div >나가기</div></a>
         </header>
    
@@ -231,7 +231,7 @@
         
     </div>
     <!-- 높이와 너비가 지정된 Dom 을 생성합니다 -->
-
+<script>const cp = "${pageContext.request.contextPath}"</script>
 <script type="text/javascript">
 	function f_logout(){
 		alert('관리자 로그아웃 되었습니다');
