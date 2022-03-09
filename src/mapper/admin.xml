@@ -10,10 +10,12 @@
 	</insert>
 	<!-- newadmin.getadminid() -->
 	<select id="login" parameterType="hashmap" resultType="admindto">
-		select * from admin where adminid=#{adminid} and adminpw=#{adminpw}
+		select admin_pk as adminPk, adminid, adminpw, adminname, adminkey
+		from admin where adminid=#{adminid} and adminpw=#{adminpw}
 	</select>
 	<select id="getList" resultType="admindto">
-		select * from admin
+		select admin_pk as adminPk, adminid, adminpw, adminname, adminkey
+		from admin
 	</select>
 	<select id="checkId" parameterType="string" resultType="_int">
 		select count(*) from admin where adminid=#{adminid}

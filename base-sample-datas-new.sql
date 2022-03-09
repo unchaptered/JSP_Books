@@ -346,7 +346,7 @@ INSERT INTO old_book
 (
     new_book_pk,
     user_pk,
-    adminPk
+    admin_pk
 ) VALUES
 (1,1,1), (2,1,1), (3,1,1), (4,1,1), (5,1,1), (6,1,1),
 (7,1,1), (8,1,1), (9,1,1), (10,1,1), (11,1,1), (12,1,1),
@@ -412,7 +412,7 @@ SELECT * FROM old_book
 
 SELECT * FROM old_book
     LEFT OUTER JOIN admin
-        ON old_book.adminPk = admin.adminPk;
+        ON old_book.admin_pk = admin.admin_pk;
 
 SELECT * FROM old_book
     LEFT OUTER JOIN new_book
@@ -420,7 +420,7 @@ SELECT * FROM old_book
     LEFT OUTER JOIN user
         ON old_book.user_pk = user.user_pk
     LEFT OUTER JOIN admin
-        ON old_book.adminPk = admin.adminPk;
+        ON old_book.admin_pk = admin.admin_pk;
 
 SELECT * FROM old_book_selled;
 
