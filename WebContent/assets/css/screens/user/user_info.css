@@ -213,6 +213,15 @@ table{
 .user_info_container_wrap .user_phone_btn:hover{
     border: 1px solid #36f;
 }
+.user_info_container_wrap .infoPhoneError{
+	margin-top:11px;
+	margin-right: 1em;
+    font-weight: 400;
+    margin-left: 15px;
+    font-size: 13px;
+    background-color: rgb(252,252,252);
+    color:red;
+}
 
 .user_info_container_wrap .user_pw_btn{
 	border-color: #bcbfc6;

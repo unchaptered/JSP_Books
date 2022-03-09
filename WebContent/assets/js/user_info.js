@@ -71,8 +71,10 @@ function sendItInfo() {
 	let userInfoForm = document.userInfoForm;
 	let userInfoName = userInfoForm.user_name_text;
 	let userInfoPhone = userInfoForm.user_phone_text;
+	let infoPhoneError = document.getElementById("infoPhoneError");
 	let postcode = userInfoForm.postcode;
 	let detailAddress = userInfoForm.detailAddress;
+	let regNum = /^[0-9]+$/;
 	
 	let banknum = userInfoForm.banknum;
 	
@@ -82,6 +84,11 @@ function sendItInfo() {
 	}
 	if(userInfoPhone.value == "") {
 		userInfoPhone.focus();
+		return false;
+	}
+	if(!regNum.test(userInfoPhone.value)){
+		userInfoPhone.focus();
+		infoPhoneError.innerHTML = "휴대폰 번호는 숫자만 입력 가능합니다!"
 		return false;
 	}
 	if(postcode.value == "") {
@@ -101,7 +108,6 @@ function sendItInfo() {
 
 if(window.location == "http://localhost:9090/project-2022-01-korea-Books/app/user/user_info.jsp?ch=t"){
     alert("정보가 수정되었습니다.");
-    window.location.href="http://localhost:9090/project-2022-01-korea-Books/index.jsp";
 }
 if(window.location == "http://localhost:9090/project-2022-01-korea-Books/app/user/user_info.jsp?ch=f"){
     alert("정보 수정 실패!");
