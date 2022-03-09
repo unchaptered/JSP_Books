@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Admin">
 	<insert id="join" parameterType="admindto">
-		INSERT INTO admin (adminid, adminpw, adminpw_re,
+		INSERT INTO admin (adminid, adminpw,
 		adminname, adminkey) VALUES (#{adminid},
-		#{adminpw}, #{adminpw_re}, #{adminname}, #{adminkey})
+		#{adminpw}, #{adminname}, #{adminkey})
 	</insert>
 	<!-- newadmin.getadminid() -->
 	<select id="login" parameterType="hashmap" resultType="admindto">

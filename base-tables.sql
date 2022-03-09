@@ -17,10 +17,9 @@ CREATE TABLE user (
    user_bank_account VARCHAR(1000)
 );
 create table admin(
-	admin_pk INT AUTO_INCREMENT PRIMARY KEY,
+	adminPk INT AUTO_INCREMENT PRIMARY KEY,
 	adminid varchar(300) unique not null,
     adminpw varchar(300) not null,
-	adminpw_re varchar(300) not null,
     adminname varchar(300) not null,
     adminkey varchar(300) not null
 );
@@ -36,7 +35,7 @@ CREATE TABLE post (
    post_created datetime default now(),
    post_viewed int default 0,
    FOREIGN KEY (post_owner) 
-		REFERENCES admin (admin_pk)
+		REFERENCES admin (adminPk)
 );
 CREATE TABLE post_files (
    post_file_pk BIGINT PRIMARY KEY,
@@ -99,7 +98,7 @@ CREATE TABLE old_book (
    old_book_pk INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
    new_book_pk INT NOT NULL,
    user_pk INT DEFAULT 0 NOT NULL,
-   admin_pk INT DEFAULT 0 NOT NULL,
+   adminPk INT DEFAULT 0 NOT NULL,
    old_book_discount INT DEFAULT 10 NOT NULL,
    FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk)

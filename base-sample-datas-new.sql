@@ -96,63 +96,6 @@ INSERT INTO user
     'G계좌번호'
 );
 
-INSERT INTO admin
-(
-    admin_email,
-    admin_name,
-    admin_password,
-    admin_authorized,
-    admin_expired
-) VALUES
-(
-    'A이메일',
-    'A이름',
-    'A비밀번호',
-    'A인증',
-    'A만료'
-),
-(
-    'B이메일',
-    'B이름',
-    'B비밀번호',
-    'B인증',
-    'B만료'
-),
-(
-    'C이메일',
-    'C이름',
-    'C비밀번호',
-    'C인증',
-    'C만료'
-),
-(
-    'D이메일',
-    'D이름',
-    'D비밀번호',
-    'D인증',
-    'D만료'
-),
-(
-    'E이메일',
-    'E이름',
-    'E비밀번호',
-    'E인증',
-    'E만료'
-),
-(
-    'F이메일',
-    'F이름',
-    'F비밀번호',
-    'F인증',
-    'F만료'
-),
-(
-    'G이메일',
-    'G이름',
-    'G비밀번호',
-    'G인증',
-    'G만료'
-);
 
 INSERT INTO new_book 
 (
@@ -403,7 +346,7 @@ INSERT INTO old_book
 (
     new_book_pk,
     user_pk,
-    admin_pk
+    adminPk
 ) VALUES
 (1,1,1), (2,1,1), (3,1,1), (4,1,1), (5,1,1), (6,1,1),
 (7,1,1), (8,1,1), (9,1,1), (10,1,1), (11,1,1), (12,1,1),
@@ -469,7 +412,7 @@ SELECT * FROM old_book
 
 SELECT * FROM old_book
     LEFT OUTER JOIN admin
-        ON old_book.admin_pk = admin.admin_pk;
+        ON old_book.adminPk = admin.adminPk;
 
 SELECT * FROM old_book
     LEFT OUTER JOIN new_book
@@ -477,7 +420,7 @@ SELECT * FROM old_book
     LEFT OUTER JOIN user
         ON old_book.user_pk = user.user_pk
     LEFT OUTER JOIN admin
-        ON old_book.admin_pk = admin.admin_pk;
+        ON old_book.adminPk = admin.adminPk;
 
 SELECT * FROM old_book_selled;
 
