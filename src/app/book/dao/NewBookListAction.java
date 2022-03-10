@@ -11,14 +11,10 @@ import action.ActionTo;
 public class NewBookListAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		//로그인해서 들어갔을때 보여줄 게시글 목록이 필요함
-		//게시글을 담아줄 테이블이 필요함
-		//boardnum은 인트지만 사이즈가 클꺼임 난 bookPk로 할꺼임
-		//boardtitle는 booktitle로 할꺼임
-		//boardcontents 
 		BookDAO bookdao = new BookDAO();
 		
 		String temp = req.getParameter("page");
+		String keyword = req.getParameter("keyword");
 		
 		int page = temp == null ? 1 : Integer.parseInt(temp);
 		//한 페이지에 보여줄 게시글의 개수
@@ -38,7 +34,7 @@ public class NewBookListAction implements Action{
 		endPage = endPage>totalPage ? totalPage : endPage;
 		
 		
-		List<BookDTO> bookList = bookdao.getBookList(startRow,pageSize);//타입 애매할때는 int해놓고 체인지타입
+		List<BookDTO> bookList = bookdao.getBookList(startRow,pageSize,keyword);//타입 애매할때는 int해놓고 체인지타입
 		List<BookDTO> bookList2 = bookdao.getbookBest();
 		
 		req.setAttribute("bookList2", bookList2);//베스트 파트

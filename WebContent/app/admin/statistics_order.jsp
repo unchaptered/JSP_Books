@@ -20,7 +20,7 @@ function drawChart(){
 	var data=new google.visualization.DataTable(json_data);
 	var chart=new google.visualization.ColumnChart(document.getElementById("chart_div"));
 	chart.draw(data, {
-		title: "제품별 재고수량",
+		title: "같은 상품 총 주문수량",
 		width: 1000,
 		height: 500
 	})

@@ -38,12 +38,12 @@
                 <section class="old_book_column old_book_img_conatainer">
                 	<c:choose>
                 		<%-- 정크 이미지 출력 --%>
-	                	<c:when test="${targetBook.bookImage eq 'none'}">
+	                	<c:when test="${targetBook.bookOrgImage eq 'none'}">
 	          				<img src="${cp}/assets/img/cover__1.jpg">
 	               		</c:when>
 	               		<%-- 호출 이미지 출력 --%>
 	               		<c:otherwise>
-	                    	<img src="${cp}/media/${targetBook.bookImage}.jpg">
+	                    	<img src="${cp}/media/${targetBook.bookOrgImage}">
 	               		</c:otherwise>
                 	</c:choose>
                 </section>

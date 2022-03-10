@@ -39,10 +39,21 @@
 							<c:when test="${oldBookHotList.size() > 0 and oldBookHotList != null}">
 								<c:forEach items="${oldBookHotList}" var="oldBookHot" varStatus="status">
 									<div class="header_content_center" style="z-index: ${status.count}">
-									 	<div class="header_content_center_img">
-				                            <img src="${cp}/assets/img/cover__1.jpg">
-									 	</div>
-									 	
+										 <c:choose>
+											<%-- 정크 이미지 출력 --%>
+											<c:when test="${oldBook.bookOrgImage eq 'nonedd'}">
+												<div class="header_content_center_img">
+													<img src="${cp}/assets/img/cover__1.jpg">
+												</div>
+											</c:when>
+											<%-- 호출 이미지 출력 --%>
+											<c:otherwise>
+												<div class="header_content_center_img">
+													<img src="${cp}/assets/img/cover__1.jpg">
+												</div>
+											</c:otherwise>
+										</c:choose>
+
 									 	<div class="header_content_center_datas">
 									 		<h3 class="header_title">${oldBookHot.bookTitle} / ${oldBookHot.bookSubtitle}</h3>
 									 		<h5 class="header_infos">${oldBookHot.bookInfo}</h5>
@@ -91,7 +102,7 @@
 			                    <a href="${cp}/book/OldBookAdd.ob?bookPk=${oldBook.bookPk}" class="feed_content">
 			                    	<c:choose>
 			                    		<%-- 정크 이미지 출력 --%>
-			                    		<c:when test="${oldBook.bookImage eq 'none'}">
+			                    		<c:when test="${oldBook.bookOrgImage eq 'none'}">
 					                        <div class="feed_img_container">
 					                            <img src="${cp}/assets/img/cover__1.jpg">
 					                        </div>
@@ -99,7 +110,7 @@
 			                    		<%-- 호출 이미지 출력 --%>
 			                    		<c:otherwise>
 					                        <div class="feed_img_container">
-					                            <img src="${cp}/media/${oldBook.bookImage}.jpg">
+					                            <img src="${cp}/media/${oldBook.bookOrgImage}">
 					                        </div>
 			                    		</c:otherwise>
 			                    	</c:choose>
@@ -142,7 +153,7 @@
 			                    <a href="${cp}/book/OldBookRead.ob?bookPk=${oldBookStock.bookPk}&oldBookPk=${oldBookStock.oldBookPk}" class="feed_content">
 			                    	<c:choose>
 			                    		<%-- 정크 이미지 출력 --%>
-			                    		<c:when test="${oldBookStock.bookImage eq 'none'}">
+			                    		<c:when test="${oldBookStock.bookOrgImage eq 'none'}">
 					                        <div class="feed_img_container">
 					                            <img src="${cp}/assets/img/cover__1.jpg">
 					                        </div>
@@ -150,7 +161,7 @@
 			                    		<%-- 일반 이미지 출력 --%>
 			                    		<c:otherwise>
 					                        <div class="feed_img_container">
-					                            <img src="${cp}/media/${oldBookStock.bookImage}.jpg">
+					                            <img src="${cp}/media/${oldBookStock.bookOrgImage}">
 					                        </div>
 			                    		</c:otherwise>
 			                    	</c:choose>

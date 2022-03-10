@@ -9,7 +9,7 @@ import action.Action;
 import action.ActionTo;
 import app.post.dao.EventDAO;
 import app.post.dao.LikeDTO;
-import app.user.dao.UserDAO;
+
 import app.user.dao.UserDTO;
 //누르면 +1, 또 누르면 -1되게 수정 필요
 public class EventLikeAction implements Action{

@@ -1,3 +1,4 @@
+<!-- 저자 : carpriceksy -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -75,11 +76,11 @@
 								</li>
 							</ul>
 						</div>
-							
-						<div class="eventBtnArea">
-							<a href="${cp}/post/EventAdd.po?eventPage=${eventPage}" class="eventBtn createEvent">새 이벤트 등록</a>
-						</div>
-							
+						<c:if test="${loginAdmin != null }">	
+							<div class="eventBtnArea">
+								<a href="${cp}/post/EventAdd.po?eventPage=${eventPage}" class="eventBtn createEvent">새 이벤트 등록</a>
+							</div>
+						</c:if>	
 					
 						<div class="eventBox_area">
 							<c:choose>
@@ -89,9 +90,9 @@
 											<c:choose>
 												<c:when test="${event.eventEnded < today}">
 													<a href="${cp}/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
-														
-														<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
-														
+														<c:if test="${loginAdmin != null }">
+															<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
+														</c:if>
 														<div class="eventBox_img">
 															<img src="${cp}/assets/img/event_deadline.png" alt="배너">
 														</div>
@@ -101,16 +102,17 @@
 															</strong>
 															<p class="box_date">
 																기간 : ${event.eventStarted} - ${event.eventEnded}
-																&nbsp;&nbsp;<img src="${cp}/assets/img/event_like_on.png"> ${event.eventLike}
+																&nbsp;&nbsp;조회수 : ${event.postViewed}
+																&nbsp;&nbsp;좋아요 : ${event.eventLike}
 															</p>
 														</div>
 													</a>
 												</c:when>
 												<c:otherwise>
 													<a href="${cp}/post/EventRead.po?eventPk=${event.eventPk}&eventPage=${eventPage}" class="eventBox content__container-4">
-														
+														<c:if test="${loginAdmin != null }">
 															<input type="checkbox" name="eCheck" class="eCheck" value="${event.eventPk}">
-														
+														</c:if>
 														<div class="eventBox_img">
 															<c:choose>
 																<c:when test="${fileList[status.index] != null}">
@@ -121,6 +123,7 @@
 																</c:otherwise>
 															</c:choose>
 														</div>
+														<!--
 														<div class="eventBox_txt">
 															<strong class="box_title">
 																${event.postTitle}
@@ -128,6 +131,17 @@
 															<p class="box_date">
 																기간 : ${event.eventStarted} - ${event.eventEnded}
 																&nbsp;&nbsp;<img src="${cp}/assets/img/event_like_on.png"> ${event.eventLike}
+															</p>
+														</div>
+														-->
+														<div class="eventBox_txt">
+															<strong class="box_title">
+																${event.postTitle}
+															</strong>
+															<p class="box_date">
+																기간 : ${event.eventStarted} - ${event.eventEnded}
+																&nbsp;&nbsp;조회수 : ${event.postViewed}
+																&nbsp;&nbsp;좋아요 : ${event.eventLike}
 															</p>
 														</div>
 													</a>
@@ -144,13 +158,14 @@
 							</c:choose>
 						</div>
 						
+						<c:if test="${loginAdmin != null }">
 							<div class="eventBtnArea">
 								<div class="allCheckArea">
 									전체선택<input type="checkbox" id="thCheck" name="thCheck" onclick="allCheck(this)">
 								</div>
 								<a href="javascript:deleteCheck();" class="eventBtn deleteCheckBtn">선택삭제</a>
 							</div>
-						
+						</c:if>
 						
 						<div class="pagination">
 							<ul>

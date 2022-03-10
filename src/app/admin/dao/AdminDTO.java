@@ -4,21 +4,19 @@ package app.admin.dao;
 
 public class AdminDTO {
 	
-	private int admin_pk;
+	private int adminPk;
 	private String adminname;
 	private String adminid;
 	private String adminpw;
-	private String adminpw_re;
-	
 	private String adminkey;
 	
 	
 	
-	public int getAdmin_pk() {
-		return admin_pk;
+	public int getAdminPk() {
+		return adminPk;
 	}
-	public void setAdmin_pk(int admin_pk) {
-		this.admin_pk = admin_pk;
+	public void setAdminPk(int adminPk) {
+		this.adminPk = adminPk;
 	}
 	public String getAdminname() {
 		return adminname;
@@ -37,12 +35,6 @@ public class AdminDTO {
 	}
 	public void setAdminpw(String adminpw) {
 		this.adminpw = adminpw;
-	}
-	public String getAdminpw_re() {
-		return adminpw_re;
-	}
-	public void setAdminpw_re(String adminpw_re) {
-		this.adminpw_re = adminpw_re;
 	}
 	public String getAdminkey() {
 		return adminkey;
@@ -63,7 +55,7 @@ public class AdminDTO {
 	}
 	@Override
 	public int hashCode() {
-		return admin_pk;
+		return adminPk;
 	
 	}
 }

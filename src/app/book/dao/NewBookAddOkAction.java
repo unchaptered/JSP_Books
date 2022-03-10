@@ -8,12 +8,17 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
 import action.ActionTo;
+import app.book.old.dao.OldBookDAO;
+import app.user.dao.UserDTO;
 
 public class NewBookAddOkAction implements Action{
 
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		
 		BookDAO bdao = new BookDAO();
+		OldBookDAO oldBookDao = new OldBookDAO();
+		
 //		String rootPath = req.getSession().getServletContext().getRealPath("/");
         String saveFolder = "D:\\Code - GitHub Dessktop(Repository)\\project-2021-korea-it-acamedy\\Java\\workspace\\project-2022-01-korea-Books\\WebContent\\media";
 		
@@ -68,6 +73,12 @@ public class NewBookAddOkAction implements Action{
 		
 		if(bdao.insertNewBook(bdto)) {
 			if(!fcheck) {
+				// bookPk 받아오기
+				int userPk = 1; // 임의 값 고정
+				int bookPk = bdao.getBookPkByBookTitle(bdto.getBookTitle());
+				
+				oldBookDao.addOldBookByBookPkWithDiscountValue(userPk, bookPk, 10);				
+				
 				transfer.setRedirect(true);
 				transfer.setPath(req.getContextPath()+"/book/NewBookList.nb");
 				return transfer;

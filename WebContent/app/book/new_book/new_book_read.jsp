@@ -95,7 +95,7 @@
 				<div class="buy_num_out">
 					<input type='button' class="buy_num_plus" onclick='count("plus")'
 						value='+' />
-					<div id='result'>0</div>
+						<div id='result'>0</div>
 					<input type='button' class="buy_num_minus" onclick='count("minus")'
 						value='-' />남은수량 ${book.bookMount}
 				</div>
@@ -186,13 +186,12 @@
 			</div>
 			<!-- 팝업창끝 -->
 
-
 			<!-- 장바구니,바로구매,좋아요 버튼 시작 -->
 			<button class="read_basket">
-			<a href="javascript:addCart(2,2)">장바구니 추가</a>  
+			<a href="javascript:addCart(${book.bookPk },1)">장바구니 추가</a>  
 			</button>
 			<button class="read_buy">
-			<a href="javascript:directBuy(1,1)">바로구매</a>    <!-- 바로구매 테스트용 bookPk 1번, 1개-->
+			<a href="javascript:directBuy(${book.bookPk },1)">바로구매</a>    <!-- 바로구매 테스트용 bookPk 1번, 1개-->
 			</button>
 			<button class="read_like" id="like_back" onclick="like()">
 				♡<span id="like">0</span>
@@ -244,16 +243,18 @@ function count(type)  {
     		alert("최대 주문 수량입니다");
     	}
     	else{
-    		number = parseInt(number) + 1;    		
+     		number = parseInt(number) + 1;
     	}
     }else if(type === 'minus')  {
         if(number == '0'){
             return false;
         }
-    number = parseInt(number) - 1;
+     		number = parseInt(number) - 1; 
     }
     resultElement.innerText = number;
+
 }
+
 </script>
 <script type="text/javascript" src="${cp}/assets/js/shop_button.js"></script> 
 </html>

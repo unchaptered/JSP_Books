@@ -2,6 +2,7 @@ package app.user.dao;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.ActionTo;
@@ -11,6 +12,7 @@ public class UserInfoChangeOkAction implements Action{
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		UserDAO udao = new UserDAO();
 		UserDTO udto = new UserDTO();
+		HttpSession session = req.getSession();
 		udto.setUserEmail(req.getParameter("user_email_text"));
 		udto.setUserName(req.getParameter("user_name_text"));
 		udto.setUserPhone(req.getParameter("user_phone_text"));
@@ -23,6 +25,7 @@ public class UserInfoChangeOkAction implements Action{
 		
 		ActionTo transfer = new ActionTo();
 		if(udao.infoChange(udto)) {
+			session.setAttribute("infoUser", udto);
 			transfer.setPath(req.getContextPath()+"/app/user/user_info.jsp?ch=t");
 			transfer.setRedirect(true);
 		}else {

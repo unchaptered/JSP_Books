@@ -64,15 +64,15 @@
                         		</c:otherwise>
                         	</c:choose>
                         </div>
-                        <%-- <c:if test="${loginAdmin != null}"> --%>
+                        <c:if test="${loginAdmin != null}">
 	                        <div class="eventReadBtn">
-	                        	<%-- <c:if test="${loginAdmin.adminidx == event.postOwner }"> --%>
+	                        	<c:if test="${loginAdmin.adminPk == event.postOwner }">
 	                            	<button class="readBtn" id="eventUpdate" formaction="${cp}/post/EventEdit.po?eventPk=${event.eventPk}" 
 	                            		formmethod="post" onclick="return updateCheck()">수정</button>
-	                            <%-- </c:if> --%>
+	                            </c:if>
 	                            <button class="readBtn" id="eventDelete" formaction="javascript:document.eventRemoveForm.submit()" onclick="return deleteCheck()">삭제</button>
 	                        </div>
-                        <%-- </c:if> --%>
+                        </c:if>
                         <div class="goList_div">
                         	<a href="${cp}/post/EventList.po?eventPage=${param.eventPage==null ? 1 : param.eventPage}" class="goList">목록보기</a>
                     	</div>

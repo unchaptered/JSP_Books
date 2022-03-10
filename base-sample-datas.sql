@@ -13,9 +13,7 @@ INSERT INTO user
 ('tomset92@gmail.com','배효찬','1111','01023347936'),
 ('hollymolly@gmail.com','이민석','1111','01097818756'),
 ('tonke1234@naver.com','정병찬','1111','01030833187');
-INSERT INTO admin
-(adminid, adminpw, adminpw_re, adminname, adminkey) VALUES
-('sample@gmail.com','1111','1111','배효찬','wieiowow');
+
 
 -- 샘플 DATA 1유형 (오늘 날짜 자동으로 설정)
 INSERT INTO new_book
@@ -215,14 +213,9 @@ new_book_pages, new_book_mount, new_book_genre, new_book_country) VALUES
    '432', '0', '기타', '국외'
 );
 INSERT INTO admin
-(adminid, adminpw, adminpw_re, adminname, adminkey) VALUES
-('dmswo0845','1111','1111','고결','01071468059'),
-('seungy98','1111','1111','권승연','01066849394'),
-('khyejin9796','1111','1111','권혜진','01099177371'),
-('igoodithief','1111','1111','김명현','01082174761'),
-('tomset92','1111','1111','배효찬','01023347936'),
-('hollymolly','1111','1111','이민석','01097818756'),
-('tonke1234','1111','1111','정병찬','01030833187');
+(adminid, adminpw, adminname, adminkey) VALUES
+('sample','1111','고결','01071468059')
+
 
 insert into chart (title, price)
 values ('자바의정석',20000),('부의 미래',30000),('국화와 칼',30000),('축적의 길',30000);
@@ -365,3 +358,9 @@ UPDATE new_book SET new_book_pk = 1 WHERE new_book_pk = 2;
 -- ('경제인문'),('컴퓨터'),('기타');
 -- INSERT INTO book_country (book_country_name) VALUES
 -- ('국내'),('국외');
+
+
+SELECT * FROM old_book
+LEFT OUTER JOIN new_book
+	ON old_book.new_book_pk = new_book.new_book_pk
+WHERE old_book_pk = 26;

@@ -25,4 +25,13 @@ WHERE new_book_Pk=#{bookPk}
 			new_book_publisher=#{bookPublisher}, new_book_created=#{bookCreated}, new_book_pages=#{bookPages}, new_book_genre=#{bookGenre}, new_book_country=#{bookCountry},
 			new_book_mount=#{bookMount}
 	</delete>
+	
+	<!-- unchaptered -->
+	<select id="getBookPkByBookTitle"
+		parameterType="String" resultType="bookdto">
+		SELECT 
+			new_book_pk as bookPk
+		FROM new_book
+		WHERE new_book_title = #{bookTitle}
+	</select>
 </mapper>

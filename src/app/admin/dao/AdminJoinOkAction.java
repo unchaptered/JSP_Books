@@ -17,7 +17,6 @@ public class AdminJoinOkAction implements Action {
 		newAdmin.setAdminid(req.getParameter("adminid"));
 		newAdmin.setAdminname(req.getParameter("adminname"));
 		newAdmin.setAdminpw(req.getParameter("adminpw")); 
-		newAdmin.setAdminpw_re(req.getParameter("adminpw_re"));
 		newAdmin.setAdminkey(req.getParameter("adminkey"));
 		
 		ActionTo transfer = new ActionTo();
