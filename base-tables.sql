@@ -16,8 +16,8 @@ CREATE TABLE user (
    user_bank VARCHAR(1000),
    user_bank_account VARCHAR(1000)
 );
-CREATE TABLE admin(
-	adminidx INT AUTO_INCREMENT PRIMARY KEY,
+create table admin(
+	admin_pk INT AUTO_INCREMENT PRIMARY KEY,
 	adminid varchar(300) unique not null,
    adminpw varchar(300) not null,
 	adminpw_re varchar(300) not null,

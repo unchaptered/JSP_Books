@@ -4,6 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Chart">
 	<select id="show1" parameterType="java.util.List" resultType="chartdto">
-		select * from chart
+		select new_book_title as newbooktitle, sum(new_book_mount) as newbookmount from new_book
+group by new_book_title;
+	</select>
+	<select id="show2" parameterType="java.util.List" resultType="chartdto">
+		SELECT right(bill_date,8) as billdate , bill_total_price as billprice from bill;
+	</select>
+	<select id="show3" parameterType="java.util.List" resultType="chartdto">
+		select new_book_pk, count(new_book_pk) as ordercount from products
+group by new_book_pk;
+	</select>
+	<select id="show4" parameterType="java.util.List" resultType="chartdto">
+		select user.user_name as username, sum(bill.bill_total_price) as onedaytotal
+from bill inner join user on bill.user_pk= user.user_pk 
+group by user_name;
 	</select>
 </mapper>
+
+	
