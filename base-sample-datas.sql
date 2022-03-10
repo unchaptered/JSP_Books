@@ -365,3 +365,9 @@ UPDATE new_book SET new_book_pk = 1 WHERE new_book_pk = 2;
 -- ('경제인문'),('컴퓨터'),('기타');
 -- INSERT INTO book_country (book_country_name) VALUES
 -- ('국내'),('국외');
+
+
+SELECT * FROM old_book
+LEFT OUTER JOIN new_book
+	ON old_book.new_book_pk = new_book.new_book_pk
+WHERE old_book_pk = 26;

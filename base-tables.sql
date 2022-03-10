@@ -37,10 +37,10 @@ CREATE TABLE post (
    post_created datetime default now(),
    post_viewed int default 0,
    FOREIGN KEY (post_owner) 
-		REFERENCES admin (admin_pk)
+		REFERENCES admin (adminidx)
 );
 CREATE TABLE post_files (
-   post_file_pk BIGINT PRIMARY KEY,
+   post_file_pk BIGINT AUTO_INCREMENT PRIMARY KEY,
    post_file_system VARCHAR(1000),
    post_file_origin VARCHAR(1000)
 );

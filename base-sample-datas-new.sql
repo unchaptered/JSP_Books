@@ -98,12 +98,11 @@ INSERT INTO user
 
 INSERT INTO admin
 (
-adminidx,
 adminid,
 adminpw,
 adminpw_re,
 adminname,
-adminkey,
+adminkey
 ) VALUES
 (
 'admin@gmail.com',
@@ -430,16 +429,17 @@ INSERT INTO old_book
 
 UPDATE old_book SET old_book_discount = old_book_discount + 10;
 
+SELECT * FROM old_book;
 SELECT * FROM old_book WHERE new_book_pk = 1;
 
 DELETE FROM old_book WHERE new_book_pk = 3 AND old_book_discount = 30 ;
 
-SELECT
-old_book_discount as oldBookDiscount,
-COUNT(*)  as oldBookMount
-FROM old_book
-WHERE new_book_pk = 9
-GROUP BY old_book_discount;
+-- SELECT
+-- old_book_discount as oldBookDiscount,
+-- COUNT(*)  as oldBookMount
+-- FROM old_book
+-- WHERE new_book_pk = 9
+-- GROUP BY old_book_discount;
 
 INSERT INTO old_book_selled
 (
@@ -447,137 +447,162 @@ INSERT INTO old_book_selled
 ) VALUES
 (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15),(16),(17),(18),(19),(20),(21),(22),(23),(24),(25),(26);
 
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[마음의숲] <심해수> 특별한정판 세트 이벤트","<심해수> 특별한정판 세트 이벤트 마우스패드 & 포토 카드 6종 증정",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31",1);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트","아무 내용",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",2);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[RHK] 돈의 공식_출간 기념 이벤트",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",3);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[문학동네] <죠죠리온> 출간 이벤트",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",4);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[마음의숲] <심해수> 특별한정판 세트 이벤트","<심해수> 특별한정판 세트 이벤트 마우스패드 & 포토 카드 6종 증정",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",5);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",6);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[RHK] 돈의 공식_출간 기념 이벤트",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",7);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[문학동네] <죠죠리온> 출간 이벤트",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",8);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[마음의숲] <심해수> 특별한정판 세트 이벤트","<심해수> 특별한정판 세트 이벤트 마우스패드 & 포토 카드 6종 증정",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",9);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",10);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[RHK] 돈의 공식_출간 기념 이벤트",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",11);
+INSERT INTO post (post_title,post_text,post_owner) VALUES ("[문학동네] <죠죠리온> 출간 이벤트",1);
+INSERT INTO post_event (event_started,event_ended,post_pk) VALUES ("2022-03-01","2022-03-31","아무 내용",12);
 
+SELECT * FROM post_event;
+
+
+-- SELECT * FROM user;
+-- SELECT * FROM admin;
+
+-- SELECT * FROM new_book;
+-- SELECT * FROM old_book;
+
+-- SELECT 
+--     old_book_pk as oldBookPk,
+-- 	new_book_title as bookTitle,
+-- 	new_book_price as bookPrice,
+-- 	new_book_writer as bookWriter,
+-- 	new_book_created as bookCreated
+-- FROM old_book
+--     LEFT OUTER JOIN new_book
+--         ON old_book.new_book_pk = new_book.new_book_pk
+-- 	LIMIT 5;
+-- SELECT * FROM old_book;
+
+
+-- SELECT 
+--     old_book_pk as oldBookPk,
+-- 	new_book_image as bookImage,
+-- 	new_book_title as bookTitle,
+-- 	new_book_price as bookPrice,
+-- 	new_book_writer as bookWriter,
+-- 	new_book_created as bookCreated
+-- FROM old_book
+--     LEFT OUTER JOIN new_book
+--         ON old_book.new_book_pk = new_book.new_book_pk
+-- WHERE old_book_discount > 0
+-- 	LIMIT 5;
+
+-- SELECT * FROM old_book
+--     LEFT OUTER JOIN user
+--         ON old_book.user_pk = user.user_pk;
+
+-- -- SELECT * FROM old_book
+-- --     LEFT OUTER JOIN admin
+-- --         ON old_book.admin_pk = admin.admin_pk;
+
+-- -- SELECT * FROM old_book
+-- --     LEFT OUTER JOIN new_book
+-- --         ON old_book.new_book_pk = new_book.new_book_pk
+-- --     LEFT OUTER JOIN user
+-- --         ON old_book.user_pk = user.user_pk
+-- --     LEFT OUTER JOIN admin
+-- --         ON old_book.admin_pk = admin.admin_pk;
+
+-- SELECT * FROM old_book_selled;
+
+-- UPDATE old_book_selled
+-- SET old_book_selled_count = old_book_selled_count + 1
+-- WHERE old_book_selled_pk = 12;
+
+-- SELECT
+-- 	old_book_selled.old_book_selled_pk as oldBookSelledPk,
+--     old_book_selled.old_book_selled_count as oldBookSelledCount,
+--     old_book_selled.new_book_pk as bookPk,
+--     new_book.new_book_title as bookTitle,
+--     new_book.new_book_subtitle as bookSubtitle,
+--     new_book.new_book_info as bookInfo,
+--     new_book.new_book_info_short as bookInfoShort,
+--     new_book.new_book_writer as bookWriter,
+--     new_book.new_book_created as bookCreate
+-- FROM old_book_selled
+-- LEFT OUTER JOIN new_book
+-- 	ON old_book_selled.new_book_pk = new_book.new_book_pk
+-- ORDER BY old_book_selled_count DESC
+-- LIMIT 3;
+
+
+-- -- 재고량 가져오기
+
+-- SELECT
+-- 	new_book_genre as bookGenre,
+--     new_book_writer as bookWriter
+-- FROM old_book
+-- LEFT OUTER JOIN new_book
+-- 	ON old_book.new_book_pk = new_book.new_book_pk
+-- WHERE old_book.new_book_pk = 3
+-- GROUP BY new_book.new_book_pk
+-- LIMIT 1;
+
+-- SELECT
+--     old_book_pk as oldBookPk,
+-- 	new_book_image as bookImage,
+-- 	new_book_title as bookTitle,
+-- 	new_book_price as bookPrice,
+-- 	new_book_writer as bookWriter,
+-- 	new_book_created as bookCreated,
+--     new_book_genre as bookGenre
+-- FROM old_book
+-- LEFT OUTER JOIN new_book
+-- 	ON old_book.new_book_pk = new_book.new_book_pk
+-- WHERE new_book.new_book_genre = '소설'
+-- GROUP BY new_book.new_book_pk
+-- ORDER BY old_book_pk DESC
+-- LIMIT 6;
+
+-- SELECT
+-- 	old_book.new_book_pk as bookPk,
+--     old_book_pk as oldBookPk,
+-- 	new_book_image as bookImage,
+-- 	new_book_title as bookTitle,
+-- 	new_book_price as bookPrice,
+-- 	new_book_writer as bookWriter,
+-- 	new_book_created as bookCreated
+-- FROM old_book
+-- LEFT OUTER JOIN new_book
+-- 	ON old_book.new_book_pk = new_book.new_book_pk
+-- WHERE new_book.new_book_writer = '작가 B'
+-- GROUP BY new_book.new_book_pk
+-- ORDER BY old_book_pk DESC
+-- LIMIT 6;
+-- SELECT * FROM old_book WHERE new_book_pk=12;
 SELECT * FROM user;
-SELECT * FROM admin;
-
 SELECT * FROM new_book;
-SELECT * FROM old_book;
-
-SELECT 
-    old_book_pk as oldBookPk,
-	new_book_title as bookTitle,
-	new_book_price as bookPrice,
-	new_book_writer as bookWriter,
-	new_book_created as bookCreated
-FROM old_book
-    LEFT OUTER JOIN new_book
-        ON old_book.new_book_pk = new_book.new_book_pk
-	LIMIT 5;
-SELECT * FROM old_book;
-
-
-SELECT 
-    old_book_pk as oldBookPk,
-	new_book_image as bookImage,
-	new_book_title as bookTitle,
-	new_book_price as bookPrice,
-	new_book_writer as bookWriter,
-	new_book_created as bookCreated
-FROM old_book
-    LEFT OUTER JOIN new_book
-        ON old_book.new_book_pk = new_book.new_book_pk
-WHERE old_book_discount > 0
-	LIMIT 5;
-
-SELECT * FROM old_book
-    LEFT OUTER JOIN user
-        ON old_book.user_pk = user.user_pk;
-
-SELECT * FROM old_book
-    LEFT OUTER JOIN admin
-        ON old_book.admin_pk = admin.admin_pk;
-
-SELECT * FROM old_book
-    LEFT OUTER JOIN new_book
-        ON old_book.new_book_pk = new_book.new_book_pk
-    LEFT OUTER JOIN user
-        ON old_book.user_pk = user.user_pk
-    LEFT OUTER JOIN admin
-        ON old_book.admin_pk = admin.admin_pk;
-
-SELECT * FROM old_book_selled;
-
-UPDATE old_book_selled
-SET old_book_selled_count = old_book_selled_count + 1
-WHERE old_book_selled_pk = 12;
-
-SELECT
-	old_book_selled.old_book_selled_pk as oldBookSelledPk,
-    old_book_selled.old_book_selled_count as oldBookSelledCount,
-    old_book_selled.new_book_pk as bookPk,
-    new_book.new_book_title as bookTitle,
-    new_book.new_book_subtitle as bookSubtitle,
-    new_book.new_book_info as bookInfo,
-    new_book.new_book_info_short as bookInfoShort,
-    new_book.new_book_writer as bookWriter,
-    new_book.new_book_created as bookCreate
-FROM old_book_selled
-LEFT OUTER JOIN new_book
-	ON old_book_selled.new_book_pk = new_book.new_book_pk
-ORDER BY old_book_selled_count DESC
-LIMIT 3;
-
-
--- 재고량 가져오기
-
-SELECT
-	new_book_genre as bookGenre,
-    new_book_writer as bookWriter
-FROM old_book
-LEFT OUTER JOIN new_book
-	ON old_book.new_book_pk = new_book.new_book_pk
-WHERE old_book.new_book_pk = 3
-GROUP BY new_book.new_book_pk
-LIMIT 1;
-
-SELECT
-    old_book_pk as oldBookPk,
-	new_book_image as bookImage,
-	new_book_title as bookTitle,
-	new_book_price as bookPrice,
-	new_book_writer as bookWriter,
-	new_book_created as bookCreated,
-    new_book_genre as bookGenre
-FROM old_book
-LEFT OUTER JOIN new_book
-	ON old_book.new_book_pk = new_book.new_book_pk
-WHERE new_book.new_book_genre = '소설'
-GROUP BY new_book.new_book_pk
-ORDER BY old_book_pk DESC
-LIMIT 6;
-
-SELECT
-	old_book.new_book_pk as bookPk,
-    old_book_pk as oldBookPk,
-	new_book_image as bookImage,
-	new_book_title as bookTitle,
-	new_book_price as bookPrice,
-	new_book_writer as bookWriter,
-	new_book_created as bookCreated
-FROM old_book
-LEFT OUTER JOIN new_book
-	ON old_book.new_book_pk = new_book.new_book_pk
-WHERE new_book.new_book_writer = '작가 B'
-GROUP BY new_book.new_book_pk
-ORDER BY old_book_pk DESC
-LIMIT 6;
-
-SELECT * FROM old_book WHERE new_book_pk=12;
-
-SELECT
-	old_book_pk as oldBookPk,
-    old_book.new_book_pk as bookPk,
-	new_book_image as bookImage,
-	new_book_title as bookTitle,
-	new_book_price as bookPrice,
-	new_book_writer as bookWriter,
-	new_book_created as bookCreated
-FROM old_book
-	LEFT OUTER JOIN new_book
-		ON old_book.new_book_pk = new_book.new_book_pk
-GROUP BY old_book.new_book_pk
-ORDER BY old_book_pk DESC
-LIMIT 6;
-
-SELECT * FROM old_book;
+-- SELECT
+-- 	old_book_pk as oldBookPk,
+--     old_book.new_book_pk as bookPk,
+-- 	new_book_image as bookImage,
+-- 	new_book_title as bookTitle,
+-- 	new_book_price as bookPrice,
+-- 	new_book_writer as bookWriter,
+-- 	new_book_created as bookCreated
+-- FROM old_book
+-- 	LEFT OUTER JOIN new_book
+-- 		ON old_book.new_book_pk = new_book.new_book_pk
+-- GROUP BY old_book.new_book_pk
+-- ORDER BY old_book_pk DESC
+-- LIMIT 6;
