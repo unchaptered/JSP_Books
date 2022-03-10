@@ -257,9 +257,16 @@ h4{
 }
 
 .header_box1{
-    width: 200px;
-    height: 70px;
-    background-color:  rgb(53,53,53);
+   position:absolute;
+    margin-left:1140px;
+    margin-top:12px;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height:40px;
+    background-color:  rgb(172,184,201);
+    font-family: 'Noto Sans KR', sans-serif;
 }
 .header_box2{
     position:absolute;

@@ -82,17 +82,22 @@ public class AdminFrontController extends HttpServlet{
 			}
 			break;
 			
+		case "/admin/AdminLogin.adm":
+			transfer = new ActionTo();
+			transfer.setPath("/app/admin/admin_index.jsp");
+			transfer.setRedirect(false);
+			break;	
+			
 		case "/admin/AdminLoginOk.adm":
 			try {
 				transfer= new AdminLoginOkAction().execute(req,resp);
-				transfer = new ActionTo();
-				transfer.setPath("/app/admin/admin_index.jsp");
-				transfer.setRedirect(false);
+				
 				
 			} catch (Exception e) {
 				System.out.println("AdminJoinOk : " +e);
 			}
 			break;
+		
 		
 		case "/admin/AdminLogoutOk.adm":
 			transfer = new ActionTo();
@@ -111,15 +116,30 @@ public class AdminFrontController extends HttpServlet{
 			break;
 		case "/admin/chart2View.adm":
 			try {
-				System.out.println("여긴?");
 				transfer= new ChartShowOkAction2().execute(req,resp);
 				
 			} catch (Exception e) {
 				System.out.println("chart error : " +e);
 			}
 			break;	
-			
-			
+//			주문분석
+		case "/admin/chart3View.adm":
+			try {
+				transfer= new ChartShowOkAction3().execute(req,resp);
+				
+			} catch (Exception e) {
+				System.out.println("chart error : " +e);
+			}
+			break;		
+//			방문자분석
+		case "/admin/chart4View.adm":
+			try {
+				transfer= new ChartShowOkAction4().execute(req,resp);
+				
+			} catch (Exception e) {
+				System.out.println("chart error : " +e);
+			}
+			break;	
 			
 			
 		}

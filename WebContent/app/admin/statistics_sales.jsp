@@ -8,24 +8,21 @@
 <script src="https://www.google.com/jsapi"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-<%System.out.println("BB");%>
+<%System.out.println("AA");%>
 google.load("visualization","1",{"packages":["corechart"]});
 google.setOnLoadCallback(drawChart);
 function drawChart(){
-	
 	var json_data=$.ajax({
 		url: "${pageContext.request.contextPath}/admin/chart2View.adm",
 		async:false
 	}).responseText;
 	console.log('json데이터최종 확인'+ json_data);
 	var data=new google.visualization.DataTable(json_data);
-	var chart=new google.visualization.LineChart(document.getElementById("curve_chart"));
+	var chart=new google.visualization.LineChart(document.getElementById("chart_div"));
 	chart.draw(data, {
-		title: "Total Sales",
-		curveType: "function",
-		legend: {position:"bottom"},
-		width: 1000,
-		height: 400
+		title: "실시간 결제 금액 추이",
+		width: 600,
+		height: 440
 	})
 
 }
@@ -35,6 +32,6 @@ function drawChart(){
 </head>
 <body>
 <div id="chart_div"></div>
-<button id="btn" type="button" onclick="curve_chart()">refresh</button>
+<button id="btn" type="button" onclick="drawChart()">refresh</button>
 </body>
 </html>

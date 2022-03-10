@@ -41,15 +41,15 @@
                 <div class="visitorFont"><h2>방문자 분석</h2></div>
             </div>
             <div class="content_container2">
-                <a href="statistics_visitors.jsp"><div><img src="${cp}/assets/img/goods.png"  class="content2"></div></a>
-                <div class="goodsFont"><h2>상품 분석</h2></div>
+                <a href="statistics_goods.jsp"><div><img src="${cp}/assets/img/goods.png"  class="content2"></div></a>
+                <div class="goodsFont"><h2>재고 분석</h2></div>
             </div>
             <div class="content_container3">
-               <a href=""> <div><img src="${cp}/assets/img/order.png"  class="content3"></div></a>
+               <a href="statistics_order.jsp"> <div><img src="${cp}/assets/img/order.png"  class="content3"></div></a>
                 <div class="orderFont"><h2>주문 분석</h2></div>
             </div>
             <div class="content_container4">
-               <a href=""> <div><img src="${cp}/assets/img/sales.jpg" class="content4"></div></a>
+               <a href="statistics_sales.jsp"> <div><img src="${cp}/assets/img/sales.jpg" class="content4"></div></a>
                 <div class="salesFont"><h2>매출 분석</h2></div>
             </div>
 

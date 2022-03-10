@@ -49,7 +49,7 @@
 
             <div class="container_dep">
                 <div>
-                    <div><a href="./관리자 회원가입.html">회원가입</a></div>
+                    <div><a href="${cp}/app/admin/admin_join.jsp">회원가입</a></div>
                     <!--회원가입-->
                 </div>
                 <div>

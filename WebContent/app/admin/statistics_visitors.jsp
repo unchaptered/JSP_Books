@@ -8,21 +8,21 @@
 <script src="https://www.google.com/jsapi"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-<%System.out.println("BB");%>
+<%System.out.println("AA");%>
 google.load("visualization","1",{"packages":["corechart"]});
 google.setOnLoadCallback(drawChart);
 function drawChart(){
 	var json_data=$.ajax({
-		url: "${pageContext.request.contextPath}/admin/chart1View.adm",
+		url: "${pageContext.request.contextPath}/admin/chart4View.adm",
 		async:false
 	}).responseText;
 	console.log('json데이터최종 확인'+ json_data);
 	var data=new google.visualization.DataTable(json_data);
 	var chart=new google.visualization.ColumnChart(document.getElementById("chart_div"));
 	chart.draw(data, {
-		title: "제품별 재고수량",
+		title: "한 손님이 하루에 결제한 총 금액",
 		width: 1000,
-		height: 500
+		height: 550
 	})
 
 }

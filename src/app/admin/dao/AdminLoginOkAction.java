@@ -20,7 +20,8 @@ public class AdminLoginOkAction implements Action {
 		ActionTo transfer = new ActionTo();
 		if(loginAdmin != null) {
 			session.setAttribute("loginAdmin", loginAdmin);
-			
+			transfer.setRedirect(false);
+			transfer.setPath("/app/admin/admin_index.jsp");
 		}
 		else {
 			transfer.setRedirect(false);

@@ -17,13 +17,15 @@
 		<script>
 			let cp = "${pageContext.request.contextPath}";
 		 	alert("로그인 후 이용하세요");
-		 	location.replace(cp+"/admin/AdminJoin.adm")
+		 	location.replace(cp+"/app/admin/admin_login.jsp")
 		</script>
 	</c:if>
     <div class="container">
         <header class="index_header">
             <div class="header_box1"></div>
-            <a href="${cp}/admin/AdminLogoutOk.adm" class="header_box2"><div >로그아웃</div></a>
+            <span>${loginAdmin.adminPk}${loginAdmin.adminname}관리자님 접속하셨습니다</span>
+            <a href="${cp}/app/admin/admin_login.jsp" class="header_box1"><div >로그인</div></a>
+            <a href="${cp}/admin/AdminLogoutOk.adm" class="header_box2"><div onclick="f_logout()">로그아웃</div></a>
             <a href="${cp}/index.jsp" class="header_box3"><div >나가기</div></a>
         </header>
    
@@ -49,7 +51,7 @@
             <div>
                 <div id="menu1">
                     <ul class="main">
-                        <li><a href="#" class="board_adm"> 게시물 관리</a>
+                        <li><div class="board_adm"> 게시물 관리</div>
                             <ul class="sub">
                                 <li><a href="${cp}/post/NoticeList.po" class="board_adm1"> 공지사항 관리</a></li>
                                 <li><a href="${cp}/post/EventList.po" class="board_adm2"> 이벤트 관리</a></li>
@@ -231,22 +233,25 @@
         
     </div>
     <!-- 높이와 너비가 지정된 Dom 을 생성합니다 -->
-
+<script>const cp = "${pageContext.request.contextPath}"</script>
 <script type="text/javascript">
+	function f_logout(){
+		alert('관리자 로그아웃 되었습니다');
+	}
     // DOM을 준비하고 echart 객체를 만듭니다.
     var myChart = echarts.init(document.getElementById('main2'));
 
     // 차트 속성과 데이터를 지정합니다.
     var option = {
         title: {
-            text: 'ECharts entry example'
+            text: '판매수량'
         },
         tooltip: {},
         legend: {
             data:['Sales']
         },
         xAxis: {
-            data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
+            data: ["자바의 정석","국화와 칼","축적의 길","심리학의 이해","C 프로그래밍","리눅스 프로그래밍"]
         },
         yAxis: {},
         series: [{

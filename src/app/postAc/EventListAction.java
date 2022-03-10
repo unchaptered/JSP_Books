@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.ActionTo;
+import app.admin.dao.AdminDTO;
 import app.post.dao.EventDAO;
 import app.post.dao.EventDTO;
 import app.post.dao.FileDAO;
@@ -56,7 +58,7 @@ public class EventListAction implements Action{
 		req.setAttribute("keyword", keyword);
 		req.setAttribute("sort", sort);
 		
-		//첨부파일 세팅 //수정필요
+		//첨부파일 세팅
 		String[] fileList = new String[eventList.size()];
 		for (int i = 0; i < eventList.size(); i++) {
 			FileDTO file = fdao.getFile(eventList.get(i).getEventFile());
@@ -66,6 +68,8 @@ public class EventListAction implements Action{
 		}
 		req.setAttribute("fileList", fileList);
 		
+
+
 		//보내기
 		ActionTo transfer = new ActionTo();
 		transfer.setPath("/app/post/event_post/event_list.jsp");

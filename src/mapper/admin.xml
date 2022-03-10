@@ -4,16 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Admin">
 	<insert id="join" parameterType="admindto">
-		INSERT INTO admin (adminid, adminpw, adminpw_re,
+		INSERT INTO admin (adminid, adminpw,
 		adminname, adminkey) VALUES (#{adminid},
-		#{adminpw}, #{adminpw_re}, #{adminname}, #{adminkey})
+		#{adminpw}, #{adminname}, #{adminkey})
 	</insert>
 	<!-- newadmin.getadminid() -->
 	<select id="login" parameterType="hashmap" resultType="admindto">
-		select * from admin where adminid=#{adminid} and adminpw=#{adminpw}
+		select admin_pk as adminPk, adminid, adminpw, adminname, adminkey
+		from admin where adminid=#{adminid} and adminpw=#{adminpw}
 	</select>
 	<select id="getList" resultType="admindto">
-		select * from admin
+		select admin_pk as adminPk, adminid, adminpw, adminname, adminkey
+		from admin
 	</select>
 	<select id="checkId" parameterType="string" resultType="_int">
 		select count(*) from admin where adminid=#{adminid}

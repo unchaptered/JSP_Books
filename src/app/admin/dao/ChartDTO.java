@@ -1,42 +1,75 @@
 package app.admin.dao;
 
 public class ChartDTO {
-	String title;
-	int price;
-	
-	String bill_allcount;
-	int bill_allprice;
-	
-	
-	public String getBill_allcount() {
-		return bill_allcount;
+	String newbooktitle;
+	int newbookmount;
+	String billdate;
+	String billprice;
+	String new_book_pk;
+	int ordercount;
+	String username;
+	String onedaytotal;
+	public String getNewbooktitle() {
+		return newbooktitle;
 	}
-	public void setBill_allcount(String bill_allcount) {
-		this.bill_allcount = bill_allcount;
+	public void setNewbooktitle(String newbooktitle) {
+		this.newbooktitle = newbooktitle;
 	}
-	public int getBill_allprice() {
-		return bill_allprice;
+	public int getNewbookmount() {
+		return newbookmount;
 	}
-	public void setBill_allprice(int bill_allprice) {
-		this.bill_allprice = bill_allprice;
+	public void setNewbookmount(int newbookmount) {
+		this.newbookmount = newbookmount;
 	}
-	public String getTitle() {
-		return title;
+	public String getBilldate() {
+		return billdate;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setBilldate(String billdate) {
+		this.billdate = billdate;
 	}
-	public int getPrice() {
-		return price;
+	public String getBillprice() {
+		return billprice;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setBillprice(String billprice) {
+		this.billprice = billprice;
+	}
+	public String getNew_book_pk() {
+		return new_book_pk;
+	}
+	public void setNew_book_pk(String new_book_pk) {
+		this.new_book_pk = new_book_pk;
+	}
+	public int getOrdercount() {
+		return ordercount;
+	}
+	public void setOrdercount(int ordercount) {
+		this.ordercount = ordercount;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getOnedaytotal() {
+		return onedaytotal;
+	}
+	public void setOnedaytotal(String onedaytotal) {
+		this.onedaytotal = onedaytotal;
 	}
 	@Override
 	public String toString() {
-		return "ChartDTO [title=" + title + ", price=" + price + ", bill_allcount=" + bill_allcount + ", bill_allprice="
-				+ bill_allprice + "]";
+		return "ChartDTO [newbooktitle=" + newbooktitle + ", newbookmount=" + newbookmount + ", billdate=" + billdate
+				+ ", billprice=" + billprice + ", new_book_pk=" + new_book_pk + ", ordercount=" + ordercount
+				+ ", username=" + username + ", onedaytotal=" + onedaytotal + ", getNewbooktitle()=" + getNewbooktitle()
+				+ ", getNewbookmount()=" + getNewbookmount() + ", getBilldate()=" + getBilldate() + ", getBillprice()="
+				+ getBillprice() + ", getNew_book_pk()=" + getNew_book_pk() + ", getOrdercount()=" + getOrdercount()
+				+ ", getUsername()=" + getUsername() + ", getOnedaytotal()=" + getOnedaytotal() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
+	
+
 	
 	
 	

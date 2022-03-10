@@ -40,3 +40,4 @@ window.addEventListener('scroll',function(){
         // console.log("이건가?")
     }
 });
+

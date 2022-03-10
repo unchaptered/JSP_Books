@@ -4,10 +4,10 @@
     height: auto;
     margin: 0 auto;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1100px) {
     .main_content {
-        width: 100%;
-        /* width: 1100px; */
+        width: 100%; 
+        /* width: 1100px;  */
         height: auto;
     }
 }
@@ -16,9 +16,10 @@ ul,li{
 }
 @media screen and (max-width: 768px) {
     .main_content {
-        width: 100%;
-        /* width: 1070px; */
+         width: 100%; 
+         /* width: 1070px;  */
         height: auto;
+        justify-items: space-between;
     }
 }
 
@@ -27,6 +28,7 @@ ul,li{
     margin: 0 auto;
     gap: 20px;
     display: grid;
+    justify-items: space-between;
     grid-template: repeat(1,1fr)/ repeat(12, 1fr);
     /* 구간 나누기 */
 }
@@ -42,6 +44,7 @@ ul,li{
 }
 
 .book_explain_content{
+	/* width : 1100px; */
     position: relative;
     /* left: 10%; */
     margin: 0 auto;
@@ -58,6 +61,18 @@ ul,li{
     /* text-align: center; */
     /* width: 800px; */
     grid-column: span 8;
+}
+@media screen and (max-width: 768px) {
+    .book_explain_writer{
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid green; */
+    align-items: center;
+    /* text-align: center; */
+    /* width: 800px; */
+    grid-column: span 6;
+}
 }
 .writer{
     border-bottom: 1px solid gray;
@@ -283,6 +298,9 @@ ul,li{
 /* 장바구니, 바로구매 버튼 */
 
 /* 책내용 소개 파트 */
+.main_content .first{
+	margin-top: 40px;
+}
 .readinfo{
     margin-top: 30px;
     grid-column: span 12;

@@ -20,6 +20,7 @@
 <link rel="stylesheet"
 	href="${cp }/assets/css/screens/new_book/page_basket.css">
 </head>
+<script>let cp = "${pageContext.request.contextPath}";</script>
 <body>
 	<!-- 경로 수정하셔야 합니다. -->
 	<%@ include file="../../../app/components/nav.jsp"%>
@@ -31,16 +32,15 @@
 			</div>
 			<section class="main_content backimg">
 			<!-- ------------------------------------------------------------- -->
-				<c:set var="arData" value="<%=new int[]{1,2,3} %>"/>
 			<c:choose>
 			<c:when test="${bookList2.size()>0 and bookList2 != null}">
 			<c:forEach var="best" items="${bookList2 }" varStatus="status">
 			<div class="content_container_best">		
 						<img src="${cp }/assets/img/new_book/images/best-${status.index+1}.png" alt="">
-					<div class="photo"></div>
+						<div class="photo"><img src="${cp}/media/${best.bookOrgImage}" alt=""></div>
 					<div class="book_name">
 						<p>
-							<a href=""><h3>${best.bookTitle }</h3></a> 
+							<a href="${cp }/book/NewBookRead.nb?bookPk=${best.bookPk}"><h3>${best.bookTitle }</h3></a> 
 							<input type="button" value="${best.bookWriter}" name="writer">/<input type="button" value="${best.bookPublisher }" name="company">
 							<br> ${best.bookPrice}원
 						</p>
@@ -60,7 +60,7 @@
 			</c:when>
 			<c:otherwise>
 				<div class="content_container_best">
-					<img src="${cp }/assets/img/new_book/images/best-1.png" alt="">
+					<img src="${cp}/media/${best.bookOrgImage}" alt="">
 					<div class="photo"></div>
 					<div class="book_name">
 						<p>
@@ -93,8 +93,8 @@
 							<a href="#">국내도서</a>
 						</ul>
 						<ul class="ul_part1">
-							<li><a href="#" class="kor_1">소설</a></li>
-							<li><a href="#" class="kor_2">시/에세이</a></li>
+							<li><a href="javascript:sendit()"  class="kor_1" id="cate" name="cate" value="소설">소설</a></li>
+							<li><a href=""  class="kor_2" onclick="sendit2()" id="cate" name="cate" value="소설">시/에세이</a></li>
 							<li><a href="#" class="kor_3">경제경영</a></li>
 						</ul>
 						<ul class="ul_part2">
@@ -142,10 +142,10 @@
 					<c:when test="${bookList.size()>0 and bookList != null }">
 						<c:forEach var="title" items="${bookList}">
 						<div class="content_container">
-						<input type="checkbox" id="check" name="check1" value="왼쪽위"
-							onclick="checkthis()">
+<!-- 						<input type="checkbox" id="check" name="check1" value="왼쪽위"
+							onclick="checkthis()"> -->
 						<div class="photo">
-							<img src="${title.bookImage }" alt="">
+							<img src="${cp}/media/${title.bookOrgImage}" alt="">
 						</div>
 							<div class="book_name">
 							<p>
@@ -164,9 +164,6 @@
 					</div>
 				</section>
 			</form>
-		</div>
-		<div id="basket">
-			<a href="#" id="basket2" onclick="">장바구니</a>
 		</div>
 		<div class="pagination">
 			<table class="pagtable">
@@ -198,6 +195,16 @@
 		<%@ include file="../../../app/components/footer.jsp"%>
 </body>
 <!-- 경로 수정하셔야 합니다. -->
+<script>
+     function sendit(){
+    	let q = document.getElementById('q');
+    	location.href = cp+"/book/NewBookList.nb?keyword="+q.value;
+
+    }
+
+
+
+</script>
 <script type="text/javascript" src="../../../assets/js/nav_menu.js"></script>
 <script src="../../../assets/js/new_book/index_page.js"></script>
 </html>

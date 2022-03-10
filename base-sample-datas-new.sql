@@ -96,21 +96,6 @@ INSERT INTO user
     'G계좌번호'
 );
 
-INSERT INTO admin
-(
-adminid,
-adminpw,
-adminpw_re,
-adminname,
-adminkey
-) VALUES
-(
-'admin@gmail.com',
-'1234',
-'1234',
-'총합 관리자',
-'1234'
-);
 
 -- INSERT INTO admin
 -- (
@@ -606,3 +591,196 @@ SELECT * FROM new_book;
 -- GROUP BY old_book.new_book_pk
 -- ORDER BY old_book_pk DESC
 -- LIMIT 6;
+SELECT * FROM old_book;
+
+SELECT 
+    old_book_pk as oldBookPk,
+	new_book_title as bookTitle,
+	new_book_price as bookPrice,
+	new_book_writer as bookWriter,
+	new_book_created as bookCreated
+FROM old_book
+    LEFT OUTER JOIN new_book
+        ON old_book.new_book_pk = new_book.new_book_pk
+	LIMIT 5;
+SELECT * FROM old_book;
+
+
+SELECT 
+    old_book_pk as oldBookPk,
+	new_book_image as bookImage,
+	new_book_title as bookTitle,
+	new_book_price as bookPrice,
+	new_book_writer as bookWriter,
+	new_book_created as bookCreated
+FROM old_book
+    LEFT OUTER JOIN new_book
+        ON old_book.new_book_pk = new_book.new_book_pk
+WHERE old_book_discount > 0
+	LIMIT 5;
+
+SELECT * FROM old_book
+    LEFT OUTER JOIN user
+        ON old_book.user_pk = user.user_pk;
+
+SELECT * FROM old_book
+    LEFT OUTER JOIN admin
+        ON old_book.admin_pk = admin.admin_pk;
+
+SELECT * FROM old_book
+    LEFT OUTER JOIN new_book
+        ON old_book.new_book_pk = new_book.new_book_pk
+    LEFT OUTER JOIN user
+        ON old_book.user_pk = user.user_pk
+    LEFT OUTER JOIN admin
+        ON old_book.admin_pk = admin.admin_pk;
+
+SELECT * FROM old_book_selled;
+
+UPDATE old_book_selled
+SET old_book_selled_count = old_book_selled_count + 1
+WHERE old_book_selled_pk = 12;
+
+SELECT
+	old_book_selled.old_book_selled_pk as oldBookSelledPk,
+    old_book_selled.old_book_selled_count as oldBookSelledCount,
+    old_book_selled.new_book_pk as bookPk,
+    new_book.new_book_title as bookTitle,
+    new_book.new_book_subtitle as bookSubtitle,
+    new_book.new_book_info as bookInfo,
+    new_book.new_book_info_short as bookInfoShort,
+    new_book.new_book_writer as bookWriter,
+    new_book.new_book_created as bookCreate
+FROM old_book_selled
+LEFT OUTER JOIN new_book
+	ON old_book_selled.new_book_pk = new_book.new_book_pk
+ORDER BY old_book_selled_count DESC
+LIMIT 3;
+
+
+-- 재고량 가져오기
+
+SELECT
+	new_book_genre as bookGenre,
+    new_book_writer as bookWriter
+FROM old_book
+LEFT OUTER JOIN new_book
+	ON old_book.new_book_pk = new_book.new_book_pk
+WHERE old_book.new_book_pk = 3
+GROUP BY new_book.new_book_pk
+LIMIT 1;
+
+SELECT
+    old_book_pk as oldBookPk,
+	new_book_image as bookImage,
+	new_book_title as bookTitle,
+	new_book_price as bookPrice,
+	new_book_writer as bookWriter,
+	new_book_created as bookCreated,
+    new_book_genre as bookGenre
+FROM old_book
+LEFT OUTER JOIN new_book
+	ON old_book.new_book_pk = new_book.new_book_pk
+WHERE new_book.new_book_genre = '소설'
+GROUP BY new_book.new_book_pk
+ORDER BY old_book_pk DESC
+LIMIT 6;
+
+SELECT
+	old_book.new_book_pk as bookPk,
+    old_book_pk as oldBookPk,
+	new_book_image as bookImage,
+	new_book_title as bookTitle,
+	new_book_price as bookPrice,
+	new_book_writer as bookWriter,
+	new_book_created as bookCreated
+FROM old_book
+LEFT OUTER JOIN new_book
+	ON old_book.new_book_pk = new_book.new_book_pk
+WHERE new_book.new_book_writer = '작가 B'
+GROUP BY new_book.new_book_pk
+ORDER BY old_book_pk DESC
+LIMIT 6;
+
+SELECT * FROM old_book WHERE new_book_pk=12;
+
+SELECT
+	old_book_pk as oldBookPk,
+    old_book.new_book_pk as bookPk,
+	new_book_image as bookImage,
+	new_book_title as bookTitle,
+	new_book_price as bookPrice,
+	new_book_writer as bookWriter,
+	new_book_created as bookCreated
+FROM old_book
+	LEFT OUTER JOIN new_book
+		ON old_book.new_book_pk = new_book.new_book_pk
+GROUP BY old_book.new_book_pk
+ORDER BY old_book_pk DESC
+LIMIT 6;
+
+SELECT * FROM old_book;
+
+
+INSERT INTO post (post_title,post_text,post_owner) 
+VALUES 
+('[공지] 2022년 만우절 연휴 배송안내','<p>BOOKS 발송업무는 3월 31일까지 정상 운영합니다.</p><br><br><p>행복한 연휴 되시길 바랍니다.</p>',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1),
+('[공지] 배송 지연 안내','<p>배송 지연을 알려드립니다</p>',1),
+('BOOKS가 2022년 강소기업으로 선정되었습니다.','<p><strong>BOOKS<strong>가 고용노동부에서 인증하는</p><br><p>2022년 강소기업으로 선정되었습니다.</p><br><br><p>앞으로도 고용유지율, 신용평가 및 브랜드가치와 고객만족도를 높이는</p><br><p>우수한 기업이 되도록 더욱 최선을 다하겠습니다.</p><br><p>감사합니다</p>',2),
+('[채용공고] 마케팅팀 마케터 (휴직자 대체 1년 계약직)','1. 모집부문: 마케팅팀 마케터(휴직자 대체 1년 계약직)<br><p>2022년 5월 2일(월)부터 근무 가능한 분</p>',2),
+('[공지] 2022년 만우절 연휴 배송안내','<p>BOOKS 발송업무는 3월 31일까지 정상 운영합니다.</p><br><br><p>행복한 연휴 되시길 바랍니다.</p>',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1),
+('[공지] 배송 지연 안내','<p>배송 지연을 알려드립니다</p>',1),
+('BOOKS가 2022년 강소기업으로 선정되었습니다.','<p><strong>BOOKS<strong>가 고용노동부에서 인증하는</p><br><p>2022년 강소기업으로 선정되었습니다.</p><br><br><p>앞으로도 고용유지율, 신용평가 및 브랜드가치와 고객만족도를 높이는</p><br><p>우수한 기업이 되도록 더욱 최선을 다하겠습니다.</p><br><p>감사합니다</p>',2),
+('[채용공고] 마케팅팀 마케터 (휴직자 대체 1년 계약직)','1. 모집부문: 마케팅팀 마케터(휴직자 대체 1년 계약직)<br><p>2022년 5월 2일(월)부터 근무 가능한 분</p>',2),
+('[공지] 2022년 만우절 연휴 배송안내','<p>BOOKS 발송업무는 3월 31일까지 정상 운영합니다.</p><br><br><p>행복한 연휴 되시길 바랍니다.</p>',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1),
+('[공지] 배송 지연 안내','<p>배송 지연을 알려드립니다</p>',1),
+('BOOKS가 2022년 강소기업으로 선정되었습니다.','<p><strong>BOOKS<strong>가 고용노동부에서 인증하는</p><br><p>2022년 강소기업으로 선정되었습니다.</p><br><br><p>앞으로도 고용유지율, 신용평가 및 브랜드가치와 고객만족도를 높이는</p><br><p>우수한 기업이 되도록 더욱 최선을 다하겠습니다.</p><br><p>감사합니다</p>',2),
+('[채용공고] 마케팅팀 마케터 (휴직자 대체 1년 계약직)','1. 모집부문: 마케팅팀 마케터(휴직자 대체 1년 계약직)<br><p>2022년 5월 2일(월)부터 근무 가능한 분</p>',2),
+('[공지] 2022년 만우절 연휴 배송안내','<p>BOOKS 발송업무는 3월 31일까지 정상 운영합니다.</p><br><br><p>행복한 연휴 되시길 바랍니다.</p>',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1),
+('문의(주문, 잔품, 배송, 회수 등) 전 참고해주세요.','<p>안녕하세요</p><br>BOOKS입니다.',1);
+
+INSERT INTO post_notice (notice_pin,notice_file,post_pk) 
+VALUES 
+('N',0,1), ('N',0,2), ('N',0,3), ('Y',0,4), ('Y',0,5), ('Y',0,6), ('N',0,7), ('N',0,8), ('N',0,9), ('N',0,10),
+('N',0,11), ('N',0,12), ('N',0,13), ('N',0,14), ('N',0,15), ('N',0,16), ('N',0,17), ('N',0,18), ('N',0,19), ('N',0,20),
+('N',0,21), ('N',0,22);
+
+
+INSERT INTO post (post_title,post_text,post_owner) 
+VALUES 
+('[마음의숲] <심해수> 특별한정판 세트 이벤트','<심해수> 특별한정판 세트 이벤트 마우스패드 & 포토 카드 6종 증정',1),
+('[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트','[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트',1),
+('[RHK] 돈의 공식_출간 기념 이벤트','[RHK] 돈의 공식_출간 기념 이벤트',1),
+('[문학동네] <죠죠리온> 출간 이벤트','[문학동네] <죠죠리온> 출간 이벤트',1),
+('[마음의숲] <심해수> 특별한정판 세트 이벤트','<심해수> 특별한정판 세트 이벤트 마우스패드 & 포토 카드 6종 증정',1),
+('[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트','[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트',1),
+('[RHK] 돈의 공식_출간 기념 이벤트','[RHK] 돈의 공식_출간 기념 이벤트',1),
+('[문학동네] <죠죠리온> 출간 이벤트','[문학동네] <죠죠리온> 출간 이벤트',1),
+('[마음의숲] <심해수> 특별한정판 세트 이벤트','<심해수> 특별한정판 세트 이벤트 마우스패드 & 포토 카드 6종 증정',1),
+('[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트','[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트',1),
+('[RHK] 돈의 공식_출간 기념 이벤트','[RHK] 돈의 공식_출간 기념 이벤트',1),
+('[문학동네] <죠죠리온> 출간 이벤트','[문학동네] <죠죠리온> 출간 이벤트',1),
+('[마음의숲] <심해수> 특별한정판 세트 이벤트','<심해수> 특별한정판 세트 이벤트 마우스패드 & 포토 카드 6종 증정',1),
+('[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트','[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트',1),
+('[RHK] 돈의 공식_출간 기념 이벤트','[RHK] 돈의 공식_출간 기념 이벤트',1),
+('[문학동네] <죠죠리온> 출간 이벤트','[문학동네] <죠죠리온> 출간 이벤트',1),
+('[마음의숲] <심해수> 특별한정판 세트 이벤트','<심해수> 특별한정판 세트 이벤트 마우스패드 & 포토 카드 6종 증정',1),
+('[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트','[Rhk] <내일> MBC 드라마 방영 기념 특별 이벤트',1),
+('[RHK] 돈의 공식_출간 기념 이벤트','[RHK] 돈의 공식_출간 기념 이벤트',1),
+('[문학동네] <죠죠리온> 출간 이벤트','[문학동네] <죠죠리온> 출간 이벤트',1);
+
+INSERT INTO post_event (event_started,event_ended,post_pk) 
+VALUES 
+('2022-03-01','2022-03-31',23), ('2022-03-01','2022-03-31',24), ('2022-03-01','2022-03-31',25), ('2022-03-01','2022-03-31',26), 
+('2022-03-01','2022-03-31',27), ('2022-03-01','2022-03-31',28), ('2022-03-01','2022-03-31',29), ('2022-03-01','2022-03-31',30), 
+('2022-03-01','2022-03-31',31), ('2022-03-01','2022-03-31',32), ('2022-03-01','2022-03-31',33), ('2022-03-01','2022-03-31',34), 
+('2022-03-01','2022-03-31',35), ('2022-03-01','2022-03-31',36), ('2022-03-01','2022-03-31',37), ('2022-03-01','2022-03-31',38),
+('2022-03-01','2022-03-31',39), ('2022-03-01','2022-03-31',40), ('2022-03-01','2022-03-31',41), ('2022-03-01','2022-03-31',42);
