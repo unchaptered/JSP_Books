@@ -23,13 +23,13 @@
 	<main id="main">
 		<!-- 컨텐츠 영역 -->
         <section class="feed-sizer">
-				<header class="feed_guider">
-					<a href="${cp}/">홈</a>
-					<p> > </p>
-	                <a href="${cp}/book/OldBookList.ob">전체도서</a>
-	                <p> > </p>
-	                <a href="#">구매 가능 도서</a>
-				</header>
+			<header class="feed_guider">
+				<a href="${cp}/">홈</a>
+				<p> > </p>
+                <a href="${cp}/book/OldBookList.ob">전체도서</a>
+                <p> > </p>
+                <a href="#">구매 가능 도서</a>
+			</header>
         </section>
         <header id="old_book">
             <section class="old_book-sizer">
@@ -37,12 +37,12 @@
                 <section class="old_book_column old_book_img_conatainer">
                 	<c:choose>
                 		<%-- 정크 이미지 출력 --%>
-	                	<c:when test="${targetBook.bookImage eq 'none'}">
+	                	<c:when test="${targetBook.bookOrgImage eq 'none'}">
 	          				<img src="${cp}/assets/img/cover__1.jpg">
 	               		</c:when>
 	               		<%-- 호출 이미지 출력 --%>
 	               		<c:otherwise>
-	                    	<img src="${cp}/media/${targetBook.bookImage}.jpg">
+	                    	<img src="${cp}/media/${targetBook.bookOrgImage}.jpg">
 	               		</c:otherwise>
                 	</c:choose>
                 </section>
@@ -199,7 +199,7 @@
 			                    <a href="${cp}/book/OldBookRead.ob?bookPk=${oldBook.bookPk}&oldBookPk=${oldBook.oldBookPk}" class="feed_content">
 			                    	<c:choose>
 			                    		<%-- 정크 이미지 출력 --%>
-			                    		<c:when test="${oldBook.bookImage eq 'none'}">
+			                    		<c:when test="${oldBook.bookOrgImage eq 'none'}">
 					                        <div class="feed_img_container">
 					                            <img src="${cp}/assets/img/cover__1.jpg">
 					                        </div>
@@ -207,7 +207,7 @@
 			                    		<%-- 일반 이미지 출력 --%>	
 			                    		<c:otherwise>
 					                        <div class="feed_img_container">
-					                            <img src="${cp}/media/${oldBook.bookImage}.jpg">
+					                            <img src="${cp}/media/${oldBook.bookOrgImage}.jpg">
 					                        </div>
 			                    		</c:otherwise>
 			                    	</c:choose>
@@ -250,7 +250,7 @@
 			                    		<%-- 일반 이미지 출력 --%>
 			                    		<c:otherwise>
 					                        <div class="feed_img_container">
-					                            <img src="${cp}/media/${oldBook.bookImage}.jpg">
+					                            <img src="${cp}/media/${oldBook.bookOrgImage}.jpg">
 					                        </div>
 			                    		</c:otherwise>
 			                    	</c:choose>
