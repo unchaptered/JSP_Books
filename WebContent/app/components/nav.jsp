@@ -76,7 +76,6 @@
             <section class="nav_menu_linkers">
             	<!-- unchaptered -->
                 <a href="${cp}/book/OldBookList.ob">중고 책 리스트</a>
-                <a href="${cp}/book/OldBookAdd.ob">중고 책 심사신청</a>
             </section>
         </details>
         <details class="nav_menu_details">

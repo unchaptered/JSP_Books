@@ -62,6 +62,12 @@ public class BookDAO {
 	public BookDTO getDetail(int bookPk) {
 		return sqlsession.selectOne("book.getDetail", bookPk);
 	}
+	
+	public int getBookPkByBookTitle(String bookTitle) {
+		BookDTO bookDTO = sqlsession.selectOne("NewBook.getBookPkByBookTitle", bookTitle);
+		
+		return bookDTO.getBookPk();
+	}
 
 
 	

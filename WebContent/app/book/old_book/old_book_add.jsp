@@ -43,7 +43,7 @@
 	               		</c:when>
 	               		<%-- 호출 이미지 출력 --%>
 	               		<c:otherwise>
-	                    	<img src="${cp}/media/${targetBook.bookOrgImage}.jpg">
+	                    	<img src="${cp}/media/${targetBook.bookOrgImage}">
 	               		</c:otherwise>
                 	</c:choose>
                 </section>

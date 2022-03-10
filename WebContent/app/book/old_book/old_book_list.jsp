@@ -41,15 +41,15 @@
 									<div class="header_content_center" style="z-index: ${status.count}">
 										 <c:choose>
 											<%-- 정크 이미지 출력 --%>
-											<c:when test="${oldBook.bookOrgImage eq 'none'}">
-												<div class="feed_img_container">
+											<c:when test="${oldBook.bookOrgImage eq 'nonedd'}">
+												<div class="header_content_center_img">
 													<img src="${cp}/assets/img/cover__1.jpg">
 												</div>
 											</c:when>
 											<%-- 호출 이미지 출력 --%>
 											<c:otherwise>
-												<div class="feed_img_container">
-													<img src="${cp}/media/${oldBookHot.bookOrgImage}.jpg">
+												<div class="header_content_center_img">
+													<img src="${cp}/assets/img/cover__1.jpg">
 												</div>
 											</c:otherwise>
 										</c:choose>
@@ -110,7 +110,7 @@
 			                    		<%-- 호출 이미지 출력 --%>
 			                    		<c:otherwise>
 					                        <div class="feed_img_container">
-					                            <img src="${cp}/media/${oldBook.bookOrgImage}.jpg">
+					                            <img src="${cp}/media/${oldBook.bookOrgImage}">
 					                        </div>
 			                    		</c:otherwise>
 			                    	</c:choose>
@@ -153,7 +153,7 @@
 			                    <a href="${cp}/book/OldBookRead.ob?bookPk=${oldBookStock.bookPk}&oldBookPk=${oldBookStock.oldBookPk}" class="feed_content">
 			                    	<c:choose>
 			                    		<%-- 정크 이미지 출력 --%>
-			                    		<c:when test="${oldBookStock.bookImage eq 'none'}">
+			                    		<c:when test="${oldBookStock.bookOrgImage eq 'none'}">
 					                        <div class="feed_img_container">
 					                            <img src="${cp}/assets/img/cover__1.jpg">
 					                        </div>
@@ -161,7 +161,7 @@
 			                    		<%-- 일반 이미지 출력 --%>
 			                    		<c:otherwise>
 					                        <div class="feed_img_container">
-					                            <img src="${cp}/media/${oldBookStock.bookImage}.jpg">
+					                            <img src="${cp}/media/${oldBookStock.bookOrgImage}">
 					                        </div>
 			                    		</c:otherwise>
 			                    	</c:choose>

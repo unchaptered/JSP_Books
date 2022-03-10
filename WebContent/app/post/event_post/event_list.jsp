@@ -102,7 +102,8 @@
 															</strong>
 															<p class="box_date">
 																기간 : ${event.eventStarted} - ${event.eventEnded}
-																&nbsp;&nbsp;<img src="${cp}/assets/img/event_like_on.png"> ${event.eventLike}
+																&nbsp;&nbsp;조회수 : ${event.postViewed}
+																&nbsp;&nbsp;좋아요 : ${event.eventLike}
 															</p>
 														</div>
 													</a>
@@ -122,6 +123,7 @@
 																</c:otherwise>
 															</c:choose>
 														</div>
+														<!--
 														<div class="eventBox_txt">
 															<strong class="box_title">
 																${event.postTitle}
@@ -129,6 +131,17 @@
 															<p class="box_date">
 																기간 : ${event.eventStarted} - ${event.eventEnded}
 																&nbsp;&nbsp;<img src="${cp}/assets/img/event_like_on.png"> ${event.eventLike}
+															</p>
+														</div>
+														-->
+														<div class="eventBox_txt">
+															<strong class="box_title">
+																${event.postTitle}
+															</strong>
+															<p class="box_date">
+																기간 : ${event.eventStarted} - ${event.eventEnded}
+																&nbsp;&nbsp;조회수 : ${event.postViewed}
+																&nbsp;&nbsp;좋아요 : ${event.eventLike}
 															</p>
 														</div>
 													</a>

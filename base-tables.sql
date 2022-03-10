@@ -19,12 +19,12 @@ CREATE TABLE user (
 create table admin(
 	admin_pk INT AUTO_INCREMENT PRIMARY KEY,
 	adminid varchar(300) unique not null,
-    adminpw varchar(300) not null,
-    adminname varchar(300) not null,
-    adminkey varchar(300) not null
+   adminpw varchar(300) not null,
+   adminname varchar(300) not null,
+   adminkey varchar(300) not null
 );
 create table chart(
-	title varchar(300) not null,
+   title varchar(300) not null,
    price int not null
 );
 
@@ -36,22 +36,7 @@ CREATE TABLE post (
    post_created datetime default now(),
    post_viewed int default 0,
    FOREIGN KEY (post_owner) 
-		REFERENCES admin (adminidx)
-);
-CREATE TABLE post_files (
-   post_file_pk BIGINT AUTO_INCREMENT PRIMARY KEY,
-   post_file_system VARCHAR(1000),
-   post_file_origin VARCHAR(1000)
-);
-CREATE TABLE post_notice (
-   notice_pk INT AUTO_INCREMENT PRIMARY KEY,
-   notice_pin enum('Y','N') default 'N',
-   notice_file BIGINT,
-   post_pk INT,
-   FOREIGN KEY (post_pk)
-		REFERENCES post (post_pk)
-	ON DELETE CASCADE
-      ON UPDATE CASCADE
+		REFERENCES admin (admin_pk)
 );
 CREATE TABLE post_event (
    event_pk INT AUTO_INCREMENT PRIMARY KEY,
@@ -62,18 +47,34 @@ CREATE TABLE post_event (
    event_like int default 0,
    post_pk INT,
    FOREIGN KEY (post_pk)
-		REFERENCES post (post_pk)
-	ON DELETE CASCADE
-      ON UPDATE CASCADE
+	REFERENCES post (post_pk)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
-CREATE TABLE post_event_like (
-	event_like_pk INT AUTO_INCREMENT PRIMARY KEY,
+CREATE table post_event_like(
+	event_like_pk INT primary key auto_increment,
     event_like_post int,
     event_like_user INT
 );
+CREATE TABLE post_notice (
+   notice_pk INT AUTO_INCREMENT PRIMARY KEY,
+   notice_pin enum('Y','N') default 'N',
+   notice_file BIGINT,
+   post_pk INT,
+   FOREIGN KEY (post_pk)
+	REFERENCES post (post_pk)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+CREATE TABLE post_files (
+   post_file_pk BIGINT AUTO_INCREMENT PRIMARY KEY,
+   post_file_system VARCHAR(1000),
+   post_file_origin VARCHAR(1000)
+);
+
 CREATE TABLE new_book (
    new_book_pk INT AUTO_INCREMENT PRIMARY KEY,
-   new_book_title VARCHAR(300) NOT NULL,
+   new_book_title VARCHAR(300) UNIQUE NOT NULL,
    new_book_subtitle VARCHAR(300),
    new_book_info TEXT,
    new_book_info_short TEXT,
@@ -98,8 +99,8 @@ INSERT INTO old_book_discount VALUES (10), (20), (30), (40), (50);
 CREATE TABLE old_book (
    old_book_pk INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
    new_book_pk INT NOT NULL,
-   user_pk INT DEFAULT 0 NOT NULL,
-   adminPk INT DEFAULT 0 NOT NULL,
+   user_pk INT DEFAULT 1 NOT NULL,
+   admin_pk INT,
    old_book_discount INT DEFAULT 10 NOT NULL,
    FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk)
@@ -147,26 +148,26 @@ CREATE TABLE bill (
 );
 
 CREATE TABLE products (
-	product_pk BIGINT AUTO_INCREMENT PRIMARY KEY,   -- 주문상품번호
+   product_pk BIGINT AUTO_INCREMENT PRIMARY KEY,   -- 주문상품번호
    product_quantity INT NOT NULL,					   -- 상품수량
    product_total_price VARCHAR(300) NOT NULL,	   -- n개상품 총금액, 구매시점에 따라 상품가격변동
 --  product_discount INT NOT NULL,					   -- 할인율
-	new_book_pk INT NOT NULL,						      -- 책번호
+   new_book_pk INT NOT NULL,						      -- 책번호
    bill_pk BIGINT NOT NULL,						      -- 주문번호
-	FOREIGN KEY (new_book_pk)
+   FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk),
-	FOREIGN KEY (bill_pk)
+   FOREIGN KEY (bill_pk)
       REFERENCES bill (bill_pk)
 );
 
 CREATE TABLE cart (
-	cart_pk BIGINT AUTO_INCREMENT PRIMARY KEY,		-- 장바구니 카트번호
-	cart_quantity INT DEFAULT 1,					      -- 구매수량
-	user_pk INT NOT NULL,
-	new_book_pk INT NOT NULL,
-	FOREIGN KEY (user_pk)
+   cart_pk BIGINT AUTO_INCREMENT PRIMARY KEY,		-- 장바구니 카트번호
+   cart_quantity INT DEFAULT 1,					      -- 구매수량
+   user_pk INT NOT NULL,
+   new_book_pk INT NOT NULL,
+   FOREIGN KEY (user_pk)
       REFERENCES user (user_pk),
-	FOREIGN KEY (new_book_pk)
+   FOREIGN KEY (new_book_pk)
       REFERENCES new_book (new_book_pk)
-      
 );
+

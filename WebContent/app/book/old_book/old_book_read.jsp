@@ -42,7 +42,7 @@
 	               		</c:when>
 	               		<%-- 호출 이미지 출력 --%>
 	               		<c:otherwise>
-	                    	<img src="${cp}/media/${targetBook.bookOrgImage}.jpg">
+	                    	<img src="${cp}/media/${targetBook.bookOrgImage}">
 	               		</c:otherwise>
                 	</c:choose>
                 </section>
@@ -207,7 +207,7 @@
 			                    		<%-- 일반 이미지 출력 --%>	
 			                    		<c:otherwise>
 					                        <div class="feed_img_container">
-					                            <img src="${cp}/media/${oldBook.bookOrgImage}.jpg">
+					                            <img src="${cp}/media/${oldBook.bookOrgImage}">
 					                        </div>
 			                    		</c:otherwise>
 			                    	</c:choose>
@@ -250,7 +250,7 @@
 			                    		<%-- 일반 이미지 출력 --%>
 			                    		<c:otherwise>
 					                        <div class="feed_img_container">
-					                            <img src="${cp}/media/${oldBook.bookOrgImage}.jpg">
+					                            <img src="${cp}/media/${oldBook.bookOrgImage}">
 					                        </div>
 			                    		</c:otherwise>
 			                    	</c:choose>

@@ -103,6 +103,7 @@
 			old_book_selled.old_book_selled_pk as oldBookSelledPk,
 		    old_book_selled.old_book_selled_count as oldBookSelledCount,
 		    old_book_selled.new_book_pk as bookPk,
+		    new_book.new_book_org_image as bookOrgImage,
 		    new_book.new_book_title as bookTitle,
 		    new_book.new_book_subtitle as bookSubtitle,
 		    new_book.new_book_info as bookInfo,
