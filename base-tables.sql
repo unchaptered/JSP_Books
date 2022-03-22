@@ -125,14 +125,6 @@ CREATE TABLE old_book_log (
     new_book_pk INT UNIQUE NOT NULL
 );
 
-CREATE TABLE album (
-   album_pk INT AUTO_INCREMENT PRIMARY KEY,
-   album_title VARCHAR(300),
-   album_title_song VARCHAR(300),
-   album_singer VARCHAR(300),
-   album_release VARCHAR(300)
-);
-
 CREATE TABLE bill (
 	bill_pk BIGINT AUTO_INCREMENT PRIMARY KEY,		-- 주문번호
    bill_payment VARCHAR(300) NOT NULL,				   -- 결제수단

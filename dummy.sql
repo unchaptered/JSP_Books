@@ -319,3 +319,27 @@ INSERT INTO bill
 INSERT INTO bill
 (bill_payment, bill_total_price, bill_date, bill_zipcode, bill_addr, bill_cost, bill_status, user_pk) VALUES
 ('카카오','27000','2022-03-05 13:12:11','284892','상일동', '3000', '배송중', 2);
+
+SELECT
+	old_book_discount as '중고 수량',
+--     old_book_discount as '할인율',
+    COUNT ( old_book_discount ) as '수량'
+-- 	old_book.old_book_pk as '신규 기본키',
+-- 	new_book_title as '제목',
+-- 	new_book_subtitle as '부제목',
+-- 	new_book_mount as '수량',
+-- 	new_book_genre as '장르',
+-- 	new_book_country as '발행국'
+FROM old_book
+-- LEFT OUTER JOIN new_book
+-- 	ON old_book.new_book_pk = new_book.new_book_pk
+WHERE new_book_pk = 1
+GROUP BY old_book_discount;
+
+SELECT
+	new_book_pk as '도서 기본키',
+	old_book_discount as '할인율',
+	COUNT(*) as '수량'
+FROM old_book
+WHERE new_book_pk = 2
+GROUP BY old_book_discount;

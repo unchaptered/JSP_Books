@@ -405,12 +405,12 @@ git fetch, git pull 을 시도했을 때 위와 같은 에러가 뜰 수 있습�
 
 <hr>
 
-## Contriubters
+## Contributors
 
-1. unchaptered [Git Home](https://github.com/unchaptered) [Velog](https://velog.io/@unchapterd/)
-2. kogyul [Git Home](https://github.com/kogyul) [Velog](https://velog.io/@kgyul12)
-3. capriceksy [Git Home](https://github.com/capriceksy) [Velog](https://velog.io/@capriceksy)
-4. sunsetkk [Git Home](https://github.com/sunsetkk) [T-story](https://guul.tistory.com)
-5. kmhyeon [Git Home](https://github.com/kmhyeon)
-6. HyoChanBae [Git Home](https://github.com/HyoChanBae) [T-story](https://tomset.tistory.com/)
-7. jungbc1 [Git Home](https://github.com/jungbc1) [Velog](https://velog.io/@tonkedown)
+1. unchaptered [Git Home](https://github.com/unchaptered) [Velog](https://velog.io/@unchapterd/) | <strong> 조장, 기획서, 중고도서 및 할인율 별 집계</strong>
+2. kogyul [Git Home](https://github.com/kogyul) [Velog](https://velog.io/@kgyul12) | <strong> 기획서 대본, AJAX 기반 유저 구현 </strong>
+3. capriceksy [Git Home](https://github.com/capriceksy) [Velog](https://velog.io/@capriceksy) | <strong> 기획서, 이벤트 및 공지사항(검색 및 정렬 등 포함) </strong>
+4. sunsetkk [Git Home](https://github.com/sunsetkk) [T-story](https://guul.tistory.com) | <strong> 신규 도서 등록 및 수정 </strong>
+5. kmhyeon [Git Home](https://github.com/kmhyeon) | <strong> 신규 도서 리스트 및 자세히 보기 </strong>
+6. HyoChanBae [Git Home](https://github.com/HyoChanBae) [T-story](https://tomset.tistory.com/) | <strong> 관리자, 통계 </strong>
+7. jungbc1 [Git Home](https://github.com/jungbc1) [Velog](https://velog.io/@tonkedown) | <strong> 장바구니, 구매, 구매내역 </strong>
